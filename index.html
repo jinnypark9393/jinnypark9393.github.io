@@ -1,1 +1,4 @@
-Hello World
+---
+layout: home
+author_profile: true
+---
