@@ -1,4 +1,4 @@
-I"÷
+I"H
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -9,10 +9,16 @@
         
         <a class="site-title" href="/">
           release: canary
-          
+          <span class="site-subtitle">Created Apr 13, 2022</span>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
