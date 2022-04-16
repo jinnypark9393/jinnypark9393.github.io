@@ -111,7 +111,7 @@ blockquote {
   padding-left: 1em;
   padding-right: 1em;
   font-style: italic;
-  border-left: 0.25em solid $primary-color;
+  border-left: 0.2 solid $primary-color;
 
   cite {
     font-style: italic;
@@ -126,6 +126,8 @@ blockquote {
 /* links */
 
 a {
+  /* Jinny : 하이퍼링크 밑줄 없애기 */
+  text-decoration: none;
   &:focus {
     @extend %tab-focus;
   }
