@@ -6,7 +6,7 @@ toc_sticky: true
 toc_label: "MYSELF"
 ---
 
-![icon](/assets/images/logo.jepg)
+![icon](/assets/images/logo.jpeg)
 
 # 기본정보
 
