@@ -74,7 +74,7 @@ VMware 에서는 VMware Fusion외에도 Windows 환경에서 사용할 수 있�
 <br/>
 3. iso 파일을 다운로드 받는다.
     
-    ![Screen Shot 2022-04-17 at 3.00.28 AM.png](/assets/images/220417-etc-vmware-ubuntu/220417-etc-VMware-ubuntu6.png
+    ![Screen Shot 2022-04-17 at 3.00.28 AM.png](/assets/images/220417-etc-vmware-ubuntu/220417-etc-VMware-ubuntu6.png)
 <br/>
 <br/>
 4. VMware Fusion을 구동한 뒤, File > New를 클릭한다.
