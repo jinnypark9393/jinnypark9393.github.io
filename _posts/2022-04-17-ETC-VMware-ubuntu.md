@@ -15,7 +15,7 @@ last_modified_at: 2022-04-16
 ---
 
 > 💡 MacOS 환경에서 VMware로 Ubuntu를 설치하려면 “VMware Fusion”을 설치해야 한다.
->
+
 <br/>
 <br/>
 이번 포스팅에서는 VMware Fusion에서 Ubuntu 20.04 버전을 설치해보도록 하겠다. 코딩 강의를 수강하거나 스터디 할 때 실습 환경을 맞춰주기 위해서 우분투를 설치했었는데, 이번에는 Jekyll을 설치하기 위해 우분투 환경을 만들어주게 되었다.
