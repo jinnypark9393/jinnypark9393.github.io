@@ -1,0 +1,118 @@
+I"<<p><br /><br /></p>
+
+<p>오늘은 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 C숫자, 문자, 불린형자료형이라는 Ch0을을 듣고 정리해보았다. 이 포스팅은 공부용으로 요약한 것으로 자세한 강의 내용은 위 링크를 참조하시길.</p>
+
+<p><br /><br /><br /></p>
+
+<h1 id="ch03자료형과-변수">Ch03.자료형과 변수</h1>
+
+<p><br /><br />
+<img src="/assets/images/2022-04-19-Python/2022-04-19-Python.jpg" alt="220419_Python" />
+<br /><br /></p>
+
+<h2 id="1-자료형이란">1. 자료형이란?</h2>
+
+<ul>
+  <li>자료(Data)란?
+    <ul>
+      <li>많은 자료를 분류하기 위해서 자료의 형태(종류)를 나눠준다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="1-숫자형">1. 숫자형</h3>
+
+<ul>
+  <li>숫자 데이터를 뜻한다.</li>
+  <li>정수형(<strong>Integer: int</strong>): 1, 2, 3, 0, -1, -10 (소수점이 없다)</li>
+  <li>실수형(<strong>Float</strong>): 1.5, 0, -3, 1.4 (소수점이 있다)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 주석(Comments)
+# 1. 코드에 설명을 추가하고 싶을 때
+# 2. 코드를 실행하고 싶지 않을 때
+</span>
+<span class="c1"># 출력문
+# print("hello world") # 출력문
+</span>
+<span class="c1"># - 숫자 자료형
+# 1. 정수형: 소수점이 없는 수
+# print(1)
+# print(3)
+# print(-1)
+</span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 2. 실수형: 소수점이 있는 수
+# print(1.1)
+# print(3.1)
+# print(0)
+# print(-1.4)
+</span><span class="k">print</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">1.4</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-문자열">2. 문자열</h3>
+
+<ul>
+  <li>문자를 나열한 것을 뜻한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">"(큰따옴표)</code> <code class="language-plaintext highlighter-rouge">'(작은따옴표)</code> 로 문자열의 시작과 끝을 나타낸다.</li>
+  <li>예 1: “123” (문자열), 123 (숫자열)</li>
+  <li>예 2: 따옴표 속의 따옴표 표현 ⇒ ‘”개 짖는 소리좀 안 나게 해랴!”라고 말했다.’</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># - 문자열 자료형
+# "" or ''
+</span><span class="k">print</span><span class="p">(</span><span class="s">"파이썬 너무 재밌다"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'파이썬 정말 재밌자너!'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'"개 짖는 소리 좀 안나게 해라"라고 그는 외쳤다.'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="3-불린형boolean">3. 불린형(Boolean)</h3>
+
+<ul>
+  <li>참 또는 거짓으로 나뉜다.</li>
+  <li>예: True, False (불린형의 경우 대문자로 시작함에 유의)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="4-참고">4. 참고</h3>
+
+<ul>
+  <li>print 함수 중 속성값으로 줄 수 있는 항목.<br /><br /></li>
+  <li>
+    <p>SEP: print 함수 출력 시 값 사이의 공백을 없애준다.</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>END: print 함수가 끝나도 줄바꿈이 되지 않도록 하는 기능</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <p><br /><br />
+<img src="/assets/images/2022-04-19-Python/" alt="220419_Python2" />
+<br /><br /></p>
+  </li>
+</ul>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><a href="https://bit.ly/3L3avNW">패스트캠퍼스 [직장인 실무교육]</a></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>
+:ET
