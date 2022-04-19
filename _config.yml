@@ -27,6 +27,7 @@ repository               : "jinnypark9393/jinnypark.github.io"
 teaser                   : # ""
 logo                     : "/assets/images/logo.jpeg"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+future                   : true
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
