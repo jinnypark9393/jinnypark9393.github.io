@@ -1,4 +1,249 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-20T05:45:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 3일차</title><link href="http://localhost:4000/programming/Python-Day3/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 3일차" /><published>2022-04-20T00:00:00+09:00</published><updated>2022-04-20T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day3</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day3/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-21T06:01:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 4일차</title><link href="http://localhost:4000/programming/Python-Day4/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 4일차" /><published>2022-04-21T00:00:00+09:00</published><updated>2022-04-21T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day4</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day4/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의챕터 3-2. 변수 강의를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br />
+<img src="/assets/images/2022-04-21-Python-Photo/2022-04-21-Python-Photo1.jpg" alt="2022-04-21-Python-Photo1" />
+<br /><br /></p>
+
+<h1 id="ch04-연산과-연산자">Ch04. 연산과 연산자</h1>
+
+<h1 id="1-연산1">1. 연산(1)</h1>
+
+<h2 id="1-연산이란">1. 연산이란?</h2>
+
+<ul>
+  <li>수나 식을 일정한 규칙에 따라 계산하는 것</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-연산의-종류">2. 연산의 종류</h2>
+
+<ul>
+  <li>가장 많이 쓰이는 연산은 아래 네 가지.</li>
+  <li>대입연산</li>
+  <li>산술연산</li>
+  <li>비교연산</li>
+  <li>논리연산</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-대입연산">3. 대입연산</h2>
+
+<ul>
+  <li>‘변수이름 = 데이터’</li>
+  <li>오른쪽의 데이터를 왼쪽의 변수이름에 할당한다(<code class="language-plaintext highlighter-rouge">=</code>: 할당연산자)</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="4-산술연산">4. 산술연산</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>연산자(연산기호)</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>+</td>
+      <td>더하기</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>빼기</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>곱하기</td>
+    </tr>
+    <tr>
+      <td>/</td>
+      <td>나누기</td>
+    </tr>
+    <tr>
+      <td>//</td>
+      <td>몫</td>
+    </tr>
+    <tr>
+      <td>%</td>
+      <td>나머지</td>
+    </tr>
+    <tr>
+      <td>**</td>
+      <td>제곱</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /><br /></p>
+
+<h2 id="5-실습">5. 실습</h2>
+
+<p><br /><br />
+<img src="/assets/images/2022-04-21-Python-Photo/2022-04-21-Python-Photo2.jpg" alt="2022-04-21-Python-Photo2" />
+<br /><br /></p>
+
+<ul>
+  <li>대입 연산은 지난 시간 실습을 진행해 이번에는 생략하도록 한다.</li>
+  <li>
+    <p>산술연산 예시</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># 1. 대입연산
+</span>  <span class="c1"># 변수이름 = 데이터
+</span>    
+  <span class="c1"># 2. 산술연산
+</span>  <span class="c1"># - 숫자 연산
+</span>  <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">//</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 몫
+</span>  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">y</span><span class="p">)</span> <span class="c1">#나머지
+</span>  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 제곱
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>
+    <p>결과값은 아래와 같다.</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="mi">7</span>
+  <span class="mi">3</span>
+  <span class="mi">10</span>
+  <span class="mf">2.5</span>
+  <span class="mi">2</span>
+  <span class="mi">1</span>
+  <span class="mi">25</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>숫자 뿐만 아니라 문자열도 서로 더할 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># - 문자열 연산
+</span><span class="n">tag1</span> <span class="o">=</span> <span class="s">"#내꺼하자"</span>
+<span class="n">tag2</span> <span class="o">=</span> <span class="s">"#오늘부터1일"</span>
+<span class="n">tag3</span> <span class="o">=</span> <span class="s">"#여친생김"</span>
+
+<span class="n">tag</span> <span class="o">=</span> <span class="n">tag1</span> <span class="o">+</span> <span class="n">tag2</span> <span class="o">+</span> <span class="n">tag3</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>연산 결과는 아래와 같다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#내꺼하자#오늘부터#여친생김
+</span></code></pre></div></div>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>문자열을 서로 곱할 수도 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">message</span> <span class="o">=</span> <span class="s">"우리 모두 파이썬을 사랑합니다."</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>연산 결과 아래와 같이 문자열이 5번만큼 출력되는 것을 확인할 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>문장이 끝난 뒤 줄 바꿈을 하고 싶은 경우 줄바꿈문자 <code class="language-plaintext highlighter-rouge">\n</code> 을 넣어주면 된다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">message</span> <span class="o">=</span> <span class="s">"우리 모두 파이썬을 사랑합니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>연산결과 아래와 같이 문자열이 끝날때마다 줄이 바뀌는 것을 확인할 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
+<span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
+<span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
+<span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
+<span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>복합할당연산자</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 복합할당연산자
+</span><span class="n">level</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># (레벨 1 증가)
+</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># 이 식을 아래와같이 표현할 수 있다.
+</span><span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># 복합할당연산자를 사용(= level = level + 1)
+</span>
+<span class="n">health</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># (체력 300 감소)
+</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">300</span> <span class="c1"># health = health - 300
+</span>
+<span class="n">attack</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># (공격력 1.5배 증가)
+</span><span class="n">attack</span> <span class="o">*=</span> <span class="mf">1.5</span> <span class="c1"># attack = attack * 1.5 
+</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mi">420</span> <span class="c1"># (이동속도 50% 감소)
+</span><span class="n">speed</span> <span class="o">/=</span> <span class="mi">2</span> <span class="p">(</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>출력 결과는 하기와 같다</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">11</span> <span class="mi">1700</span> <span class="mi">450</span> <span class="mi">210</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p>다음에는 비교연산, 논리연산, 멤버십연산에 대해 알아보도록 하겠다.</p>
+
+<p><br /><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 4일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 3일차</title><link href="http://localhost:4000/programming/Python-%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4-%EC%BA%90%EC%8B%9C%EB%B0%B1-%EC%B1%8C%EB%A6%B0%EC%A7%80-3%EC%9D%BC%EC%B0%A8/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 3일차" /><published>2022-04-20T00:00:00+09:00</published><updated>2022-04-20T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4-%EC%BA%90%EC%8B%9C%EB%B0%B1-%EC%B1%8C%EB%A6%B0%EC%A7%80-3%EC%9D%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/programming/Python-%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4-%EC%BA%90%EC%8B%9C%EB%B0%B1-%EC%B1%8C%EB%A6%B0%EC%A7%80-3%EC%9D%BC%EC%B0%A8/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의챕터 3-2. 변수 강의를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
