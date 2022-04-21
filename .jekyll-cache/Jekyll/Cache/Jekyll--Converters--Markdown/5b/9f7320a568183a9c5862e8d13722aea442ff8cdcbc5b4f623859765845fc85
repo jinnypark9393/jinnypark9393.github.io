@@ -1,13 +1,13 @@
-I"7]<p><br /><br /></p>
+I"^<p><br /><br /></p>
 
 <p>회사분의 추천을 받고 또 충동적으로 구매해버린 패스트캠퍼스 강의… 이번에야말로 꼭 완강을 해보겠다는 의지로 캐시백 챌린지를 신청해보았다. 이번에 내가 신청한 강의는 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>”. 파이썬 기초 언어 뿐만 아니라 배포, 관련 라이브러리 등을 한꺼번에 습득할 수 있는 커리큘럼인데다 이미 강의를 듣고 계신 회사분이 설명도 나쁘지 않다고 해주셔서 12개월 할부로 긁었다. <br /><br /></p>
 
 <p>캐시백 챌린지는 기본적으로 매일 최소 1강 이상씩 듣고 공부기록을 블로그에 올리면 강의료를 환급해주는 형식인데, 중간과제가 있긴 하나 코딩 관련이 아닌 리뷰 개념이라 부담없이 성공할 수 있을 듯 한 느낌. (하지만 이러고 실패하면 정말 노간지인데….^^ 열심히 해야겠다) <br /><br /><br /></p>
 
-<p><img src="/assets/images/2022-04-18-Python/220418_screen1.jpeg" alt="220418_screen1" />
+<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(01).jpeg" alt="220418_Python_Day1(01).jpeg" />
 <br /><br />
 강의를 미리 결제해놓았어서 1일차는 그동안 미리 들어두었던 공부 내용을 전체적으로 정리해보았다.
-<br /></p>
+<br /><br /></p>
 
 <h1 id="part-1-파이썬-필수-문법">Part 1. 파이썬 필수 문법</h1>
 
@@ -19,7 +19,8 @@
   <li>
     <p>문법이 쉽고 간결하다</p>
 
-    <p>(같은 결과값을 출력하는데 필요한 코딩 양. C vs Python)</p>
+    <p>아래는 같은 결과값을 출력하는데 필요한 코딩 양. 
+ [첫번째 코드블록: C]</p>
 
     <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cp">#include</span><span class="cpf">&lt;studio.h&gt;</span><span class="cp">
 </span> <span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">){</span>
@@ -27,7 +28,7 @@
  	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
  <span class="p">}</span>
 </code></pre></div>    </div>
-
+    <p>[두번째 코드블록: Python]</p>
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요"</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
@@ -59,7 +60,7 @@
 <p><br /><br /><br /></p>
 
 <h2 id="ch02-환경-설정">Ch02. 환경 설정</h2>
-<p><img src="/assets/images/2022-04-18-Python/220418_screen2.jpeg" alt="220418_screen1" /></p>
+<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(02).jpeg" alt="220418_Python_Day1(02).jpeg" /></p>
 
 <p><br /><br /></p>
 
@@ -77,7 +78,7 @@
   <li>설치가 완료되면 아래와 같이 파이썬 디렉토리가 생성된다.</li>
 </ul>
 
-<p><img src="/assets/images/2022-04-18-Python/Untitled.png" alt="Python1" /></p>
+<p><img src="/assets/images//2022-04-18-Python-Photo/220418_Python_Day1(25).png" alt="220418_Python_Day1(25).png" /></p>
 
 <p><br /><br /></p>
 
@@ -85,7 +86,7 @@
   <li>python 3 명령어로 설치된 버전을 확인 할 수 있다.</li>
 </ul>
 
-<p><img src="/assets/images/2022-04-18-Python/Untitled%201.png" alt="Python1" /></p>
+<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(26).png" alt="220418_Python_Day1(26).png" /></p>
 
 <p><br /><br /></p>
 
@@ -93,7 +94,7 @@
   <li>python 명령어를 실행해보자.</li>
 </ul>
 
-<p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_10.09.28_AM.png" alt="Python1" /></p>
+<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(16).png" alt="220418_Python_Day1(16).png" /></p>
 
 <p><br /><br /><br /></p>
 
@@ -101,12 +102,10 @@
 
 <ul>
   <li>Launchpad에서 ‘Idle’을 검색해 더블클릭으로 실행</li>
-  <li>
-    <p>명령어 한줄씩 실행 예시:</p>
-
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_10.12.03_AM.png" alt="Python1" /></p>
-  </li>
+  <li>명령어 한줄씩 실행 예시:</li>
 </ul>
+
+<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(17).png" alt="220418_Python_Day1(17).png" /></p>
 
 <p><br /><br /></p>
 
@@ -116,7 +115,7 @@
       <li>실행하고 싶은 명령어 입력</li>
     </ul>
 
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_6.02.48_AM.png" alt="Screen Shot 2022-04-03 at 6.02.48 AM.png" /></p>
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(18).png" alt="220418_Python_Day1(18).png" /></p>
 
     <ul>
       <li>Run &gt; Run Module 클릭 &gt; 파일 저장
@@ -124,7 +123,7 @@
           <li>실행 결과가 최초 실행했던 idle 창에 표시된다.</li>
         </ul>
 
-        <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_6.03.58_AM.png" alt="Screen Shot 2022-04-03 at 6.03.58 AM.png" /></p>
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(19).png" alt="220418_Python_Day1(19).png" /></p>
       </li>
     </ul>
   </li>
@@ -139,7 +138,7 @@
   </li>
 </ul>
 
-<p><br /><br /><br /><br /></p>
+<p><br /><br /></p>
 
 <h3 id="3-소스코드-편집기를-사용하는-이유">3. 소스코드 편집기를 사용하는 이유</h3>
 
@@ -165,50 +164,65 @@
           <li>실제 폴더 생성 ⇒ vscode 에도 생성</li>
         </ul>
 
-        <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_10.09.28_AM.png" alt="Screen Shot 2022-04-03 at 10.09.28 AM.png" /></p>
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(20).png" alt="220418_Python_Day1(20).png" /></p>
+
+        <p><br /></p>
       </li>
       <li>파일 생성 버튼 &gt; ‘hello.py’ 이름 입력 후 엔터 &gt; 파이썬 파일 생성됨
         <ul>
-          <li>
-            <p>print(”hello python!”) 입력하기</p>
-
-            <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_10.13.06_AM.png" alt="Screen Shot 2022-04-03 at 10.13.06 AM.png" /></p>
-          </li>
-          <li>
-            <p>저장 되었는지 여부 판단하기: 탭 이름 옆 흰 동그라미가 있을 경우 변경사항이 저장이 되지 않은 것.</p>
-
-            <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_10.13.00_AM.png" alt="Screen Shot 2022-04-03 at 10.13.00 AM.png" /></p>
-          </li>
+          <li>print(”hello python!”) 입력하기</li>
         </ul>
+
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(23).png" alt="220418_Python_Day1(23).png" /></p>
+
+        <p><br /></p>
+
+        <ul>
+          <li>저장 되었는지 여부 판단하기: 탭 이름 옆 흰 동그라미가 있을 경우 변경사항이 저장이 되지 않은 것.</li>
+        </ul>
+
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(22).png" alt="220418_Python_Day1(22).png" /></p>
+
+        <p><br /></p>
       </li>
       <li>
-        <p>추가) 폰트 설정 바꾸기: Code &gt; Preferences &gt; 폰트사이즈 입력 후 ‘Settings’ 닫아줌</p>
+        <p><strong>[추가]</strong> 폰트 설정 바꾸기: Code &gt; Preferences &gt; 폰트사이즈 입력 후 ‘Settings’ 닫아줌</p>
 
-        <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_10.12.03_AM.png" alt="Screen Shot 2022-04-03 at 10.12.03 AM.png" /></p>
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(21).png" alt="220418_Python_Day1(21).png" /></p>
+
+        <p><br /></p>
 
         <p>폰트 크기 변경이 적용이 된 것을 확인할 수 있다.</p>
 
-        <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_10.13.06_AM.png" alt="Screen Shot 2022-04-03 at 10.13.06 AM.png" /></p>
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(24).png" alt="220418_Python_Day1(24).png" /></p>
+
+        <p><br /></p>
       </li>
       <li>
         <p>Extensions에서 확장 프로그램 “Python(Microsoft)” 설치</p>
 
-        <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.27.01_PM.png" alt="Screen Shot 2022-04-03 at 4.27.01 PM.png" /></p>
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(03).png" alt="220418_Python_Day1(03).png" /></p>
+
+        <p><br /></p>
       </li>
       <li>
         <p>파이썬 코드 실행방법: Run &gt; Run without Debugging</p>
 
-        <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.29.06_PM.png" alt="Screen Shot 2022-04-03 at 4.29.06 PM.png" /></p>
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(04).png" alt="220418_Python_Day1(04).png" /></p>
+
+        <p><br /></p>
       </li>
       <li>
         <p>파이썬 코드 실행방법 2: vscode 오른쪽 상단의 재생 버튼 클릭</p>
 
-        <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.29.18_PM.png" alt="Screen Shot 2022-04-03 at 4.29.18 PM.png" /></p>
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(05).png" alt="220418_Python_Day1(05).png" /></p>
+
+        <p><br /></p>
       </li>
       <li>
         <p>하단 콘솔에서 파이썬 코드가 실행됨을 확인할 수 있다.</p>
 
-        <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.29.44_PM.png" alt="Screen Shot 2022-04-03 at 4.29.44 PM.png" /></p>
+        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(06).png" alt="220418_Python_Day1(06).png" /></p>
       </li>
     </ul>
   </li>
@@ -222,17 +236,23 @@
   <li>
     <p>파일과 폴더를 보기 쉽게 정리할 수 있다(탐색기 내장).</p>
 
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.31.51_PM.png" alt="Screen Shot 2022-04-03 at 4.31.51 PM.png" /></p>
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(08).png" alt="220418_Python_Day1(08).png" /></p>
+
+    <p><br /></p>
   </li>
   <li>
     <p>코드 자동완성 기능 (클릭 혹은 엔터키로 입력 가능)</p>
 
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.31.30_PM.png" alt="Screen Shot 2022-04-03 at 4.31.30 PM.png" /></p>
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(07).png" alt="220418_Python_Day1(07).png" /></p>
+
+    <p><br /></p>
   </li>
   <li>
     <p>디버깅, 오류 수정이 쉽다(아래처럼 오류가 난 부분을 표시해준다).</p>
 
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.33.57_PM.png" alt="Screen Shot 2022-04-03 at 4.33.57 PM.png" /></p>
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(09).png" alt="220418_Python_Day1(09).png" /></p>
+
+    <p><br /></p>
   </li>
   <li>
     <p>유용한 단축키가 많다.</p>
@@ -240,15 +260,19 @@
       <li>예: option + shift + 아래/위 방향키로 간단하게 복사 가능</li>
     </ol>
 
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.35.04_PM.png" alt="Screen Shot 2022-04-03 at 4.35.04 PM.png" /></p>
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(10).png" alt="220418_Python_Day1(10).png" /></p>
 
-    <p>b. 예: option + 클릭 (여러 줄을 동시에 선택/수정할 수 있다).</p>
+    <p><br /></p>
 
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.36.05_PM.png" alt="Screen Shot 2022-04-03 at 4.36.05 PM.png" /></p>
+    <ol>
+      <li>예: option + 클릭 (여러 줄을 동시에 선택/수정할 수 있다).</li>
+    </ol>
+
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(11).png" alt="220418_Python_Day1(11).png" /></p>
   </li>
 </ol>
 
-<p><br /><br /><br /></p>
+<p><br /><br /></p>
 
 <h3 id="6-가상환경-설정mac">6. 가상환경 설정(Mac)</h3>
 
@@ -272,12 +296,16 @@
   <li>
     <p>myvenv 라는 이름의 가상환경 만들기</p>
 
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.41.23_PM.png" alt="Screen Shot 2022-04-03 at 4.41.23 PM.png" /></p>
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(12).png" alt="220418_Python_Day1(12).png" /></p>
+
+    <p><br /></p>
   </li>
   <li>
     <p>myvenv 라는 새로운 폴더가 생성된 것을 확인할 수 있다.</p>
 
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.43.09_PM.png" alt="Screen Shot 2022-04-03 at 4.43.09 PM.png" /></p>
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(13).png" alt="220418_Python_Day1(13).png" /></p>
+
+    <p><br /></p>
   </li>
   <li>myvenv &gt; bin &gt; activate 파일을 이용해 활성화
     <ul>
@@ -288,6 +316,8 @@
   <span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span>
 </code></pre></div>    </div>
 
+    <p><br /></p>
+
     <ul>
       <li>가상환경에서 빠져나오려면 deactivate 명령어를 실행해주면 된다.</li>
     </ul>
@@ -295,6 +325,7 @@
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="n">deactivate</span>
   <span class="err">➜</span>  <span class="n">python_basic</span>
 </code></pre></div>    </div>
+    <p><br /></p>
 
     <ul>
       <li><strong>TIP) 위/아래 방향키로 이전에 사용했던 명령어들을 사용할 수 있다.</strong></li>
@@ -314,6 +345,7 @@
   <span class="n">pip</span>        <span class="mf">22.0</span><span class="p">.</span><span class="mi">4</span>
   <span class="n">setuptools</span> <span class="mf">58.1</span><span class="p">.</span><span class="mi">0</span>
 </code></pre></div>            </div>
+            <p><br /></p>
           </li>
           <li>예 2) pip install requests: requests 라는 패키지 파일을 <strong>myvenv라는 가상환경 안</strong>에 설치
             <ul>
@@ -338,6 +370,7 @@
   <span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">certifi</span><span class="p">,</span> <span class="n">urllib3</span><span class="p">,</span> <span class="n">idna</span><span class="p">,</span> <span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="p">,</span> <span class="n">requests</span>
   <span class="n">Successfully</span> <span class="n">installed</span> <span class="n">certifi</span><span class="o">-</span><span class="mf">2021.10</span><span class="p">.</span><span class="mi">8</span> <span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="o">-</span><span class="mf">2.0</span><span class="p">.</span><span class="mi">12</span> <span class="n">idna</span><span class="o">-</span><span class="mf">3.3</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.27</span><span class="p">.</span><span class="mi">1</span> <span class="n">urllib3</span><span class="o">-</span><span class="mf">1.26</span><span class="p">.</span><span class="mi">9</span>
 </code></pre></div>            </div>
+            <p><br /></p>
           </li>
           <li>예 3) pip list 로 설치된 패키지 파일을 다시 확인한다.
             <ul>
@@ -355,6 +388,7 @@
   <span class="n">setuptools</span>         <span class="mf">58.1</span><span class="p">.</span><span class="mi">0</span>
   <span class="n">urllib3</span>            <span class="mf">1.26</span><span class="p">.</span><span class="mi">9</span>
 </code></pre></div>            </div>
+            <p><br /></p>
           </li>
         </ul>
       </li>
@@ -365,23 +399,29 @@
       <li>myvenv/Chapter 2/01.가상환경세팅.py 구조로 폴더 및 파일 생성</li>
     </ol>
 
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.53.21_PM.png" alt="Screen Shot 2022-04-03 at 4.53.21 PM.png" /></p>
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(14).png" alt="220418_Python_Day1(14).png" /></p>
+
+    <p><br /></p>
+
+    <ol>
+      <li><a href="http://01.가상환경세팅.py">01.가상환경세팅.py</a> 파일 안에 실습코드 작성 및 실행</li>
+    </ol>
+
+    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(15).png" alt="220418_Python_Day1(15).png" /></p>
+
+    <p><br /><br /></p>
   </li>
 </ul>
 
-<ol>
-  <li>
-    <p><a href="http://01.가상환경세팅.py">01.가상환경세팅.py</a> 파일 안에 실습코드 작성 및 실행</p>
-
-    <p><img src="/assets/images/2022-04-18-Python/Screen_Shot_2022-04-03_at_4.55.32_PM.png" alt="Screen Shot 2022-04-03 at 4.55.32 PM.png" /></p>
-  </li>
-</ol>
-
 <p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
 
 <ul>
   <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
 </ul>
+
+<p><br /></p>
 
 <p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>
 :ET
