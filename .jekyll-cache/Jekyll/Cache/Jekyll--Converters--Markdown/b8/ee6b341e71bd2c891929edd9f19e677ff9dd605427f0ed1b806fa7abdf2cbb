@@ -1,4 +1,4 @@
-I"--<p><br /><br /></p>
+I")-<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 4-3. 입력과 자료형 변환 강의를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -190,7 +190,7 @@
 </code></pre></div>    </div>
 
     <ul>
-      <li>해당 함수 실행 및 태어난 연도를 입력하면 “현재나이는 <code class="language-plaintext highlighter-rouge">태어난 연도</code> 세 입니다”라는 결과가 나온다.</li>
+      <li>해당 함수 실행 및 태어난 연도를 입력하면 “현재나이는 <code class="language-plaintext highlighter-rouge">현재나이</code> 세 입니다”라는 결과가 나온다.</li>
     </ul>
 
     <p><br /><br /></p>
