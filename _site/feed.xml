@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-24T07:49:28+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 7일차</title><link href="http://localhost:4000/programming/Python-Day7/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 7일차" /><published>2022-04-24T00:00:00+09:00</published><updated>2022-04-24T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day7</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day7/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-24T11:28:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 7일차</title><link href="http://localhost:4000/programming/Python-Day7/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 7일차" /><published>2022-04-24T00:00:00+09:00</published><updated>2022-04-24T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day7</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day7/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-1. 조건문 개념 강의를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -215,7 +215,129 @@
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 7일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Kubernetes/NGINX] NGINX Ingress의 Sticky Session 설정이 되지 않는 이슈 해결</title><link href="http://localhost:4000/devops/Kubernetes-NGINX-Ingress-Sticky-Session-Issue/" rel="alternate" type="text/html" title="[Kubernetes/NGINX] NGINX Ingress의 Sticky Session 설정이 되지 않는 이슈 해결" /><published>2022-04-23T00:00:00+09:00</published><updated>2022-04-23T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-NGINX-Ingress-Sticky-Session-Issue</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-NGINX-Ingress-Sticky-Session-Issue/"><![CDATA[<p><br /><br /></p>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 7일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python/VScode]MacOS zsh: no matches found 에러 해결</title><link href="http://localhost:4000/programming/Python-zsh-nomatchesfound-error/" rel="alternate" type="text/html" title="[Python/VScode]MacOS zsh: no matches found 에러 해결" /><published>2022-04-24T00:00:00+09:00</published><updated>2022-04-24T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-zsh-nomatchesfound-error</id><content type="html" xml:base="http://localhost:4000/programming/Python-zsh-nomatchesfound-error/"><![CDATA[<p><br /><br /></p>
+
+<p><em>💡   zsh에서는 몇몇 특수문자를 문자열이 아닌 명령어로 인식한다.</em></p>
+
+<p><br /><br /></p>
+
+<h1 id="1-에러-상황">1. 에러 상황</h1>
+
+<p>한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online 과정을 들으며 vscode에 코드를 작성하던 중, 아래와 같이 파이썬(Python) 코드가 실행이 되지 않는 현상이 발생했다.</p>
+
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter4</span><span class="o">/</span><span class="mf">02.</span><span class="n">연산</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">py</span>
+<span class="n">zsh</span><span class="p">:</span> <span class="n">no</span> <span class="n">matches</span> <span class="n">found</span><span class="p">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter4</span><span class="o">/</span><span class="mf">02.</span><span class="n">연산</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">py</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>zsh에서 파이썬 파일 경로를 찾지 못하고 있었는데, 구글링을 해보니 zsh에서 몇몇 특수문자를 문자열이 아닌 명령어로 인식해 발생한 현상이라고 한다.</p>
+
+<p><br /><br /></p>
+
+<h1 id="2-해결-방법">2. 해결 방법</h1>
+
+<p>내 경우에는 괄호 <code class="language-plaintext highlighter-rouge">()</code> 가 명령어로 인식되어 발생한 문제라, 다음과 같이 파일명에 괄호를 제거하고 <code class="language-plaintext highlighter-rouge">-</code> 를 넣어주었더니 에러가 해결되었다.</p>
+
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter4</span><span class="o">/</span><span class="mf">02.</span><span class="n">연산</span><span class="o">-</span><span class="mf">2.</span><span class="n">py</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>참고로 zsh 에서 명령어로 예약된 특수문자는 다음과 같다. <code class="language-plaintext highlighter-rouge">zsh: no matches found</code> 에러가 발생할 경우 파일명이나 디렉토리명 등 파이썬 코드가 저장된 경로에 아래의 특수문자가 삽입되어있지 않은지 확인해보자.</p>
+
+<p><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>특수문자</th>
+      <th>의미</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>~</td>
+      <td>홈 디렉토리</td>
+    </tr>
+    <tr>
+      <td>`</td>
+      <td>명령 대체</td>
+    </tr>
+    <tr>
+      <td>#</td>
+      <td>Comment</td>
+    </tr>
+    <tr>
+      <td>()</td>
+      <td>하위 셸 시작 / 종료</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">|</code></td>
+      <td>파이프</td>
+    </tr>
+    <tr>
+      <td>{}</td>
+      <td>명령 블록</td>
+    </tr>
+    <tr>
+      <td>‘</td>
+      <td>강한 인용부호</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>입력 재지정</td>
+    </tr>
+    <tr>
+      <td>/</td>
+      <td>경로명 분리</td>
+    </tr>
+    <tr>
+      <td>$</td>
+      <td>변수</td>
+    </tr>
+    <tr>
+      <td>&amp;</td>
+      <td>백그라운드 실행</td>
+    </tr>
+    <tr>
+      <td>*?</td>
+      <td>와일드카드</td>
+    </tr>
+    <tr>
+      <td>\</td>
+      <td>문자 그대로</td>
+    </tr>
+    <tr>
+      <td>[]</td>
+      <td>문자 집합</td>
+    </tr>
+    <tr>
+      <td>;</td>
+      <td>명령 분리</td>
+    </tr>
+    <tr>
+      <td>“</td>
+      <td>약한 인용부호</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>출력 재지정</td>
+    </tr>
+    <tr>
+      <td>!</td>
+      <td>NOT</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="파이썬에러" /><category term="zsh에러" /><category term="nomatchesfound에러" /><category term="파이썬특수문지" /><category term="파이썬" /><category term="Python" /><category term="vscode에러" /><category term="Python에러" /><summary type="html"><![CDATA[zsh에서는 몇몇 특수문자를 문자열이 아닌 명령어로 인식한다.]]></summary></entry><entry><title type="html">[Kubernetes/NGINX] NGINX Ingress의 Sticky Session 설정이 되지 않는 이슈 해결</title><link href="http://localhost:4000/devops/Kubernetes-NGINX-Ingress-Sticky-Session-Issue/" rel="alternate" type="text/html" title="[Kubernetes/NGINX] NGINX Ingress의 Sticky Session 설정이 되지 않는 이슈 해결" /><published>2022-04-23T00:00:00+09:00</published><updated>2022-04-23T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-NGINX-Ingress-Sticky-Session-Issue</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-NGINX-Ingress-Sticky-Session-Issue/"><![CDATA[<p><br /><br /></p>
 
 <p><em>💡   TL;DR : NGINX Ingress Controller 사용 시 nginx.ingress.kubernetes.io 어노테이션을 사용해야 Sticky session 등의 설정값이 적용된다(일반 ingress.kubernetes.io 설정 적용시 설정 적용 안됨)</em></p>
 
@@ -1758,11 +1880,4 @@ VMware 에서는 VMware Fusion외에도 Windows 환경에서 사용할 수 있�
 <br />
 이렇게 MacOS 환경에서 VMware Fusion을 이용해 Ubuntu20.04 환경을 구성해보았다. 다음 포스팅에서는 Ubuntu 환경 위에서 Jekyll을 설치한 뒤, Github Pages(깃허브 블로그)를 생성해보도록 하자.</p>
   </li>
-</ol>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="ETC" /><category term="GithubPages" /><category term="깃허브페이지" /><category term="깃허브블로그" /><category term="macosvmware설치" /><category term="vmwarefusion설치" /><category term="ubuntu20.04설치" /><summary type="html"><![CDATA[MacOS 환경에서 VMware로 Ubuntu를 설치하려면 “VMware Fusion”을 설치해야 한다.]]></summary></entry><entry><title type="html">첫 글</title><link href="http://localhost:4000/etc/my-first-post/" rel="alternate" type="text/html" title="첫 글" /><published>2022-04-14T00:00:00+09:00</published><updated>2022-04-17T00:00:00+09:00</updated><id>http://localhost:4000/etc/my-first-post</id><content type="html" xml:base="http://localhost:4000/etc/my-first-post/"><![CDATA[<h1 id="깃허브-블로그-첫-글">깃허브 블로그 첫 글</h1>
-<p>우여곡절 끝에 깃허브 블로그를 생성했다.</p>
-
-<p>MacOS 와 Jekyll(이라기보다는 ruby 버전 호환 문제) 설치 문제 때문에 임시로 티스토리를 사용했었는데, Ubuntu 20.04 버전 환경에서 설치하니 이렇게 금방 설치 될 수가 없더라…(허무)</p>
-
-<p>기존 티스토리 블로그에 있던 포스팅은 조만간 전부 이관할 예정.</p>
-
-<p>이제 깃허브 블로그도 생성했겠다 1일 1커밋을 생활화 해야지.</p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="ETC" /><category term="GithubPages" /><category term="깃허브페이지" /><category term="깃허브블로그" /><category term="개발자블로그비교" /><summary type="html"><![CDATA[티스토리에서 깃허브로]]></summary></entry></feed>
+</ol>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="ETC" /><category term="GithubPages" /><category term="깃허브페이지" /><category term="깃허브블로그" /><category term="macosvmware설치" /><category term="vmwarefusion설치" /><category term="ubuntu20.04설치" /><summary type="html"><![CDATA[MacOS 환경에서 VMware로 Ubuntu를 설치하려면 “VMware Fusion”을 설치해야 한다.]]></summary></entry></feed>
