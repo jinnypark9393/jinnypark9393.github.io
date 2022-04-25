@@ -1,0 +1,277 @@
+I"�r<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-3. 조건문 실습문제(2)을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-04-26-Python-Photo/2022-04-26-Python-Photo1.jpg" alt="2022-04-26-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-04-26-Python-Photo/2022-04-26-Python-Photo2.jpg" alt="2022-04-27-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="3-조건문-실습문제2">3. 조건문 실습문제(2)</h1>
+
+<h2 id="1-실습문제-513">1. 실습문제 5.1.3</h2>
+
+<ul>
+  <li>현동이는 강의를 8시간 동안 들으니, 배가 너무 고파 저녁을 먹기로 하였다. 현동이가 현재 가진 금액을 통해 최대로 먹을 수 있는 음식을 출력해 주는 프로그램을 작성해 보자.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>[조건] 20000원 이상 = 치킨, 10000원 이상 = 떡볶이, 2000원 이상: 편의점 김밥</li>
+  <li>표준 입력 1: <code class="language-plaintext highlighter-rouge">현재 가진 금액을 입력 &gt;&gt;&gt;</code></li>
+  <li>표준 출력 1: <code class="language-plaintext highlighter-rouge">오늘 저녁은... 치킨!</code></li>
+  <li>표준 입력 2: <code class="language-plaintext highlighter-rouge">현재 가진 금액을 입력 &gt;&gt;&gt;</code></li>
+  <li>표준 출력 2: <code class="language-plaintext highlighter-rouge">오늘 저녁은... 떡볶이!</code></li>
+  <li>표준 입력 3: <code class="language-plaintext highlighter-rouge">현재 가진 금액을 입력 &gt;&gt;&gt;</code></li>
+  <li>표준 출력 3: <code class="language-plaintext highlighter-rouge">오늘 저녁은... 편의점 김밥!</code></li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="내-풀이">[내 풀이]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cash</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"현재 가진 금액을 입력 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">cash</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 치킨!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">cash</span> <span class="o">&gt;=</span> <span class="mi">10000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 떡볶이!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">cash</span> <span class="o">&gt;=</span> <span class="mi">2000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 편의점 김밥!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>결과 출력</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 현재 금액 = 20000
+</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">04</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.3</span><span class="p">.</span><span class="n">py</span>
+<span class="n">현재</span> <span class="n">가진</span> <span class="n">금액을</span> <span class="n">입력</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">20000</span>
+<span class="n">오늘</span> <span class="n">저녁은</span><span class="p">...</span> <span class="n">치킨</span><span class="err">!</span>
+
+<span class="c1"># 현재 금액 = 12000
+</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">04</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.3</span><span class="p">.</span><span class="n">py</span>
+<span class="n">현재</span> <span class="n">가진</span> <span class="n">금액을</span> <span class="n">입력</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">12000</span>
+<span class="n">오늘</span> <span class="n">저녁은</span><span class="p">...</span> <span class="n">떡볶이</span><span class="err">!</span>
+
+<span class="c1"># 현재 금액 = 2000
+</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span> <span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">04</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.3</span><span class="p">.</span><span class="n">py</span>
+<span class="n">현재</span> <span class="n">가진</span> <span class="n">금액을</span> <span class="n">입력</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">2000</span>
+<span class="n">오늘</span> <span class="n">저녁은</span><span class="p">...</span> <span class="n">편의점</span> <span class="n">김밥</span><span class="err">!</span>
+</code></pre></div></div>
+<p><br /><br /></p>
+
+<h3 id="강의-해설">[강의 해설]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습문제 5.1.3
+</span>
+<span class="n">money</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"현재 가진 금액을 입력 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 치킨!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">12000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 떡볶이!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">2000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 편의점 김밥!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>if 문 사용예
+    <ul>
+      <li>if</li>
+      <li>if - else</li>
+      <li>if - elif (else로 끝내지 않아도 됨)</li>
+      <li>if - elif - else</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-실습문제-514">2. 실습문제 5.1.4</h2>
+
+<ul>
+  <li>프로그램 사용자로부터 국어, 수학, 영어 성적이 입력된다. 세 과목의 평균 점수가 80점 이상이면 합격이다. 그런데 점수에 따라 함격 또는 불합격이 정해지는 프로그램에 오류가 발생했다. 80점 이상일 경우 불합격이 표시되도록 프로그램을 작성해보자 (<strong>단, 0점에서 100점 사이의 숫자를 입력하지 않으면 “잘못 입력하였습니다.”를 출력</strong>하자)</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>표준 입력 1: <code class="language-plaintext highlighter-rouge">국어 &gt;&gt;&gt; 95</code> , <code class="language-plaintext highlighter-rouge">수학 &gt;&gt;&gt; 75</code> , <code class="language-plaintext highlighter-rouge">영어 &gt;&gt;&gt; 100</code></li>
+  <li>표준 출력 1: 불합격</li>
+  <li>표준 입력 2: <code class="language-plaintext highlighter-rouge">국어 &gt;&gt;&gt; 55</code> , <code class="language-plaintext highlighter-rouge">수학 &gt;&gt;&gt; 40</code> , <code class="language-plaintext highlighter-rouge">영어 &gt;&gt;&gt; 70</code></li>
+  <li>표준 출력 2: 불합격</li>
+  <li>표준 입력 3: <code class="language-plaintext highlighter-rouge">국어 &gt;&gt;&gt; 1</code> , <code class="language-plaintext highlighter-rouge">수학 &gt;&gt;&gt; 120</code> , <code class="language-plaintext highlighter-rouge">영어 &gt;&gt;&gt; 85</code></li>
+  <li>표준 출력 3: 잘못 입력하였습니다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="내-풀이-1">[내 풀이]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">korean</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"국어 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">math</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"수학 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">english</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"영어 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="n">average</span> <span class="o">=</span> <span class="p">(</span><span class="n">korean</span> <span class="o">+</span> <span class="n">math</span> <span class="o">+</span> <span class="n">english</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">korean</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">math</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">english</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"잘못 입력하였습니다."</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"불합격"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"합격"</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<ul>
+  <li>결과 출력</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="p">.</span><span class="n">py</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">95</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">75</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">불합격</span>
+
+<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="p">.</span><span class="n">py</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">55</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">40</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">70</span>
+<span class="n">합격</span>
+
+<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="p">.</span><span class="n">py</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">1</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">120</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">85</span>
+<span class="n">잘못</span> <span class="n">입력하였습니다</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="강의-해설-1">[강의 해설]</h3>
+
+<ul>
+  <li>두 가지 방법 중 첫번째 방법을 살펴보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">korean</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"국어 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">math</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"수학 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">english</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"영어 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">korean</span> <span class="o">+</span> <span class="n">match</span> <span class="o">+</span> <span class="n">english</span>
+<span class="n">avg</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">3</span>
+
+<span class="c1"># 방법 1
+</span><span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">korean</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">math</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">english</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"입력이 정확함"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"잘못 입력하였습니다."</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<ul>
+  <li>위 함수가 잘 작동하는지 테스트 해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">2.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">p</span>
+<span class="n">y</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;-</span><span class="mi">1</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">잘못</span> <span class="n">입력하였습니다</span><span class="p">.</span>
+
+<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">2.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">p</span>
+<span class="n">y</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">120</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">잘못</span> <span class="n">입력하였습니다</span><span class="p">.</span>
+
+<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">2.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">p</span>
+<span class="n">y</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">50</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">60</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">70</span>
+<span class="n">입력이</span> <span class="n">정확함</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>if 문 안에 조건문을 넣어(중첩) 80점 이상/미만일 경우 불합격/합격을 출력하자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">korean</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"국어 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">math</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"수학 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">english</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"영어 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">korean</span> <span class="o">+</span> <span class="n">math</span> <span class="o">+</span> <span class="n">english</span>
+<span class="n">avg</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">3</span>
+
+<span class="c1"># 방법 1
+</span><span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">korean</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">math</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">english</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">avg</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"불합격"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"합격"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"잘못 입력하였습니다."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>이번에는 중첩문 없이 문제를 풀어보도록 하자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 방법 2
+</span><span class="k">if</span> <span class="n">korean</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">korean</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">math</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">math</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">english</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">english</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"잘못 입력하였습니다."</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">avg</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"불합격"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"합격"</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br /><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>
+:ET

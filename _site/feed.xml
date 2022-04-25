@@ -1,4 +1,279 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-25T05:54:40+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 8일차</title><link href="http://localhost:4000/programming/Python-Day8/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 8일차" /><published>2022-04-25T00:00:00+09:00</published><updated>2022-04-25T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day8</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day8/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-26T05:49:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 9일차</title><link href="http://localhost:4000/programming/Python-Day9/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 9일차" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day9</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day9/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-3. 조건문 실습문제(2)을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-04-26-Python-Photo/2022-04-26-Python-Photo1.jpg" alt="2022-04-26-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-04-26-Python-Photo/2022-04-26-Python-Photo2.jpg" alt="2022-04-27-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="3-조건문-실습문제2">3. 조건문 실습문제(2)</h1>
+
+<h2 id="1-실습문제-513">1. 실습문제 5.1.3</h2>
+
+<ul>
+  <li>현동이는 강의를 8시간 동안 들으니, 배가 너무 고파 저녁을 먹기로 하였다. 현동이가 현재 가진 금액을 통해 최대로 먹을 수 있는 음식을 출력해 주는 프로그램을 작성해 보자.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>[조건] 20000원 이상 = 치킨, 10000원 이상 = 떡볶이, 2000원 이상: 편의점 김밥</li>
+  <li>표준 입력 1: <code class="language-plaintext highlighter-rouge">현재 가진 금액을 입력 &gt;&gt;&gt;</code></li>
+  <li>표준 출력 1: <code class="language-plaintext highlighter-rouge">오늘 저녁은... 치킨!</code></li>
+  <li>표준 입력 2: <code class="language-plaintext highlighter-rouge">현재 가진 금액을 입력 &gt;&gt;&gt;</code></li>
+  <li>표준 출력 2: <code class="language-plaintext highlighter-rouge">오늘 저녁은... 떡볶이!</code></li>
+  <li>표준 입력 3: <code class="language-plaintext highlighter-rouge">현재 가진 금액을 입력 &gt;&gt;&gt;</code></li>
+  <li>표준 출력 3: <code class="language-plaintext highlighter-rouge">오늘 저녁은... 편의점 김밥!</code></li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="내-풀이">[내 풀이]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cash</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"현재 가진 금액을 입력 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">cash</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 치킨!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">cash</span> <span class="o">&gt;=</span> <span class="mi">10000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 떡볶이!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">cash</span> <span class="o">&gt;=</span> <span class="mi">2000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 편의점 김밥!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>결과 출력</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 현재 금액 = 20000
+</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">04</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.3</span><span class="p">.</span><span class="n">py</span>
+<span class="n">현재</span> <span class="n">가진</span> <span class="n">금액을</span> <span class="n">입력</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">20000</span>
+<span class="n">오늘</span> <span class="n">저녁은</span><span class="p">...</span> <span class="n">치킨</span><span class="err">!</span>
+
+<span class="c1"># 현재 금액 = 12000
+</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">04</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.3</span><span class="p">.</span><span class="n">py</span>
+<span class="n">현재</span> <span class="n">가진</span> <span class="n">금액을</span> <span class="n">입력</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">12000</span>
+<span class="n">오늘</span> <span class="n">저녁은</span><span class="p">...</span> <span class="n">떡볶이</span><span class="err">!</span>
+
+<span class="c1"># 현재 금액 = 2000
+</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span> <span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">04</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.3</span><span class="p">.</span><span class="n">py</span>
+<span class="n">현재</span> <span class="n">가진</span> <span class="n">금액을</span> <span class="n">입력</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">2000</span>
+<span class="n">오늘</span> <span class="n">저녁은</span><span class="p">...</span> <span class="n">편의점</span> <span class="n">김밥</span><span class="err">!</span>
+</code></pre></div></div>
+<p><br /><br /></p>
+
+<h3 id="강의-해설">[강의 해설]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습문제 5.1.3
+</span>
+<span class="n">money</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"현재 가진 금액을 입력 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 치킨!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">12000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 떡볶이!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">2000</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"오늘 저녁은... 편의점 김밥!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>if 문 사용예
+    <ul>
+      <li>if</li>
+      <li>if - else</li>
+      <li>if - elif (else로 끝내지 않아도 됨)</li>
+      <li>if - elif - else</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-실습문제-514">2. 실습문제 5.1.4</h2>
+
+<ul>
+  <li>프로그램 사용자로부터 국어, 수학, 영어 성적이 입력된다. 세 과목의 평균 점수가 80점 이상이면 합격이다. 그런데 점수에 따라 함격 또는 불합격이 정해지는 프로그램에 오류가 발생했다. 80점 이상일 경우 불합격이 표시되도록 프로그램을 작성해보자 (<strong>단, 0점에서 100점 사이의 숫자를 입력하지 않으면 “잘못 입력하였습니다.”를 출력</strong>하자)</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>표준 입력 1: <code class="language-plaintext highlighter-rouge">국어 &gt;&gt;&gt; 95</code> , <code class="language-plaintext highlighter-rouge">수학 &gt;&gt;&gt; 75</code> , <code class="language-plaintext highlighter-rouge">영어 &gt;&gt;&gt; 100</code></li>
+  <li>표준 출력 1: 불합격</li>
+  <li>표준 입력 2: <code class="language-plaintext highlighter-rouge">국어 &gt;&gt;&gt; 55</code> , <code class="language-plaintext highlighter-rouge">수학 &gt;&gt;&gt; 40</code> , <code class="language-plaintext highlighter-rouge">영어 &gt;&gt;&gt; 70</code></li>
+  <li>표준 출력 2: 불합격</li>
+  <li>표준 입력 3: <code class="language-plaintext highlighter-rouge">국어 &gt;&gt;&gt; 1</code> , <code class="language-plaintext highlighter-rouge">수학 &gt;&gt;&gt; 120</code> , <code class="language-plaintext highlighter-rouge">영어 &gt;&gt;&gt; 85</code></li>
+  <li>표준 출력 3: 잘못 입력하였습니다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="내-풀이-1">[내 풀이]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">korean</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"국어 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">math</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"수학 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">english</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"영어 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="n">average</span> <span class="o">=</span> <span class="p">(</span><span class="n">korean</span> <span class="o">+</span> <span class="n">math</span> <span class="o">+</span> <span class="n">english</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">korean</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">math</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">english</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"잘못 입력하였습니다."</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"불합격"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"합격"</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<ul>
+  <li>결과 출력</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="p">.</span><span class="n">py</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">95</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">75</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">불합격</span>
+
+<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="p">.</span><span class="n">py</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">55</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">40</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">70</span>
+<span class="n">합격</span>
+
+<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="p">.</span><span class="n">py</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">1</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">120</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">85</span>
+<span class="n">잘못</span> <span class="n">입력하였습니다</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="강의-해설-1">[강의 해설]</h3>
+
+<ul>
+  <li>두 가지 방법 중 첫번째 방법을 살펴보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">korean</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"국어 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">math</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"수학 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">english</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"영어 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">korean</span> <span class="o">+</span> <span class="n">match</span> <span class="o">+</span> <span class="n">english</span>
+<span class="n">avg</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">3</span>
+
+<span class="c1"># 방법 1
+</span><span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">korean</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">math</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">english</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"입력이 정확함"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"잘못 입력하였습니다."</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<ul>
+  <li>위 함수가 잘 작동하는지 테스트 해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">2.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">p</span>
+<span class="n">y</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;-</span><span class="mi">1</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">잘못</span> <span class="n">입력하였습니다</span><span class="p">.</span>
+
+<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">2.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">p</span>
+<span class="n">y</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">120</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">100</span>
+<span class="n">잘못</span> <span class="n">입력하였습니다</span><span class="p">.</span>
+
+<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="mf">2.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">1.4</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">p</span>
+<span class="n">y</span>
+<span class="n">국어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">50</span>
+<span class="n">수학</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">60</span>
+<span class="n">영어</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">70</span>
+<span class="n">입력이</span> <span class="n">정확함</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>if 문 안에 조건문을 넣어(중첩) 80점 이상/미만일 경우 불합격/합격을 출력하자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">korean</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"국어 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">math</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"수학 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">english</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"영어 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">korean</span> <span class="o">+</span> <span class="n">math</span> <span class="o">+</span> <span class="n">english</span>
+<span class="n">avg</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">3</span>
+
+<span class="c1"># 방법 1
+</span><span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">korean</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">math</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">english</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">avg</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"불합격"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"합격"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"잘못 입력하였습니다."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>이번에는 중첩문 없이 문제를 풀어보도록 하자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 방법 2
+</span><span class="k">if</span> <span class="n">korean</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">korean</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">math</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">math</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">english</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">english</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"잘못 입력하였습니다."</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">avg</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"불합격"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"합격"</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br /><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 9일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 8일차</title><link href="http://localhost:4000/programming/Python-Day8/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 8일차" /><published>2022-04-25T00:00:00+09:00</published><updated>2022-04-25T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day8</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day8/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-2. 조건문 실습문제(1)을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -1560,429 +1835,4 @@
 
 <p><a href="https://bit.ly/3L3avNW">패스트캠퍼스 [직장인 실무교육]</a></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 2일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 1일차</title><link href="http://localhost:4000/programming/Python-Day1/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 1일차" /><published>2022-04-18T00:00:00+09:00</published><updated>2022-04-18T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day1</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day1/"><![CDATA[<p><br /><br /></p>
-
-<p>회사분의 추천을 받고 또 충동적으로 구매해버린 패스트캠퍼스 강의… 이번에야말로 꼭 완강을 해보겠다는 의지로 캐시백 챌린지를 신청해보았다. 이번에 내가 신청한 강의는 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>”. 파이썬 기초 언어 뿐만 아니라 배포, 관련 라이브러리 등을 한꺼번에 습득할 수 있는 커리큘럼인데다 이미 강의를 듣고 계신 회사분이 설명도 나쁘지 않다고 해주셔서 12개월 할부로 긁었다. <br /><br /></p>
-
-<p>캐시백 챌린지는 기본적으로 매일 최소 1강 이상씩 듣고 공부기록을 블로그에 올리면 강의료를 환급해주는 형식인데, 중간과제가 있긴 하나 코딩 관련이 아닌 리뷰 개념이라 부담없이 성공할 수 있을 듯 한 느낌. (하지만 이러고 실패하면 정말 노간지인데….^^ 열심히 해야겠다) <br /><br /><br /></p>
-
-<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(01).jpeg" alt="220418_Python_Day1(01).jpeg" />
-<br /><br />
-강의를 미리 결제해놓았어서 1일차는 그동안 미리 들어두었던 공부 내용을 전체적으로 정리해보았다.
-<br /><br /></p>
-
-<h1 id="part-1-파이썬-필수-문법">Part 1. 파이썬 필수 문법</h1>
-
-<h2 id="ch01-강의소개">Ch01. 강의소개</h2>
-
-<h3 id="1-파이썬을-선택하는-세-가지-이유">1. 파이썬을 선택하는 세 가지 이유</h3>
-
-<ol>
-  <li>
-    <p>문법이 쉽고 간결하다</p>
-
-    <p>아래는 같은 결과값을 출력하는데 필요한 코딩 양. 
- [첫번째 코드블록: C]</p>
-
-    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cp">#include</span><span class="cpf">&lt;studio.h&gt;</span><span class="cp">
-</span> <span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">){</span>
- 	<span class="n">printf</span><span class="p">(</span><span class="s">"안녕하세요</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
- 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
- <span class="p">}</span>
-</code></pre></div>    </div>
-    <p>[두번째 코드블록: Python]</p>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요"</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p><br /><br /></p>
-
-<ol>
-  <li>인기가 많다.
-    <ul>
-      <li>학습 자료가 많음 (책, 온/오프라인 강의, 블로그 등)</li>
-      <li>오류가 생겼을 때 누군가 해결 방법을 찾아놓았을 경우가 많다.</li>
-    </ul>
-
-    <p><br /><br /></p>
-  </li>
-  <li>다양한 분야에 활용 가능하다
-    <ul>
-      <li>웹 서버 개발(Django, flask)</li>
-      <li>크롤링</li>
-      <li>업무자동화</li>
-      <li>데이터분석</li>
-      <li>인공지능</li>
-      <li>게임제작</li>
-    </ul>
-  </li>
-</ol>
-
-<p><br /><br /><br /></p>
-
-<h2 id="ch02-환경-설정">Ch02. 환경 설정</h2>
-<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(02).jpeg" alt="220418_Python_Day1(02).jpeg" /></p>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>참고: MacOS에서 설치를 진행했기 때문에 MacOS 에 대한 설명만 기재하였다.</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h3 id="1-파이썬-설치">1. 파이썬 설치</h3>
-
-<ul>
-  <li><a href="https://www.python.org/">https://www.python.org</a> &gt; Download &gt; 파이썬 패키지 다운로드</li>
-  <li>패키지 파일 더블클릭해 설치 (이용약관: 동의)</li>
-  <li>설치가 완료되면 아래와 같이 파이썬 디렉토리가 생성된다.</li>
-</ul>
-
-<p><img src="/assets/images//2022-04-18-Python-Photo/220418_Python_Day1(25).png" alt="220418_Python_Day1(25).png" /></p>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>python 3 명령어로 설치된 버전을 확인 할 수 있다.</li>
-</ul>
-
-<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(26).png" alt="220418_Python_Day1(26).png" /></p>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>python 명령어를 실행해보자.</li>
-</ul>
-
-<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(16).png" alt="220418_Python_Day1(16).png" /></p>
-
-<p><br /><br /><br /></p>
-
-<h3 id="2-idle로-파이썬-실행">2. idle로 파이썬 실행</h3>
-
-<ul>
-  <li>Launchpad에서 ‘Idle’을 검색해 더블클릭으로 실행</li>
-  <li>명령어 한줄씩 실행 예시:</li>
-</ul>
-
-<p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(17).png" alt="220418_Python_Day1(17).png" /></p>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>명령어 여러줄 실행: File &gt; New File
-    <ul>
-      <li>실행하고 싶은 명령어 입력</li>
-    </ul>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(18).png" alt="220418_Python_Day1(18).png" /></p>
-
-    <ul>
-      <li>Run &gt; Run Module 클릭 &gt; 파일 저장
-        <ul>
-          <li>실행 결과가 최초 실행했던 idle 창에 표시된다.</li>
-        </ul>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(19).png" alt="220418_Python_Day1(19).png" /></p>
-      </li>
-    </ul>
-  </li>
-  <li>idle을 사용하지 않는 이유
-    <ol>
-      <li>UI가 예쁘지 않다</li>
-      <li>자동완성 기능이 없다</li>
-      <li>파일 탐색기능이 없어 폴더/파일 기능 관리가 어렵다</li>
-    </ol>
-
-    <p>⇒ 결론: <strong>VScode를 사용하자!</strong></p>
-  </li>
-</ul>
-
-<p><br /><br /></p>
-
-<h3 id="3-소스코드-편집기를-사용하는-이유">3. 소스코드 편집기를 사용하는 이유</h3>
-
-<ul>
-  <li>폴더, 파일 쉽게 정리</li>
-  <li>코드 자동완성 기능</li>
-  <li>디버깅(오류수정)이 쉽다: 오타, 문법오류 날 시 알려 준다</li>
-  <li>유용한 단축키가 많다</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h3 id="4-vscode-설치">4. vscode 설치</h3>
-
-<ul>
-  <li>vscode 공식 홈페이지 &gt; Download</li>
-  <li>루트폴더 지정
-    <ul>
-      <li>File &gt; Open &gt; ‘Documents’ &gt; 새로운 폴더 ‘python_basic’을 root로 지정</li>
-      <li>vscode에서 보는 디렉토리/파일과 실제 디렉토리/파일이 연동 되어있다.
-        <ul>
-          <li>vscode에서 생성 ⇒ 실제 폴더에도 생성</li>
-          <li>실제 폴더 생성 ⇒ vscode 에도 생성</li>
-        </ul>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(20).png" alt="220418_Python_Day1(20).png" /></p>
-
-        <p><br /></p>
-      </li>
-      <li>파일 생성 버튼 &gt; ‘hello.py’ 이름 입력 후 엔터 &gt; 파이썬 파일 생성됨
-        <ul>
-          <li>print(”hello python!”) 입력하기</li>
-        </ul>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(23).png" alt="220418_Python_Day1(23).png" /></p>
-
-        <p><br /></p>
-
-        <ul>
-          <li>저장 되었는지 여부 판단하기: 탭 이름 옆 흰 동그라미가 있을 경우 변경사항이 저장이 되지 않은 것.</li>
-        </ul>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(22).png" alt="220418_Python_Day1(22).png" /></p>
-
-        <p><br /></p>
-      </li>
-      <li>
-        <p><strong>[추가]</strong> 폰트 설정 바꾸기: Code &gt; Preferences &gt; 폰트사이즈 입력 후 ‘Settings’ 닫아줌</p>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(21).png" alt="220418_Python_Day1(21).png" /></p>
-
-        <p><br /></p>
-
-        <p>폰트 크기 변경이 적용이 된 것을 확인할 수 있다.</p>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(24).png" alt="220418_Python_Day1(24).png" /></p>
-
-        <p><br /></p>
-      </li>
-      <li>
-        <p>Extensions에서 확장 프로그램 “Python(Microsoft)” 설치</p>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(03).png" alt="220418_Python_Day1(03).png" /></p>
-
-        <p><br /></p>
-      </li>
-      <li>
-        <p>파이썬 코드 실행방법: Run &gt; Run without Debugging</p>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(04).png" alt="220418_Python_Day1(04).png" /></p>
-
-        <p><br /></p>
-      </li>
-      <li>
-        <p>파이썬 코드 실행방법 2: vscode 오른쪽 상단의 재생 버튼 클릭</p>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(05).png" alt="220418_Python_Day1(05).png" /></p>
-
-        <p><br /></p>
-      </li>
-      <li>
-        <p>하단 콘솔에서 파이썬 코드가 실행됨을 확인할 수 있다.</p>
-
-        <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(06).png" alt="220418_Python_Day1(06).png" /></p>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /><br /></p>
-
-<h3 id="5-vscode의-장점">5. VScode의 장점</h3>
-
-<ol>
-  <li>
-    <p>파일과 폴더를 보기 쉽게 정리할 수 있다(탐색기 내장).</p>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(08).png" alt="220418_Python_Day1(08).png" /></p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>코드 자동완성 기능 (클릭 혹은 엔터키로 입력 가능)</p>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(07).png" alt="220418_Python_Day1(07).png" /></p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>디버깅, 오류 수정이 쉽다(아래처럼 오류가 난 부분을 표시해준다).</p>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(09).png" alt="220418_Python_Day1(09).png" /></p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>유용한 단축키가 많다.</p>
-    <ol>
-      <li>예: option + shift + 아래/위 방향키로 간단하게 복사 가능</li>
-    </ol>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(10).png" alt="220418_Python_Day1(10).png" /></p>
-
-    <p><br /></p>
-
-    <ol>
-      <li>예: option + 클릭 (여러 줄을 동시에 선택/수정할 수 있다).</li>
-    </ol>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(11).png" alt="220418_Python_Day1(11).png" /></p>
-  </li>
-</ol>
-
-<p><br /><br /></p>
-
-<h3 id="6-가상환경-설정mac">6. 가상환경 설정(Mac)</h3>
-
-<p><strong>1. 가상환경을 사용하는 이유</strong></p>
-
-<ul>
-  <li>A 프로젝트: 패키지 1.0 버전 사용</li>
-  <li>
-    <p>B 프로젝트: 패키지 2.0 버전 사용</p>
-
-    <p>⇒ 컴퓨터 안 공간을 나누면 한 컴퓨터 안에서 다른 버전을 사용할 수 있다.</p>
-  </li>
-</ul>
-
-<p><br /><br /></p>
-
-<p><strong>2. 가상환경 만들고 패키지 설치</strong></p>
-
-<ul>
-  <li>venv로 설치</li>
-  <li>
-    <p>myvenv 라는 이름의 가상환경 만들기</p>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(12).png" alt="220418_Python_Day1(12).png" /></p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>myvenv 라는 새로운 폴더가 생성된 것을 확인할 수 있다.</p>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(13).png" alt="220418_Python_Day1(13).png" /></p>
-
-    <p><br /></p>
-  </li>
-  <li>myvenv &gt; bin &gt; activate 파일을 이용해 활성화
-    <ul>
-      <li>(myvenv) 라는 가상환경명이 명령줄 앞에 붙게 된다.</li>
-    </ul>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">python_basic</span> <span class="n">source</span> <span class="p">.</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
-  <span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span>
-</code></pre></div>    </div>
-
-    <p><br /></p>
-
-    <ul>
-      <li>가상환경에서 빠져나오려면 deactivate 명령어를 실행해주면 된다.</li>
-    </ul>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="n">deactivate</span>
-  <span class="err">➜</span>  <span class="n">python_basic</span>
-</code></pre></div>    </div>
-    <p><br /></p>
-
-    <ul>
-      <li><strong>TIP) 위/아래 방향키로 이전에 사용했던 명령어들을 사용할 수 있다.</strong></li>
-    </ul>
-
-    <p><br /><br /></p>
-
-    <ul>
-      <li>pip 명령어를 통해 가상환경에 설치된 모듈이나 패키지를 확인할 수 있다.
-        <ul>
-          <li>
-            <p>예 1) pip list: 현재 설치되어 있는 패키지 파일 리스트 확인</p>
-
-            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="n">pip</span> <span class="nb">list</span>
-  <span class="n">Package</span>    <span class="n">Version</span>
-  <span class="o">----------</span> <span class="o">-------</span>
-  <span class="n">pip</span>        <span class="mf">22.0</span><span class="p">.</span><span class="mi">4</span>
-  <span class="n">setuptools</span> <span class="mf">58.1</span><span class="p">.</span><span class="mi">0</span>
-</code></pre></div>            </div>
-            <p><br /></p>
-          </li>
-          <li>예 2) pip install requests: requests 라는 패키지 파일을 <strong>myvenv라는 가상환경 안</strong>에 설치
-            <ul>
-              <li>따라서 다른 프로젝트와 충돌이 나지 않게 된다.</li>
-            </ul>
-
-            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span>
-  <span class="n">Collecting</span> <span class="n">requests</span>
-    <span class="n">Downloading</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.27</span><span class="p">.</span><span class="mi">1</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="p">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">63</span> <span class="n">kB</span><span class="p">)</span>
-       <span class="err">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="mf">63.1</span><span class="o">/</span><span class="mf">63.1</span> <span class="n">KB</span> <span class="mf">3.0</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span> <span class="n">eta</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
-  <span class="n">Collecting</span> <span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="o">~=</span><span class="mf">2.0</span><span class="p">.</span><span class="mi">0</span>
-    <span class="n">Downloading</span> <span class="n">charset_normalizer</span><span class="o">-</span><span class="mf">2.0</span><span class="p">.</span><span class="mi">12</span><span class="o">-</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="p">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">39</span> <span class="n">kB</span><span class="p">)</span>
-  <span class="n">Collecting</span> <span class="n">idna</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">2.5</span>
-    <span class="n">Downloading</span> <span class="n">idna</span><span class="o">-</span><span class="mf">3.3</span><span class="o">-</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="p">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">61</span> <span class="n">kB</span><span class="p">)</span>
-       <span class="err">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="mf">61.2</span><span class="o">/</span><span class="mf">61.2</span> <span class="n">KB</span> <span class="mf">1.9</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span> <span class="n">eta</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
-  <span class="n">Collecting</span> <span class="n">urllib3</span><span class="o">&lt;</span><span class="mf">1.27</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">1.21</span><span class="p">.</span><span class="mi">1</span>
-    <span class="n">Downloading</span> <span class="n">urllib3</span><span class="o">-</span><span class="mf">1.26</span><span class="p">.</span><span class="mi">9</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="p">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">138</span> <span class="n">kB</span><span class="p">)</span>
-       <span class="err">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="mf">139.0</span><span class="o">/</span><span class="mf">139.0</span> <span class="n">KB</span> <span class="mf">2.6</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span> <span class="n">eta</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
-  <span class="n">Collecting</span> <span class="n">certifi</span><span class="o">&gt;=</span><span class="mf">2017.4</span><span class="p">.</span><span class="mi">17</span>
-    <span class="n">Downloading</span> <span class="n">certifi</span><span class="o">-</span><span class="mf">2021.10</span><span class="p">.</span><span class="mi">8</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="p">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">149</span> <span class="n">kB</span><span class="p">)</span>
-       <span class="err">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="mf">149.2</span><span class="o">/</span><span class="mf">149.2</span> <span class="n">KB</span> <span class="mf">1.9</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span> <span class="n">eta</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
-  <span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">certifi</span><span class="p">,</span> <span class="n">urllib3</span><span class="p">,</span> <span class="n">idna</span><span class="p">,</span> <span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="p">,</span> <span class="n">requests</span>
-  <span class="n">Successfully</span> <span class="n">installed</span> <span class="n">certifi</span><span class="o">-</span><span class="mf">2021.10</span><span class="p">.</span><span class="mi">8</span> <span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="o">-</span><span class="mf">2.0</span><span class="p">.</span><span class="mi">12</span> <span class="n">idna</span><span class="o">-</span><span class="mf">3.3</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.27</span><span class="p">.</span><span class="mi">1</span> <span class="n">urllib3</span><span class="o">-</span><span class="mf">1.26</span><span class="p">.</span><span class="mi">9</span>
-</code></pre></div>            </div>
-            <p><br /></p>
-          </li>
-          <li>예 3) pip list 로 설치된 패키지 파일을 다시 확인한다.
-            <ul>
-              <li>requests 패키지와 requests 패키지가 필요로 하는 다른 패키지들이 설치된 것을 확인할 수 있다.</li>
-            </ul>
-
-            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="n">pip</span> <span class="nb">list</span>            
-  <span class="n">Package</span>            <span class="n">Version</span>
-  <span class="o">------------------</span> <span class="o">---------</span>
-  <span class="n">certifi</span>            <span class="mf">2021.10</span><span class="p">.</span><span class="mi">8</span>
-  <span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span> <span class="mf">2.0</span><span class="p">.</span><span class="mi">12</span>
-  <span class="n">idna</span>               <span class="mf">3.3</span>
-  <span class="n">pip</span>                <span class="mf">22.0</span><span class="p">.</span><span class="mi">4</span>
-  <span class="n">requests</span>           <span class="mf">2.27</span><span class="p">.</span><span class="mi">1</span>
-  <span class="n">setuptools</span>         <span class="mf">58.1</span><span class="p">.</span><span class="mi">0</span>
-  <span class="n">urllib3</span>            <span class="mf">1.26</span><span class="p">.</span><span class="mi">9</span>
-</code></pre></div>            </div>
-            <p><br /></p>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>강의에서의 소스코드 디렉토리 구성: myvenv 하위에 Chapter 별로 폴더 생성 ⇒ 필요한 실습 소스 파일 생성해 코드 작성
-    <ol>
-      <li>myvenv/Chapter 2/01.가상환경세팅.py 구조로 폴더 및 파일 생성</li>
-    </ol>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(14).png" alt="220418_Python_Day1(14).png" /></p>
-
-    <p><br /></p>
-
-    <ol>
-      <li><a href="http://01.가상환경세팅.py">01.가상환경세팅.py</a> 파일 안에 실습코드 작성 및 실행</li>
-    </ol>
-
-    <p><img src="/assets/images/2022-04-18-Python-Photo/220418_Python_Day1(15).png" alt="220418_Python_Day1(15).png" /></p>
-
-    <p><br /><br /></p>
-  </li>
-</ul>
-
-<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
-
-<p><br /></p>
-
-<ul>
-  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 1일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 2일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
