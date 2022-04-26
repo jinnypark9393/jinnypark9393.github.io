@@ -2,12 +2,12 @@
 
 published: true
 title:  "[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기"
-excerpt: "리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다."
+excerpt: "리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다"
 
 categories:
 - DevOps
 tags:
-- [패스트캠퍼스, 패캠챌린지, 직장인인강, 직장인자기계발, 패스트캠퍼스후기, 캐시백챌린지, 캐시백, 환급챌린지, 한번에끝내는파이썬웹개발초격차패키지Online]
+- [linux설정, linux, Ubuntu, Ubuntu설정, 우분투시간변경, 리눅스시간변경, 데브옵스엔지니어, DevOps]
 
 toc: true
 toc_sticky: true
@@ -16,6 +16,7 @@ date: 2022-04-27
 last_modified_at: 2022-04-27
 
 ---
+
 <br/><br/>
 
 *💡  리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다.*
