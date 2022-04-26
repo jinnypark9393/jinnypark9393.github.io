@@ -19,6 +19,8 @@ last_modified_at: 2022-04-27
 
 <br/><br/>
 
+# 1. 리눅스(Linux) 시간을 한국 표준시(KST)로 변경
+
 *💡  리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다.*
 
 <br/><br/>
