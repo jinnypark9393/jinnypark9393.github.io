@@ -1,11 +1,11 @@
 ---
-title:  "[ETC]VMware Fusion에서 Ubuntu 20.04 설치하기"
+title:  "[Linux/Ubuntu]VMware Fusion에서 Ubuntu 20.04 설치하기"
 excerpt: "MacOS 환경에서 VMware로 Ubuntu를 설치하려면 “VMware Fusion”을 설치해야 한다."
 
 categories:
-  - ETC
+  - DevOps
 tags:
-  - [GithubPages, 깃허브페이지, 깃허브블로그, macosvmware설치, vmwarefusion설치, ubuntu20.04설치]
+  - [GithubPages, 깃허브페이지, 깃허브블로그, macosvmware설치, vmwarefusion설치, ubuntu20.04설치, ubuntu, linux]
 
 toc: true
 toc_sticky: true
@@ -97,7 +97,7 @@ VMware 에서는 VMware Fusion외에도 Windows 환경에서 사용할 수 있�
     ![Screen Shot 2022-04-17 at 3.08.43 AM.png](/assets/images/220417-etc-vmware-ubuntu/220417-etc-VMware-ubuntu10.png)
 <br/>
 <br/>
-8. 내용을 확인한 뒤 Continue를 클릭한다(만일 생성되는 머신의 이름을 변경하고 싶은 경우 Customize Settings를 클릭해 이름을 변경해준다).
+8. 내용을 확인한 뒤 Finish를 클릭한다(만일 생성되는 머신의 이름을 변경하고 싶은 경우 Customize Settings를 클릭해 이름을 변경해준다).
     
     ![Screen Shot 2022-04-17 at 3.09.25 AM.png](/assets/images/220417-etc-vmware-ubuntu/220417-etc-VMware-ubuntu11.png)
 <br/>
