@@ -1,4 +1,321 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-27T05:45:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기</title><link href="http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone/" rel="alternate" type="text/html" title="[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone</id><content type="html" xml:base="http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-28T05:26:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 11일차</title><link href="http://localhost:4000/programming/Python-Day11/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 11일차" /><published>2022-04-28T00:00:00+09:00</published><updated>2022-04-28T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day11</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day11/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-5. 리스트 자료형 실습문제를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-04-28-Python-Photo/2022-04-28-Python-Photo1.jpg" alt="2022-04-28-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-04-28-Python-Photo/2022-04-28-Python-Photo2.jpg" alt="2022-04-28-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="5-리스트-자료형-실습문제">5. 리스트 자료형 실습문제</h1>
+
+<h2 id="1-실습문제-521">1. 실습문제 5.2.1</h2>
+
+<ul>
+  <li>다음은 패스트 고등학교 2학년 3반 1번부터 5번까지의 1분간 팔굽혀펴기 개수이다. 데이터는 각 리스트에 저장되어있다. 각 문항을 실행한 결과를 출력해보자.
+    <ul>
+      <li>result = [33, 40, 12, 63, 52]</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="내-풀이">[내 풀이]</h3>
+
+<p><strong>문항 1. 6번의 팔굽혀펴기 개수는 9개이다. 리스트의 마지막에 추가하자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
+
+<span class="c1"># 문항 1
+</span><span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">07</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.1</span><span class="p">.</span><span class="n">py</span>
+<span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>문항 2. 2번은 재측정하여 50개를 하였다. 2번의 데이터를 변경해보자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
+
+<span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">07</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.1</span><span class="p">.</span><span class="n">py</span>
+<span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>문항 3. 3번부터 6번까지 데이터를 슬라이싱하자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">07</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.1</span><span class="p">.</span><span class="n">py</span>
+<span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>문항 4. 모든 데이터를 오름차순으로 정렬하자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
+
+<span class="n">result</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">07</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.1</span><span class="p">.</span><span class="n">py</span>
+<span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">63</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="강의-해설">[강의 해설]</h3>
+
+<p><strong>문항 1. 6번의 팔굽혀펴기 개수는 9개이다. 리스트의 마지막에 추가하자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습문제 5.2.1
+</span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
+
+<span class="c1"># 문항 1
+</span><span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>문항 2. 2번은 재측정하여 50개를 하였다. 2번의 데이터를 변경해보자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 문항 2
+</span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>문항 3. 3번부터 6번까지 데이터를 슬라이싱하자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 문항 3
+</span><span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>문항 4. 모든 데이터를 오름차순으로 정렬하자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 문항 4
+</span><span class="n">result</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="2-실습문제-522">2. 실습문제 5.2.2</h2>
+
+<ul>
+  <li>턱걸이 평균 측정 프로그램을 만들어보자. 먼저, 턱걸이 횟수를 저장할 빈 리스트를 만든다. 그리고 일주일간의 턱걸이 횟수를 입력 받아 리스트에 저장한다. 리스트에 저장된 데이터의 평균을 구해 출력한다.</li>
+  <li>표준입력
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">1일차 턱걸이 횟수 &gt;&gt;&gt; 20</code></li>
+      <li><code class="language-plaintext highlighter-rouge">2일차 턱걸이 횟수 &gt;&gt;&gt; 23</code></li>
+      <li><code class="language-plaintext highlighter-rouge">3일차 턱걸이 횟수 &gt;&gt;&gt; 16</code></li>
+      <li><code class="language-plaintext highlighter-rouge">4일차 턱걸이 횟수 &gt;&gt;&gt; 14</code></li>
+      <li><code class="language-plaintext highlighter-rouge">5일차 턱걸이 횟수 &gt;&gt;&gt; 24</code></li>
+      <li><code class="language-plaintext highlighter-rouge">6일차 턱걸이 횟수 &gt;&gt;&gt; 27</code></li>
+      <li><code class="language-plaintext highlighter-rouge">7일차 턱걸이 횟수 &gt;&gt;&gt; 30</code></li>
+    </ul>
+  </li>
+  <li>표준 출력: 22</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="내-풀이-1">[내 풀이]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 빈 리스트 만들기
+</span><span class="n">week</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># 반복문 사용해 1일차부터 7일차까지 값 입력받기
+</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"%d일차 턱걸이 횟수 &gt;&gt;&gt;"</span> <span class="o">%</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">week</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">week</span><span class="p">)</span>
+
+<span class="c1"># 리스트 요소를 모두 더한 값 구하기
+</span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">week</span><span class="p">)</span>
+
+<span class="c1"># 평균값 = 리스트 요소를 모두 더한 값 / 리스트 요소 개수
+# 계산된 평균값을 정수형으로 변경해준다(기본 출력 float).
+</span><span class="n">average</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">week</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">average</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">08</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.2</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">1</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">20</span>
+<span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<span class="mi">2</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">23</span>
+<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+<span class="mi">3</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">16</span>
+<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="mi">4</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">14</span>
+<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
+<span class="mi">5</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">24</span>
+<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+<span class="mi">6</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">27</span>
+<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">27</span><span class="p">]</span>
+<span class="mi">7</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">30</span>
+<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="mi">22</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="강의-해설-1">[강의 해설]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습 5.2.2
+</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 빈 리스트 생성
+</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"1일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"2일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"3일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"4일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"5일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"6일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"7일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">avg</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">7</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">avg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>위의 코드를 실행하면 아래와 같이 인덱스 에러가 발생한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">IndexError</span><span class="p">:</span> <span class="nb">list</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>인덱스 중 범위를 벗어난 경우 발생: <code class="language-plaintext highlighter-rouge">data[7]</code> 삭제해준다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습 5.2.2
+</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 빈 리스트 생성
+</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"1일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"2일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"3일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"4일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"5일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"6일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"7일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
+<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">avg</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">7</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">avg</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력된 평균값이 float형이기 때문에 int로 변경해준다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 11일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기</title><link href="http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone/" rel="alternate" type="text/html" title="[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone</id><content type="html" xml:base="http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone/"><![CDATA[<p><br /><br /></p>
+
+<h1 id="1-리눅스linux-시간을-한국-표준시kst로-변경">1. 리눅스(Linux) 시간을 한국 표준시(KST)로 변경</h1>
 
 <p><em>💡  리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다.</em></p>
 
@@ -77,7 +394,7 @@ lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">date
 </span>Mon 18 Apr 2022 08:56:34 PM KST
-</code></pre></div></div>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[💡 리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다.]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 10일차</title><link href="http://localhost:4000/programming/Python-Day10/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 10일차" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day10</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day10/"><![CDATA[<p><br /><br /></p>
+</code></pre></div></div>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="linux설정" /><category term="linux" /><category term="Ubuntu" /><category term="Ubuntu설정" /><category term="우분투시간변경" /><category term="리눅스시간변경" /><category term="데브옵스엔지니어" /><category term="DevOps" /><summary type="html"><![CDATA[리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 10일차</title><link href="http://localhost:4000/programming/Python-Day10/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 10일차" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day10</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day10/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-4. 리스트 자료형 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -1560,249 +1877,4 @@ lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/
 
 <p><a href="https://bit.ly/3L3avNW">패스트캠퍼스 [직장인 실무교육]</a></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 5일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 4일차</title><link href="http://localhost:4000/programming/Python-Day4/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 4일차" /><published>2022-04-21T00:00:00+09:00</published><updated>2022-04-21T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day4</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day4/"><![CDATA[<p><br /><br /></p>
-
-<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의챕터 3-2. 변수 강의를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
-
-<p><br /><br />
-<img src="/assets/images/2022-04-21-Python-Photo/2022-04-21-Python-Photo1.jpg" alt="2022-04-21-Python-Photo1" />
-<br /><br /></p>
-
-<h1 id="ch04-연산과-연산자">Ch04. 연산과 연산자</h1>
-
-<h1 id="1-연산1">1. 연산(1)</h1>
-
-<h2 id="1-연산이란">1. 연산이란?</h2>
-
-<ul>
-  <li>수나 식을 일정한 규칙에 따라 계산하는 것</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="2-연산의-종류">2. 연산의 종류</h2>
-
-<ul>
-  <li>가장 많이 쓰이는 연산은 아래 네 가지.</li>
-  <li>대입연산</li>
-  <li>산술연산</li>
-  <li>비교연산</li>
-  <li>논리연산</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="3-대입연산">3. 대입연산</h2>
-
-<ul>
-  <li>‘변수이름 = 데이터’</li>
-  <li>오른쪽의 데이터를 왼쪽의 변수이름에 할당한다(<code class="language-plaintext highlighter-rouge">=</code>: 할당연산자)</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="4-산술연산">4. 산술연산</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>연산자(연산기호)</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>+</td>
-      <td>더하기</td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td>빼기</td>
-    </tr>
-    <tr>
-      <td>*</td>
-      <td>곱하기</td>
-    </tr>
-    <tr>
-      <td>/</td>
-      <td>나누기</td>
-    </tr>
-    <tr>
-      <td>//</td>
-      <td>몫</td>
-    </tr>
-    <tr>
-      <td>%</td>
-      <td>나머지</td>
-    </tr>
-    <tr>
-      <td>**</td>
-      <td>제곱</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><br /><br /></p>
-
-<h2 id="5-실습">5. 실습</h2>
-
-<p><br /><br />
-<img src="/assets/images/2022-04-21-Python-Photo/2022-04-21-Python-Photo2.jpg" alt="2022-04-21-Python-Photo2" />
-<br /><br /></p>
-
-<ul>
-  <li>대입 연산은 지난 시간 실습을 진행해 이번에는 생략하도록 한다.</li>
-  <li>
-    <p>산술연산 예시</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># 1. 대입연산
-</span>  <span class="c1"># 변수이름 = 데이터
-</span>    
-  <span class="c1"># 2. 산술연산
-</span>  <span class="c1"># - 숫자 연산
-</span>  <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
-    
-  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">//</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 몫
-</span>  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">y</span><span class="p">)</span> <span class="c1">#나머지
-</span>  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 제곱
-</span></code></pre></div>    </div>
-  </li>
-</ul>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>
-    <p>결과값은 아래와 같다.</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="mi">7</span>
-  <span class="mi">3</span>
-  <span class="mi">10</span>
-  <span class="mf">2.5</span>
-  <span class="mi">2</span>
-  <span class="mi">1</span>
-  <span class="mi">25</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>숫자 뿐만 아니라 문자열도 서로 더할 수 있다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># - 문자열 연산
-</span><span class="n">tag1</span> <span class="o">=</span> <span class="s">"#내꺼하자"</span>
-<span class="n">tag2</span> <span class="o">=</span> <span class="s">"#오늘부터1일"</span>
-<span class="n">tag3</span> <span class="o">=</span> <span class="s">"#여친생김"</span>
-
-<span class="n">tag</span> <span class="o">=</span> <span class="n">tag1</span> <span class="o">+</span> <span class="n">tag2</span> <span class="o">+</span> <span class="n">tag3</span>
-<span class="k">print</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>연산 결과는 아래와 같다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#내꺼하자#오늘부터#여친생김
-</span></code></pre></div></div>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>문자열을 서로 곱할 수도 있다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">message</span> <span class="o">=</span> <span class="s">"우리 모두 파이썬을 사랑합니다."</span> <span class="o">*</span> <span class="mi">5</span>
-<span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>연산 결과 아래와 같이 문자열이 5번만큼 출력되는 것을 확인할 수 있다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>문장이 끝난 뒤 줄 바꿈을 하고 싶은 경우 줄바꿈문자 <code class="language-plaintext highlighter-rouge">\n</code> 을 넣어주면 된다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">message</span> <span class="o">=</span> <span class="s">"우리 모두 파이썬을 사랑합니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">*</span> <span class="mi">5</span>
-<span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>연산결과 아래와 같이 문자열이 끝날때마다 줄이 바뀌는 것을 확인할 수 있다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
-<span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
-<span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
-<span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
-<span class="n">우리</span> <span class="n">모두</span> <span class="n">파이썬을</span> <span class="n">사랑합니다</span><span class="p">.</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>복합할당연산자</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 복합할당연산자
-</span><span class="n">level</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># (레벨 1 증가)
-</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># 이 식을 아래와같이 표현할 수 있다.
-</span><span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># 복합할당연산자를 사용(= level = level + 1)
-</span>
-<span class="n">health</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># (체력 300 감소)
-</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">300</span> <span class="c1"># health = health - 300
-</span>
-<span class="n">attack</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># (공격력 1.5배 증가)
-</span><span class="n">attack</span> <span class="o">*=</span> <span class="mf">1.5</span> <span class="c1"># attack = attack * 1.5 
-</span>
-<span class="n">speed</span> <span class="o">=</span> <span class="mi">420</span> <span class="c1"># (이동속도 50% 감소)
-</span><span class="n">speed</span> <span class="o">/=</span> <span class="mi">2</span> <span class="p">(</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>출력 결과는 하기와 같다</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">11</span> <span class="mi">1700</span> <span class="mi">450</span> <span class="mi">210</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<p>다음에는 비교연산, 논리연산, 멤버십연산에 대해 알아보도록 하겠다.</p>
-
-<p><br /><br /></p>
-
-<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
-</ul>
-
-<p><br /><br /></p>
-
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 4일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 5일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
