@@ -1,0 +1,176 @@
+I"
+5<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-6. 반복문 개념(2)를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-04-30-Python-Photo/2022-04-30-Python-Photo1.jpg" alt="2022-04-30-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-04-30-Python-Photo/2022-04-30-Python-Photo2.jpg" alt="2022-04-30-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="7-반복문-개념2">7. 반복문 개념(2)</h1>
+
+<h2 id="1-while-사용법">1. while 사용법</h2>
+
+<ul>
+  <li>for와의 차이점은?
+    <ul>
+      <li>for문 : 반복할 횟수가 정해져 있을 때</li>
+      <li>while문: 반복할 횟수가 정해져있지 않을 때</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>while 사용법</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 초기식
+# while 조건식:
+#     반복할 명령
+#     증감식
+</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span><span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">"번째 다짐, 나는 할 수 있다!"</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># 복합할당연산자 i + 1 = i
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">i = 0</code> : 반복문에 사용되는 변수의 값을 지정</li>
+  <li><code class="language-plaintext highlighter-rouge">while i &lt; 10:</code> : 반복에 대한 조건 체크. 이 식이 false가 될 때까지 반복.</li>
+  <li><code class="language-plaintext highlighter-rouge">증감식</code> : 반복하는 작업을 위해 변수값 증가.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-무한루프와-break">2. 무한루프와 break</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># while True:
+#    반복할 명령
+#    if 조건식:
+#        break
+</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"종료하려면 exit을 입력하세요 &gt;&gt;&gt;"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s">"exit"</span><span class="p">:</span>
+        <span class="k">break</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>조건식 대신 불리언(Boolean) 값을 불러온다.</li>
+  <li>참일 경우 break를 만나기 전까지 명령을 계속 반복한다. (가장 가까운 반복문만 빠져나오게 됨)</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-실습">3. 실습</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># while
+# : 보통 반복횟수가 정해지지 않았을 때 사용한다.
+</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># 초기식
+</span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">:</span> <span class="c1"># 조건식
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">"번째 다짐, 나는 할 수 있다!"</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># 증감식
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">10.</span><span class="n">반복문개념_while</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">5</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">6</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">7</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">8</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># while
+# : 보통 반복횟수가 정해지지 않았을 때 사용한다.
+</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 초기식
+</span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span> <span class="c1"># 조건식
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">"번째 다짐, 나는 할 수 있다!"</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span> <span class="c1"># 증감식
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>결과 출력</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">10.</span><span class="n">반복문개념_while</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">0</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">2</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">4</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">6</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">8</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 무한루프
+# : 조건식에 True를 넣어서 항상 반복되게 만든 것.
+</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"종료하려면 exit을 입력하세요 &gt;&gt;&gt;"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s">"exit"</span><span class="p">:</span>
+        <span class="k">break</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">10.</span><span class="n">반복문개념_while</span><span class="p">.</span><span class="n">py</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">exid</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">a</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">b</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">c</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">d</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">e</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">f</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="nb">exit</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이번 포스팅에서는 반복문 개념에 대해서 알아보았다. 다음 포스팅에서는 반복문 실습문제를 풀어보도록 하자.</p>
+
+<p><br /><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>
+:ET

@@ -4,6 +4,38 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/programming/Python-Day14/</loc>
+        
+        <lastmod>2022-05-01T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/programming/Python-Day13/</loc>
+        
+        <lastmod>2022-04-30T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/programming/Python-Day12/</loc>
         
         <lastmod>2022-04-29T00:00:00+09:00</lastmod>

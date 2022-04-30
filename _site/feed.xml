@@ -1,4 +1,502 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-29T05:32:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 12일차</title><link href="http://localhost:4000/programming/Python-Day12/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 12일차" /><published>2022-04-29T00:00:00+09:00</published><updated>2022-04-29T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day12</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day12/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-01T07:35:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 14일차</title><link href="http://localhost:4000/programming/Python-Day14/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 14일차" /><published>2022-05-01T00:00:00+09:00</published><updated>2022-05-01T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day14</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day14/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-6. 반복문 실습문제(1)을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-01-Python-Photo/2022-05-01-Python-Photo1.jpg" alt="2022-05-01-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-01-Python-Photo/2022-05-01-Python-Photo2.jpg" alt="2022-05-01-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="8-반복문-실습문제1">8. 반복문 실습문제(1)</h1>
+
+<h2 id="1-실습문제-531">1. 실습문제 5.3.1</h2>
+
+<ul>
+  <li>구구단 출력 프로그램을 만들어보자. 프로그램 사용자로부터 출력할 단을 입력 받고, 해당 구구단을 출력하는 프로그램이다.</li>
+  <li>표준입력: <code class="language-plaintext highlighter-rouge">몇 단을 출력할까요? &gt;&gt;&gt; 5</code></li>
+  <li>표준출력
+    <ul>
+      <li>5 * 1 = 5</li>
+      <li>5 * 2 = 10</li>
+      <li>…</li>
+      <li>5 * 9 =45</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="내-풀이">[내 풀이]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 단 입력 받기
+# 입력값 * 1 ~ 9 까지 반복 곱셈
+</span>
+<span class="n">multiple</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"몇 단을 출력할까요? &gt;&gt;&gt; "</span><span class="p">))</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">multiple</span><span class="p">,</span> <span class="s">"*"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">"="</span><span class="p">,</span> <span class="n">multiple</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">11.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">3.1</span><span class="p">.</span><span class="n">py</span>
+<span class="n">몇</span> <span class="n">단을</span> <span class="n">출력할까요</span><span class="err">?</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">=</span> <span class="mi">45</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="강의-해설">[강의 해설]</h3>
+
+<ul>
+  <li>for ~ in 구문과 range를 이용해 함수를 작성해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 바뀌는 부분을 잘 살펴보자.
+# 실습문제 5.3.1
+# 구구단 출력하기
+</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"몇 단을 출력할까요? &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 확인</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">11.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">3.1</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">py</span>
+<span class="n">몇</span> <span class="n">단을</span> <span class="n">출력할까요</span><span class="err">?</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">1</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+</code></pre></div></div>
+
+<ul>
+  <li>0 ~ 9 까지가 출력된다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>Range의 시작값(=1) 을 넣어준다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습문제 5.3.1
+# 구구단 출력하기
+</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"몇 단을 출력할까요? &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 확인</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">11.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">3.1</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">py</span>
+<span class="n">몇</span> <span class="n">단을</span> <span class="n">출력할까요</span><span class="err">?</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">1</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+</code></pre></div></div>
+
+<ul>
+  <li>1 ~ 9 까지가 출력된다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>구구단 모양으로 출력해주자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습문제 5.3.1
+# 구구단 출력하기
+</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"몇 단을 출력할까요? &gt;&gt;&gt;"</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">"*"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">"="</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 확인</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">11.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">3.1</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">py</span>
+<span class="n">몇</span> <span class="n">단을</span> <span class="n">출력할까요</span><span class="err">?</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">5</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">=</span> <span class="mi">45</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="2-실습문제-532">2. 실습문제 5.3.2</h2>
+
+<ul>
+  <li>패스트게임즈에 인턴으로 근무하게 된 종현. 사수에게 과제로 게임 메뉴 만들기를 받았다. 과제 내용은 다음과 같았다.</li>
+  <li>과제
+    <ul>
+      <li>숫자 1 입력: “게임을 시작합니다” 출력</li>
+      <li>숫자 2 입력: “실시간 랭킹” 출력</li>
+      <li>숫자 3 입력: “게임을 종료합니다” 출력 후 프로그램 종료</li>
+      <li>단, 3을 입력할때까지 프로그램은 계속 실행된다. 1 ~ 3 외 다른 숫자를 입력한 경우 “다시 입력해주세요”를 출력</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="내--풀이">[내  풀이]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># while True 사용
+# if elif else 사용
+</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"[메뉴를 입력하세요]</span><span class="se">\n</span><span class="s"> 1. 게임시작 2. 랭킹보기 3. 게임종료 &gt;&gt;&gt;"</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-&gt;게임을 시작합니다"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-&gt;실시간 랭킹"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-&gt;게임을 종료합니다"</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-&gt;다시 입력해 주세요"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>파이썬 문자열 줄바꿈 ⇒ <code class="language-plaintext highlighter-rouge">\n</code> 문자 삽입</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">12</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">3.2</span><span class="p">.</span><span class="n">py</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+ <span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">1</span>
+<span class="o">-&gt;</span><span class="n">게임을</span> <span class="n">시작합니다</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+ <span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">2</span>
+<span class="o">-&gt;</span><span class="n">실시간</span> <span class="n">랭킹</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+ <span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">4</span>
+<span class="o">-&gt;</span><span class="n">다시</span> <span class="n">입력해</span> <span class="n">주세요</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+ <span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">5</span>
+<span class="o">-&gt;</span><span class="n">다시</span> <span class="n">입력해</span> <span class="n">주세요</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+ <span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">3</span>
+<span class="o">-&gt;</span><span class="n">게임을</span> <span class="n">종료합니다</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="강의-해설-1">[강의 해설]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 몇 번 반복 될 지 모를 때 = while
+# 무한 반복 =&gt; while True:
+# 반복문 탈출 =&gt; break
+# 조건문 =&gt; while 문 안에 작성
+</span>
+<span class="c1"># 실습문제 5.3.2
+# 게임 메뉴 개발하기
+</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"[메뉴를 입력하세요]"</span><span class="p">)</span>
+    <span class="n">select</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"1. 게임시작 2. 랭킹보기 3. 게임종료 &gt;&gt;&gt;"</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">select</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-&gt; 게임을 시작합니다"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">select</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-&gt; 실시간 랭킹"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">select</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-&gt; 게임을 종료합니다"</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-&gt; 다시 입력해 주세요"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">12</span><span class="o">-</span><span class="mf">2.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">3.2</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">p</span>
+<span class="n">y</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+<span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">1</span>
+<span class="o">-&gt;</span> <span class="n">게임을</span> <span class="n">시작합니다</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+<span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">2</span>
+<span class="o">-&gt;</span> <span class="n">실시간</span> <span class="n">랭킹</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+<span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">4</span>
+<span class="o">-&gt;</span> <span class="n">다시</span> <span class="n">입력해</span> <span class="n">주세요</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+<span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">5</span>
+<span class="o">-&gt;</span> <span class="n">다시</span> <span class="n">입력해</span> <span class="n">주세요</span>
+<span class="p">[</span><span class="n">메뉴를</span> <span class="n">입력하세요</span><span class="p">]</span>
+<span class="mf">1.</span> <span class="n">게임시작</span> <span class="mf">2.</span> <span class="n">랭킹보기</span> <span class="mf">3.</span> <span class="n">게임종료</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">3</span>
+<span class="o">-&gt;</span> <span class="n">게임을</span> <span class="n">종료합니다</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이번 포스팅에서는 반복문 실습문제를 풀어보았다. 다음 포스팅에서는 반복문 실습문제(2)를 풀어보도록 하자.</p>
+
+<p><br /><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 14일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 13일차</title><link href="http://localhost:4000/programming/Python-Day13/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 13일차" /><published>2022-04-30T00:00:00+09:00</published><updated>2022-04-30T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day13</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day13/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-6. 반복문 개념(2)를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-04-30-Python-Photo/2022-04-30-Python-Photo1.jpg" alt="2022-04-30-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-04-30-Python-Photo/2022-04-30-Python-Photo2.jpg" alt="2022-04-30-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="7-반복문-개념2">7. 반복문 개념(2)</h1>
+
+<h2 id="1-while-사용법">1. while 사용법</h2>
+
+<ul>
+  <li>for와의 차이점은?
+    <ul>
+      <li>for문 : 반복할 횟수가 정해져 있을 때</li>
+      <li>while문: 반복할 횟수가 정해져있지 않을 때</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>while 사용법</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 초기식
+# while 조건식:
+#     반복할 명령
+#     증감식
+</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span><span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">"번째 다짐, 나는 할 수 있다!"</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># 복합할당연산자 i + 1 = i
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">i = 0</code> : 반복문에 사용되는 변수의 값을 지정</li>
+  <li><code class="language-plaintext highlighter-rouge">while i &lt; 10:</code> : 반복에 대한 조건 체크. 이 식이 false가 될 때까지 반복.</li>
+  <li><code class="language-plaintext highlighter-rouge">증감식</code> : 반복하는 작업을 위해 변수값 증가.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-무한루프와-break">2. 무한루프와 break</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># while True:
+#    반복할 명령
+#    if 조건식:
+#        break
+</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"종료하려면 exit을 입력하세요 &gt;&gt;&gt;"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s">"exit"</span><span class="p">:</span>
+        <span class="k">break</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>조건식 대신 불리언(Boolean) 값을 불러온다.</li>
+  <li>참일 경우 break를 만나기 전까지 명령을 계속 반복한다. (가장 가까운 반복문만 빠져나오게 됨)</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-실습">3. 실습</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># while
+# : 보통 반복횟수가 정해지지 않았을 때 사용한다.
+</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># 초기식
+</span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">:</span> <span class="c1"># 조건식
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">"번째 다짐, 나는 할 수 있다!"</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># 증감식
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">10.</span><span class="n">반복문개념_while</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">5</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">6</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">7</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">8</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># while
+# : 보통 반복횟수가 정해지지 않았을 때 사용한다.
+</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 초기식
+</span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span> <span class="c1"># 조건식
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">"번째 다짐, 나는 할 수 있다!"</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span> <span class="c1"># 증감식
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>결과 출력</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">10.</span><span class="n">반복문개념_while</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">0</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">2</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">4</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">6</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+<span class="mi">8</span> <span class="n">번째</span> <span class="n">다짐</span><span class="p">,</span> <span class="n">나는</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="err">!</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 무한루프
+# : 조건식에 True를 넣어서 항상 반복되게 만든 것.
+</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"종료하려면 exit을 입력하세요 &gt;&gt;&gt;"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s">"exit"</span><span class="p">:</span>
+        <span class="k">break</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">10.</span><span class="n">반복문개념_while</span><span class="p">.</span><span class="n">py</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">exid</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">a</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">b</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">c</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">d</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">e</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="n">f</span>
+<span class="n">종료하려면</span> <span class="n">exit을</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="nb">exit</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이번 포스팅에서는 반복문 개념에 대해서 알아보았다. 다음 포스팅에서는 반복문 실습문제를 풀어보도록 하자.</p>
+
+<p><br /><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 13일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 12일차</title><link href="http://localhost:4000/programming/Python-Day12/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 12일차" /><published>2022-04-29T00:00:00+09:00</published><updated>2022-04-29T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day12</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day12/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-6. 반복문 개념(1)을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -255,6 +753,9 @@
 <span class="mi">7</span>
 <span class="mi">9</span>
 </code></pre></div></div>
+<p><br /></p>
+
+<p>이번 포스팅에서는 반복문 기초 개념에 대해서 알아보았다. 다음 포스팅에서도 이어서 반복문 개념에 대해 알아보자.</p>
 
 <p><br /><br /></p>
 
@@ -1722,220 +2223,4 @@ lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 7일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python/VScode]MacOS zsh: no matches found 에러 해결</title><link href="http://localhost:4000/programming/Python-zsh-nomatchesfound-error/" rel="alternate" type="text/html" title="[Python/VScode]MacOS zsh: no matches found 에러 해결" /><published>2022-04-24T00:00:00+09:00</published><updated>2022-04-24T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-zsh-nomatchesfound-error</id><content type="html" xml:base="http://localhost:4000/programming/Python-zsh-nomatchesfound-error/"><![CDATA[<p><br /><br /></p>
-
-<p><em>💡   zsh에서는 몇몇 특수문자를 문자열이 아닌 명령어로 인식한다.</em></p>
-
-<p><br /><br /></p>
-
-<h1 id="1-에러-상황">1. 에러 상황</h1>
-
-<p>한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online 과정을 들으며 vscode에 코드를 작성하던 중, 아래와 같이 파이썬(Python) 코드가 실행이 되지 않는 현상이 발생했다.</p>
-
-<p><br /></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter4</span><span class="o">/</span><span class="mf">02.</span><span class="n">연산</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">py</span>
-<span class="n">zsh</span><span class="p">:</span> <span class="n">no</span> <span class="n">matches</span> <span class="n">found</span><span class="p">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter4</span><span class="o">/</span><span class="mf">02.</span><span class="n">연산</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">py</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p>zsh에서 파이썬 파일 경로를 찾지 못하고 있었는데, 구글링을 해보니 zsh에서 몇몇 특수문자를 문자열이 아닌 명령어로 인식해 발생한 현상이라고 한다.</p>
-
-<p><br /><br /></p>
-
-<h1 id="2-해결-방법">2. 해결 방법</h1>
-
-<p>내 경우에는 괄호 <code class="language-plaintext highlighter-rouge">()</code> 가 명령어로 인식되어 발생한 문제라, 다음과 같이 파일명에 괄호를 제거하고 <code class="language-plaintext highlighter-rouge">-</code> 를 넣어주었더니 에러가 해결되었다.</p>
-
-<p><br /></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter4</span><span class="o">/</span><span class="mf">02.</span><span class="n">연산</span><span class="o">-</span><span class="mf">2.</span><span class="n">py</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p>참고로 zsh 에서 명령어로 예약된 특수문자는 다음과 같다. <code class="language-plaintext highlighter-rouge">zsh: no matches found</code> 에러가 발생할 경우 파일명이나 디렉토리명 등 파이썬 코드가 저장된 경로에 아래의 특수문자가 삽입되어있지 않은지 확인해보자.</p>
-
-<p><br /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>특수문자</th>
-      <th>의미</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>~</td>
-      <td>홈 디렉토리</td>
-    </tr>
-    <tr>
-      <td>`</td>
-      <td>명령 대체</td>
-    </tr>
-    <tr>
-      <td>#</td>
-      <td>Comment</td>
-    </tr>
-    <tr>
-      <td>()</td>
-      <td>하위 셸 시작 / 종료</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">|</code></td>
-      <td>파이프</td>
-    </tr>
-    <tr>
-      <td>{}</td>
-      <td>명령 블록</td>
-    </tr>
-    <tr>
-      <td>‘</td>
-      <td>강한 인용부호</td>
-    </tr>
-    <tr>
-      <td>&lt;</td>
-      <td>입력 재지정</td>
-    </tr>
-    <tr>
-      <td>/</td>
-      <td>경로명 분리</td>
-    </tr>
-    <tr>
-      <td>$</td>
-      <td>변수</td>
-    </tr>
-    <tr>
-      <td>&amp;</td>
-      <td>백그라운드 실행</td>
-    </tr>
-    <tr>
-      <td>*?</td>
-      <td>와일드카드</td>
-    </tr>
-    <tr>
-      <td>\</td>
-      <td>문자 그대로</td>
-    </tr>
-    <tr>
-      <td>[]</td>
-      <td>문자 집합</td>
-    </tr>
-    <tr>
-      <td>;</td>
-      <td>명령 분리</td>
-    </tr>
-    <tr>
-      <td>“</td>
-      <td>약한 인용부호</td>
-    </tr>
-    <tr>
-      <td>&gt;</td>
-      <td>출력 재지정</td>
-    </tr>
-    <tr>
-      <td>!</td>
-      <td>NOT</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="파이썬에러" /><category term="zsh에러" /><category term="nomatchesfound에러" /><category term="파이썬특수문지" /><category term="파이썬" /><category term="Python" /><category term="vscode에러" /><category term="Python에러" /><summary type="html"><![CDATA[zsh에서는 몇몇 특수문자를 문자열이 아닌 명령어로 인식한다.]]></summary></entry><entry><title type="html">[Kubernetes/NGINX] NGINX Ingress의 Sticky Session 설정이 되지 않는 이슈 해결</title><link href="http://localhost:4000/devops/Kubernetes-NGINX-Ingress-Sticky-Session-Issue/" rel="alternate" type="text/html" title="[Kubernetes/NGINX] NGINX Ingress의 Sticky Session 설정이 되지 않는 이슈 해결" /><published>2022-04-23T00:00:00+09:00</published><updated>2022-04-23T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-NGINX-Ingress-Sticky-Session-Issue</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-NGINX-Ingress-Sticky-Session-Issue/"><![CDATA[<p><br /><br /></p>
-
-<p><em>💡   TL;DR : NGINX Ingress Controller 사용 시 nginx.ingress.kubernetes.io 어노테이션을 사용해야 Sticky session 등의 설정값이 적용된다(일반 ingress.kubernetes.io 설정 적용시 설정 적용 안됨)</em></p>
-
-<p><br /><br /></p>
-
-<h1 id="1-에러-상황">1. 에러 상황</h1>
-
-<p>컨테이너 전환 프로젝트 진행 도중 Ingress Controller를 Contour에서 NGINX-Ingress Controller로 변경 후, 시스템에 간헐적으로 접속이 되지 않는 현상이 발생했다(구체적으로는 브라우저에서 관리자에게 문의하라는 페이지가 뜨며 접속이 되지 않다가 새로고침 시 접속이 되는 현상).</p>
-
-<p><br /><br /></p>
-
-<p>해당 시스템은 Multi Pod로 구성되어있었는데(replicas = 2), 각 Pod로그를 보니 아래와 같은 SQL 에러가 발생하고 있었다.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error querying database. Cause: com.edb.util.SQLException: FATAL: terminating connection due to administrator <span class="nb">command</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<p>로그를 추가적으로 살펴보니 user 정보를 SELECT하는 데에서 오류가 나고 있었고, 각 파드에서 로그인 아이디 정보를 찍어주는 로그에 아래와 같은 로그가 발생하고 있었다.</p>
-
-<p><br /></p>
-
-<ul>
-  <li>Pod A 로그</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2022-MM-DD_hh:mm:ss.000:loginId<span class="o">=</span>null, /파일경로,
-<span class="nv">clientTimezone</span><span class="o">=</span>Asia/Seoul
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>Pod B 로그</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2022-MM-DD_hh:mm:ss.000:loginid<span class="o">=</span>canary,/파일경로,
-<span class="nv">userId</span><span class="o">=</span>canary
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<p>로그인 아이디를 한쪽에서만 받아주고 있었는데, 브라우저에서 관리자도구(F12키로 관리자 도구 기동 ⇒ Network에서 JSESSIONID 확인) 로 확인해보니 새로고침마다 다른 Pod에서 세션을 받아오는 <code class="language-plaintext highlighter-rouge">round robin</code> 방식으로 세션 설정이 되어있어 로그인 정보가 저장되지 않은 Pod에 접근할 때 에러가 나고있었다.</p>
-
-<p><br /><br /></p>
-
-<p>쿠버네티스 대시보드의 Ingress 설정을 확인해보니, annotation 값들이 <code class="language-plaintext highlighter-rouge">nginx.ingress.kubernetes</code> (NGINX ingress controller를 적용했을 때의 설정)가 아닌 <code class="language-plaintext highlighter-rouge">ingress.kubernetes</code> , 즉 <strong>일반 쿠버네티스 ingress 객체 설정으로 되어있어 annotation 설정이 적용이 되지 않고 있었다.</strong></p>
-
-<p><br /><br /></p>
-
-<h1 id="2-해결-방법">2. 해결 방법</h1>
-
-<p>따라서 해당 설정을 아래와 같이 nginx.ingress로 변경해 <code class="language-plaintext highlighter-rouge">round robin</code> 대신  <code class="language-plaintext highlighter-rouge">sticky session</code>을 적용했다. <code class="language-plaintext highlighter-rouge">sticky sesison</code> 적용 후 사용자 로그인 정보가 저장된 Pod로만 요청이 라우팅되어 에러가 해결되었다.</p>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>nginx-ingress.yaml 설정</li>
-</ul>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">netwroking.k8s.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">Ingress</span>
-<span class="na">metadata</span><span class="pi">:</span>
- <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-ingress</span>
- <span class="na">namespace</span><span class="pi">:</span> <span class="s">web-app</span>
- <span class="na">annotations</span><span class="pi">:</span>
-  <span class="na">kubernetes.io/ingress.class</span><span class="pi">:</span> <span class="s">nginx</span>
-  <span class="na">nginx.ingress.kuberentes.io/affinity</span><span class="pi">:</span> <span class="s">cookie</span>
-  <span class="na">nginx.ingress.kuberentes.io/affinity-mode</span><span class="pi">:</span> <span class="s">persistent</span>
-  <span class="na">nginx.ingress.kuberentes.io/session-cookie-expires</span><span class="pi">:</span> <span class="s1">'</span><span class="s">172800'</span>
-  <span class="na">nginx.ingress.kuberentes.io/session--cookie-max-age</span><span class="pi">:</span> <span class="s1">'</span><span class="s">172800'</span>
-
-<span class="s">(이하 생략)</span>
-
-</code></pre></div></div>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">kubernetes.io/ingress.class: nginx</code> : 어떤 인그레스를 쓸 것인지 설정</li>
-  <li><code class="language-plaintext highlighter-rouge">nginx.ingress.kuberentes.io/affinity-mode: cookie</code> : 세션 어피니티(session affinity = sticky session) 설정 활성화. 현재 NGINX에서 사용 가능한 어피니티 타입은 <code class="language-plaintext highlighter-rouge">cookie</code> 하나 뿐이다.</li>
-  <li><code class="language-plaintext highlighter-rouge">nginx.ingress.kuberentes.io/affinity-mode: persistent</code> : 얼마나 sticky 하게 설정할 것인지 설정. <code class="language-plaintext highlighter-rouge">balanced</code> (기본값) 과 <code class="language-plaintext highlighter-rouge">persistent</code> 두 가지가 있다. Persistent로 설정할 경우 Pod가 확장되어도 서버간 부하를 분산하지 않는다.</li>
-  <li><code class="language-plaintext highlighter-rouge">nginx.ingress.kuberentes.io/session-cookie-expires: '172800'</code> : 쿠키 만료시까지의 시간(초 단위)</li>
-  <li><code class="language-plaintext highlighter-rouge">nginx.ingress.kuberentes.io/session--cookie-max-age: '172800'</code> : 오래된 브라우저와 호환되는 이전 버전의 Annotation 값. <code class="language-plaintext highlighter-rouge">Expires</code> 쿠키를 생성함.</li>
-</ul>
-
-<p><br /><br /></p>
-
-<ul>
-  <li>참고
-    <ul>
-      <li>NGINX Configuration (<a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/">https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/</a>)</li>
-      <li>NGINX Examples Sticky Sessions (<a href="https://kubernetes.github.io/ingress-nginx/examples/affinity/cookie/">https://kubernetes.github.io/ingress-nginx/examples/affinity/cookie/</a>)</li>
-    </ul>
-  </li>
-</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="NGINX" /><category term="kubernetes" /><category term="NGINXingresscontroller" /><category term="nginxstickysession" /><category term="stickysession설정" /><category term="스티키세션설정" /><category term="데브옵스엔지니어" /><category term="DevOps" /><summary type="html"><![CDATA[NGINX Ingress Controller 사용 시 nginx.ingress.kubernetes.io 어노테이션을 사용해야 Sticky session 등의 설정값이 적용된다]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 7일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
