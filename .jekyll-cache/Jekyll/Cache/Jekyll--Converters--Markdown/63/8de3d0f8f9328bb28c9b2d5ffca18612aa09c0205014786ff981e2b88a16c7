@@ -1,4 +1,4 @@
-I"c<p><br /><br /></p>
+I"�<p><br /><br /></p>
 
 <h1 id="1-리눅스linux-시간을-한국-표준시kst로-변경">1. 리눅스(Linux) 시간을 한국 표준시(KST)로 변경</h1>
 
@@ -41,40 +41,48 @@
 </code></pre></div>    </div>
     <p><br /></p>
   </li>
-  <li>현재 Timezone 을 확인한다.</li>
-</ol>
+  <li>
+    <p>현재 Timezone 을 확인한다.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
-lrwxrwxrwx 1 root root 39 Apr 13 06:29 /etc/localtime -&gt; /usr/share/zoneinfo/America/Los_Angeles
-</code></pre></div></div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
+ lrwxrwxrwx 1 root root 39 Apr 13 06:29 /etc/localtime -&gt; /usr/share/zoneinfo/America/Los_Angeles
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <p><br /></p>
 
 <ol>
-  <li>Timezone을 한국표준시(KST)로 변경해준다.</li>
-</ol>
+  <li>
+    <p>Timezone을 한국표준시(KST)로 변경해준다.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-<span class="o">[</span><span class="nb">sudo</span><span class="o">]</span> password <span class="k">for </span>canary: 
-</code></pre></div></div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+ <span class="o">[</span><span class="nb">sudo</span><span class="o">]</span> password <span class="k">for </span>canary: 
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <p><br /></p>
 
 <ol>
-  <li>변경된 Timezone 을 확인한다.</li>
-</ol>
+  <li>
+    <p>변경된 Timezone 을 확인한다.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
-lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/Asia/Seoul
-</code></pre></div></div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
+ lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/Asia/Seoul
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <p><br /></p>
 
 <ol>
-  <li><code class="language-plaintext highlighter-rouge">date</code>로 현재 시간이 제대로 설정되었는지 확인한다.</li>
-</ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">date</code>로 현재 시간이 제대로 설정되었는지 확인한다.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">date
-</span>Mon 18 Apr 2022 08:56:34 PM KST
-</code></pre></div></div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">date
+ </span>Mon 18 Apr 2022 08:56:34 PM KST
+</code></pre></div>    </div>
+  </li>
+</ol>
 :ET

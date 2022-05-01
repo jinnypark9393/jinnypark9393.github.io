@@ -1,4 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-01T10:15:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 14일차</title><link href="http://localhost:4000/programming/Python-Day14/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 14일차" /><published>2022-05-01T00:00:00+09:00</published><updated>2022-05-01T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day14</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day14/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-01T10:44:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Github Pages/Blog]포스팅 게시 안됨 이슈 해결</title><link href="http://localhost:4000/github%20blog/Github-Blog-cannot-upload-a-post/" rel="alternate" type="text/html" title="[Github Pages/Blog]포스팅 게시 안됨 이슈 해결" /><published>2022-05-01T00:00:00+09:00</published><updated>2022-05-01T00:00:00+09:00</updated><id>http://localhost:4000/github%20blog/Github-Blog-cannot-upload-a-post</id><content type="html" xml:base="http://localhost:4000/github%20blog/Github-Blog-cannot-upload-a-post/"><![CDATA[<p><br /><br /></p>
+
+<h1 id="1github-pagesblog포스팅-게시-안됨-이슈-해결">1.[Github Pages/Blog]포스팅 게시 안됨 이슈 해결</h1>
+
+<p><br /></p>
+
+<p><em>💡  Github Pages에 포스팅이 게시가 안될 경우, 올바른 포스팅 파일 이름규칙, future=true, published=true 옵션을 적용해보자.</em></p>
+
+<p><br /><br /></p>
+
+<h2 id="1-에러-상황">1. 에러 상황</h2>
+
+<p>패스트캠퍼스 챌린지 Day3 포스팅을 작성한 뒤, 깃헙 블로그 레파지토리에 push 를 했음에도 불구하고 github 블로그에 해당 페이지가 올라오지 않는 이슈가 있었다.</p>
+
+<p><br /></p>
+
+<p>원래 Github에 코드를 push한 뒤, 실제 페이지에 반영되기까지 빠르면 1~2분, 길게는 30분까지도 걸린다고는 하지만 내 포스팅은 1시간이 넘도록 올라오지 않았다.</p>
+
+<p><br /></p>
+
+<p>참고로 내 환경은 다음과 같다.</p>
+
+<ul>
+  <li>MacOS Monterey 12.3.1</li>
+  <li>VMware Fusion 12.1.2</li>
+  <li>Ubuntu 20.04</li>
+  <li>Git 2.25.1</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-해결-방법">2. 해결 방법</h2>
+
+<p>‘깃허브 블로그 포스팅 안됨 에러’ 키워드로 구글링 하다가 세 가지 방법을 시도해봤는데, 나에게는 그 중 마지막 방법인 <code class="language-plaintext highlighter-rouge">published: true</code> 설정이 유효했다.</p>
+
+<p><br /></p>
+
+<h3 id="1-포스팅의-naming-convention-지키기">1. 포스팅의 Naming Convention 지키기</h3>
+
+<p>Github Pages의 경우, 포스트의 네이밍 컨벤션이 <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-포스팅-제목.md</code> 로 정해져있고, 이를 어길 시에는 포스팅이 제대로 올라가지 않는다.</p>
+
+<p><br /></p>
+
+<p>참고로 이 파일명을 가지고 Jekyll에서 페이지를 생성하게 되면, <code class="language-plaintext highlighter-rouge">http://username.github.io/YYYY/MM/DD/category/포스팅-제목</code> 형태로 url이 생성된다.</p>
+
+<p><br /></p>
+
+<p>따라서 아래 두 가지를 반드시 유의해야한다.</p>
+
+<ul>
+  <li>포스팅 제목 맨 앞에 YYYY-MM-DD 형태로 날짜를 입력했는가</li>
+  <li>포스팅 파일명은 해당 깃허브 저장소의 <code class="language-plaintext highlighter-rouge">_posts</code> 디렉토리 내에서 반드시 유일해야한다.</li>
+</ul>
+
+<p><br /></p>
+
+<p>나는 이 내용을 몰랐지만 post 폴더 내의 파일을 관리할 때 우연히 YYYY-MM-DD 형태로 파일 이름을 설정했던 터라 다행히도(?) 이 부분은 수정할 필요가 없었다.</p>
+
+<p><br /><br /></p>
+
+<h3 id="2-_configyaml-파일에-future-true-추가-유효-x">2. <code class="language-plaintext highlighter-rouge">_config.yaml</code> 파일에 <code class="language-plaintext highlighter-rouge">future: true</code> 추가 (유효 X)</h3>
+
+<p>구글링을 해보니 <code class="language-plaintext highlighter-rouge">config.yaml</code> 파일에 <code class="language-plaintext highlighter-rouge">future: true</code> 를 추가해보라는 글이 있어서 추가해보았으나 나에게는 효과가 없었다.</p>
+
+<p><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">future: true</code> 옵션은 현재 시스템 시간보다 더 뒤의 일자로 포스팅 발행일을 선택했을 때 (예를 들어 시스템 시간은 2022년 4월 28일이나 포스팅 발행일을 2022년 4월 29일로 입력) 포스팅이 올라가도록 허용해주는 옵션이다.</p>
+
+<p><br /></p>
+
+<p>예상컨대 나와 같이 가상머신 환경에서 가상머신의 Timezone이 한국보다 늦은 경우, 시차때문에 일자에 오류가 생길 경우에는 유효할 듯 하지만, 나는 이미 가상머신과 실제 Timezone을 맞춰놨기 때문에 그러한 오류는 발생하지 않았다.</p>
+
+<p><br /><br /></p>
+
+<h3 id="3-포스팅-내에-published-true-옵션-추가-유효">3. 포스팅 내에 <code class="language-plaintext highlighter-rouge">published: true</code> 옵션 추가 (유효)</h3>
+
+<p>마지막으로 내가 작성한 포스팅의 정보란에 <code class="language-plaintext highlighter-rouge">published: true</code> 로 설정해 발행 여부를 명시할 수 있는데, 나의 경우에는 이 옵션이 유효했다.</p>
+
+<p><br /></p>
+
+<p>아래는 내가 <a href="https://github.com/jinnypark9393/jinnypark9393.github.io/blob/main/_posts/2022-04-20-Python-%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4-%EC%BA%90%EC%8B%9C%EB%B0%B1-%EC%B1%8C%EB%A6%B0%EC%A7%80-3%EC%9D%BC%EC%B0%A8.md">수정했던 마크다운 파일</a> 일부를 발췌한 것이다.</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">published</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">title</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">[Python]패스트캠퍼스</span><span class="nv"> </span><span class="s">캐시백</span><span class="nv"> </span><span class="s">챌린지</span><span class="nv"> </span><span class="s">3일차"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">패스트캠퍼스</span><span class="nv"> </span><span class="s">캐시백</span><span class="nv"> </span><span class="s">챌린지</span><span class="nv"> </span><span class="s">3일차:</span><span class="nv"> </span><span class="s">한</span><span class="nv"> </span><span class="s">번에</span><span class="nv"> </span><span class="s">끝내는</span><span class="nv"> </span><span class="s">파이썬</span><span class="nv"> </span><span class="s">웹개발</span><span class="nv"> </span><span class="s">초격차</span><span class="nv"> </span><span class="s">패키지</span><span class="nv"> </span><span class="s">Online"</span>
+
+<span class="na">categories</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">Programming</span>
+<span class="na">tags</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="pi">[</span><span class="nv">패스트캠퍼스</span><span class="pi">,</span> <span class="nv">패캠챌린지</span><span class="pi">,</span> <span class="nv">직장인인강</span><span class="pi">,</span> <span class="nv">직장인자기계발</span><span class="pi">,</span> <span class="nv">패스트캠퍼스후기</span><span class="pi">,</span> <span class="nv">캐시백챌린지</span><span class="pi">,</span> <span class="nv">캐시백</span><span class="pi">,</span> <span class="nv">환급챌린지</span><span class="pi">,</span> <span class="nv">한번에끝내는파이썬웹개발초격차패키지Online</span><span class="pi">]</span>
+
+<span class="na">toc</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">toc_sticky</span><span class="pi">:</span> <span class="no">true</span>
+ 
+<span class="na">date</span><span class="pi">:</span> <span class="s">2022-04-20</span>
+<span class="na">last_modified_at</span><span class="pi">:</span> <span class="s">2022-04-20</span>
+<span class="nn">---</span>
+
+(이하 포스팅 내용)
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이후에는 같은 문제가 발생할까 걱정되어 미리 <code class="language-plaintext highlighter-rouge">published: true</code> 옵션을 기본으로 넣은 채로 포스팅 문서를 작성하고 있는데, 이 이후에는 같은 문제가 발생하지 않았다.</p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Github Blog" /><category term="GithubBlog" /><category term="GithubPages" /><category term="깃허브블로그" /><category term="깃헙블로그" /><category term="깃허브블로그에러" /><category term="깃허브블로그포스팅에러" /><category term="깃허브블로그포스팅안됨" /><category term="개발자블로그" /><category term="엔지니어블로그" /><summary type="html"><![CDATA[Github Pages에 포스팅이 게시가 안될 경우, 올바른 포스팅 파일 이름규칙, future=true, published=true 옵션을 적용해보자]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 14일차</title><link href="http://localhost:4000/programming/Python-Day14/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 14일차" /><published>2022-05-01T00:00:00+09:00</published><updated>2022-05-01T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day14</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day14/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-6. 반복문 실습문제(1)을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -1312,42 +1416,50 @@
 </code></pre></div>    </div>
     <p><br /></p>
   </li>
-  <li>현재 Timezone 을 확인한다.</li>
-</ol>
+  <li>
+    <p>현재 Timezone 을 확인한다.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
-lrwxrwxrwx 1 root root 39 Apr 13 06:29 /etc/localtime -&gt; /usr/share/zoneinfo/America/Los_Angeles
-</code></pre></div></div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
+ lrwxrwxrwx 1 root root 39 Apr 13 06:29 /etc/localtime -&gt; /usr/share/zoneinfo/America/Los_Angeles
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <p><br /></p>
 
 <ol>
-  <li>Timezone을 한국표준시(KST)로 변경해준다.</li>
-</ol>
+  <li>
+    <p>Timezone을 한국표준시(KST)로 변경해준다.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-<span class="o">[</span><span class="nb">sudo</span><span class="o">]</span> password <span class="k">for </span>canary: 
-</code></pre></div></div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+ <span class="o">[</span><span class="nb">sudo</span><span class="o">]</span> password <span class="k">for </span>canary: 
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <p><br /></p>
 
 <ol>
-  <li>변경된 Timezone 을 확인한다.</li>
-</ol>
+  <li>
+    <p>변경된 Timezone 을 확인한다.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
-lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/Asia/Seoul
-</code></pre></div></div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
+ lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/Asia/Seoul
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <p><br /></p>
 
 <ol>
-  <li><code class="language-plaintext highlighter-rouge">date</code>로 현재 시간이 제대로 설정되었는지 확인한다.</li>
-</ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">date</code>로 현재 시간이 제대로 설정되었는지 확인한다.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">date
-</span>Mon 18 Apr 2022 08:56:34 PM KST
-</code></pre></div></div>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="linux설정" /><category term="linux" /><category term="Ubuntu" /><category term="Ubuntu설정" /><category term="우분투시간변경" /><category term="리눅스시간변경" /><category term="데브옵스엔지니어" /><category term="DevOps" /><summary type="html"><![CDATA[리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 10일차</title><link href="http://localhost:4000/programming/Python-Day10/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 10일차" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day10</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day10/"><![CDATA[<p><br /><br /></p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">date
+ </span>Mon 18 Apr 2022 08:56:34 PM KST
+</code></pre></div>    </div>
+  </li>
+</ol>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="linux설정" /><category term="linux" /><category term="Ubuntu" /><category term="Ubuntu설정" /><category term="우분투시간변경" /><category term="리눅스시간변경" /><category term="데브옵스엔지니어" /><category term="DevOps" /><summary type="html"><![CDATA[리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 10일차</title><link href="http://localhost:4000/programming/Python-Day10/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 10일차" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day10</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day10/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-4. 리스트 자료형 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -2003,221 +2115,4 @@ lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/
   <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
 </ul>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 8일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 7일차</title><link href="http://localhost:4000/programming/Python-Day7/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 7일차" /><published>2022-04-24T00:00:00+09:00</published><updated>2022-04-24T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day7</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day7/"><![CDATA[<p><br /><br /></p>
-
-<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-1. 조건문 개념 강의를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
-
-<p><br /><br /></p>
-
-<p>아래는 공부 인증 사진.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-04-24-Python-Photo/2022-04-24-Python-Photo1.jpg" alt="2022-04-24-Python-Photo1" /></p>
-
-<p><img src="/assets/images/2022-04-24-Python-Photo/2022-04-24-Python-Photo2.jpg" alt="2022-04-24-Python-Photo2" /></p>
-
-<p><br /><br /></p>
-
-<h1 id="ch05-제어문">Ch05. 제어문</h1>
-
-<h1 id="1-조건문-개념">1. 조건문 개념</h1>
-
-<h2 id="1-제어문-사용-이유">1. 제어문 사용 이유</h2>
-
-<ul>
-  <li>프로그램은 기본적으로 <strong>위에서 아래</strong>로 순차적으로 실행</li>
-  <li>명령 A,B 중 한 개를 선택해 실행하고 싶거나 - <strong>조건문</strong></li>
-  <li>명령들을 반복해 실행하고 싶을 때 - <strong>반복문</strong></li>
-  <li>제어문 = 조건문 + 반복문</li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>예시1: 치킨 or 피자? - 조건문</li>
-  <li>예시2: 유투브 영상보기 - 반복문</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="2-조건문의-개념">2. 조건문의 개념</h2>
-
-<ul>
-  <li>예시: 술집이나 클럽에 입장할 때 입장 가능 여부를 출력하는 조건문</li>
-</ul>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-04-24-Python-Photo/2022-04-24-Python-Photo3.png" alt="2022-04-24-Python-Photo3.png" /></p>
-
-<p><br /></p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">start</code>: 시작</li>
-  <li><code class="language-plaintext highlighter-rouge">age</code> = 20: age에 20이라는 값을 저장</li>
-  <li><code class="language-plaintext highlighter-rouge">age &gt; 19</code>: 조건문</li>
-  <li><code class="language-plaintext highlighter-rouge">입장 가능</code>: age가 19보다 클 경우</li>
-  <li><code class="language-plaintext highlighter-rouge">입장 불가능</code>: age가 19보다 크지 않을 경우</li>
-  <li><code class="language-plaintext highlighter-rouge">end</code></li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>이 개념을 파이썬에 적용하면? <strong>if문</strong></li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="3-if-문-사용법">3. if 문 사용법</h2>
-
-<ul>
-  <li><strong>기존</strong> 비밀번호 = “1234”</li>
-  <li><strong>입력한</strong> 비밀번호 = “1234”</li>
-  <li>
-    <p><strong>만약</strong> 비밀번호를 정확히 입력했으면</p>
-
-    <p>⇒ <strong>로그인 성공</strong></p>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>[파이썬 코드]</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">origin_pass</span> <span class="o">=</span> <span class="s">"1234"</span>
-<span class="n">input_pass</span> <span class="o">=</span> <span class="s">"1234"</span>
-<span class="k">if</span> <span class="n">origin_pass</span> <span class="o">==</span> <span class="n">input_pass</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"로그인 성공"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">origin_pass = input_pass</code> : 비교연산자</li>
-  <li><code class="language-plaintext highlighter-rouge">:</code> : if의 명령블록이 실행된다는 뜻</li>
-  <li><code class="language-plaintext highlighter-rouge">print(”로그인 성공")</code> : if문의 명령블록임을 나타내기 위해 들여쓰기.</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="4-실습">4. 실습</h2>
-
-<h3 id="1-if와-else">1. if와 else</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 조건문
-# : 조건에 따라 실행할 명령이 달라 지는 것
-</span>
-<span class="n">origin_pass</span> <span class="o">=</span> <span class="s">"1234"</span>
-<span class="n">input_pass</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"패스워드를 입력하세요 &gt;&gt;&gt;"</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">input_pass</span> <span class="o">==</span> <span class="n">origin_pass</span><span class="p">:</span> <span class="c1"># 조건 A
-</span>    <span class="c1"># 조건 A가 참
-</span>    <span class="k">print</span><span class="p">(</span><span class="s">"로그인 성공!"</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"반갑습니다."</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="c1"># 조건 A가 거짓
-</span>    <span class="k">print</span><span class="p">(</span><span class="s">"로그인 실패!"</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"비밀번호를 확인하세요."</span><span class="p">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">else:</code> 조건 A가 거짓일 때 하위 명령블록 실행</li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># input_pass == 1234
-# 조건 A가 참
-</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">01.</span><span class="n">조건문개념</span><span class="p">.</span><span class="n">py</span>
-<span class="n">패스워드를</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">1234</span>
-<span class="n">로그인</span> <span class="n">성공</span><span class="err">!</span>
-<span class="n">반갑습니다</span><span class="p">.</span>
-
-<span class="c1"># input_pass == 123
-# 조건 A가 거짓
-</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">01.</span><span class="n">조건문개념</span><span class="p">.</span><span class="n">py</span>
-<span class="n">패스워드를</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">123</span>
-<span class="n">로그인</span> <span class="n">실패</span><span class="err">!</span>
-<span class="n">비밀번호를</span> <span class="n">확인하세요</span><span class="p">.</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<h3 id="3-else-if">3. else if</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">origin_pass</span> <span class="o">=</span> <span class="s">"1234"</span>
-<span class="n">input_pass</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"패스워드를 입력하세요 &gt;&gt;&gt;"</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">input_pass</span> <span class="o">==</span> <span class="n">origin_pass</span><span class="p">:</span> <span class="c1"># 조건 A
-</span>    <span class="c1"># 조건 A가 참
-</span>    <span class="k">print</span><span class="p">(</span><span class="s">"로그인 성공!"</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"반갑습니다."</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">input_pass</span> <span class="o">==</span> <span class="s">""</span><span class="p">:</span>
-    <span class="c1"># 조건 A 거짓, 조건 B 참
-</span>    <span class="k">print</span><span class="p">(</span><span class="s">"아무것도 입력하지 않았습니다."</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="c1"># 조건 A가 거짓, 조건 B 거짓
-</span>    <span class="k">print</span><span class="p">(</span><span class="s">"로그인 실패!"</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"비밀번호를 확인하세요."</span><span class="p">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li>elif = if 외의 조건을 새로 추가하고 싶을 때 사용</li>
-  <li>elif는 if 바로 뒤에 입력해야한다.</li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 조건 A가 참
-</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">01.</span><span class="n">조건문개념</span><span class="p">.</span><span class="n">py</span>
-<span class="n">패스워드를</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">1234</span>
-<span class="n">로그인</span> <span class="n">성공</span><span class="err">!</span>
-<span class="n">반갑습니다</span><span class="p">.</span>
-
-<span class="c1"># 조건 A 거짓, 조건 B 참
-</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">01.</span><span class="n">조건문개념</span><span class="p">.</span><span class="n">py</span>
-<span class="n">패스워드를</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span>
-<span class="n">아무것도</span> <span class="n">입력하지</span> <span class="n">않았습니다</span><span class="p">.</span>
-
-<span class="c1"># 조건 A가 거짓, 조건 B 거짓
-</span><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">01.</span><span class="n">조건문개념</span><span class="p">.</span><span class="n">py</span>
-<span class="n">패스워드를</span> <span class="n">입력하세요</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">123</span>
-<span class="n">로그인</span> <span class="n">실패</span><span class="err">!</span>
-<span class="n">비밀번호를</span> <span class="n">확인하세요</span><span class="p">.</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<p>오늘 강의에서는 조건문 if의 개념과 간단한 사용법을 알아보았다. 다음 시간부터는 조건문 실습문제를 풀어보도록 하자.</p>
-
-<p><br /><br /></p>
-
-<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
-
-<p><br /></p>
-
-<ul>
-  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 7일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 8일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
