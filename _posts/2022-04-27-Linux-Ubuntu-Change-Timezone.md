@@ -50,42 +50,42 @@ last_modified_at: 2022-04-27
 1. `date` 명령어를 사용해 현재 시간을 확인한다.
     - 나의 경우에는 PDT(태평양 표준시: Pacific Daylight Time)로 설정되어있었다.
 
-```bash
-canary@ubuntu:~/myblog/jinnypark9393.github.io$ date
-Mon 18 Apr 2022 04:54:58 AM PDT
-```
+    ```bash
+    canary@ubuntu:~/myblog/jinnypark9393.github.io$ date
+    Mon 18 Apr 2022 04:54:58 AM PDT
+    ```
 <br/>
 
 2. 현재 Timezone 을 확인한다.
 
-```bash
-canary@ubuntu:~/myblog/jinnypark9393.github.io$ ls -al /etc/localtime
-lrwxrwxrwx 1 root root 39 Apr 13 06:29 /etc/localtime -> /usr/share/zoneinfo/America/Los_Angeles
-```
+    ```bash
+    canary@ubuntu:~/myblog/jinnypark9393.github.io$ ls -al /etc/localtime
+    lrwxrwxrwx 1 root root 39 Apr 13 06:29 /etc/localtime -> /usr/share/zoneinfo/America/Los_Angeles
+    ```
 
 <br/>
 
 3. Timezone을 한국표준시(KST)로 변경해준다.
 
-```bash
-canary@ubuntu:~/myblog/jinnypark9393.github.io$ sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-[sudo] password for canary: 
-```
+    ```bash
+    canary@ubuntu:~/myblog/jinnypark9393.github.io$ sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+    [sudo] password for canary: 
+    ```
 
 <br/>
 
 4. 변경된 Timezone 을 확인한다.
 
-```bash
-canary@ubuntu:~/myblog/jinnypark9393.github.io$ ls -al /etc/localtime
-lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -> /usr/share/zoneinfo/Asia/Seoul
-```
+    ```bash
+    canary@ubuntu:~/myblog/jinnypark9393.github.io$ ls -al /etc/localtime
+    lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -> /usr/share/zoneinfo/Asia/Seoul
+    ```
 
 <br/>
 
 5. `date`로 현재 시간이 제대로 설정되었는지 확인한다.
 
-```bash
-canary@ubuntu:~/myblog/jinnypark9393.github.io$ date
-Mon 18 Apr 2022 08:56:34 PM KST
-```
+    ```bash
+    canary@ubuntu:~/myblog/jinnypark9393.github.io$ date
+    Mon 18 Apr 2022 08:56:34 PM KST
+    ```
