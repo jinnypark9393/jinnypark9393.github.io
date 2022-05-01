@@ -1,0 +1,821 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Kubernetes]쿠버네티스 네트워킹(1)스위칭 &amp; 라우팅 - release: canary</title>
+<meta name="description" content="쿠버네티스 네트워킹을 알아보기에 앞서 리눅스 머신에서의 스위칭 &amp; 라우팅에 대해 알아보자.">
+
+
+  <meta name="author" content="Canary">
+  
+  <meta property="article:author" content="Canary">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="release: canary">
+<meta property="og:title" content="[Kubernetes]쿠버네티스 네트워킹(1)스위칭 &amp; 라우팅">
+<meta property="og:url" content="http://localhost:4000/devops/Kubernetes-Networking-Swtiching-Routing/">
+
+
+  <meta property="og:description" content="쿠버네티스 네트워킹을 알아보기에 앞서 리눅스 머신에서의 스위칭 &amp; 라우팅에 대해 알아보자.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-05-01T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-05-01T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/devops/Kubernetes-Networking-Swtiching-Routing/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Canary",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="release: canary Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
+<link rel="mask-icon" href="/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.jpeg" alt="release: canary"></a>
+        
+        <a class="site-title" href="/">
+          release: canary
+          <span class="site-subtitle">Created Apr 13, 2022</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/logo.jpeg" alt="Canary" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Canary</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:jinnypark9393@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/jinnypark9393" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/alc_canary_genie" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:jinnypark9393@gmail.com">
+            <meta itemprop="email" content="jinnypark9393@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Kubernetes]쿠버네티스 네트워킹(1)스위칭 &amp; 라우팅">
+    <meta itemprop="description" content="쿠버네티스 네트워킹을 알아보기에 앞서 리눅스 머신에서의 스위칭 &amp; 라우팅에 대해 알아보자.">
+    <meta itemprop="datePublished" content="2022-05-01T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-05-01T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Kubernetes]쿠버네티스 네트워킹(1)스위칭 &amp; 라우팅
+</h1>
+          
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-05-01T00:00:00+09:00">May 01, 2022</time></p>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-01T00:00:00+09:00">May 1, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#1-스위칭">1. 스위칭</a></li><li><a href="#2-라우팅">2. 라우팅</a><ul><li><a href="#1-다른-네트워크에-존재하는-머신과-통신">1. 다른 네트워크에 존재하는 머신과 통신</a></li><li><a href="#2-인터넷과의-통신">2. 인터넷과의 통신</a></li><li><a href="#3-라우팅-테이블에-존재하지-않는-ip와의-통신">3. 라우팅 테이블에 존재하지 않는 IP와의 통신</a></li><li><a href="#3-리눅스-머신을-라우터로-사용">3. 리눅스 머신을 라우터로 사용</a></li></ul></li><li><a href="#3-유용한-리눅스-명령어들">3. 유용한 리눅스 명령어들</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p><br /><br /></p>
+
+<p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 리눅스 머신에서의 스위칭 &amp; 라우팅에 대해 알아보자.</em></p>
+
+<p><br /></p>
+
+<h1 id="1-스위칭">1. 스위칭</h1>
+
+<p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing1.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing1" /></p>
+
+<ul>
+  <li>컴퓨터 A와 B가 통신하기 위해서는 각 컴퓨터(호스트)에 물리, 혹은 가상 인터페이스가 필요하다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>각 리눅스 머신(=컴퓨터), 스위치에  IP 주소를 할당하자.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 스위치에 ip 주소 할당</span>
+  ip addr add 192.168.1.0/24
+    
+  <span class="c"># 컴퓨터 A</span>
+  ip addr add 192.168.1.10/24 dev eth0
+    
+  <span class="c"># 컴퓨터 B</span>
+  ip addr add 192.168.1.11/24 dev eth0
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>A, B는 같은 네트워크 안에 있으므로, 스위치를 통해 서로 통신할 수 있다.
+    <ul>
+      <li>컴퓨터 A(192.168.1.10)에서 컴퓨터 B(192.168.1.11)로 통신 가능</li>
+      <li>컴퓨터 B(192.168.1.11)에서 컴퓨터 A(192.168.1.10)로 통신 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h1 id="2-라우팅">2. 라우팅</h1>
+
+<h2 id="1-다른-네트워크에-존재하는-머신과-통신">1. 다른 네트워크에 존재하는 머신과 통신</h2>
+
+<ul>
+  <li>
+    <p>컴퓨터 A &amp; B와 다른 네트워크에 컴퓨터 C &amp; D 가 존재할 때, 컴퓨터 A, B에서 어떻게 시스템 C, D로 도달하게 될까?</p>
+
+    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing2.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing2" /></p>
+
+    <p>⇒ <strong>라우터</strong>가 필요!</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>라우터(Router): 다른 네트워크를 연결하는 장치</p>
+
+    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing3.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing3" /></p>
+
+    <ul>
+      <li>라우터가 각 네트워크와 연결 될 수 있도록 아래의 IP를 할당
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">192.168.1.1</code> (A, B와 같은 네트워크)</li>
+          <li><code class="language-plaintext highlighter-rouge">192.168.2.1</code> (C, D와 같은 네트워크)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>A, B와 C,D가 통신 할 수 있도록 각 컴퓨터에 게이트웨이(Gateway)를 설정</p>
+
+    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing4.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing4" /></p>
+
+    <ul>
+      <li>각 컴퓨터(A, B, C, D)에서 <code class="language-plaintext highlighter-rouge">route</code> 커맨드를 실행해 게이트웨이를 설정</li>
+      <li>
+        <p>예시</p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># A, B의 설정</span>
+  <span class="c"># 192.168.2.0 번대 네트워크로 가는 요청은 192.168.1.1 으로 보낸다.</span>
+  ip route add 192.168.2.0/24 via 192.168.1.1
+        
+  <span class="c"># C, D의 설정</span>
+  <span class="c"># 192.168.1.0 번대 네트워크로 가는 요청은 192.168.2.1 으로 보낸다.</span>
+  ip route add 192.168.1.0/24 via 192.168.2.1
+</code></pre></div>        </div>
+      </li>
+      <li>설정 완료 후, route 커맨드로 설정 내역을 확인할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="2-인터넷과의-통신">2. 인터넷과의 통신</h2>
+
+<ul>
+  <li>
+    <p>시스템을 인터넷(172.217.194.0/24)에 연결하려면?</p>
+
+    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing5.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing5" /></p>
+
+    <ul>
+      <li>A,B - C,D 네트워크를 연결했을 경우와 마찬가지로 Gateway를 통해 목적지에 연결하는 루트 추가</li>
+      <li>A, B 설정: <code class="language-plaintext highlighter-rouge">ip route add 172.217.194.0/24 via 192.168.1.1</code></li>
+      <li>C, D 설정: <code class="language-plaintext highlighter-rouge">ip route add 172.217.194.0/24 via 192.168.2.1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="3-라우팅-테이블에-존재하지-않는-ip와의-통신">3. 라우팅 테이블에 존재하지 않는 IP와의 통신</h2>
+
+<ul>
+  <li>
+    <p>컴퓨터의 라우팅 테이블에 등록되지 않아 경로를 알 수 없는 IP와의 통신을 할 경우에는 어떻게 설정?</p>
+
+    <p>⇒ <strong>디폴트 게이트웨이(Default Gateway)</strong></p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>설정 방법은 아래 둘 중 하나
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ip route add default via 192.168.2.1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip route add 0.0.0.0 via 192.168.2.1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="3-리눅스-머신을-라우터로-사용">3. 리눅스 머신을 라우터로 사용</h2>
+
+<ul>
+  <li>라우터, 스위치 대신 리눅스 머신을 네트워크 장비처럼 사용할 수 있다.</li>
+  <li>라우터 설정과 동일하게 라우터가 되는 리눅스 머신에서 IP 설정</li>
+  <li>머신 A, B 에서 각각 Gateway IP 설정</li>
+</ul>
+
+<p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing6.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing6" /></p>
+
+<ul>
+  <li>A와 B가 통신이 가능할까?
+    <ul>
+      <li>불가능하다.</li>
+      <li>리눅스에서는 기본적으로 패킷을 한 인터페이스에서 다른 인터페이스로 전달하지 않으므로, <strong>명시적으로 정의</strong>해야하기 때문.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>라우터 역할을 하는 머신에서 설정값을 확인해보자: <code class="language-plaintext highlighter-rouge">cat /proc/sys/net/ipv4/ip_forward</code>
+    <ul>
+      <li>기본 설정값은 <code class="language-plaintext highlighter-rouge">0(포워딩하지 않음)</code></li>
+      <li>포워딩을 허용하는 설정값은 <code class="language-plaintext highlighter-rouge">1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>네트워크 패킷을 전달하도록 수정:  <code class="language-plaintext highlighter-rouge">echo 1 &gt; /proc/sys/net/ipv4/ip_forward</code>
+    <ul>
+      <li>위의 설정은 <strong>재부팅시 초기화</strong>된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>재부팅 이후에도 설정값을 유지하도록 하려면 <code class="language-plaintext highlighter-rouge">etc/sysctl.conf</code> 파일의 <code class="language-plaintext highlighter-rouge">net.ipv4..ip_forward = 1</code> 설정값을 넣어주어야 한다.</li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h1 id="3-유용한-리눅스-명령어들">3. 유용한 리눅스 명령어들</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ip link</code> : 호스트의 인터페이스를 나열 및 수정</li>
+  <li><code class="language-plaintext highlighter-rouge">ip addr</code> : 해당 인터페이스에 할당된 IP 주소를 확인</li>
+  <li><code class="language-plaintext highlighter-rouge">ip addr add 192.168.1.10/24 dev eth0</code> : 인터페이스에 IP를 설정하는데에 사용</li>
+  <li>변경사항을 부팅 후에도 유지하려면 <code class="language-plaintext highlighter-rouge">/etc/network/interfaces</code> 파일을 수정해야한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">ip route</code> <code class="language-plaintext highlighter-rouge">route</code> : 라우팅 테이블 확인</li>
+  <li><code class="language-plaintext highlighter-rouge">ip route add 192.168.1.0/24 via 192.168.2.1</code>: 라우팅 테이블에 항목 추가</li>
+  <li><code class="language-plaintext highlighter-rouge">cat /proc/sys/net/ipv4/ip_forward</code> : 호스트에서 IP전달이 활성화 되어있는지 확인(0은 전달 불가. 1은 전달 가능)</li>
+</ul>
+
+<p>이번 포스팅에서는 쿠버네티스 네트워킹의 기본이 되는 스위칭, 라우팅, 그리고 리눅스 머신에서의 라우팅에 대해서 알아보았다. 다음 포스팅에서는 DNS에 대해 알아보도록 하자.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#devopsengineer" class="page__taxonomy-item" rel="tag">DevOpsengineer</a><span class="sep">, </span>
+    
+      <a href="/tags/#k8s" class="page__taxonomy-item" rel="tag">k8s</a><span class="sep">, </span>
+    
+      <a href="/tags/#kubernetes" class="page__taxonomy-item" rel="tag">kubernetes</a><span class="sep">, </span>
+    
+      <a href="/tags/#kubernetesnetworking" class="page__taxonomy-item" rel="tag">kubernetesnetworking</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4" class="page__taxonomy-item" rel="tag">데브옵스</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4" class="page__taxonomy-item" rel="tag">데브옵스엔지니어</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%9D%BC%EC%9A%B0%ED%8C%85%EA%B8%B0%EC%B4%88" class="page__taxonomy-item" rel="tag">라우팅기초</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%8A%A4%EC%9C%84%EC%B9%AD%EA%B8%B0%EC%B4%88" class="page__taxonomy-item" rel="tag">스위칭기초</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4" class="page__taxonomy-item" rel="tag">쿠버네티스</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9" class="page__taxonomy-item" rel="tag">쿠버네티스네트워킹</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#devops" class="page__taxonomy-item" rel="tag">DevOps</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-05-01">May 1, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BKubernetes%5D%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4+%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9%281%29%EC%8A%A4%EC%9C%84%EC%B9%AD+%26+%EB%9D%BC%EC%9A%B0%ED%8C%85%20http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-Swtiching-Routing%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-Swtiching-Routing%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-Swtiching-Routing%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/github%20blog/Github-Blog-cannot-upload-a-post/" class="pagination--pager" title="[Github Pages/Blog]포스팅 게시 안됨 이슈 해결
+">이전</a>
+    
+    
+      <a href="/programming/Python-Day14/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 14일차
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day14/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 14일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 01 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 14일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/github%20blog/Github-Blog-cannot-upload-a-post/" rel="permalink">[Github Pages/Blog]포스팅 게시 안됨 이슈 해결
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 01 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Github Pages에 포스팅이 게시가 안될 경우, 올바른 포스팅 파일 이름규칙, future=true, published=true 옵션을 적용해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day13/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 13일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 30 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 13일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day12/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 12일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 29 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 12일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:jinnypark9393@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/jinnypark9393" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://instagram.com/alc_canary_genie" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Canary. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

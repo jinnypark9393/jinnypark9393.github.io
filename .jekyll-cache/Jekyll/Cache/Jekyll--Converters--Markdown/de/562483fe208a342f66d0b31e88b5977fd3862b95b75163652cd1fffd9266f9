@@ -1,0 +1,214 @@
+I"#<p><br /><br /></p>
+
+<p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 리눅스 머신에서의 스위칭 &amp; 라우팅에 대해 알아보자.</em></p>
+
+<p><br /></p>
+
+<h1 id="1-스위칭">1. 스위칭</h1>
+
+<p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing1.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing1" /></p>
+
+<ul>
+  <li>컴퓨터 A와 B가 통신하기 위해서는 각 컴퓨터(호스트)에 물리, 혹은 가상 인터페이스가 필요하다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>각 리눅스 머신(=컴퓨터), 스위치에  IP 주소를 할당하자.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 스위치에 ip 주소 할당</span>
+  ip addr add 192.168.1.0/24
+    
+  <span class="c"># 컴퓨터 A</span>
+  ip addr add 192.168.1.10/24 dev eth0
+    
+  <span class="c"># 컴퓨터 B</span>
+  ip addr add 192.168.1.11/24 dev eth0
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>A, B는 같은 네트워크 안에 있으므로, 스위치를 통해 서로 통신할 수 있다.
+    <ul>
+      <li>컴퓨터 A(192.168.1.10)에서 컴퓨터 B(192.168.1.11)로 통신 가능</li>
+      <li>컴퓨터 B(192.168.1.11)에서 컴퓨터 A(192.168.1.10)로 통신 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h1 id="2-라우팅">2. 라우팅</h1>
+
+<h2 id="1-다른-네트워크에-존재하는-머신과-통신">1. 다른 네트워크에 존재하는 머신과 통신</h2>
+
+<ul>
+  <li>
+    <p>컴퓨터 A &amp; B와 다른 네트워크에 컴퓨터 C &amp; D 가 존재할 때, 컴퓨터 A, B에서 어떻게 시스템 C, D로 도달하게 될까?</p>
+
+    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing2.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing2" /></p>
+
+    <p>⇒ <strong>라우터</strong>가 필요!</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>라우터(Router): 다른 네트워크를 연결하는 장치</p>
+
+    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing3.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing3" /></p>
+
+    <ul>
+      <li>라우터가 각 네트워크와 연결 될 수 있도록 아래의 IP를 할당
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">192.168.1.1</code> (A, B와 같은 네트워크)</li>
+          <li><code class="language-plaintext highlighter-rouge">192.168.2.1</code> (C, D와 같은 네트워크)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>A, B와 C,D가 통신 할 수 있도록 각 컴퓨터에 게이트웨이(Gateway)를 설정</p>
+
+    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing4.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing4" /></p>
+
+    <ul>
+      <li>각 컴퓨터(A, B, C, D)에서 <code class="language-plaintext highlighter-rouge">route</code> 커맨드를 실행해 게이트웨이를 설정</li>
+      <li>
+        <p>예시</p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># A, B의 설정</span>
+  <span class="c"># 192.168.2.0 번대 네트워크로 가는 요청은 192.168.1.1 으로 보낸다.</span>
+  ip route add 192.168.2.0/24 via 192.168.1.1
+        
+  <span class="c"># C, D의 설정</span>
+  <span class="c"># 192.168.1.0 번대 네트워크로 가는 요청은 192.168.2.1 으로 보낸다.</span>
+  ip route add 192.168.1.0/24 via 192.168.2.1
+</code></pre></div>        </div>
+      </li>
+      <li>설정 완료 후, route 커맨드로 설정 내역을 확인할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="2-인터넷과의-통신">2. 인터넷과의 통신</h2>
+
+<ul>
+  <li>
+    <p>시스템을 인터넷(172.217.194.0/24)에 연결하려면?</p>
+
+    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing5.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing5" /></p>
+
+    <ul>
+      <li>A,B - C,D 네트워크를 연결했을 경우와 마찬가지로 Gateway를 통해 목적지에 연결하는 루트 추가</li>
+      <li>A, B 설정: <code class="language-plaintext highlighter-rouge">ip route add 172.217.194.0/24 via 192.168.1.1</code></li>
+      <li>C, D 설정: <code class="language-plaintext highlighter-rouge">ip route add 172.217.194.0/24 via 192.168.2.1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="3-라우팅-테이블에-존재하지-않는-ip와의-통신">3. 라우팅 테이블에 존재하지 않는 IP와의 통신</h2>
+
+<ul>
+  <li>
+    <p>컴퓨터의 라우팅 테이블에 등록되지 않아 경로를 알 수 없는 IP와의 통신을 할 경우에는 어떻게 설정?</p>
+
+    <p>⇒ <strong>디폴트 게이트웨이(Default Gateway)</strong></p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>설정 방법은 아래 둘 중 하나
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ip route add default via 192.168.2.1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip route add 0.0.0.0 via 192.168.2.1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="3-리눅스-머신을-라우터로-사용">3. 리눅스 머신을 라우터로 사용</h2>
+
+<ul>
+  <li>라우터, 스위치 대신 리눅스 머신을 네트워크 장비처럼 사용할 수 있다.</li>
+  <li>라우터 설정과 동일하게 라우터가 되는 리눅스 머신에서 IP 설정</li>
+  <li>머신 A, B 에서 각각 Gateway IP 설정</li>
+</ul>
+
+<p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing6.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing6" /></p>
+
+<ul>
+  <li>A와 B가 통신이 가능할까?
+    <ul>
+      <li>불가능하다.</li>
+      <li>리눅스에서는 기본적으로 패킷을 한 인터페이스에서 다른 인터페이스로 전달하지 않으므로, <strong>명시적으로 정의</strong>해야하기 때문.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>라우터 역할을 하는 머신에서 설정값을 확인해보자: <code class="language-plaintext highlighter-rouge">cat /proc/sys/net/ipv4/ip_forward</code>
+    <ul>
+      <li>기본 설정값은 <code class="language-plaintext highlighter-rouge">0(포워딩하지 않음)</code></li>
+      <li>포워딩을 허용하는 설정값은 <code class="language-plaintext highlighter-rouge">1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>네트워크 패킷을 전달하도록 수정:  <code class="language-plaintext highlighter-rouge">echo 1 &gt; /proc/sys/net/ipv4/ip_forward</code>
+    <ul>
+      <li>위의 설정은 <strong>재부팅시 초기화</strong>된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>재부팅 이후에도 설정값을 유지하도록 하려면 <code class="language-plaintext highlighter-rouge">etc/sysctl.conf</code> 파일의 <code class="language-plaintext highlighter-rouge">net.ipv4..ip_forward = 1</code> 설정값을 넣어주어야 한다.</li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h1 id="3-유용한-리눅스-명령어들">3. 유용한 리눅스 명령어들</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ip link</code> : 호스트의 인터페이스를 나열 및 수정</li>
+  <li><code class="language-plaintext highlighter-rouge">ip addr</code> : 해당 인터페이스에 할당된 IP 주소를 확인</li>
+  <li><code class="language-plaintext highlighter-rouge">ip addr add 192.168.1.10/24 dev eth0</code> : 인터페이스에 IP를 설정하는데에 사용</li>
+  <li>변경사항을 부팅 후에도 유지하려면 <code class="language-plaintext highlighter-rouge">/etc/network/interfaces</code> 파일을 수정해야한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">ip route</code> <code class="language-plaintext highlighter-rouge">route</code> : 라우팅 테이블 확인</li>
+  <li><code class="language-plaintext highlighter-rouge">ip route add 192.168.1.0/24 via 192.168.2.1</code>: 라우팅 테이블에 항목 추가</li>
+  <li><code class="language-plaintext highlighter-rouge">cat /proc/sys/net/ipv4/ip_forward</code> : 호스트에서 IP전달이 활성화 되어있는지 확인(0은 전달 불가. 1은 전달 가능)</li>
+</ul>
+
+<p>이번 포스팅에서는 쿠버네티스 네트워킹의 기본이 되는 스위칭, 라우팅, 그리고 리눅스 머신에서의 라우팅에 대해서 알아보았다. 다음 포스팅에서는 DNS에 대해 알아보도록 하자.</p>
+:ET
