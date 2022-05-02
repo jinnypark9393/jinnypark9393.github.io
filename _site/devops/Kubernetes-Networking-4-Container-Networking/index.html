@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Python/VScode]MacOS zsh: no matches found 에러 해결 - release: canary</title>
-<meta name="description" content="zsh에서는 몇몇 특수문자를 문자열이 아닌 명령어로 인식한다.">
+<!-- begin _includes/seo.html --><title>[Kubernetes]쿠버네티스 네트워킹(4)Container Networking - release: canary</title>
+<meta name="description" content="쿠버네티스 네트워킹을 알아보기에 앞서 컨테이너 네트워킹에 대해 알아보자.">
 
 
   <meta name="author" content="Canary">
@@ -22,32 +22,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="release: canary">
-<meta property="og:title" content="[Python/VScode]MacOS zsh: no matches found 에러 해결">
-<meta property="og:url" content="http://localhost:4000/programming/Python-zsh-nomatchesfound-error/">
+<meta property="og:title" content="[Kubernetes]쿠버네티스 네트워킹(4)Container Networking">
+<meta property="og:url" content="http://localhost:4000/devops/Kubernetes-Networking-4-Container-Networking/">
 
 
-  <meta property="og:description" content="zsh에서는 몇몇 특수문자를 문자열이 아닌 명령어로 인식한다.">
-
-
-
+  <meta property="og:description" content="쿠버네티스 네트워킹을 알아보기에 앞서 컨테이너 네트워킹에 대해 알아보자.">
 
 
 
 
-  <meta property="article:published_time" content="2022-04-24T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-04-24T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-05-03T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2022-05-03T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/programming/Python-zsh-nomatchesfound-error/">
+
+<link rel="canonical" href="http://localhost:4000/devops/Kubernetes-Networking-4-Container-Networking/">
 
 
 
@@ -290,18 +290,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Python/VScode]MacOS zsh: no matches found 에러 해결">
-    <meta itemprop="description" content="zsh에서는 몇몇 특수문자를 문자열이 아닌 명령어로 인식한다.">
-    <meta itemprop="datePublished" content="2022-04-24T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-04-24T00:00:00+09:00">
+    <meta itemprop="headline" content="[Kubernetes]쿠버네티스 네트워킹(4)Container Networking">
+    <meta itemprop="description" content="쿠버네티스 네트워킹을 알아보기에 앞서 컨테이너 네트워킹에 대해 알아보자.">
+    <meta itemprop="datePublished" content="2022-05-03T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-05-03T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Python/VScode]MacOS zsh: no matches found 에러 해결
+          <h1 id="page-title" class="page__title" itemprop="headline">[Kubernetes]쿠버네티스 네트워킹(4)Container Networking
 </h1>
           
-          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-04-24T00:00:00+09:00">April 24, 2022</time></p>
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-05-03T00:00:00+09:00">May 03, 2022</time></p>
           
 
   <p class="page__meta">
@@ -310,7 +310,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-04-24T00:00:00+09:00">April 24, 2022</time>
+        <time datetime="2022-05-03T00:00:00+09:00">May 3, 2022</time>
       </span>
     
 
@@ -328,134 +328,115 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-에러-상황">1. 에러 상황</a></li><li><a href="#2-해결-방법">2. 해결 방법</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-container-networking">1. Container Networking</a><ul><li><a href="#1-bridge-network">1. Bridge network</a></li><li><a href="#2-호스트-외부에서-도커-컨테이너를-접속">2. 호스트 외부에서 도커 컨테이너를 접속</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
         <p><br /><br /></p>
 
-<p><em>💡   zsh에서는 몇몇 특수문자를 문자열이 아닌 명령어로 인식한다.</em></p>
-
-<p><br /><br /></p>
-
-<h1 id="1-에러-상황">1. 에러 상황</h1>
-
-<p>한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online 과정을 들으며 vscode에 코드를 작성하던 중, 아래와 같이 파이썬(Python) 코드가 실행이 되지 않는 현상이 발생했다.</p>
+<p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 컨테이너 네트워킹에 대해 알아보자.</em></p>
 
 <p><br /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter4</span><span class="o">/</span><span class="mf">02.</span><span class="n">연산</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">py</span>
-<span class="n">zsh</span><span class="p">:</span> <span class="n">no</span> <span class="n">matches</span> <span class="n">found</span><span class="p">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter4</span><span class="o">/</span><span class="mf">02.</span><span class="n">연산</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">py</span>
-</code></pre></div></div>
+<h1 id="1-container-networking">1. Container Networking</h1>
+
+<ul>
+  <li>도커 컨테이너를 띄운 호스트
+    <ul>
+      <li>호스트 eth0: 192.168.1.10</li>
+    </ul>
+  </li>
+</ul>
 
 <p><br /></p>
 
-<p>zsh에서 파이썬 파일 경로를 찾지 못하고 있었는데, 구글링을 해보니 zsh에서 몇몇 특수문자를 문자열이 아닌 명령어로 인식해 발생한 현상이라고 한다.</p>
+<ul>
+  <li>도커 컨테이너 네트워킹 옵션 3가지
+    <ul>
+      <li>None network: <code class="language-plaintext highlighter-rouge">docker run —network none nginx</code>
+        <ul>
+          <li>컨테이너 외부 접속 불가 &amp; 외부에서 컨테이너 접속 불가</li>
+        </ul>
+      </li>
+      <li>Host network: <code class="language-plaintext highlighter-rouge">docker run —network host nginx</code>
+        <ul>
+          <li>호스트와 컨테이너의 네트워크가 격리되지 않음</li>
+          <li>추가 포트 매핑 불필요
+            <ul>
+              <li>포트 80에 어플리케이션을 배포 ⇒ <a href="http://192.168.1.10:80">http://192.168.1.10:80</a> 에서 애플리케이션 접속 가능</li>
+              <li>단, 다른 컨테이너에서 동일 포트로 애플리케이션을 배포할 경우 작동하지 않음</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><strong>Bridge network</strong></li>
+    </ul>
+  </li>
+</ul>
 
-<p><br /><br /></p>
+<h2 id="1-bridge-network">1. Bridge network</h2>
 
-<h1 id="2-해결-방법">2. 해결 방법</h1>
-
-<p>내 경우에는 괄호 <code class="language-plaintext highlighter-rouge">()</code> 가 명령어로 인식되어 발생한 문제라, 다음과 같이 파일명에 괄호를 제거하고 <code class="language-plaintext highlighter-rouge">-</code> 를 넣어주었더니 에러가 해결되었다.</p>
+<ul>
+  <li>내부 사설망이 형성됨 (Bridge network: 172.0.0 - container a 172.17.0.2, container b 172.12.0.3)</li>
+  <li>Docker가 호스트에 설치
+    <ul>
+      <li>
+        <p>기본적으로 Bridge 라는 내부 사설 네트워크 생성 (<code class="language-plaintext highlighter-rouge">docker network ls</code> 커맨드를 통해 확인할 수 있음)          <br />
+  ⇒ 호스트에 docker0(=v-net-0)라는 이름으로 네트워크 생성( <code class="language-plaintext highlighter-rouge">ip link</code>로 확인 가능)</p>
+      </li>
+      <li>Docker0 ⇒ down state</li>
+      <li>Docker0: 172.17.0.1 할당 ( <code class="language-plaintext highlighter-rouge">ip addr</code>로 확인 가능)</li>
+      <li>네임스페이스 확인
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip netns</code></li>
+          <li><code class="language-plaintext highlighter-rouge">docker inspect 942d70e5785b2</code></li>
+          <li>컨테이너(172.17.0.3) = 네트워크 네임스페이스</li>
+          <li>도커는 위에서 했던것과 같이 컨테이너에 eth@ifOO, bridge 네트워크에 veth@ifOO 인터페이스를 생성해 케이블로 연결(뒤에있는 ifOO가 서로 쌍이 된다)</li>
+          <li>브릿지 네트워크 밑에 있는 컨테이너들 ⇒ 같은 네트워크이기 때문에 통신 가능</li>
+          <li>예: <a href="http://172.17.0.3:80">http://172.17.0.3:80</a> ⇒ 애플리케이션 실행 가능</li>
+          <li>하지만 외부에서 같은 주소로 접속했을 경우 접속 불가</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 <p><br /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter4</span><span class="o">/</span><span class="mf">02.</span><span class="n">연산</span><span class="o">-</span><span class="mf">2.</span><span class="n">py</span>
-</code></pre></div></div>
+<h2 id="2-호스트-외부에서-도커-컨테이너를-접속">2. 호스트 외부에서 도커 컨테이너를 접속</h2>
+<ul>
+  <li>
+    <p>Docker: Port publishing / Port Mapping</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">docker run -p 8080:80 nginx</code> 호스트의 8080 포트로 들어온 요청을 80포트로 전달 ⇒ 외부에서 <a href="http://172.17.0.3:8080">http://172.17.0.3:8080</a> : 접속 가능</p>
+  </li>
+  <li>
+    <p>어떻게 8080 포트에서 80 포트로 트래픽 전달?</p>
+    <ul>
+      <li>NAT 규칙 생성</li>
+    </ul>
 
-<p><br /></p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  iptables <span class="se">\</span>
+      <span class="nt">-t</span> nat <span class="se">\</span>
+      <span class="nt">-A</span> PREROUTING <span class="se">\</span>
+      <span class="nt">-j</span> DNAT <span class="se">\</span>
+      <span class="nt">--dport</span> 8080 <span class="se">\</span>
+      <span class="nt">--to-destination</span> 80
+</code></pre></div>    </div>
 
-<p>참고로 zsh 에서 명령어로 예약된 특수문자는 다음과 같다. <code class="language-plaintext highlighter-rouge">zsh: no matches found</code> 에러가 발생할 경우 파일명이나 디렉토리명 등 파이썬 코드가 저장된 경로에 아래의 특수문자가 삽입되어있지 않은지 확인해보자.</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  iptables <span class="se">\</span>
+  	<span class="nt">-t</span> nat <span class="se">\</span>
+  	<span class="nt">-A</span> DOCKER <span class="se">\</span>
+  	<span class="nt">-j</span> DNAT <span class="se">\</span>
+  	<span class="nt">--dport</span> 8080 <span class="se">\</span>
+  	<span class="nt">--to-destination</span> 172.17.0.3:80
+</code></pre></div>    </div>
 
-<p><br /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>특수문자</th>
-      <th>의미</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>~</td>
-      <td>홈 디렉토리</td>
-    </tr>
-    <tr>
-      <td>`</td>
-      <td>명령 대체</td>
-    </tr>
-    <tr>
-      <td>#</td>
-      <td>Comment</td>
-    </tr>
-    <tr>
-      <td>()</td>
-      <td>하위 셸 시작 / 종료</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">|</code></td>
-      <td>파이프</td>
-    </tr>
-    <tr>
-      <td>{}</td>
-      <td>명령 블록</td>
-    </tr>
-    <tr>
-      <td>‘</td>
-      <td>강한 인용부호</td>
-    </tr>
-    <tr>
-      <td>&lt;</td>
-      <td>입력 재지정</td>
-    </tr>
-    <tr>
-      <td>/</td>
-      <td>경로명 분리</td>
-    </tr>
-    <tr>
-      <td>$</td>
-      <td>변수</td>
-    </tr>
-    <tr>
-      <td>&amp;</td>
-      <td>백그라운드 실행</td>
-    </tr>
-    <tr>
-      <td>*?</td>
-      <td>와일드카드</td>
-    </tr>
-    <tr>
-      <td>\</td>
-      <td>문자 그대로</td>
-    </tr>
-    <tr>
-      <td>[]</td>
-      <td>문자 집합</td>
-    </tr>
-    <tr>
-      <td>;</td>
-      <td>명령 분리</td>
-    </tr>
-    <tr>
-      <td>“</td>
-      <td>약한 인용부호</td>
-    </tr>
-    <tr>
-      <td>&gt;</td>
-      <td>출력 재지정</td>
-    </tr>
-    <tr>
-      <td>!</td>
-      <td>NOT</td>
-    </tr>
-  </tbody>
-</table>
+    <p>⇒ <code class="language-plaintext highlighter-rouge">iptables -nvL -t nat</code> 으로 확인할 수 있음</p>
+  </li>
+</ul>
 
         
       </section>
@@ -472,23 +453,31 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#nomatchesfound%EC%97%90%EB%9F%AC" class="page__taxonomy-item" rel="tag">nomatchesfound에러</a><span class="sep">, </span>
+      <a href="/tags/#cka" class="page__taxonomy-item" rel="tag">cka</a><span class="sep">, </span>
     
-      <a href="/tags/#python" class="page__taxonomy-item" rel="tag">Python</a><span class="sep">, </span>
+      <a href="/tags/#containernetworking" class="page__taxonomy-item" rel="tag">containernetworking</a><span class="sep">, </span>
     
-      <a href="/tags/#python%EC%97%90%EB%9F%AC" class="page__taxonomy-item" rel="tag">Python에러</a><span class="sep">, </span>
+      <a href="/tags/#devopsengineer" class="page__taxonomy-item" rel="tag">DevOpsengineer</a><span class="sep">, </span>
     
-      <a href="/tags/#vscode%EC%97%90%EB%9F%AC" class="page__taxonomy-item" rel="tag">vscode에러</a><span class="sep">, </span>
+      <a href="/tags/#dockernetworking" class="page__taxonomy-item" rel="tag">dockernetworking</a><span class="sep">, </span>
     
-      <a href="/tags/#zsh%EC%97%90%EB%9F%AC" class="page__taxonomy-item" rel="tag">zsh에러</a><span class="sep">, </span>
+      <a href="/tags/#k8s" class="page__taxonomy-item" rel="tag">k8s</a><span class="sep">, </span>
     
-      <a href="/tags/#%ED%8C%8C%EC%9D%B4%EC%8D%AC" class="page__taxonomy-item" rel="tag">파이썬</a><span class="sep">, </span>
+      <a href="/tags/#kubernetes" class="page__taxonomy-item" rel="tag">kubernetes</a><span class="sep">, </span>
     
-      <a href="/tags/#%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EB%9F%AC" class="page__taxonomy-item" rel="tag">파이썬에러</a><span class="sep">, </span>
+      <a href="/tags/#kubernetesnetworking" class="page__taxonomy-item" rel="tag">kubernetesnetworking</a><span class="sep">, </span>
     
-      <a href="/tags/#%ED%8C%8C%EC%9D%B4%EC%8D%AC%ED%8A%B9%EC%88%98%EB%AC%B8%EC%A7%80" class="page__taxonomy-item" rel="tag">파이썬특수문지</a><span class="sep">, </span>
+      <a href="/tags/#%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4" class="page__taxonomy-item" rel="tag">데브옵스</a><span class="sep">, </span>
     
-      <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item" rel="tag">패스트캠퍼스</a>
+      <a href="/tags/#%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4" class="page__taxonomy-item" rel="tag">데브옵스엔지니어</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%8F%84%EC%BB%A4%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9" class="page__taxonomy-item" rel="tag">도커네트워킹</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9" class="page__taxonomy-item" rel="tag">컨테이너네트워킹</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4" class="page__taxonomy-item" rel="tag">쿠버네티스</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9" class="page__taxonomy-item" rel="tag">쿠버네티스네트워킹</a>
     
     </span>
   </p>
@@ -505,7 +494,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#programming" class="page__taxonomy-item" rel="tag">Programming</a>
+      <a href="/categories/#devops" class="page__taxonomy-item" rel="tag">DevOps</a>
     
     </span>
   </p>
@@ -513,7 +502,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-04-24">April 24, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-05-03">May 3, 2022</time></p>
 
 
       </footer>
@@ -523,22 +512,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BPython%2FVScode%5DMacOS+zsh%3A+no+matches+found+%EC%97%90%EB%9F%AC+%ED%95%B4%EA%B2%B0%20http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2FPython-zsh-nomatchesfound-error%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BKubernetes%5D%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4+%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9%284%29Container+Networking%20http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-4-Container-Networking%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2FPython-zsh-nomatchesfound-error%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-4-Container-Networking%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2FPython-zsh-nomatchesfound-error%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-4-Container-Networking%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/programming/Python-Day7/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 7일차
+      <a href="/devops/Kubernetes-Networking-3-Linux-Namespaces/" class="pagination--pager" title="[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces
 ">이전</a>
     
     
-      <a href="/programming/Python-Day8/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 8일차
+      <a href="/programming/Python-Day16/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 16일차
 ">다음</a>
     
   </nav>
@@ -585,28 +574,6 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/devops/Kubernetes-Networking-4-Container-Networking/" rel="permalink">[Kubernetes]쿠버네티스 네트워킹(4)Container Networking
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 03 2022</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">쿠버네티스 네트워킹을 알아보기에 앞서 컨테이너 네트워킹에 대해 알아보자.
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/devops/Kubernetes-Networking-3-Linux-Namespaces/" rel="permalink">[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces
 </a>
       
@@ -637,6 +604,28 @@
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 02 2022</p>
     
     <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 15일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/devops/Kubernetes-Networking-DNS-CoreDNS/" rel="permalink">[Kubernetes]쿠버네티스 네트워킹(2)DNS &amp; CoreDNS
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 02 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">쿠버네티스 네트워킹을 알아보기에 앞서 DNS &amp; CoreDNS에 대해 알아보자.
 </p>
   </article>
 </div>

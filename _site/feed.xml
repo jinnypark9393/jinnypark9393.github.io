@@ -1,4 +1,318 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-03T05:28:59+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 16일차</title><link href="http://localhost:4000/programming/Python-Day16/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 16일차" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day16</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day16/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-03T05:55:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces</title><link href="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/" rel="alternate" type="text/html" title="[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/"><![CDATA[<p><br /><br /></p>
+
+<p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.</em></p>
+
+<p><br /></p>
+
+<h1 id="1-linux-namespaces">1. Linux Namespaces</h1>
+
+<h2 id="1-네임스페이스">1. 네임스페이스</h2>
+
+<ul>
+  <li>호스트 안의 격리된 공간(집 안에 방이 있는 것과 같음): 컨테이너를 생성할 때 컨테이너를 격리해 다른 컨테이너가 표시되지 않도록 하고 싶은 경우</li>
+  <li>네임스페이스 안의 컨테이너 ⇒ 자기자신만 볼 수 있음</li>
+  <li>Underlying (기본) 호스트: 모든 프로세스를 볼 수 있음
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ps aux</code> 로 확인할 수 있음 ⇒ 네임스페이스 내부/외부에서 같은 프로세스지만 PID가 상이하게 됨</li>
+      <li>호스트
+        <ul>
+          <li>LAN에 연결하는 인터페이스 존재</li>
+          <li>라우팅 테이블</li>
+          <li>ARP 테이블: IP - MAC 주소 일대일 대응한 테이블</li>
+        </ul>
+
+        <p>⇒ 컨테이너에서 위 세부사항을 보이지 않게 하고 싶다면?</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>네임스페이스 내에 컨테이너 생성 시 호스트에 대한 네트워크 정보에 대한 가시성 없어짐
+    <ul>
+      <li>네임스페이스는 자체 가상 인터페이스(veth) 및 라우팅 테이블/ARP 테이블을 가질 수 있음</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-네트워크-네임스페이스-생성">2. 네트워크 네임스페이스 생성</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ip netns add red</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns add blue</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ip link</code> : host 의 인터페이스 확인</li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns exec red ip link</code> : 네임스페이스의 인터페이스 확인 (= <code class="language-plaintext highlighter-rouge">ip -n red link</code> )</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-네트워크-네임스페이스-안에서-실행">3. 네트워크 네임스페이스 안에서 실행</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">arp</code> : 호스트에서의 항목들 출력</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ip netns exec red arp</code> : 컨테이너에서의 항목들 출력</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">route</code> : 호스트에서의 라우팅 테이블 출력</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ip netns exec red route</code> : 컨테이너에서의 라우팅 테이블 출력</p>
+  </li>
+  <li>2개의 다른 네임스페이스간의 통신: 가상 이더넷 페어 혹은 가상 케이블(=파이프)
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ip link add veth-red type veth peer name veth-blue</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set veth-red netns red</code> &amp; <code class="language-plaintext highlighter-rouge">ip link set veth-blue netns blue</code></li>
+      <li>IP 할당
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red addr add 192.168.15.1 dev veth-red</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue addr add 192.168.15.2 dev veth-blue</code></li>
+        </ul>
+      </li>
+      <li>IP 링크 업
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red link set veth-red up</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue link set veth-blue up</code></li>
+        </ul>
+      </li>
+      <li>테스트
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec red ping 192.168.15.2</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec red arp</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec blue arp</code>
+            <ul>
+              <li>상대방의 mac/ip주소 표시</li>
+            </ul>
+          </li>
+          <li><code class="language-plaintext highlighter-rouge">arp</code> : host 의 arp 테이블
+            <ul>
+              <li>네임스페이스 내의 정보 없음</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>가상 스위치 생성
+    <ul>
+      <li>가상 스위치 생성하고 네임스페이스 연결
+        <ul>
+          <li>Linux Bridge / Open vSwitch를 통해 생성 가능</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>Linux Bridge
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ip link add v-net-0 type bridge</code> : 호스트에 ip 인터페이스를 추가 ( <code class="language-plaintext highlighter-rouge">ip link</code> 로 확인할 수 있음)</li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set dev v-net-0 up</code> : 네트워크 링크 활성화</li>
+      <li>기존 직접연결 링크 삭제
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red link del veth-red</code>: 한쪽 링크 삭제하면 다른쪽 링크 자동 삭제됨</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">ip link add veth-red type veth peer name vth-red-br</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link add veth-blue type veth peer name vth-blue-br</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set veth-red netns red</code>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip link set veth-red-br master v-net-0</code> : v-net-0(스위치)에 veth-red-br 인터페이스 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red addr add 192.168.15.1 dev veth-red</code> : IP 주소 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red link set veth-red up</code>: 인터페이스 링크 활성화</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set veth-blue netns blue</code>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip link set veth-blue-br master v-net-0</code>: v-net-0(스위치)에 veth-blue-br 인터페이스 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue addr add 192.168.15.2 dev veth-blue</code> : IP주소 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue link set veth-blue up</code>: 인터페이스 링크 활성화</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>호스트와 네임스페이스간 연결
+    <ul>
+      <li>브리지스위치: 호스틑의 네트워크 인터페이스 중 하나</li>
+      <li><code class="language-plaintext highlighter-rouge">ip addr add 192.168.15.5/24 dev v-net-0</code> : 호스트 IP 추가</li>
+      <li>로컬 호스트에서 네임스페이스 연결</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>호스트 바깥과 통신
+    <ul>
+      <li>Blue namespace ⇒ 호스트 바깥 망(192.168.1.3)
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ping 192.168.1.3</code> ⇒ 도달하지 않음 ( <code class="language-plaintext highlighter-rouge">ip netns exec blue route</code> 확인해보면 등록되지 않았음)</li>
+          <li>라우팅 테이블에 항목을 추가해 외부에 대한 게이트웨이 제공해야함
+            <ul>
+              <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ip route add 192.168.1.0/24 via 192.168.15.5</code> 등록
+                <ul>
+                  <li>192.168.15.5 : v-net-0</li>
+                  <li>Ping이 가지만 돌아오지 않음</li>
+                </ul>
+              </li>
+            </ul>
+
+            <p>⇒ NAT 을 구성해야함</p>
+
+            <ul>
+              <li><code class="language-plaintext highlighter-rouge">iptables -t nat -A POSTROUTING -s 192.168.15.0/2 -j MASQUERADE</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>인터넷에 연결
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ip route add default via 192.168.15.5</code>
+        <ul>
+          <li>0.0.0.0 주소가 v-net-0를 통해 가도록 게이트웨이 구성</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>외부에서 네임스페이스로 통신
+    <ul>
+      <li>외부 호스트에 Namespace의 IP 라우팅 등록: 192.168.15.5(v-net-0) via 192.168.1.2(eth0)</li>
+      <li><code class="language-plaintext highlighter-rouge">iptables -t nat -A PREROUTING —dport 80 —to-destination 192.168.15.2:80 -j DNAT</code></li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스네트워킹" /><category term="리눅스네임스페이스" /><category term="네트워크네임스페이스" /><category term="네임스페이스" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.]]></summary></entry><entry><title type="html">[Kubernetes]쿠버네티스 네트워킹(4)Container Networking</title><link href="http://localhost:4000/devops/Kubernetes-Networking-4-Container-Networking/" rel="alternate" type="text/html" title="[Kubernetes]쿠버네티스 네트워킹(4)Container Networking" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-Networking-4-Container-Networking</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-Networking-4-Container-Networking/"><![CDATA[<p><br /><br /></p>
+
+<p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 컨테이너 네트워킹에 대해 알아보자.</em></p>
+
+<p><br /></p>
+
+<h1 id="1-container-networking">1. Container Networking</h1>
+
+<ul>
+  <li>도커 컨테이너를 띄운 호스트
+    <ul>
+      <li>호스트 eth0: 192.168.1.10</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>도커 컨테이너 네트워킹 옵션 3가지
+    <ul>
+      <li>None network: <code class="language-plaintext highlighter-rouge">docker run —network none nginx</code>
+        <ul>
+          <li>컨테이너 외부 접속 불가 &amp; 외부에서 컨테이너 접속 불가</li>
+        </ul>
+      </li>
+      <li>Host network: <code class="language-plaintext highlighter-rouge">docker run —network host nginx</code>
+        <ul>
+          <li>호스트와 컨테이너의 네트워크가 격리되지 않음</li>
+          <li>추가 포트 매핑 불필요
+            <ul>
+              <li>포트 80에 어플리케이션을 배포 ⇒ <a href="http://192.168.1.10:80">http://192.168.1.10:80</a> 에서 애플리케이션 접속 가능</li>
+              <li>단, 다른 컨테이너에서 동일 포트로 애플리케이션을 배포할 경우 작동하지 않음</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><strong>Bridge network</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="1-bridge-network">1. Bridge network</h2>
+
+<ul>
+  <li>내부 사설망이 형성됨 (Bridge network: 172.0.0 - container a 172.17.0.2, container b 172.12.0.3)</li>
+  <li>Docker가 호스트에 설치
+    <ul>
+      <li>
+        <p>기본적으로 Bridge 라는 내부 사설 네트워크 생성 (<code class="language-plaintext highlighter-rouge">docker network ls</code> 커맨드를 통해 확인할 수 있음)          <br />
+  ⇒ 호스트에 docker0(=v-net-0)라는 이름으로 네트워크 생성( <code class="language-plaintext highlighter-rouge">ip link</code>로 확인 가능)</p>
+      </li>
+      <li>Docker0 ⇒ down state</li>
+      <li>Docker0: 172.17.0.1 할당 ( <code class="language-plaintext highlighter-rouge">ip addr</code>로 확인 가능)</li>
+      <li>네임스페이스 확인
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip netns</code></li>
+          <li><code class="language-plaintext highlighter-rouge">docker inspect 942d70e5785b2</code></li>
+          <li>컨테이너(172.17.0.3) = 네트워크 네임스페이스</li>
+          <li>도커는 위에서 했던것과 같이 컨테이너에 eth@ifOO, bridge 네트워크에 veth@ifOO 인터페이스를 생성해 케이블로 연결(뒤에있는 ifOO가 서로 쌍이 된다)</li>
+          <li>브릿지 네트워크 밑에 있는 컨테이너들 ⇒ 같은 네트워크이기 때문에 통신 가능</li>
+          <li>예: <a href="http://172.17.0.3:80">http://172.17.0.3:80</a> ⇒ 애플리케이션 실행 가능</li>
+          <li>하지만 외부에서 같은 주소로 접속했을 경우 접속 불가</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="2-호스트-외부에서-도커-컨테이너를-접속">2. 호스트 외부에서 도커 컨테이너를 접속</h2>
+<ul>
+  <li>
+    <p>Docker: Port publishing / Port Mapping</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">docker run -p 8080:80 nginx</code> 호스트의 8080 포트로 들어온 요청을 80포트로 전달 ⇒ 외부에서 <a href="http://172.17.0.3:8080">http://172.17.0.3:8080</a> : 접속 가능</p>
+  </li>
+  <li>
+    <p>어떻게 8080 포트에서 80 포트로 트래픽 전달?</p>
+    <ul>
+      <li>NAT 규칙 생성</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  iptables <span class="se">\</span>
+      <span class="nt">-t</span> nat <span class="se">\</span>
+      <span class="nt">-A</span> PREROUTING <span class="se">\</span>
+      <span class="nt">-j</span> DNAT <span class="se">\</span>
+      <span class="nt">--dport</span> 8080 <span class="se">\</span>
+      <span class="nt">--to-destination</span> 80
+</code></pre></div>    </div>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  iptables <span class="se">\</span>
+  	<span class="nt">-t</span> nat <span class="se">\</span>
+  	<span class="nt">-A</span> DOCKER <span class="se">\</span>
+  	<span class="nt">-j</span> DNAT <span class="se">\</span>
+  	<span class="nt">--dport</span> 8080 <span class="se">\</span>
+  	<span class="nt">--to-destination</span> 172.17.0.3:80
+</code></pre></div>    </div>
+
+    <p>⇒ <code class="language-plaintext highlighter-rouge">iptables -nvL -t nat</code> 으로 확인할 수 있음</p>
+  </li>
+</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스네트워킹" /><category term="dockernetworking" /><category term="containernetworking" /><category term="도커네트워킹" /><category term="컨테이너네트워킹" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[쿠버네티스 네트워킹을 알아보기에 앞서 컨테이너 네트워킹에 대해 알아보자.]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 16일차</title><link href="http://localhost:4000/programming/Python-Day16/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 16일차" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day16</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day16/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 6-1. 함수개념을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -1607,218 +1921,7 @@
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 14일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces</title><link href="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/" rel="alternate" type="text/html" title="[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces" /><published>2022-05-01T00:00:00+09:00</published><updated>2022-05-01T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/"><![CDATA[<p><br /><br /></p>
-
-<p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.</em></p>
-
-<p><br /></p>
-
-<h1 id="1-linux-namespaces">1. Linux Namespaces</h1>
-
-<h2 id="1-네임스페이스">1. 네임스페이스</h2>
-
-<ul>
-  <li>호스트 안의 격리된 공간(집 안에 방이 있는 것과 같음): 컨테이너를 생성할 때 컨테이너를 격리해 다른 컨테이너가 표시되지 않도록 하고 싶은 경우</li>
-  <li>네임스페이스 안의 컨테이너 ⇒ 자기자신만 볼 수 있음</li>
-  <li>Underlying (기본) 호스트: 모든 프로세스를 볼 수 있음
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">ps aux</code> 로 확인할 수 있음 ⇒ 네임스페이스 내부/외부에서 같은 프로세스지만 PID가 상이하게 됨</li>
-      <li>호스트
-        <ul>
-          <li>LAN에 연결하는 인터페이스 존재</li>
-          <li>라우팅 테이블</li>
-          <li>ARP 테이블: IP - MAC 주소 일대일 대응한 테이블</li>
-        </ul>
-
-        <p>⇒ 컨테이너에서 위 세부사항을 보이지 않게 하고 싶다면?</p>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>네임스페이스 내에 컨테이너 생성 시 호스트에 대한 네트워크 정보에 대한 가시성 없어짐
-    <ul>
-      <li>네임스페이스는 자체 가상 인터페이스(veth) 및 라우팅 테이블/ARP 테이블을 가질 수 있음</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="2-네트워크-네임스페이스-생성">2. 네트워크 네임스페이스 생성</h2>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">ip netns add red</code></li>
-  <li><code class="language-plaintext highlighter-rouge">ip netns add blue</code></li>
-  <li><code class="language-plaintext highlighter-rouge">ip netns</code></li>
-  <li><code class="language-plaintext highlighter-rouge">ip link</code> : host 의 인터페이스 확인</li>
-  <li><code class="language-plaintext highlighter-rouge">ip netns exec red ip link</code> : 네임스페이스의 인터페이스 확인 (= <code class="language-plaintext highlighter-rouge">ip -n red link</code> )</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="3-네트워크-네임스페이스-안에서-실행">3. 네트워크 네임스페이스 안에서 실행</h2>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">arp</code> : 호스트에서의 항목들 출력</li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">ip netns exec red arp</code> : 컨테이너에서의 항목들 출력</p>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">route</code> : 호스트에서의 라우팅 테이블 출력</li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">ip netns exec red route</code> : 컨테이너에서의 라우팅 테이블 출력</p>
-  </li>
-  <li>2개의 다른 네임스페이스간의 통신: 가상 이더넷 페어 혹은 가상 케이블(=파이프)
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">ip link add veth-red type veth peer name veth-blue</code></li>
-      <li><code class="language-plaintext highlighter-rouge">ip link set veth-red netns red</code> &amp; <code class="language-plaintext highlighter-rouge">ip link set veth-blue netns blue</code></li>
-      <li>IP 할당
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">ip -n red addr add 192.168.15.1 dev veth-red</code></li>
-          <li><code class="language-plaintext highlighter-rouge">ip -n blue addr add 192.168.15.2 dev veth-blue</code></li>
-        </ul>
-      </li>
-      <li>IP 링크 업
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">ip -n red link set veth-red up</code></li>
-          <li><code class="language-plaintext highlighter-rouge">ip -n blue link set veth-blue up</code></li>
-        </ul>
-      </li>
-      <li>테스트
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">ip netns exec red ping 192.168.15.2</code></li>
-          <li><code class="language-plaintext highlighter-rouge">ip netns exec red arp</code></li>
-          <li><code class="language-plaintext highlighter-rouge">ip netns exec blue arp</code>
-            <ul>
-              <li>상대방의 mac/ip주소 표시</li>
-            </ul>
-          </li>
-          <li><code class="language-plaintext highlighter-rouge">arp</code> : host 의 arp 테이블
-            <ul>
-              <li>네임스페이스 내의 정보 없음</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>가상 스위치 생성
-    <ul>
-      <li>가상 스위치 생성하고 네임스페이스 연결
-        <ul>
-          <li>Linux Bridge / Open vSwitch를 통해 생성 가능</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>Linux Bridge
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">ip link add v-net-0 type bridge</code> : 호스트에 ip 인터페이스를 추가 ( <code class="language-plaintext highlighter-rouge">ip link</code> 로 확인할 수 있음)</li>
-      <li><code class="language-plaintext highlighter-rouge">ip link set dev v-net-0 up</code> : 네트워크 링크 활성화</li>
-      <li>기존 직접연결 링크 삭제
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">ip -n red link del veth-red</code>: 한쪽 링크 삭제하면 다른쪽 링크 자동 삭제됨</li>
-        </ul>
-      </li>
-      <li><code class="language-plaintext highlighter-rouge">ip link add veth-red type veth peer name vth-red-br</code></li>
-      <li><code class="language-plaintext highlighter-rouge">ip link add veth-blue type veth peer name vth-blue-br</code></li>
-      <li><code class="language-plaintext highlighter-rouge">ip link set veth-red netns red</code>
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">ip link set veth-red-br master v-net-0</code> : v-net-0(스위치)에 veth-red-br 인터페이스 연결</li>
-          <li><code class="language-plaintext highlighter-rouge">ip -n red addr add 192.168.15.1 dev veth-red</code> : IP 주소 연결</li>
-          <li><code class="language-plaintext highlighter-rouge">ip -n red link set veth-red up</code>: 인터페이스 링크 활성화</li>
-        </ul>
-      </li>
-      <li><code class="language-plaintext highlighter-rouge">ip link set veth-blue netns blue</code>
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">ip link set veth-blue-br master v-net-0</code>: v-net-0(스위치)에 veth-blue-br 인터페이스 연결</li>
-          <li><code class="language-plaintext highlighter-rouge">ip -n blue addr add 192.168.15.2 dev veth-blue</code> : IP주소 연결</li>
-          <li><code class="language-plaintext highlighter-rouge">ip -n blue link set veth-blue up</code>: 인터페이스 링크 활성화</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>호스트와 네임스페이스간 연결
-    <ul>
-      <li>브리지스위치: 호스틑의 네트워크 인터페이스 중 하나</li>
-      <li><code class="language-plaintext highlighter-rouge">ip addr add 192.168.15.5/24 dev v-net-0</code> : 호스트 IP 추가</li>
-      <li>로컬 호스트에서 네임스페이스 연결</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>호스트 바깥과 통신
-    <ul>
-      <li>Blue namespace ⇒ 호스트 바깥 망(192.168.1.3)
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ping 192.168.1.3</code> ⇒ 도달하지 않음 ( <code class="language-plaintext highlighter-rouge">ip netns exec blue route</code> 확인해보면 등록되지 않았음)</li>
-          <li>라우팅 테이블에 항목을 추가해 외부에 대한 게이트웨이 제공해야함
-            <ul>
-              <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ip route add 192.168.1.0/24 via 192.168.15.5</code> 등록
-                <ul>
-                  <li>192.168.15.5 : v-net-0</li>
-                  <li>Ping이 가지만 돌아오지 않음</li>
-                </ul>
-              </li>
-            </ul>
-
-            <p>⇒ NAT 을 구성해야함</p>
-
-            <ul>
-              <li><code class="language-plaintext highlighter-rouge">iptables -t nat -A POSTROUTING -s 192.168.15.0/2 -j MASQUERADE</code></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>인터넷에 연결
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ip route add default via 192.168.15.5</code>
-        <ul>
-          <li>0.0.0.0 주소가 v-net-0를 통해 가도록 게이트웨이 구성</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>외부에서 네임스페이스로 통신
-    <ul>
-      <li>외부 호스트에 Namespace의 IP 라우팅 등록: 192.168.15.5(v-net-0) via 192.168.1.2(eth0)</li>
-      <li><code class="language-plaintext highlighter-rouge">iptables -t nat -A PREROUTING —dport 80 —to-destination 192.168.15.2:80 -j DNAT</code></li>
-    </ul>
-  </li>
-</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스네트워킹" /><category term="리눅스네임스페이스" /><category term="네트워크네임스페이스" /><category term="네임스페이스" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 13일차</title><link href="http://localhost:4000/programming/Python-Day13/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 13일차" /><published>2022-04-30T00:00:00+09:00</published><updated>2022-04-30T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day13</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day13/"><![CDATA[<p><br /><br /></p>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 14일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 13일차</title><link href="http://localhost:4000/programming/Python-Day13/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 13일차" /><published>2022-04-30T00:00:00+09:00</published><updated>2022-04-30T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day13</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day13/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-6. 반복문 개념(2)를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -2264,189 +2367,4 @@
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 12일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[AWS]AWS Cloud Practitioner 자격증 합격 후기 (비전공자, 독학)</title><link href="http://localhost:4000/cloud/AWS-Cloud-Practitioner/" rel="alternate" type="text/html" title="[AWS]AWS Cloud Practitioner 자격증 합격 후기 (비전공자, 독학)" /><published>2022-04-28T00:00:00+09:00</published><updated>2022-04-28T00:00:00+09:00</updated><id>http://localhost:4000/cloud/AWS-Cloud-Practitioner</id><content type="html" xml:base="http://localhost:4000/cloud/AWS-Cloud-Practitioner/"><![CDATA[<p><br /><br /></p>
-
-<h1 id="awsawspractitioner자격증합격후기비전공자독학">[AWS]AWS Practitioner 자격증 합격 후기 (비전공자, 독학)</h1>
-
-<p>22년 1월 15일 CSP<code class="language-plaintext highlighter-rouge">Cloud Service Provider: 클라우드 사업자</code> 중 가장 규모가 큰 AWS의 첫 단계 자격증인 <code class="language-plaintext highlighter-rouge">Cloud Practitioner</code> 자격증을 취득했다. 787점으로 높은 점수로 통과한 건 아니라 약간 머쓱하지만(ㅎㅎ) 공부방법과 시험 팁들을 공유해보려 한다.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-04-28-AWS-Cloud-Practitioner-Photo/2022-04-28-AWS-Cloud-Practitioner-Photo1.png" alt="2022-04-28-AWS-Cloud-Practitioner-Photo1.png" /></p>
-
-<p><br /><br /></p>
-
-<h2 id="1-aws-시험-개요">1. AWS 시험 개요</h2>
-
-<p>AWS 자격증 시험 단계는 총 세가지로 크게 세 단계로 분류할 수 있다.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-04-28-AWS-Cloud-Practitioner-Photo/2022-04-28-AWS-Cloud-Practitioner-Photo2.png" alt="Untitled" /></p>
-
-<p><br /></p>
-
-<p>공식 사이트의 그림을 살펴보면 <code class="language-plaintext highlighter-rouge">기초 &gt; 어소시에이트 &gt; 프로페셔널</code> 세 단계로 분류되어있다. 이 세 단계의 자격증 외에도 각 전문 분야에 해당하는 자격증도 별도로 존재하는데, 내가 이번에 취득하게 된 건 가장 기초가 되는 Cloud Practitioner 자격증.</p>
-
-<p><br /></p>
-
-<p>기본 개념을 망라하는 시험이고 시험 난이도가 크게 높지 않아 클라우드 엔지니어를 희망하는 사람 뿐만 아니라, 클라우드 관련 업계 종사자들도 충분히 볼만한 시험이라고 생각된다.</p>
-
-<p><br /><br /></p>
-
-<h2 id="2-aws-cloud-practitioner-시험-기본-정보">2. AWS Cloud Practitioner 시험 기본 정보</h2>
-
-<ul>
-  <li>
-    <p><strong>시험 비용:</strong> 100 USD</p>
-  </li>
-  <li><strong>시험 응시 언어:</strong> 영어, 프랑스어, 독일어, 인도네시아어, 이탈리아어, 일본어, 한국어, 포르투갈어, 중국어, 스페인어
-    <ul>
-      <li>우리같은 비영어권 수험자들은 시험 응시언어를 선택하면 시험시간을 30분 추가로 받을 수 있다.</li>
-      <li>시험 응시언어를 한국어로 선택할 경우에는 30분 추가 시간을 할당받을 수 없다. 다만, 시험을 보는 도중에도 한국어 &amp; 영어 옵션 선택으로 문제를 두 개 언어로 볼 수 있다(하지만 나는 덤프를 영어로만 봤기 때문에 딱히 도움은 되지 않았다 ㅎㅎ).</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Testing options:</strong> 테스팅 센터 혹은 온라인; Pearson VUE or PSI</p>
-  </li>
-  <li>
-    <p><strong>문항 수:</strong> 65문제</p>
-  </li>
-  <li><strong>시험 커트라인:</strong> 700점/1,000점</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="3-시험-요구-수준">3. 시험 요구 수준</h2>
-
-<ul>
-  <li>AWS 웹사이트에서는 AWS Cloud Pracitioner의 선수 지식으로 <code class="language-plaintext highlighter-rouge">6개월간의 실무경험</code> 을 들고 있는데, 이는 필요한 지식 수준을 얘기한 것이고, 증빙 제출 등이 필요한 필수 요건은 아니니 비경험자도 편하게 응시하시면 된다.</li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>AWS Practitioner 시험은 클라우드의 기본 서비스 종류와 개념들을 이해하고 있는지 확인하는 시험으로, 시험 범위 및 출제 비중은 아래와 같다.
-    <ul>
-      <li>AWS 클라우드의 가치 설명</li>
-      <li>AWS 공동책임 모델 이해 및 설명</li>
-      <li>보안 모범사례 이해</li>
-      <li>AWS 클라우드 비용, 경제성 및 결제 관행 이해</li>
-      <li>컴퓨팅, 네트워크, 데이터베이스, 스토리지를 포함한 핵심 AWS 서비스 설명 및 포지셔닝</li>
-      <li>일반 사용 사례에 맞는 AWS서비스 식별</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>시험 문제는 모두 <code class="language-plaintext highlighter-rouge">객관식</code> 으로, 4시선다형과 복수응답형이 혼합되어 출제된다.</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="4-공부기간">4. 공부기간</h2>
-
-<p>나는 퇴근 후에 하루 1~2시간 내외로 공부해서 그런지 2주 가량 공부하고 시험을 쳤는데, 클라우드 서비스(특히 IaaS쪽)에 대한 기본 개념이 있는 사람이라면 덤프 위주로 빡세게 준비하면 3~4일이면 볼 듯 하다.</p>
-
-<p><br /><br /></p>
-
-<h2 id="5-공부-방법">5. 공부 방법</h2>
-
-<ul>
-  <li><strong>Examtopics</strong> (<a href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-professional/">https://www.examtopics.com</a>)
-    <ul>
-      <li>웬만한 IT 시험이 으레 그렇듯 AWS 시험들도 모두 덤프(Dump: 기출문제라고 생각하면 편하다)가 존재한다. AWS 시험에서 가장 자주 쓰이는 덤프사이트는 <code class="language-plaintext highlighter-rouge">Examtopics</code>라는 웹사이트로 나는 이번 시험에서 거의 이걸로 공부했었다.</li>
-      <li>덤프사이트로 공부할 때 주의점은 <strong>사이트에 나와있는 답은 오답이 많으니 반드시 Discussion을 확인해야한다</strong> 라는 점.</li>
-      <li>참고로 해당 사이트는 페이지를 넘길때마다 캡차를 풀어줘야하는데, 일정 페이지 수가 넘어가면 <code class="language-plaintext highlighter-rouge">로그인을 하라</code> 거나 <code class="language-plaintext highlighter-rouge">컨트리뷰션 권한으로 접속해야한다(유료)</code> 라는 메시지가 뜨면서 페이지가 넘어가지 않게 된다. 이럴 때에는 구글 시크릿 모드로 접속하게 되면 페이지를 볼 수 있는데, 페이지 넘어갈 때마다 새 창을 띄우지 않으면 똑같은 메시지가 뜨니 문제를 여러 번 볼 사람은 문제를 카피해놓고 로컬에 저장해서 보는 걸 추천(나는 파일로 만들어서 저장해두고 풀었었다).</li>
-      <li>나는 덤프를 550번정도까지만 떠놓고 2~3번 정도 풀어보고 갔는데 처음 보는 문제가 25문제 이상 나왔었다(;;). 덤프로만 볼 사람들은 꼭 문제를 끝까지 보고 각 시험 메인 페이지에 떠있는 댓글들도 확인하고 갈 것. 최근 시험 본 사람들이 댓글로 후기를 남겨놓는데, 덤프 적중율은 물론이고 업데이트 된 새로운 문제들도 댓글에 남겨놓는 경우가 있어 도움이 된다.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li><strong>Youtube</strong> (<a href="https://youtu.be/3hLmDS179YE">https://youtu.be/3hLmDS179YE</a>)
-    <ul>
-      <li>내가 공부했던 방법 두번째. 유데미나 다른 긴 강의는 듣고싶지 않아 대충 덤프만 보고 가려다 유투브 알고리즘에 걸려 보게 된 영상. 3시간 짜리 영상인데 간단한 실습과 함께 개념들이 정리되어있다.</li>
-      <li>물론 이 영상만으로는 시험통과하기는 어려우나 개념 잡기로는 꽤 괜찮았던 영상이라 추천. 실제로 처음 보는 문제들이 나왔을 때 이 강의에서 듣고 이해했던 개념 베이스로 많이 풀었었다(안들었으면 어쩔뻔).</li>
-      <li>영문 자막이 달려있고 발음이 꽤 깔끔해 영어에 큰 거부감이 없다면 문제가 없을 듯 하지만 영문이 너무 싫으신 분들은 아래 Udemy 강의를 보시는 게 나을 것.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li><strong>Udemy</strong> (<a href="https://www.udemy.com/ko/topic/aws-certified-cloud-practitioner/">https://www.udemy.com/ko/topic/aws-certified-cloud-practitioner/</a>)
-    <ul>
-      <li>해외 벤더사에서 주관하는 IT 관련 자격증을 준비해본 분이라면 모를 수 없는 사이트인 <code class="language-plaintext highlighter-rouge">유데미(Udemy)</code>. 이번에 웅진씽크빅과 전략적 파트너십을 맺게되어 한글 번역본이 꽤나 많이 나오고 있다.</li>
-      <li>Cloud Practitioner도 한국어 자막 버전이 출시되어 있으니 영어 자료를 보기 부담스러워 하시는 분들이시면 추천. 나는 Practitioner 시험인데 굳이 돈들이고 공부해야하나 라는 거만한 마음(반성합니다)으로 듣지 않았지만 들으신 분들은 도움 많이 받으신 듯 하다.</li>
-      <li>정가는 생각보다 가격대가 있는데 할인 받으면 커피 일주일 참는 정도로 너끈히 낼 수 있는 가격이다. (유데미 수강하시는 할인은 창을 켤 때마다 랜덤하게 갱신 되니 시크릿 창으로 띄워보다 할인이 적용될 때 사면 된다는 팁을 들었었던 기억이 있는데 확실하진 않음.)</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li><strong>AWS 공인 교육</strong> (<a href="https://aws.amazon.com/ko/training/digital/aws-cloud-practitioner-essentials/?cp=sec&amp;sec=prep">https://aws.amazon.com/ko/training/digital/aws-cloud-practitioner-essentials/?cp=sec&amp;sec=prep</a>)
-    <ul>
-      <li>AWS에서도 공인 교육 코스를 준비해놓고 있었는데 시험 후기에서 이 강의를 듣고 준비했다는 분들은 많이 않은 듯 해 나는 패스했었다.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="6-수험료-할인-방법">6. 수험료 할인 방법</h2>
-
-<p>AWS는 제일 잘 팔리는 솔루션이라 그런지 GCP(Google Cloud Platform) 이나 Microsoft Azure 처럼 시험 할인 바우처를 호락호락하게(?) 주지는 않는 편. AWS 자격증 시험에 합격하게 되면 50% 할인 바우처가 나오게 되는데, Cloud Practitioner는 가장 초급 단계의 시험이기 때문에 이런 바우처를 거의 쓸 수 없다.</p>
-
-<p><br /></p>
-
-<p>다만, 가끔 열리는 세미나에서 50% 할인 바우처를 나눠주기도 하니 잘 살펴보도록 하자. 나는 <code class="language-plaintext highlighter-rouge">IT 자격증 AWS GCP Azure NCP 아무말</code> 이라는 오픈카톡에서 <code class="language-plaintext highlighter-rouge">AWS 클라우드 로드쇼</code> <code class="language-plaintext highlighter-rouge">AWS 자격증 챌린지</code> 두 개 이벤트를 알게 되어 이벤트 참여 시 나눠주는 Practitioner &amp; SAA 50% 바우처(시험 공부를 미루고 미루다 SAA 바우처는 결국 날렸다 ㅎ)를 활용해 이번 시험을 신청했었다.</p>
-
-<p><br /><br /></p>
-
-<h2 id="7-시험-신청과-결과-확인">7. 시험 신청과 결과 확인</h2>
-
-<ul>
-  <li><strong>시험 신청</strong>
-    <ul>
-      <li>AWS Training 웹사이트에서 (<a href="http://aws.training/Certification">aws.training/Certification</a>) 가능하다. 회원가입 필수.</li>
-      <li>시험 취소 &amp; 시험 일정변경은 시험 시간 24시간 전까지 가능. 기간 제한이 있는 바우처의 경우 바우처 유효기간 내에만 변경이 가능하니 참고하시길.</li>
-      <li>Pearson VUE / PSI 두 개 옵션이 있는데 나는 PSI로 봤었다. 별 이유는 없고 스케쥴이 나한테 맞는 걸로 열려있어서 선택했었음.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li><strong>시험 장소</strong>
-    <ul>
-      <li>시험은 테스팅 센터 혹은 온라인시험으로 볼 수 있는데, 내가 신청했을 때에는 테스팅 센터가 타임슬롯이 없어 온라인 시험으로 신청했었다.</li>
-      <li>온라인으로 봤을 때의 시험 준비물은 여권, 그리고 모니터가 없고 다른 사람이 들어오지 않는 조용한 방이 필요하다.
-        <ul>
-          <li>수험 전 시험용 설치프로그램 및 시스템 호환성 체크를 진행해야하는데, 시험 당일 하려고 하면 갑작스럽게 문제가 생길 때 엄청 당황되니 시험 전날 쯤 미리 설치 및 체크를 완료해 두는 것이 좋다.</li>
-          <li>이어폰은 착용할 수 없으니 노트북 스피커를 이용해야한다.</li>
-          <li>시험 보기 전 감독관이 방 내부 및 책상 위를 체크하는데, 나는 미리 다 치워놔서 그런지 딴지를 걸거나 하지는 않고 바로 끝났다.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li><strong>시험 결과</strong>
-    <ul>
-      <li>시험을 끝낸 뒤 설문조사를 마치면 바로 합격 여부를 확인할 수 있다.</li>
-      <li>합격 통지 메일은 당일 및 2~3일내 발송되며, 득점 내역(Score report) 및 자격증 PDF는 자격증 사이트에서 확인 및 다운로드 할 수 있다.</li>
-    </ul>
-  </li>
-</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Cloud" /><category term="AWS자격증" /><category term="클라우드자격증" /><category term="클라우드엔지니어" /><category term="AWSCLF" /><category term="AWSCloudPractitioner 데브옵스엔지니어" /><category term="DevOps" /><summary type="html"><![CDATA[비전공자가 독학으로 AWS CLF 자격증 취득한 후기]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 12일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
