@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-03T05:23:11+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 16일차</title><link href="http://localhost:4000/programming/Python-Day16/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 16일차" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day16</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day16/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-03T05:28:59+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 16일차</title><link href="http://localhost:4000/programming/Python-Day16/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 16일차" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day16</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day16/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 6-1. 함수개념을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -1607,7 +1607,218 @@
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 14일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 13일차</title><link href="http://localhost:4000/programming/Python-Day13/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 13일차" /><published>2022-04-30T00:00:00+09:00</published><updated>2022-04-30T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day13</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day13/"><![CDATA[<p><br /><br /></p>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 14일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces</title><link href="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/" rel="alternate" type="text/html" title="[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces" /><published>2022-05-01T00:00:00+09:00</published><updated>2022-05-01T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/"><![CDATA[<p><br /><br /></p>
+
+<p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.</em></p>
+
+<p><br /></p>
+
+<h1 id="1-linux-namespaces">1. Linux Namespaces</h1>
+
+<h2 id="1-네임스페이스">1. 네임스페이스</h2>
+
+<ul>
+  <li>호스트 안의 격리된 공간(집 안에 방이 있는 것과 같음): 컨테이너를 생성할 때 컨테이너를 격리해 다른 컨테이너가 표시되지 않도록 하고 싶은 경우</li>
+  <li>네임스페이스 안의 컨테이너 ⇒ 자기자신만 볼 수 있음</li>
+  <li>Underlying (기본) 호스트: 모든 프로세스를 볼 수 있음
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ps aux</code> 로 확인할 수 있음 ⇒ 네임스페이스 내부/외부에서 같은 프로세스지만 PID가 상이하게 됨</li>
+      <li>호스트
+        <ul>
+          <li>LAN에 연결하는 인터페이스 존재</li>
+          <li>라우팅 테이블</li>
+          <li>ARP 테이블: IP - MAC 주소 일대일 대응한 테이블</li>
+        </ul>
+
+        <p>⇒ 컨테이너에서 위 세부사항을 보이지 않게 하고 싶다면?</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>네임스페이스 내에 컨테이너 생성 시 호스트에 대한 네트워크 정보에 대한 가시성 없어짐
+    <ul>
+      <li>네임스페이스는 자체 가상 인터페이스(veth) 및 라우팅 테이블/ARP 테이블을 가질 수 있음</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-네트워크-네임스페이스-생성">2. 네트워크 네임스페이스 생성</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ip netns add red</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns add blue</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ip link</code> : host 의 인터페이스 확인</li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns exec red ip link</code> : 네임스페이스의 인터페이스 확인 (= <code class="language-plaintext highlighter-rouge">ip -n red link</code> )</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-네트워크-네임스페이스-안에서-실행">3. 네트워크 네임스페이스 안에서 실행</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">arp</code> : 호스트에서의 항목들 출력</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ip netns exec red arp</code> : 컨테이너에서의 항목들 출력</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">route</code> : 호스트에서의 라우팅 테이블 출력</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ip netns exec red route</code> : 컨테이너에서의 라우팅 테이블 출력</p>
+  </li>
+  <li>2개의 다른 네임스페이스간의 통신: 가상 이더넷 페어 혹은 가상 케이블(=파이프)
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ip link add veth-red type veth peer name veth-blue</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set veth-red netns red</code> &amp; <code class="language-plaintext highlighter-rouge">ip link set veth-blue netns blue</code></li>
+      <li>IP 할당
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red addr add 192.168.15.1 dev veth-red</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue addr add 192.168.15.2 dev veth-blue</code></li>
+        </ul>
+      </li>
+      <li>IP 링크 업
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red link set veth-red up</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue link set veth-blue up</code></li>
+        </ul>
+      </li>
+      <li>테스트
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec red ping 192.168.15.2</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec red arp</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec blue arp</code>
+            <ul>
+              <li>상대방의 mac/ip주소 표시</li>
+            </ul>
+          </li>
+          <li><code class="language-plaintext highlighter-rouge">arp</code> : host 의 arp 테이블
+            <ul>
+              <li>네임스페이스 내의 정보 없음</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>가상 스위치 생성
+    <ul>
+      <li>가상 스위치 생성하고 네임스페이스 연결
+        <ul>
+          <li>Linux Bridge / Open vSwitch를 통해 생성 가능</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>Linux Bridge
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ip link add v-net-0 type bridge</code> : 호스트에 ip 인터페이스를 추가 ( <code class="language-plaintext highlighter-rouge">ip link</code> 로 확인할 수 있음)</li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set dev v-net-0 up</code> : 네트워크 링크 활성화</li>
+      <li>기존 직접연결 링크 삭제
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red link del veth-red</code>: 한쪽 링크 삭제하면 다른쪽 링크 자동 삭제됨</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">ip link add veth-red type veth peer name vth-red-br</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link add veth-blue type veth peer name vth-blue-br</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set veth-red netns red</code>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip link set veth-red-br master v-net-0</code> : v-net-0(스위치)에 veth-red-br 인터페이스 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red addr add 192.168.15.1 dev veth-red</code> : IP 주소 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red link set veth-red up</code>: 인터페이스 링크 활성화</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set veth-blue netns blue</code>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip link set veth-blue-br master v-net-0</code>: v-net-0(스위치)에 veth-blue-br 인터페이스 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue addr add 192.168.15.2 dev veth-blue</code> : IP주소 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue link set veth-blue up</code>: 인터페이스 링크 활성화</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>호스트와 네임스페이스간 연결
+    <ul>
+      <li>브리지스위치: 호스틑의 네트워크 인터페이스 중 하나</li>
+      <li><code class="language-plaintext highlighter-rouge">ip addr add 192.168.15.5/24 dev v-net-0</code> : 호스트 IP 추가</li>
+      <li>로컬 호스트에서 네임스페이스 연결</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>호스트 바깥과 통신
+    <ul>
+      <li>Blue namespace ⇒ 호스트 바깥 망(192.168.1.3)
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ping 192.168.1.3</code> ⇒ 도달하지 않음 ( <code class="language-plaintext highlighter-rouge">ip netns exec blue route</code> 확인해보면 등록되지 않았음)</li>
+          <li>라우팅 테이블에 항목을 추가해 외부에 대한 게이트웨이 제공해야함
+            <ul>
+              <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ip route add 192.168.1.0/24 via 192.168.15.5</code> 등록
+                <ul>
+                  <li>192.168.15.5 : v-net-0</li>
+                  <li>Ping이 가지만 돌아오지 않음</li>
+                </ul>
+              </li>
+            </ul>
+
+            <p>⇒ NAT 을 구성해야함</p>
+
+            <ul>
+              <li><code class="language-plaintext highlighter-rouge">iptables -t nat -A POSTROUTING -s 192.168.15.0/2 -j MASQUERADE</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>인터넷에 연결
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ip route add default via 192.168.15.5</code>
+        <ul>
+          <li>0.0.0.0 주소가 v-net-0를 통해 가도록 게이트웨이 구성</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>외부에서 네임스페이스로 통신
+    <ul>
+      <li>외부 호스트에 Namespace의 IP 라우팅 등록: 192.168.15.5(v-net-0) via 192.168.1.2(eth0)</li>
+      <li><code class="language-plaintext highlighter-rouge">iptables -t nat -A PREROUTING —dport 80 —to-destination 192.168.15.2:80 -j DNAT</code></li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스네트워킹" /><category term="리눅스네임스페이스" /><category term="네트워크네임스페이스" /><category term="네임스페이스" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 13일차</title><link href="http://localhost:4000/programming/Python-Day13/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 13일차" /><published>2022-04-30T00:00:00+09:00</published><updated>2022-04-30T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day13</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day13/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-6. 반복문 개념(2)를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -2238,319 +2449,4 @@
       <li>합격 통지 메일은 당일 및 2~3일내 발송되며, 득점 내역(Score report) 및 자격증 PDF는 자격증 사이트에서 확인 및 다운로드 할 수 있다.</li>
     </ul>
   </li>
-</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Cloud" /><category term="AWS자격증" /><category term="클라우드자격증" /><category term="클라우드엔지니어" /><category term="AWSCLF" /><category term="AWSCloudPractitioner 데브옵스엔지니어" /><category term="DevOps" /><summary type="html"><![CDATA[비전공자가 독학으로 AWS CLF 자격증 취득한 후기]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 11일차</title><link href="http://localhost:4000/programming/Python-Day11/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 11일차" /><published>2022-04-28T00:00:00+09:00</published><updated>2022-04-28T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day11</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day11/"><![CDATA[<p><br /><br /></p>
-
-<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-5. 리스트 자료형 실습문제를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
-
-<p><br /><br /></p>
-
-<p>아래는 공부 인증 사진.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-04-28-Python-Photo/2022-04-28-Python-Photo1.jpg" alt="2022-04-28-Python-Photo1" /></p>
-
-<p><img src="/assets/images/2022-04-28-Python-Photo/2022-04-28-Python-Photo2.jpg" alt="2022-04-28-Python-Photo2" /></p>
-
-<p><br /><br /></p>
-
-<h1 id="5-리스트-자료형-실습문제">5. 리스트 자료형 실습문제</h1>
-
-<h2 id="1-실습문제-521">1. 실습문제 5.2.1</h2>
-
-<ul>
-  <li>다음은 패스트 고등학교 2학년 3반 1번부터 5번까지의 1분간 팔굽혀펴기 개수이다. 데이터는 각 리스트에 저장되어있다. 각 문항을 실행한 결과를 출력해보자.
-    <ul>
-      <li>result = [33, 40, 12, 63, 52]</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<h3 id="내-풀이">[내 풀이]</h3>
-
-<p><strong>문항 1. 6번의 팔굽혀펴기 개수는 9개이다. 리스트의 마지막에 추가하자.</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
-
-<span class="c1"># 문항 1
-</span><span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">07</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.1</span><span class="p">.</span><span class="n">py</span>
-<span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p><strong>문항 2. 2번은 재측정하여 50개를 하였다. 2번의 데이터를 변경해보자.</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
-
-<span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">07</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.1</span><span class="p">.</span><span class="n">py</span>
-<span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p><strong>문항 3. 3번부터 6번까지 데이터를 슬라이싱하자.</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">07</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.1</span><span class="p">.</span><span class="n">py</span>
-<span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p><strong>문항 4. 모든 데이터를 오름차순으로 정렬하자.</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
-
-<span class="n">result</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">07</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.1</span><span class="p">.</span><span class="n">py</span>
-<span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">63</span><span class="p">]</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h3 id="강의-해설">[강의 해설]</h3>
-
-<p><strong>문항 1. 6번의 팔굽혀펴기 개수는 9개이다. 리스트의 마지막에 추가하자.</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습문제 5.2.1
-</span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
-
-<span class="c1"># 문항 1
-</span><span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p><strong>문항 2. 2번은 재측정하여 50개를 하였다. 2번의 데이터를 변경해보자.</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 문항 2
-</span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p><strong>문항 3. 3번부터 6번까지 데이터를 슬라이싱하자.</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 문항 3
-</span><span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p><strong>문항 4. 모든 데이터를 오름차순으로 정렬하자.</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 문항 4
-</span><span class="n">result</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h2 id="2-실습문제-522">2. 실습문제 5.2.2</h2>
-
-<ul>
-  <li>턱걸이 평균 측정 프로그램을 만들어보자. 먼저, 턱걸이 횟수를 저장할 빈 리스트를 만든다. 그리고 일주일간의 턱걸이 횟수를 입력 받아 리스트에 저장한다. 리스트에 저장된 데이터의 평균을 구해 출력한다.</li>
-  <li>표준입력
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">1일차 턱걸이 횟수 &gt;&gt;&gt; 20</code></li>
-      <li><code class="language-plaintext highlighter-rouge">2일차 턱걸이 횟수 &gt;&gt;&gt; 23</code></li>
-      <li><code class="language-plaintext highlighter-rouge">3일차 턱걸이 횟수 &gt;&gt;&gt; 16</code></li>
-      <li><code class="language-plaintext highlighter-rouge">4일차 턱걸이 횟수 &gt;&gt;&gt; 14</code></li>
-      <li><code class="language-plaintext highlighter-rouge">5일차 턱걸이 횟수 &gt;&gt;&gt; 24</code></li>
-      <li><code class="language-plaintext highlighter-rouge">6일차 턱걸이 횟수 &gt;&gt;&gt; 27</code></li>
-      <li><code class="language-plaintext highlighter-rouge">7일차 턱걸이 횟수 &gt;&gt;&gt; 30</code></li>
-    </ul>
-  </li>
-  <li>표준 출력: 22</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h3 id="내-풀이-1">[내 풀이]</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 빈 리스트 만들기
-</span><span class="n">week</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># 반복문 사용해 1일차부터 7일차까지 값 입력받기
-</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"%d일차 턱걸이 횟수 &gt;&gt;&gt;"</span> <span class="o">%</span> <span class="n">i</span><span class="p">))</span>
-    <span class="n">week</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">week</span><span class="p">)</span>
-
-<span class="c1"># 리스트 요소를 모두 더한 값 구하기
-</span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">week</span><span class="p">)</span>
-
-<span class="c1"># 평균값 = 리스트 요소를 모두 더한 값 / 리스트 요소 개수
-# 계산된 평균값을 정수형으로 변경해준다(기본 출력 float).
-</span><span class="n">average</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">week</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">average</span><span class="p">))</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mi">08</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제5</span><span class="p">.</span><span class="mf">2.2</span><span class="p">.</span><span class="n">py</span>
-<span class="mi">1</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">20</span>
-<span class="p">[</span><span class="mi">20</span><span class="p">]</span>
-<span class="mi">2</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">23</span>
-<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
-<span class="mi">3</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">16</span>
-<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
-<span class="mi">4</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">14</span>
-<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
-<span class="mi">5</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">24</span>
-<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
-<span class="mi">6</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">27</span>
-<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">27</span><span class="p">]</span>
-<span class="mi">7</span><span class="n">일차</span> <span class="n">턱걸이</span> <span class="n">횟수</span> <span class="o">&gt;&gt;&gt;</span><span class="mi">30</span>
-<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<span class="mi">22</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h3 id="강의-해설-1">[강의 해설]</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습 5.2.2
-</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 빈 리스트 생성
-</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"1일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"2일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"3일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"4일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"5일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"6일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"7일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">total</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
-<span class="n">avg</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">7</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">avg</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>위의 코드를 실행하면 아래와 같이 인덱스 에러가 발생한다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">IndexError</span><span class="p">:</span> <span class="nb">list</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>인덱스 중 범위를 벗어난 경우 발생: <code class="language-plaintext highlighter-rouge">data[7]</code> 삭제해준다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습 5.2.2
-</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 빈 리스트 생성
-</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"1일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"2일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"3일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"4일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"5일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"6일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"7일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">total</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
-<span class="n">avg</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">7</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">avg</span><span class="p">))</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력된 평균값이 float형이기 때문에 int로 변경해준다.</li>
-</ul>
-
-<p><br /><br /></p>
-
-<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
-
-<p><br /></p>
-
-<ul>
-  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 11일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
+</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Cloud" /><category term="AWS자격증" /><category term="클라우드자격증" /><category term="클라우드엔지니어" /><category term="AWSCLF" /><category term="AWSCloudPractitioner 데브옵스엔지니어" /><category term="DevOps" /><summary type="html"><![CDATA[비전공자가 독학으로 AWS CLF 자격증 취득한 후기]]></summary></entry></feed>

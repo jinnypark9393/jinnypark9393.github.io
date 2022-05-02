@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Kubernetes]쿠버네티스 네트워킹(1)스위칭 &amp; 라우팅 - release: canary</title>
-<meta name="description" content="쿠버네티스 네트워킹을 알아보기에 앞서 리눅스 머신에서의 스위칭 &amp; 라우팅에 대해 알아보자.">
+<!-- begin _includes/seo.html --><title>[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces - release: canary</title>
+<meta name="description" content="쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.">
 
 
   <meta name="author" content="Canary">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="release: canary">
-<meta property="og:title" content="[Kubernetes]쿠버네티스 네트워킹(1)스위칭 &amp; 라우팅">
-<meta property="og:url" content="http://localhost:4000/devops/Kubernetes-Networking-Swtiching-Routing/">
+<meta property="og:title" content="[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces">
+<meta property="og:url" content="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/">
 
 
-  <meta property="og:description" content="쿠버네티스 네트워킹을 알아보기에 앞서 리눅스 머신에서의 스위칭 &amp; 라우팅에 대해 알아보자.">
+  <meta property="og:description" content="쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.">
 
 
 
@@ -47,7 +47,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/devops/Kubernetes-Networking-Swtiching-Routing/">
+<link rel="canonical" href="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/">
 
 
 
@@ -290,15 +290,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Kubernetes]쿠버네티스 네트워킹(1)스위칭 &amp; 라우팅">
-    <meta itemprop="description" content="쿠버네티스 네트워킹을 알아보기에 앞서 리눅스 머신에서의 스위칭 &amp; 라우팅에 대해 알아보자.">
+    <meta itemprop="headline" content="[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces">
+    <meta itemprop="description" content="쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.">
     <meta itemprop="datePublished" content="2022-05-01T00:00:00+09:00">
     <meta itemprop="dateModified" content="2022-05-01T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Kubernetes]쿠버네티스 네트워킹(1)스위칭 &amp; 라우팅
+          <h1 id="page-title" class="page__title" itemprop="headline">[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces
 </h1>
           
           <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-05-01T00:00:00+09:00">May 01, 2022</time></p>
@@ -328,83 +328,105 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-스위칭">1. 스위칭</a></li><li><a href="#2-라우팅">2. 라우팅</a><ul><li><a href="#1-다른-네트워크에-존재하는-머신과-통신">1. 다른 네트워크에 존재하는 머신과 통신</a></li><li><a href="#2-인터넷과의-통신">2. 인터넷과의 통신</a></li><li><a href="#3-라우팅-테이블에-존재하지-않는-ip와의-통신">3. 라우팅 테이블에 존재하지 않는 IP와의 통신</a></li><li><a href="#3-리눅스-머신을-라우터로-사용">3. 리눅스 머신을 라우터로 사용</a></li></ul></li><li><a href="#3-유용한-리눅스-명령어들">3. 유용한 리눅스 명령어들</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-linux-namespaces">1. Linux Namespaces</a><ul><li><a href="#1-네임스페이스">1. 네임스페이스</a></li><li><a href="#2-네트워크-네임스페이스-생성">2. 네트워크 네임스페이스 생성</a></li><li><a href="#3-네트워크-네임스페이스-안에서-실행">3. 네트워크 네임스페이스 안에서 실행</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
         <p><br /><br /></p>
 
-<p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 리눅스 머신에서의 스위칭 &amp; 라우팅에 대해 알아보자.</em></p>
+<p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.</em></p>
 
 <p><br /></p>
 
-<h1 id="1-스위칭">1. 스위칭</h1>
+<h1 id="1-linux-namespaces">1. Linux Namespaces</h1>
 
-<p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing1.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing1" /></p>
-
-<ul>
-  <li>컴퓨터 A와 B가 통신하기 위해서는 각 컴퓨터(호스트)에 물리, 혹은 가상 인터페이스가 필요하다.</li>
-</ul>
-
-<p><br /></p>
+<h2 id="1-네임스페이스">1. 네임스페이스</h2>
 
 <ul>
-  <li>
-    <p>각 리눅스 머신(=컴퓨터), 스위치에  IP 주소를 할당하자.</p>
+  <li>호스트 안의 격리된 공간(집 안에 방이 있는 것과 같음): 컨테이너를 생성할 때 컨테이너를 격리해 다른 컨테이너가 표시되지 않도록 하고 싶은 경우</li>
+  <li>네임스페이스 안의 컨테이너 ⇒ 자기자신만 볼 수 있음</li>
+  <li>Underlying (기본) 호스트: 모든 프로세스를 볼 수 있음
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ps aux</code> 로 확인할 수 있음 ⇒ 네임스페이스 내부/외부에서 같은 프로세스지만 PID가 상이하게 됨</li>
+      <li>호스트
+        <ul>
+          <li>LAN에 연결하는 인터페이스 존재</li>
+          <li>라우팅 테이블</li>
+          <li>ARP 테이블: IP - MAC 주소 일대일 대응한 테이블</li>
+        </ul>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 스위치에 ip 주소 할당</span>
-  ip addr add 192.168.1.0/24
-    
-  <span class="c"># 컴퓨터 A</span>
-  ip addr add 192.168.1.10/24 dev eth0
-    
-  <span class="c"># 컴퓨터 B</span>
-  ip addr add 192.168.1.11/24 dev eth0
-</code></pre></div>    </div>
+        <p>⇒ 컨테이너에서 위 세부사항을 보이지 않게 하고 싶다면?</p>
+      </li>
+    </ul>
   </li>
 </ul>
 
 <p><br /></p>
 
 <ul>
-  <li>A, B는 같은 네트워크 안에 있으므로, 스위치를 통해 서로 통신할 수 있다.
+  <li>네임스페이스 내에 컨테이너 생성 시 호스트에 대한 네트워크 정보에 대한 가시성 없어짐
     <ul>
-      <li>컴퓨터 A(192.168.1.10)에서 컴퓨터 B(192.168.1.11)로 통신 가능</li>
-      <li>컴퓨터 B(192.168.1.11)에서 컴퓨터 A(192.168.1.10)로 통신 가능</li>
+      <li>네임스페이스는 자체 가상 인터페이스(veth) 및 라우팅 테이블/ARP 테이블을 가질 수 있음</li>
     </ul>
   </li>
 </ul>
 
 <p><br /><br /></p>
 
-<h1 id="2-라우팅">2. 라우팅</h1>
-
-<h2 id="1-다른-네트워크에-존재하는-머신과-통신">1. 다른 네트워크에 존재하는 머신과 통신</h2>
+<h2 id="2-네트워크-네임스페이스-생성">2. 네트워크 네임스페이스 생성</h2>
 
 <ul>
-  <li>
-    <p>컴퓨터 A &amp; B와 다른 네트워크에 컴퓨터 C &amp; D 가 존재할 때, 컴퓨터 A, B에서 어떻게 시스템 C, D로 도달하게 될까?</p>
-
-    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing2.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing2" /></p>
-
-    <p>⇒ <strong>라우터</strong>가 필요!</p>
-  </li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns add red</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns add blue</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ip link</code> : host 의 인터페이스 확인</li>
+  <li><code class="language-plaintext highlighter-rouge">ip netns exec red ip link</code> : 네임스페이스의 인터페이스 확인 (= <code class="language-plaintext highlighter-rouge">ip -n red link</code> )</li>
 </ul>
 
-<p><br /></p>
+<p><br /><br /></p>
+
+<h2 id="3-네트워크-네임스페이스-안에서-실행">3. 네트워크 네임스페이스 안에서 실행</h2>
 
 <ul>
+  <li><code class="language-plaintext highlighter-rouge">arp</code> : 호스트에서의 항목들 출력</li>
   <li>
-    <p>라우터(Router): 다른 네트워크를 연결하는 장치</p>
-
-    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing3.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing3" /></p>
-
+    <p><code class="language-plaintext highlighter-rouge">ip netns exec red arp</code> : 컨테이너에서의 항목들 출력</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">route</code> : 호스트에서의 라우팅 테이블 출력</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ip netns exec red route</code> : 컨테이너에서의 라우팅 테이블 출력</p>
+  </li>
+  <li>2개의 다른 네임스페이스간의 통신: 가상 이더넷 페어 혹은 가상 케이블(=파이프)
     <ul>
-      <li>라우터가 각 네트워크와 연결 될 수 있도록 아래의 IP를 할당
+      <li><code class="language-plaintext highlighter-rouge">ip link add veth-red type veth peer name veth-blue</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set veth-red netns red</code> &amp; <code class="language-plaintext highlighter-rouge">ip link set veth-blue netns blue</code></li>
+      <li>IP 할당
         <ul>
-          <li><code class="language-plaintext highlighter-rouge">192.168.1.1</code> (A, B와 같은 네트워크)</li>
-          <li><code class="language-plaintext highlighter-rouge">192.168.2.1</code> (C, D와 같은 네트워크)</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red addr add 192.168.15.1 dev veth-red</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue addr add 192.168.15.2 dev veth-blue</code></li>
+        </ul>
+      </li>
+      <li>IP 링크 업
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red link set veth-red up</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue link set veth-blue up</code></li>
+        </ul>
+      </li>
+      <li>테스트
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec red ping 192.168.15.2</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec red arp</code></li>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec blue arp</code>
+            <ul>
+              <li>상대방의 mac/ip주소 표시</li>
+            </ul>
+          </li>
+          <li><code class="language-plaintext highlighter-rouge">arp</code> : host 의 arp 테이블
+            <ul>
+              <li>네임스페이스 내의 정보 없음</li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
@@ -414,91 +436,13 @@
 <p><br /></p>
 
 <ul>
-  <li>
-    <p>A, B와 C,D가 통신 할 수 있도록 각 컴퓨터에 게이트웨이(Gateway)를 설정</p>
-
-    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing4.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing4" /></p>
-
+  <li>가상 스위치 생성
     <ul>
-      <li>각 컴퓨터(A, B, C, D)에서 <code class="language-plaintext highlighter-rouge">route</code> 커맨드를 실행해 게이트웨이를 설정</li>
-      <li>
-        <p>예시</p>
-
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># A, B의 설정</span>
-  <span class="c"># 192.168.2.0 번대 네트워크로 가는 요청은 192.168.1.1 으로 보낸다.</span>
-  ip route add 192.168.2.0/24 via 192.168.1.1
-        
-  <span class="c"># C, D의 설정</span>
-  <span class="c"># 192.168.1.0 번대 네트워크로 가는 요청은 192.168.2.1 으로 보낸다.</span>
-  ip route add 192.168.1.0/24 via 192.168.2.1
-</code></pre></div>        </div>
+      <li>가상 스위치 생성하고 네임스페이스 연결
+        <ul>
+          <li>Linux Bridge / Open vSwitch를 통해 생성 가능</li>
+        </ul>
       </li>
-      <li>설정 완료 후, route 커맨드로 설정 내역을 확인할 수 있다.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br />
-<br /></p>
-
-<h2 id="2-인터넷과의-통신">2. 인터넷과의 통신</h2>
-
-<ul>
-  <li>
-    <p>시스템을 인터넷(172.217.194.0/24)에 연결하려면?</p>
-
-    <p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing5.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing5" /></p>
-
-    <ul>
-      <li>A,B - C,D 네트워크를 연결했을 경우와 마찬가지로 Gateway를 통해 목적지에 연결하는 루트 추가</li>
-      <li>A, B 설정: <code class="language-plaintext highlighter-rouge">ip route add 172.217.194.0/24 via 192.168.1.1</code></li>
-      <li>C, D 설정: <code class="language-plaintext highlighter-rouge">ip route add 172.217.194.0/24 via 192.168.2.1</code></li>
-    </ul>
-  </li>
-</ul>
-
-<p><br />
-<br /></p>
-
-<h2 id="3-라우팅-테이블에-존재하지-않는-ip와의-통신">3. 라우팅 테이블에 존재하지 않는 IP와의 통신</h2>
-
-<ul>
-  <li>
-    <p>컴퓨터의 라우팅 테이블에 등록되지 않아 경로를 알 수 없는 IP와의 통신을 할 경우에는 어떻게 설정?</p>
-
-    <p>⇒ <strong>디폴트 게이트웨이(Default Gateway)</strong></p>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>설정 방법은 아래 둘 중 하나
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">ip route add default via 192.168.2.1</code></li>
-      <li><code class="language-plaintext highlighter-rouge">ip route add 0.0.0.0 via 192.168.2.1</code></li>
-    </ul>
-  </li>
-</ul>
-
-<p><br />
-<br /></p>
-
-<h2 id="3-리눅스-머신을-라우터로-사용">3. 리눅스 머신을 라우터로 사용</h2>
-
-<ul>
-  <li>라우터, 스위치 대신 리눅스 머신을 네트워크 장비처럼 사용할 수 있다.</li>
-  <li>라우터 설정과 동일하게 라우터가 되는 리눅스 머신에서 IP 설정</li>
-  <li>머신 A, B 에서 각각 Gateway IP 설정</li>
-</ul>
-
-<p><img src="/assets/images/2022-05-01-Kubernetes-Networking-Swtiching-Routing/2022-05-01-Kubernetes-Networking-Swtiching-Routing6.png" alt="2022-05-01-Kubernetes-Networking-Swtiching-Routing6" /></p>
-
-<ul>
-  <li>A와 B가 통신이 가능할까?
-    <ul>
-      <li>불가능하다.</li>
-      <li>리눅스에서는 기본적으로 패킷을 한 인터페이스에서 다른 인터페이스로 전달하지 않으므로, <strong>명시적으로 정의</strong>해야하기 때문.</li>
     </ul>
   </li>
 </ul>
@@ -506,10 +450,31 @@
 <p><br /></p>
 
 <ul>
-  <li>라우터 역할을 하는 머신에서 설정값을 확인해보자: <code class="language-plaintext highlighter-rouge">cat /proc/sys/net/ipv4/ip_forward</code>
+  <li>Linux Bridge
     <ul>
-      <li>기본 설정값은 <code class="language-plaintext highlighter-rouge">0(포워딩하지 않음)</code></li>
-      <li>포워딩을 허용하는 설정값은 <code class="language-plaintext highlighter-rouge">1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link add v-net-0 type bridge</code> : 호스트에 ip 인터페이스를 추가 ( <code class="language-plaintext highlighter-rouge">ip link</code> 로 확인할 수 있음)</li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set dev v-net-0 up</code> : 네트워크 링크 활성화</li>
+      <li>기존 직접연결 링크 삭제
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red link del veth-red</code>: 한쪽 링크 삭제하면 다른쪽 링크 자동 삭제됨</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">ip link add veth-red type veth peer name vth-red-br</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link add veth-blue type veth peer name vth-blue-br</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set veth-red netns red</code>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip link set veth-red-br master v-net-0</code> : v-net-0(스위치)에 veth-red-br 인터페이스 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red addr add 192.168.15.1 dev veth-red</code> : IP 주소 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n red link set veth-red up</code>: 인터페이스 링크 활성화</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">ip link set veth-blue netns blue</code>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip link set veth-blue-br master v-net-0</code>: v-net-0(스위치)에 veth-blue-br 인터페이스 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue addr add 192.168.15.2 dev veth-blue</code> : IP주소 연결</li>
+          <li><code class="language-plaintext highlighter-rouge">ip -n blue link set veth-blue up</code>: 인터페이스 링크 활성화</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
@@ -517,9 +482,11 @@
 <p><br /></p>
 
 <ul>
-  <li>네트워크 패킷을 전달하도록 수정:  <code class="language-plaintext highlighter-rouge">echo 1 &gt; /proc/sys/net/ipv4/ip_forward</code>
+  <li>호스트와 네임스페이스간 연결
     <ul>
-      <li>위의 설정은 <strong>재부팅시 초기화</strong>된다.</li>
+      <li>브리지스위치: 호스틑의 네트워크 인터페이스 중 하나</li>
+      <li><code class="language-plaintext highlighter-rouge">ip addr add 192.168.15.5/24 dev v-net-0</code> : 호스트 IP 추가</li>
+      <li>로컬 호스트에서 네임스페이스 연결</li>
     </ul>
   </li>
 </ul>
@@ -527,25 +494,57 @@
 <p><br /></p>
 
 <ul>
-  <li>재부팅 이후에도 설정값을 유지하도록 하려면 <code class="language-plaintext highlighter-rouge">etc/sysctl.conf</code> 파일의 <code class="language-plaintext highlighter-rouge">net.ipv4..ip_forward = 1</code> 설정값을 넣어주어야 한다.</li>
+  <li>호스트 바깥과 통신
+    <ul>
+      <li>Blue namespace ⇒ 호스트 바깥 망(192.168.1.3)
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ping 192.168.1.3</code> ⇒ 도달하지 않음 ( <code class="language-plaintext highlighter-rouge">ip netns exec blue route</code> 확인해보면 등록되지 않았음)</li>
+          <li>라우팅 테이블에 항목을 추가해 외부에 대한 게이트웨이 제공해야함
+            <ul>
+              <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ip route add 192.168.1.0/24 via 192.168.15.5</code> 등록
+                <ul>
+                  <li>192.168.15.5 : v-net-0</li>
+                  <li>Ping이 가지만 돌아오지 않음</li>
+                </ul>
+              </li>
+            </ul>
+
+            <p>⇒ NAT 을 구성해야함</p>
+
+            <ul>
+              <li><code class="language-plaintext highlighter-rouge">iptables -t nat -A POSTROUTING -s 192.168.15.0/2 -j MASQUERADE</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
-<p><br />
-<br /></p>
-
-<h1 id="3-유용한-리눅스-명령어들">3. 유용한 리눅스 명령어들</h1>
+<p><br /></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">ip link</code> : 호스트의 인터페이스를 나열 및 수정</li>
-  <li><code class="language-plaintext highlighter-rouge">ip addr</code> : 해당 인터페이스에 할당된 IP 주소를 확인</li>
-  <li><code class="language-plaintext highlighter-rouge">ip addr add 192.168.1.10/24 dev eth0</code> : 인터페이스에 IP를 설정하는데에 사용</li>
-  <li>변경사항을 부팅 후에도 유지하려면 <code class="language-plaintext highlighter-rouge">/etc/network/interfaces</code> 파일을 수정해야한다.</li>
-  <li><code class="language-plaintext highlighter-rouge">ip route</code> <code class="language-plaintext highlighter-rouge">route</code> : 라우팅 테이블 확인</li>
-  <li><code class="language-plaintext highlighter-rouge">ip route add 192.168.1.0/24 via 192.168.2.1</code>: 라우팅 테이블에 항목 추가</li>
-  <li><code class="language-plaintext highlighter-rouge">cat /proc/sys/net/ipv4/ip_forward</code> : 호스트에서 IP전달이 활성화 되어있는지 확인(0은 전달 불가. 1은 전달 가능)</li>
+  <li>인터넷에 연결
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ip netns exec blue ip route add default via 192.168.15.5</code>
+        <ul>
+          <li>0.0.0.0 주소가 v-net-0를 통해 가도록 게이트웨이 구성</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
-<p>이번 포스팅에서는 쿠버네티스 네트워킹의 기본이 되는 스위칭, 라우팅, 그리고 리눅스 머신에서의 라우팅에 대해서 알아보았다. 다음 포스팅에서는 DNS에 대해 알아보도록 하자.</p>
+<p><br /></p>
+
+<ul>
+  <li>외부에서 네임스페이스로 통신
+    <ul>
+      <li>외부 호스트에 Namespace의 IP 라우팅 등록: 192.168.15.5(v-net-0) via 192.168.1.2(eth0)</li>
+      <li><code class="language-plaintext highlighter-rouge">iptables -t nat -A PREROUTING —dport 80 —to-destination 192.168.15.2:80 -j DNAT</code></li>
+    </ul>
+  </li>
+</ul>
 
         
       </section>
@@ -562,6 +561,8 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
+      <a href="/tags/#cka" class="page__taxonomy-item" rel="tag">cka</a><span class="sep">, </span>
+    
       <a href="/tags/#devopsengineer" class="page__taxonomy-item" rel="tag">DevOpsengineer</a><span class="sep">, </span>
     
       <a href="/tags/#k8s" class="page__taxonomy-item" rel="tag">k8s</a><span class="sep">, </span>
@@ -570,13 +571,15 @@
     
       <a href="/tags/#kubernetesnetworking" class="page__taxonomy-item" rel="tag">kubernetesnetworking</a><span class="sep">, </span>
     
+      <a href="/tags/#%EB%84%A4%EC%9E%84%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4" class="page__taxonomy-item" rel="tag">네임스페이스</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%84%A4%EC%9E%84%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4" class="page__taxonomy-item" rel="tag">네트워크네임스페이스</a><span class="sep">, </span>
+    
       <a href="/tags/#%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4" class="page__taxonomy-item" rel="tag">데브옵스</a><span class="sep">, </span>
     
       <a href="/tags/#%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4" class="page__taxonomy-item" rel="tag">데브옵스엔지니어</a><span class="sep">, </span>
     
-      <a href="/tags/#%EB%9D%BC%EC%9A%B0%ED%8C%85%EA%B8%B0%EC%B4%88" class="page__taxonomy-item" rel="tag">라우팅기초</a><span class="sep">, </span>
-    
-      <a href="/tags/#%EC%8A%A4%EC%9C%84%EC%B9%AD%EA%B8%B0%EC%B4%88" class="page__taxonomy-item" rel="tag">스위칭기초</a><span class="sep">, </span>
+      <a href="/tags/#%EB%A6%AC%EB%88%85%EC%8A%A4%EB%84%A4%EC%9E%84%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4" class="page__taxonomy-item" rel="tag">리눅스네임스페이스</a><span class="sep">, </span>
     
       <a href="/tags/#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4" class="page__taxonomy-item" rel="tag">쿠버네티스</a><span class="sep">, </span>
     
@@ -615,22 +618,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BKubernetes%5D%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4+%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9%281%29%EC%8A%A4%EC%9C%84%EC%B9%AD+%26+%EB%9D%BC%EC%9A%B0%ED%8C%85%20http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-Swtiching-Routing%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BKubernetes%5D%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4+%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9%283%29Linux+Namespaces%20http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-3-Linux-Namespaces%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-Swtiching-Routing%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-3-Linux-Namespaces%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-Swtiching-Routing%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Networking-3-Linux-Namespaces%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/github%20blog/Github-Blog-cannot-upload-a-post/" class="pagination--pager" title="[Github Pages/Blog]포스팅 게시 안됨 이슈 해결
+      <a href="/programming/Python-Day14/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 14일차
 ">이전</a>
     
     
-      <a href="/programming/Python-Day14/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 14일차
+      <a href="/devops/Kubernetes-Networking-DNS-CoreDNS/" class="pagination--pager" title="[Kubernetes]쿠버네티스 네트워킹(2)DNS &amp; CoreDNS
 ">다음</a>
     
   </nav>
@@ -721,14 +724,14 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/devops/Kubernetes-Networking-3-Linux-Namespaces/" rel="permalink">[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces
+        <a href="/programming/Python-Day14/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 14일차
 </a>
       
     </h2>
     
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 01 2022</p>
     
-    <p class="archive__item-excerpt" itemprop="description">쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 14일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
 </p>
   </article>
 </div>
