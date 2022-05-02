@@ -1,4 +1,451 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-02T21:11:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Kubernetes]쿠버네티스 네트워킹(2)DNS &amp;amp; CoreDNS</title><link href="http://localhost:4000/devops/Kubernetes-Networking-DNS-CoreDNS/" rel="alternate" type="text/html" title="[Kubernetes]쿠버네티스 네트워킹(2)DNS &amp;amp; CoreDNS" /><published>2022-05-02T00:00:00+09:00</published><updated>2022-05-02T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-Networking-DNS-CoreDNS</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-Networking-DNS-CoreDNS/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-03T05:23:11+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 16일차</title><link href="http://localhost:4000/programming/Python-Day16/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 16일차" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day16</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day16/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 6-1. 함수개념을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-03-Python-Photo/2022-05-03-Python-Photo1.jpg" alt="2022-05-03-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-03-Python-Photo/2022-05-03-Python-Photo2.jpg" alt="2022-05-03-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="1-함수-개념">1. 함수 개념</h1>
+
+<ul>
+  <li>재사용성이 좋아지고</li>
+  <li>유지보수가 편리해지고</li>
+  <li>가독성이 좋아진다</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="1-함수-개념-1">1. 함수 개념</h2>
+
+<ul>
+  <li>함수를 사용하지 않은 경우</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 함수를 사용하지 않은 경우
+</span><span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요, 동준님"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄서비스 사용기간이 30일 남았습니다."</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 현식님"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 15일 남았습니다."</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 원준님"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 7일 남았습니다."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>함수를 사용한 경우: printMessage라는 함수를 정의</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 함수를 사용한 경우
+</span><span class="k">def</span> <span class="nf">printMessage</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요."</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">"님"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 "</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="s">"일 남았습니다."</span><span class="p">)</span>
+
+<span class="n">printMessage</span><span class="p">(</span><span class="s">"동준"</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">printMessage</span><span class="p">(</span><span class="s">"현식"</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">printMessage</span><span class="p">(</span><span class="s">"원준"</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="1-재사용성-코드를-다시-사용할-때-얼마나-간편한가">1. 재사용성: 코드를 다시 사용할 때 얼마나 간편한가</h3>
+
+<ul>
+  <li>
+    <p>함수를 사용하지 않은 경우</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># 함수를 사용하지 않은 경우
+</span>  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요, 동준님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄서비스 사용기간이 30일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 현식님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 15일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 원준님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 7일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 길동님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 7일 남았습니다."</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>함수를 복사 붙여넣기 한 뒤</li>
+      <li>직접 타이핑해 이름과 남은 일자를 적어준다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>함수를 사용한 경우</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># 함수를 사용한 경우
+</span>  <span class="k">def</span> <span class="nf">printMessage</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요."</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">"님"</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 "</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="s">"일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"동준"</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"현식"</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"원준"</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"길동"</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>함수 호출 부분만 적어주고 이름과 남은 기간만 넘겨주면 된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="2-유지보수성-코드를-수정할-때-얼마나-간편한가">2. 유지보수성: 코드를 수정할 때 얼마나 간편한가</h3>
+
+<ul>
+  <li>
+    <p>함수를 사용하지 않은 경우</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># 함수를 사용하지 않은 경우
+</span>  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요, 동준님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄서비스 사용기간이 30일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 현식님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 15일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 원준님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 7일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 길동님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 7일 남았습니다."</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>모든 부분을 하나하나 찾아 직접 바꿔주어야 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>함수를 사용한 경우</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">printMessage</span><span class="p">(</span><span class="s">"동준"</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"현식"</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"원준"</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"길동"</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>함수는 그대로 두고 호출 부분만 바꿔주면 된다.</li>
+      <li>보기 쉽고, 찾기 쉽다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="3-가독성-코드를-읽고-이해하기-쉽다">3. 가독성: 코드를 읽고 이해하기 쉽다.</h3>
+
+<ul>
+  <li>
+    <p>함수를 사용하지 않은 경우</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># 함수를 사용하지 않은 경우
+</span>  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요, 동준님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄서비스 사용기간이 30일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 현식님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 15일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 원준님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 7일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요. 길동님"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 7일 남았습니다."</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>코드가 길어져 이해하기 쉽지 않다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>함수를 사용한 경우</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># 함수를 사용한 경우
+</span>  <span class="k">def</span> <span class="nf">printMessage</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요."</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">"님"</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">"현재 프리미엄 서비스 사용기간이 "</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="s">"일 남았습니다."</span><span class="p">)</span>
+    
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"동준"</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"현식"</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"원준"</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+  <span class="n">printMessage</span><span class="p">(</span><span class="s">"길동"</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>코드가 간결해 이해하기 쉽다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-함수의-기본-형태">2. 함수의 기본 형태</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 정의하기(define)
+</span><span class="k">def</span> <span class="nf">함수이름</span><span class="p">():</span>
+    <span class="n">명령블록</span>
+
+<span class="c1"># 호출하기
+</span><span class="n">함수이름</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>예시</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">printHello</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+
+<span class="n">printHello</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Hello를 출력하는 함수를 생성한 뒤, 호출.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-매개변수가-있는-함수">3. 매개변수가 있는 함수</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 정의하기
+</span><span class="k">def</span> <span class="nf">함수이름</span><span class="p">(</span><span class="n">매개변수1</span><span class="p">,</span> <span class="n">매개변수2</span><span class="p">):</span>
+    <span class="n">명령블록</span>
+
+<span class="c1"># 호출하기
+</span><span class="n">함수이름</span><span class="p">(</span><span class="n">인자1</span><span class="p">,</span> <span class="n">인자2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>매개변수: 함수 안에서 쓰일 데이터를 받는 역할 ( <code class="language-plaintext highlighter-rouge">,</code> 로 구분된다)</li>
+  <li>인자: 매개변수 안에 들어갈 데이터</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>예시</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 정의하기 
+</span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># 호출하기
+</span><span class="nb">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>화면에 7이 출력된다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="4-반환값이-있는-함수">4. 반환값이 있는 함수</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 정의하기
+</span><span class="k">def</span> <span class="nf">함수이름</span><span class="p">():</span>
+    <span class="n">명령블록</span>
+    <span class="k">return</span> <span class="n">반환값</span>
+
+<span class="c1"># 호출하기
+</span><span class="n">함수이름</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>예시</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 정의하기
+</span><span class="k">def</span> <span class="nf">getRandomNumber</span><span class="p">():</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">number</span>
+
+<span class="c1"># 호출하기
+</span><span class="n">getRandomNumber</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="5-매개변수와-반환값이-있는-함수">5. 매개변수와 반환값이 있는 함수</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 정의하기
+</span><span class="k">def</span> <span class="nf">함수이름</span><span class="p">(</span><span class="n">매개변수1</span><span class="p">,</span> <span class="n">매개변수2</span><span class="p">):</span>
+    <span class="n">명령블록</span>
+    <span class="k">return</span> <span class="n">반환값</span>
+
+<span class="c1"># 호출하기
+</span><span class="n">함수이름</span><span class="p">(</span><span class="n">인자1</span><span class="p">,</span> <span class="n">인자2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>예시</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 정의하기
+</span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># 호출하기
+</span><span class="nb">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>화면에 7이 출력되지 않고 sum에 7 값이 저장된다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="6-실습">6. 실습</h2>
+
+<h3 id="1-기본형">1. 기본형</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 기본형
+# 1. 정의하기
+</span><span class="k">def</span> <span class="nf">printHello</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+
+<span class="c1"># 2. 호출하기
+</span><span class="n">printHello</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter6</span><span class="o">/</span><span class="mf">02.</span><span class="n">함수실습</span><span class="p">.</span><span class="n">py</span>
+<span class="n">Hello</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-매개변수가-있는-함수">2. 매개변수가 있는 함수</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 매개변수가 있는 함수
+</span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter6</span><span class="o">/</span><span class="mf">02.</span><span class="n">함수실습</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">7</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="3-반환값이-있는-함수">3. 반환값이 있는 함수</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 반환값이 있는 함수
+</span><span class="kn">import</span> <span class="nn">random</span> <span class="c1"># random 모듈을 호출
+</span><span class="k">def</span> <span class="nf">getRandomNumber</span><span class="p">():</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">number</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">getRandomNumber</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jinipark</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jinipark</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter6</span><span class="o">/</span><span class="mf">02.</span><span class="n">함수실습</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">5</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="4-매개변수와-반환값이-있는-함수">4. 매개변수와 반환값이 있는 함수</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 매개변수와 반환값이 있는 함수
+</span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter6</span><span class="o">/</span><span class="mf">02.</span><span class="n">함수실습</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">11</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이번 포스팅에서는 함수 개념을 정리해보았다. 다음 포스팅에서는 함수 실습문제(1)를 풀어보도록 하자.</p>
+
+<p><br /><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 16일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Kubernetes]쿠버네티스 네트워킹(2)DNS &amp;amp; CoreDNS</title><link href="http://localhost:4000/devops/Kubernetes-Networking-DNS-CoreDNS/" rel="alternate" type="text/html" title="[Kubernetes]쿠버네티스 네트워킹(2)DNS &amp;amp; CoreDNS" /><published>2022-05-02T00:00:00+09:00</published><updated>2022-05-02T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-Networking-DNS-CoreDNS</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-Networking-DNS-CoreDNS/"><![CDATA[<p><br /><br /></p>
 
 <h1 id="1-dnsdomain-name-system">1. DNS(Domain Name System)</h1>
 
@@ -2106,90 +2553,4 @@
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 11일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기</title><link href="http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone/" rel="alternate" type="text/html" title="[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone</id><content type="html" xml:base="http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone/"><![CDATA[<p><br /><br /></p>
-
-<h1 id="1-리눅스linux-시간을-한국-표준시kst로-변경">1. 리눅스(Linux) 시간을 한국 표준시(KST)로 변경</h1>
-
-<p><em>💡  리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다.</em></p>
-
-<p><br /><br /></p>
-
-<p>깃허브 블로그(Github Pages)용으로 VMware Fusion에서 우분투(Ubuntu)를 설치하고 난 뒤, Jekyll과 Git으로 블로그에 포스팅을 진행했다. 하지만 Github에서 표시되는 commit 일시와 실제 commit 일시가 다른 현상이 발생했는데, 확인해보니 Timezone이 한국표준시가 아닌 다른 시간대로 설정되어 생긴 현상이었다.</p>
-
-<p><br /></p>
-
-<p>구글링으로 찾아보니 리눅스를 설치할 때 Timezone을 설정하지 않으면 PDT/UST 등이 기본으로 설정된다고 한다.</p>
-
-<p><br /></p>
-
-<p>시스템 자체에 문제가 생긴 부분은 아니지만 패스트캠퍼스에서 매일 포스팅 업로드 챌린지를 하고 있는데, 나중에 업로드 일자가 문제가 될까 싶어서 아래와 같은 방법으로 Timezone을 KST로 변경해주었다.</p>
-
-<p><br /></p>
-
-<p>참고로 현재 내 환경은 아래와 같다.</p>
-
-<p><br /></p>
-
-<ul>
-  <li>MacOS Monterey 12.3.1</li>
-  <li>VMware Fusion 12.1.2</li>
-  <li>Ubuntu 20.04</li>
-</ul>
-
-<p><br /><br /></p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">date</code> 명령어를 사용해 현재 시간을 확인한다.
-    <ul>
-      <li>나의 경우에는 PDT(태평양 표준시: Pacific Daylight Time)로 설정되어있었다.</li>
-    </ul>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">date
- </span>Mon 18 Apr 2022 04:54:58 AM PDT
-</code></pre></div>    </div>
-    <p><br /></p>
-  </li>
-  <li>
-    <p>현재 Timezone 을 확인한다.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
- lrwxrwxrwx 1 root root 39 Apr 13 06:29 /etc/localtime -&gt; /usr/share/zoneinfo/America/Los_Angeles
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p><br /></p>
-
-<ol>
-  <li>
-    <p>Timezone을 한국표준시(KST)로 변경해준다.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/share/zoneinfo/Asia/Seoul /etc/localtime
- <span class="o">[</span><span class="nb">sudo</span><span class="o">]</span> password <span class="k">for </span>canary: 
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p><br /></p>
-
-<ol>
-  <li>
-    <p>변경된 Timezone 을 확인한다.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
- lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/Asia/Seoul
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p><br /></p>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">date</code>로 현재 시간이 제대로 설정되었는지 확인한다.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">date
- </span>Mon 18 Apr 2022 08:56:34 PM KST
-</code></pre></div>    </div>
-  </li>
-</ol>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="linux설정" /><category term="linux" /><category term="Ubuntu" /><category term="Ubuntu설정" /><category term="우분투시간변경" /><category term="리눅스시간변경" /><category term="데브옵스엔지니어" /><category term="DevOps" /><summary type="html"><![CDATA[리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 11일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
