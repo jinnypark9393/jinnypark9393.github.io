@@ -1,4 +1,243 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-03T05:55:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces</title><link href="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/" rel="alternate" type="text/html" title="[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-04T05:55:30+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 17일차</title><link href="http://localhost:4000/programming/Python-Day17/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 17일차" /><published>2022-05-04T00:00:00+09:00</published><updated>2022-05-04T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day17</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day17/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 6-2. 함수 실습문제(1)를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-04-Python-Photo/2022-05-04-Python-Photo1.jpg" alt="2022-05-04-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-04-Python-Photo/2022-05-04-Python-Photo2.jpg" alt="2022-05-04-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="02-함수실습문제1">02. 함수실습문제(1)</h1>
+
+<h2 id="1-실습문제-611">1. 실습문제 6.1.1</h2>
+
+<ul>
+  <li>다음은 두 수의 곱셈을 반환하는 multiply 함수이다. multiply 함수를 호출하는 방법으로 옳은 것을 고르세요.</li>
+</ul>
+
+<p><br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```python
+def multiply(x, y):
+    result = x * y
+    return result   
+```
+
+1. multiply()
+2. multiply(3)
+3. multiply(3, 4)
+4. multiply(”a”, “b”)
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="내-풀이">[내 풀이]</h3>
+
+<ul>
+  <li>정답은 3. multiply(3, 4)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter6</span><span class="o">/</span><span class="mi">03</span><span class="o">-</span><span class="mf">1.</span><span class="n">실습문제6</span><span class="p">.</span><span class="mf">1.1</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">12</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="강의-해설">[강의 해설]</h3>
+
+<ul>
+  <li>
+    <p>1.multiply() 실행결과</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">multiply</span><span class="p">()</span>
+  <span class="nb">TypeError</span><span class="p">:</span> <span class="n">multiply</span><span class="p">()</span> <span class="n">missing</span> <span class="mi">2</span> <span class="n">required</span> <span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span> <span class="s">'x'</span> <span class="ow">and</span> <span class="s">'y'</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>x, y 매개변수에 해당하는 인자가 필요하다는 에러 메시지 발생</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>2.multiply(1) 실행결과</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nb">TypeError</span><span class="p">:</span> <span class="n">multiply</span><span class="p">()</span> <span class="n">missing</span> <span class="mi">1</span> <span class="n">required</span> <span class="n">positional</span> <span class="n">argument</span><span class="p">:</span> <span class="s">'y'</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>1번과 동일한 에러 발생</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>3.multiply(3, 4) 실행결과</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+  <span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter6</span><span class="o">/</span><span class="mi">03</span><span class="o">-</span><span class="mf">2.</span><span class="n">실습문제6</span><span class="p">.</span><span class="mf">1.1</span><span class="o">-</span><span class="n">해설</span><span class="p">.</span><span class="n">py</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>에러 발생하지 않음(Print를 입력하지 않아 연산 결과는 화면에 표시되지 않음)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>4.multiply(”3”, ”4”) 실행결과</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+  <span class="nb">TypeError</span><span class="p">:</span> <span class="n">can</span><span class="s">'t multiply sequence by non-int of type '</span><span class="nb">str</span><span class="s">'
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>문자열은 곱셈 연산이 불가능하다</p>
+  </li>
+  <li>
+    <p>Tip: docstring: 설명문</p>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">“””</code> 쌍따옴표 세개로 감싸진 문장. IDE에서 함수에 커서를 가져다 대면 docstring에서 기입한 설명문이 표시된다.</li>
+    </ul>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># docstring : 설명문
+</span>    
+  <span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+      <span class="s">"""
+      두 수의 곱셈 결과를 반환하는 함수
+      매개변수 x : 숫자
+      매개변수 y : 숫자
+      """</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+      <span class="k">return</span> <span class="n">result</span>
+    
+  <span class="n">multiply</span><span class="p">(</span><span class="s">"3"</span><span class="p">,</span> <span class="s">"4"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-실습문제-612">2. 실습문제 6.1.2</h2>
+
+<ul>
+  <li>다음은 세개의 정수를 인자로 받아, 합계와 평균을 출력해주는 함수이다. 함수를 호출한 결과로 표준 출력이 나오도록 함수를 정의해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">printSumAvg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="c1"># 이하 수강생 작성
+</span>
+<span class="c1"># 함수호출
+</span><span class="n">printSumAvg</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 표준 출력
+# 합계: 60 평균: 20
+</span></code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="내-풀이-1">[내 풀이]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">printSumAvg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">sum</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">print</span><span class="p">(</span><span class="s">"합계:"</span><span class="p">,</span> <span class="nb">sum</span><span class="p">,</span> <span class="s">"평균:"</span><span class="p">,</span> <span class="n">avg</span><span class="p">)</span>
+
+<span class="n">printSumAvg</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>return은 불필요함</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter6</span><span class="o">/</span><span class="mi">04</span><span class="o">-</span><span class="mf">2.</span><span class="n">실습문제6</span><span class="p">.</span><span class="mf">1.2</span><span class="p">.</span><span class="n">p</span>
+<span class="n">y</span>
+<span class="n">합계</span><span class="p">:</span> <span class="mi">60</span> <span class="n">평균</span><span class="p">:</span> <span class="mi">20</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="강의-해설-1">[강의 해설]</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 실습문제 6.1.2
+</span>
+<span class="c1"># 문자열 포매팅
+</span><span class="k">def</span> <span class="nf">printSumAvg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="s">"""
+    세개의 숫자를 받아 합계와 평균을 출력하는 함수
+    """</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">/</span> <span class="mi">3</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"합계 : </span><span class="si">{</span><span class="nb">sum</span><span class="si">}</span><span class="s">, 평균: </span><span class="si">{</span><span class="n">avg</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">printSumAvg</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Tip: 문자열과 변수를 번갈아 입력하지 않고 f 스트링을 사용하면 편하게 변수와 문자열을 입력할 수 있다.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">f”문자열 {변수}”</code> 형태로 입력해주면 된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p>이번 포스팅에서는 함수 실습문제(1) 을 풀어보았다. 다음 포스팅에서는 함수 실습문제(2)를 풀어보도록 하자.</p>
+
+<p><br /><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 17일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces</title><link href="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/" rel="alternate" type="text/html" title="[Kubernetes]쿠버네티스 네트워킹(3)Linux Namespaces" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-Networking-3-Linux-Namespaces/"><![CDATA[<p><br /><br /></p>
 
 <p><em>💡  쿠버네티스 네트워킹을 알아보기에 앞서 리눅스의 네임스페이스에 대해 알아보자.</em></p>
 
@@ -2094,277 +2333,4 @@
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 13일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 12일차</title><link href="http://localhost:4000/programming/Python-Day12/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 12일차" /><published>2022-04-29T00:00:00+09:00</published><updated>2022-04-29T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day12</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day12/"><![CDATA[<p><br /><br /></p>
-
-<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 5-6. 반복문 개념(1)을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
-
-<p><br /><br /></p>
-
-<p>아래는 공부 인증 사진.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-04-29-Python-Photo/2022-04-29-Python-Photo1.jpg" alt="2022-04-29-Python-Photo1" /></p>
-
-<p><img src="/assets/images/2022-04-29-Python-Photo/2022-04-29-Python-Photo2.jpg" alt="2022-04-29-Python-Photo2" /></p>
-
-<p><br /><br /></p>
-
-<h1 id="6-반복문-개념1">6. 반복문 개념(1)</h1>
-
-<h2 id="1-반복문을-사용하는-이유">1. 반복문을 사용하는 이유</h2>
-
-<ul>
-  <li>반복적인 작업을 코드로 작성하기 위해 사용.</li>
-</ul>
-
-<p><br /></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 빈 리스트 생성
-</span>
-<span class="c1"># 1 ~ 7일차까지 반복 작업
-</span><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"1일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"2일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"3일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"4일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"5일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"6일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"7일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-<span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">total</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
-<span class="n">avg</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">7</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">avg</span><span class="p">))</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>위의 코드를 반복문으로 축약해보자.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">"일차 턱걸이 횟수 &gt;&gt;&gt;"</span><span class="p">))</span>
-    <span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h2 id="2-시퀀스-자료형sequence-data-type">2. 시퀀스 자료형(Sequence Data Type)</h2>
-
-<ul>
-  <li>순서가 있는 자료형
-    <ul>
-      <li>리스트</li>
-      <li>문자열</li>
-      <li>range 객체</li>
-      <li>튜플, 딕셔너리</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="3-for-사용법">3. for 사용법</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>변수 <span class="k">in </span>시퀀스 자료:
-    명령문
-
-<span class="c"># 예시</span>
-<span class="k">for </span>a <span class="k">in</span> <span class="o">[</span>1, 2, 3, 4]:
-    print<span class="o">(</span>a<span class="o">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>동작 방식
-    <ul>
-      <li>리스트 자료 안에 있는 첫번째 값인 1이 a에 저장</li>
-      <li>명령문을 실행: print(a) ⇒ print(1) ⇒ 1 이 출력</li>
-      <li>두번째 값인 2를 a에 저장</li>
-      <li>명령문을 실행: print(a) ⇒ print(2) ⇒ 2 가 출력</li>
-      <li>리스트에 더 이상 데이터가 없을 때까지 반복</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="4-range-명령어">4. range 명령어</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 0~9까지 숫자를 포함하는 range 객체를 만들어준다.
-</span></code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h2 id="5-실습">5. 실습</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 반복문
-# : 반복해서 명령을 사용하고 싶을 때
-</span>
-<span class="c1"># 시퀀스 자료형
-# : 순서가 있는 자료형
-# 1. 리스트
-# 2. 문자열
-# 3. range 객체
-# 4. 튜플
-# 5. 딕셔너리
-</span>
-<span class="c1"># for 문
-# - 리스트 사용
-</span><span class="n">champions</span> <span class="o">=</span> <span class="p">[</span><span class="s">"티모"</span><span class="p">,</span> <span class="s">"이즈리얼"</span><span class="p">,</span> <span class="s">"리신"</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">champion</span> <span class="ow">in</span> <span class="n">champions</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"선택한 챔피언은"</span><span class="p">,</span> <span class="n">champion</span><span class="p">,</span> <span class="s">"입니다."</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>
-    <p>리스트는 복수형태로 작성하고 변수는 단수형태로 많이 사용</p>
-  </li>
-  <li>
-    <p>출력 결과물</p>
-  </li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">09.</span><span class="n">반복문개념_for</span><span class="p">.</span><span class="n">py</span>
-<span class="n">선택한</span> <span class="n">챔피언은</span> <span class="n">티모</span> <span class="n">입니다</span><span class="p">.</span>
-<span class="n">선택한</span> <span class="n">챔피언은</span> <span class="n">이즈리얼</span> <span class="n">입니다</span><span class="p">.</span>
-<span class="n">선택한</span> <span class="n">챔피언은</span> <span class="n">리신</span> <span class="n">입니다</span><span class="p">.</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>문자열 사용</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># - 문자열 사용
-</span><span class="n">fighting_message</span> <span class="o">=</span> <span class="s">"자신감을 가지자! 나에게 한계란 없다!"</span>
-
-<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">fighting_message</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>결과 출력</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">09.</span><span class="n">반복문개념_for</span><span class="p">.</span><span class="n">py</span>
-<span class="n">자</span>
-<span class="n">신</span>
-<span class="n">감</span>
-<span class="n">을</span>
- 
-<span class="n">가</span>
-<span class="n">지</span>
-<span class="n">자</span>
-<span class="err">!</span>
- 
-<span class="n">나</span>
-<span class="n">에</span>
-<span class="n">게</span>
- 
-<span class="n">한</span>
-<span class="n">계</span>
-<span class="n">란</span>
- 
-<span class="n">없</span>
-<span class="n">다</span>
-<span class="err">!</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>range 객체를 사용해보자.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># - range 객체 사용
-# range(10) -&gt; 0~9까지 숫자를 포함하는 Range 객체가 나온다. 0,1,2,3,4,5,6,7,8,9
-</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>결과 출력</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># (myvenv) ➜  python_basic /Users/usr/Documents/pyt
-</span><span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">09.</span><span class="n">반복문개념_for</span><span class="p">.</span><span class="n">py</span>
-<span class="mi">0</span>
-<span class="mi">1</span>
-<span class="mi">2</span>
-<span class="mi">3</span>
-<span class="mi">4</span>
-<span class="mi">5</span>
-<span class="mi">6</span>
-<span class="mi">7</span>
-<span class="mi">8</span>
-<span class="mi">9</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>range 응용</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># - range 객체 사용
-# range(10) -&gt; 0~9까지 숫자를 포함하는 Range 객체가 나온다. 0,1,2,3,4,5,6,7,8,9
-# range(시작, 끝+1, 단계)
-</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>결과 출력</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># (myvenv) ➜  python_basic /Users/usr/Documents/pyt
-</span><span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter5</span><span class="o">/</span><span class="mf">09.</span><span class="n">반복문개념_for</span><span class="p">.</span><span class="n">py</span>
-<span class="mi">1</span>
-<span class="mi">3</span>
-<span class="mi">5</span>
-<span class="mi">7</span>
-<span class="mi">9</span>
-</code></pre></div></div>
-<p><br /></p>
-
-<p>이번 포스팅에서는 반복문 기초 개념에 대해서 알아보았다. 다음 포스팅에서도 이어서 반복문 개념에 대해 알아보자.</p>
-
-<p><br /><br /></p>
-
-<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
-
-<p><br /></p>
-
-<ul>
-  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 12일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 13일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
