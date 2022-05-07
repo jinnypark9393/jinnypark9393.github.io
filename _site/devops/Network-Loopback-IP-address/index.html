@@ -324,7 +324,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-loopback-주소란">1. Loopback 주소란?</a></li><li><a href="#2-loopback-주소로-사용하는-ip대역">2. Loopback 주소로 사용하는 IP대역</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-loopback-주소란">1. Loopback 주소란?</a></li><li><a href="#2-loopback-주소로-사용하는-ip대역">2. Loopback 주소로 사용하는 IP대역</a></li><li><a href="#3-localhost-주소-확인-및-수정">3. Localhost 주소 확인 및 수정</a></li></ul>
 
             </nav>
           </aside>
@@ -337,34 +337,30 @@
 
 <h1 id="1-loopback-주소란">1. Loopback 주소란?</h1>
 
+<p><br /></p>
+
 <p>IPv4 혹은 IPv6 에서 자기자신을 가리키기 위한 목적으로 쓰기 위해 예약된 IP주소이다.</p>
 
 <p><br /><br /></p>
 
 <h1 id="2-loopback-주소로-사용하는-ip대역">2. Loopback 주소로 사용하는 IP대역</h1>
 
-<p>루프백 주소로는 아래의 대역을 이용하게 된다.</p>
-
 <p><br /></p>
+
+<p>루프백 주소로는 아래의 대역을 이용하게 된다.</p>
 
 <ul>
   <li>IPv4: 127.0.0.0/24 (127.0.0.0 ~ 127.255.255.255 사이의 주소 사용)</li>
   <li>IPv6: ::1/128 (단 1개 주소만 사용)</li>
 </ul>
 
-<p><br /></p>
+<h1 id="3-localhost-주소-확인-및-수정">3. Localhost 주소 확인 및 수정</h1>
 
 <p>이 중 IPv4의 기본 localhost값은 127.0.0.1, IPv6의 기본 localhost값은 ::1/128 이다.</p>
 
-<p><br /></p>
-
 <p>만일 Localhost의 설정값을 수정하려면 /etc/hosts/ (윈도우의 경우 C:\WIndows\System32\drivers\etc\hosts 경로) 파일을 수정하면 된다.</p>
 
-<p><br /></p>
-
 <p>이렇게 hosts 파일에서 지정한 localhost주소를 브라우저에 입력하면, DNS를 타지 않고 바로 로컬로 연결된다.</p>
-
-<p><br /></p>
 
 <p>만약 현재 PC에 등록된 localhost 주소를 알고 싶은 경우, /etc/hosts 파일을 살펴보거나, terminal 에서 <code class="language-plaintext highlighter-rouge">nslookup localhost</code> 명령어를 입력하면 된다.</p>
 
@@ -472,6 +468,28 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/programming/Python-Day20/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 20일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 07 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 20일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/programming/Python-Day19/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 19일차
 </a>
       
@@ -524,28 +542,6 @@
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 04 2022</p>
     
     <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 17일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/programming/Python-Day16/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 16일차
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 03 2022</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 16일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
 </p>
   </article>
 </div>

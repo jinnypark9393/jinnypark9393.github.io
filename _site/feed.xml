@@ -1,4 +1,264 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-06T21:10:24+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Network]루프백 주소(Loopback IP address)란?</title><link href="http://localhost:4000/devops/Network-Loopback-IP-address/" rel="alternate" type="text/html" title="[Network]루프백 주소(Loopback IP address)란?" /><published>2022-05-06T00:00:00+09:00</published><updated>2022-05-06T00:00:00+09:00</updated><id>http://localhost:4000/devops/Network-Loopback-IP-address</id><content type="html" xml:base="http://localhost:4000/devops/Network-Loopback-IP-address/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-07T09:42:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 20일차</title><link href="http://localhost:4000/programming/Python-Day20/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 20일차" /><published>2022-05-07T00:00:00+09:00</published><updated>2022-05-07T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day20</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day20/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 7-2. 딕셔너리를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-07-Python-Photo/2022-05-07-Python-Photo1.jpg" alt="2022-05-07-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-07-Python-Photo/2022-05-07-Python-Photo2.jpg" alt="2022-05-07-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="02-딕셔너리">02. 딕셔너리</h1>
+
+<h2 id="1-딕셔너리의-특징">1. 딕셔너리의 특징</h2>
+
+<ul>
+  <li>시퀀스 자료형</li>
+  <li>키와 데이터를 가지고 있는 사전형 자료형</li>
+  <li>사전형태의 자료를 만들 때 편리</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-딕셔너리-만들기">2. 딕셔너리 만들기</h2>
+
+<ul>
+  <li>딕셔너리를 만들어보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">딕셔너리</span> <span class="o">=</span> <span class="p">{</span><span class="n">키1</span> <span class="p">:</span> <span class="n">데이터1</span><span class="p">,</span> <span class="n">키2</span> <span class="p">:</span> <span class="n">데이터2</span><span class="p">}</span>
+
+<span class="c1"># 예시
+</span><span class="n">stock</span> <span class="o">=</span> <span class="p">{</span><span class="s">"삼성전자"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span> <span class="s">"LG전자"</span> <span class="p">:</span> <span class="mi">150000</span><span class="p">}</span>
+
+<span class="c1"># 예시2: 리스트와 튜플도 들어갈 수 있다.
+</span><span class="n">stock</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="p">[</span><span class="mi">81000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">],</span>
+    <span class="s">"LG전자"</span> <span class="p">:</span> <span class="p">(</span><span class="mi">150000</span><span class="p">,</span> <span class="mi">149000</span><span class="p">,</span> <span class="mi">148000</span><span class="p">,</span> <span class="mi">151000</span><span class="p">,</span> <span class="mi">152000</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="3-딕셔너리-접근하기">3. 딕셔너리 접근하기</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">딕셔너리</span><span class="p">[</span><span class="s">"키"</span><span class="p">]</span>
+
+<span class="c1"># 예시
+</span><span class="n">stock</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">]</span> 
+</code></pre></div></div>
+<ul>
+  <li>결과로는 85000이 출력된다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="4-딕셔너리-할당하기-삭제하기">4. 딕셔너리 할당하기, 삭제하기</h2>
+
+<ul>
+  <li>딕셔너리를 할당, 삭제해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 할당하기
+</span><span class="n">딕셔너리</span><span class="p">[</span><span class="s">"키"</span><span class="p">]</span> <span class="o">=</span> <span class="n">데이터</span>
+
+<span class="c1"># 예시
+</span><span class="n">stock</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">85000</span>
+
+<span class="c1"># 삭제하기
+</span><span class="k">del</span> <span class="n">딕셔너리</span><span class="p">[</span><span class="s">"키"</span><span class="p">]</span>
+
+<span class="c1"># 예시
+</span><span class="k">del</span> <span class="n">stock</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="5-딕셔너리-함수">5. 딕셔너리 함수</h2>
+
+<ul>
+  <li>딕셔너리 함수를 사용해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stock</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span>
+    <span class="s">"SK하이닉스"</span> <span class="p">:</span> <span class="mi">123000</span><span class="p">,</span>
+    <span class="s">"NAVER"</span> <span class="p">:</span> <span class="mi">370000</span><span class="p">,</span>
+    <span class="s">"카카오"</span> <span class="p">:</span> <span class="mi">133000</span>
+<span class="p">}</span>
+
+<span class="c1"># 키와 데이터 쌍을 가져오기
+</span><span class="n">stock</span><span class="p">.</span><span class="n">items</span><span class="p">()</span>
+
+<span class="c1"># 키 값을 가져오기
+</span><span class="n">stock</span><span class="p">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="c1"># 데이터를 가져오기
+</span><span class="n">stock</span><span class="p">.</span><span class="n">values</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="6-실습">6. 실습</h2>
+
+<ul>
+  <li>위에서 배운 내용들을 vscode로 실습해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 딕셔너리
+# : 사전형태의 자료형
+</span>
+<span class="n">stock_a</span> <span class="o">=</span> <span class="p">{</span><span class="s">"삼성전자"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span> <span class="s">"LG전자"</span> <span class="p">:</span> <span class="mi">150000</span><span class="p">}</span>
+
+<span class="n">stock_b</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="p">[</span><span class="mi">81000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">],</span>
+    <span class="s">"LG전자"</span> <span class="p">:</span> <span class="p">(</span><span class="mi">150000</span><span class="p">,</span> <span class="mi">149000</span><span class="p">,</span> <span class="mi">148000</span><span class="p">,</span> <span class="mi">151000</span><span class="p">,</span> <span class="mi">152000</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># 중첩 딕셔너리
+</span><span class="n">stock_c</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">"현재가"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span>
+        <span class="s">"보유수량"</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s">"매수단가"</span> <span class="p">:</span> <span class="mi">81000</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">stock_a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stock_b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stock_c</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Tip: alt + shift + 방향키를 이용해 한 줄을 쉽게 복사할 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter7</span><span class="o">/</span><span class="mf">02.</span><span class="n">딕셔너리</span><span class="p">.</span><span class="n">py</span>
+<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="mi">82000</span><span class="p">,</span> <span class="s">'LG전자'</span><span class="p">:</span> <span class="mi">150000</span><span class="p">}</span>
+<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="p">[</span><span class="mi">81000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">],</span> <span class="s">'LG전자'</span><span class="p">:</span> <span class="p">(</span><span class="mi">150000</span><span class="p">,</span> <span class="mi">149000</span><span class="p">,</span> <span class="mi">148000</span><span class="p">,</span> <span class="mi">151000</span><span class="p">,</span> <span class="mi">152000</span><span class="p">)}</span>
+<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="p">{</span><span class="s">'현재가'</span><span class="p">:</span> <span class="mi">82000</span><span class="p">,</span> <span class="s">'보유수량'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">'매수단가'</span><span class="p">:</span> <span class="mi">81000</span><span class="p">}}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>딕셔너리 접근/할당/삭제하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 딕셔너리 접근하기
+</span><span class="k">print</span><span class="p">(</span><span class="n">stock_a</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stock_c</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">][</span><span class="s">"보유수량"</span><span class="p">])</span>
+
+<span class="c1"># 딕셔너리 할당하기
+</span><span class="n">stock_a</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">85000</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stock_a</span><span class="p">)</span>
+
+<span class="c1"># 딕셔너리 삭제하기
+</span><span class="k">del</span> <span class="n">stock_a</span><span class="p">[</span><span class="s">"LG전자"</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stock_a</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter7</span><span class="o">/</span><span class="mf">02.</span><span class="n">딕셔너리</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">82000</span>
+<span class="mi">5</span>
+<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="mi">85000</span><span class="p">,</span> <span class="s">'LG전자'</span><span class="p">:</span> <span class="mi">150000</span><span class="p">}</span>
+<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="mi">85000</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>딕셔너리 함수</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 딕셔너리 함수
+</span><span class="n">stock_d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span>
+    <span class="s">"SK하이닉스"</span> <span class="p">:</span> <span class="mi">123000</span><span class="p">,</span>
+    <span class="s">"NAVER"</span> <span class="p">:</span> <span class="mi">370000</span><span class="p">,</span>
+    <span class="s">"카카오"</span> <span class="p">:</span> <span class="mi">133000</span>
+<span class="p">}</span>
+
+<span class="c1"># items() : 키와 데이터 쌍
+</span><span class="k">print</span><span class="p">(</span><span class="n">stock_d</span><span class="p">.</span><span class="n">items</span><span class="p">)</span>
+
+<span class="c1"># 일반적 사용예
+</span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">stock_d</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># 0: 키, 1: 데이터
+</span>
+<span class="c1"># keys() : 키
+</span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">stock_d</span><span class="p">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="c1"># values() : 데이터
+</span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">stock_d</span><span class="p">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter7</span><span class="o">/</span><span class="mf">02.</span><span class="n">딕셔너리</span><span class="p">.</span><span class="n">py</span>
+<span class="o">&lt;</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">method</span> <span class="n">items</span> <span class="n">of</span> <span class="nb">dict</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10a44ef00</span><span class="o">&gt;</span>
+<span class="n">삼성전자</span>
+<span class="n">SK하이닉스</span>
+<span class="n">NAVER</span>
+<span class="n">카카오</span>
+<span class="n">삼성전자</span>
+<span class="n">SK하이닉스</span>
+<span class="n">NAVER</span>
+<span class="n">카카오</span>
+<span class="mi">82000</span>
+<span class="mi">123000</span>
+<span class="mi">370000</span>
+<span class="mi">133000</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p>이번 포스팅에서는 딕셔너리에 대해 알아보았다. 다음 포스팅에서는 클래스와 객체에 대해 알아보도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 20일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Network]루프백 주소(Loopback IP address)란?</title><link href="http://localhost:4000/devops/Network-Loopback-IP-address/" rel="alternate" type="text/html" title="[Network]루프백 주소(Loopback IP address)란?" /><published>2022-05-06T00:00:00+09:00</published><updated>2022-05-06T00:00:00+09:00</updated><id>http://localhost:4000/devops/Network-Loopback-IP-address</id><content type="html" xml:base="http://localhost:4000/devops/Network-Loopback-IP-address/"><![CDATA[<p><br /><br /></p>
 
 <p>업무 중 테스트를 위해 시스템 도메인주소에 <code class="language-plaintext highlighter-rouge">nslookup</code> 을 한 뒤, DNS 쿼리 결과를 공유해달라는 요청을 받았었는데, nslookup으로 나온 DNS 쿼리 결과값이 흔히 보는 127.0.0.1 이 아닌 127.0.0.11 로 리턴되어 문득 loopback 으로 사용할 수 있는 IP 주소 대역이 궁금해져 관련 내용을 찾아서 정리해보았다.</p>
 
@@ -6,34 +266,30 @@
 
 <h1 id="1-loopback-주소란">1. Loopback 주소란?</h1>
 
+<p><br /></p>
+
 <p>IPv4 혹은 IPv6 에서 자기자신을 가리키기 위한 목적으로 쓰기 위해 예약된 IP주소이다.</p>
 
 <p><br /><br /></p>
 
 <h1 id="2-loopback-주소로-사용하는-ip대역">2. Loopback 주소로 사용하는 IP대역</h1>
 
-<p>루프백 주소로는 아래의 대역을 이용하게 된다.</p>
-
 <p><br /></p>
+
+<p>루프백 주소로는 아래의 대역을 이용하게 된다.</p>
 
 <ul>
   <li>IPv4: 127.0.0.0/24 (127.0.0.0 ~ 127.255.255.255 사이의 주소 사용)</li>
   <li>IPv6: ::1/128 (단 1개 주소만 사용)</li>
 </ul>
 
-<p><br /></p>
+<h1 id="3-localhost-주소-확인-및-수정">3. Localhost 주소 확인 및 수정</h1>
 
 <p>이 중 IPv4의 기본 localhost값은 127.0.0.1, IPv6의 기본 localhost값은 ::1/128 이다.</p>
 
-<p><br /></p>
-
 <p>만일 Localhost의 설정값을 수정하려면 /etc/hosts/ (윈도우의 경우 C:\WIndows\System32\drivers\etc\hosts 경로) 파일을 수정하면 된다.</p>
 
-<p><br /></p>
-
 <p>이렇게 hosts 파일에서 지정한 localhost주소를 브라우저에 입력하면, DNS를 타지 않고 바로 로컬로 연결된다.</p>
-
-<p><br /></p>
 
 <p>만약 현재 PC에 등록된 localhost 주소를 알고 싶은 경우, /etc/hosts 파일을 살펴보거나, terminal 에서 <code class="language-plaintext highlighter-rouge">nslookup localhost</code> 명령어를 입력하면 된다.</p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="DevOps" /><category term="SRE" /><category term="loopbackaddress" /><category term="데브옵스엔지니어" /><category term="루프백주소" /><category term="로컬호스트" /><category term="루프백주소대역" /><category term="localhost" /><summary type="html"><![CDATA[IPv4 혹은 IPv6 에서 자기자신을 가리키기 위한 목적으로 쓰기 위해 예약된 IP주소이다.]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 19일차</title><link href="http://localhost:4000/programming/Python-Day19/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 19일차" /><published>2022-05-06T00:00:00+09:00</published><updated>2022-05-06T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day19</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day19/"><![CDATA[<p><br /><br /></p>
 
@@ -1990,108 +2246,4 @@ def multiply(x, y):
   <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
 </ul>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 15일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Github Pages/Blog]포스팅 게시 안됨 이슈 해결</title><link href="http://localhost:4000/github%20blog/Github-Blog-cannot-upload-a-post/" rel="alternate" type="text/html" title="[Github Pages/Blog]포스팅 게시 안됨 이슈 해결" /><published>2022-05-01T00:00:00+09:00</published><updated>2022-05-01T00:00:00+09:00</updated><id>http://localhost:4000/github%20blog/Github-Blog-cannot-upload-a-post</id><content type="html" xml:base="http://localhost:4000/github%20blog/Github-Blog-cannot-upload-a-post/"><![CDATA[<p><br /><br /></p>
-
-<h1 id="1github-pagesblog포스팅-게시-안됨-이슈-해결">1.[Github Pages/Blog]포스팅 게시 안됨 이슈 해결</h1>
-
-<p><br /></p>
-
-<p><em>💡  Github Pages에 포스팅이 게시가 안될 경우, 올바른 포스팅 파일 이름규칙, future=true, published=true 옵션을 적용해보자.</em></p>
-
-<p><br /><br /></p>
-
-<h2 id="1-에러-상황">1. 에러 상황</h2>
-
-<p>패스트캠퍼스 챌린지 Day3 포스팅을 작성한 뒤, 깃헙 블로그 레파지토리에 push 를 했음에도 불구하고 github 블로그에 해당 페이지가 올라오지 않는 이슈가 있었다.</p>
-
-<p><br /></p>
-
-<p>원래 Github에 코드를 push한 뒤, 실제 페이지에 반영되기까지 빠르면 1~2분, 길게는 30분까지도 걸린다고는 하지만 내 포스팅은 1시간이 넘도록 올라오지 않았다.</p>
-
-<p><br /></p>
-
-<p>참고로 내 환경은 다음과 같다.</p>
-
-<ul>
-  <li>MacOS Monterey 12.3.1</li>
-  <li>VMware Fusion 12.1.2</li>
-  <li>Ubuntu 20.04</li>
-  <li>Git 2.25.1</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="2-해결-방법">2. 해결 방법</h2>
-
-<p>‘깃허브 블로그 포스팅 안됨 에러’ 키워드로 구글링 하다가 세 가지 방법을 시도해봤는데, 나에게는 그 중 마지막 방법인 <code class="language-plaintext highlighter-rouge">published: true</code> 설정이 유효했다.</p>
-
-<p><br /></p>
-
-<h3 id="1-포스팅의-naming-convention-지키기">1. 포스팅의 Naming Convention 지키기</h3>
-
-<p>Github Pages의 경우, 포스트의 네이밍 컨벤션이 <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-포스팅-제목.md</code> 로 정해져있고, 이를 어길 시에는 포스팅이 제대로 올라가지 않는다.</p>
-
-<p><br /></p>
-
-<p>참고로 이 파일명을 가지고 Jekyll에서 페이지를 생성하게 되면, <code class="language-plaintext highlighter-rouge">http://username.github.io/YYYY/MM/DD/category/포스팅-제목</code> 형태로 url이 생성된다.</p>
-
-<p><br /></p>
-
-<p>따라서 아래 두 가지를 반드시 유의해야한다.</p>
-
-<ul>
-  <li>포스팅 제목 맨 앞에 YYYY-MM-DD 형태로 날짜를 입력했는가</li>
-  <li>포스팅 파일명은 해당 깃허브 저장소의 <code class="language-plaintext highlighter-rouge">_posts</code> 디렉토리 내에서 반드시 유일해야한다.</li>
-</ul>
-
-<p><br /></p>
-
-<p>나는 이 내용을 몰랐지만 post 폴더 내의 파일을 관리할 때 우연히 YYYY-MM-DD 형태로 파일 이름을 설정했던 터라 다행히도(?) 이 부분은 수정할 필요가 없었다.</p>
-
-<p><br /><br /></p>
-
-<h3 id="2-_configyaml-파일에-future-true-추가">2. <code class="language-plaintext highlighter-rouge">_config.yaml</code> 파일에 <code class="language-plaintext highlighter-rouge">future: true</code> 추가</h3>
-
-<p>구글링을 해보니 <code class="language-plaintext highlighter-rouge">config.yaml</code> 파일에 <code class="language-plaintext highlighter-rouge">future: true</code> 를 추가해보라는 글이 있어서 추가해보았으나 나에게는 효과가 없었다.</p>
-
-<p><br /></p>
-
-<p><code class="language-plaintext highlighter-rouge">future: true</code> 옵션은 현재 시스템 시간보다 더 뒤의 일자로 포스팅 발행일을 선택했을 때 (예를 들어 시스템 시간은 2022년 4월 28일이나 포스팅 발행일을 2022년 4월 29일로 입력) 포스팅이 올라가도록 허용해주는 옵션이다.</p>
-
-<p><br /></p>
-
-<p>예상컨대 나와 같이 가상머신 환경에서 가상머신의 Timezone이 한국보다 늦은 경우, 시차때문에 일자에 오류가 생길 경우에는 유효할 듯 하지만, 나는 이미 가상머신과 실제 Timezone을 맞춰놨기 때문에 그러한 오류는 발생하지 않았다.</p>
-
-<p><br /><br /></p>
-
-<h3 id="3-포스팅-내에-published-true-옵션-추가-유효">3. 포스팅 내에 <code class="language-plaintext highlighter-rouge">published: true</code> 옵션 추가 (유효)</h3>
-
-<p>마지막으로 내가 작성한 포스팅의 정보란에 <code class="language-plaintext highlighter-rouge">published: true</code> 로 설정해 발행 여부를 명시할 수 있는데, 나의 경우에는 이 옵션이 유효했다.</p>
-
-<p><br /></p>
-
-<p>아래는 내가 <a href="https://github.com/jinnypark9393/jinnypark9393.github.io/blob/main/_posts/2022-04-20-Python-%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4-%EC%BA%90%EC%8B%9C%EB%B0%B1-%EC%B1%8C%EB%A6%B0%EC%A7%80-3%EC%9D%BC%EC%B0%A8.md">수정했던 마크다운 파일</a> 일부를 발췌한 것이다.</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
-<span class="na">published</span><span class="pi">:</span> <span class="no">true</span>
-<span class="na">title</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">[Python]패스트캠퍼스</span><span class="nv"> </span><span class="s">캐시백</span><span class="nv"> </span><span class="s">챌린지</span><span class="nv"> </span><span class="s">3일차"</span>
-<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">패스트캠퍼스</span><span class="nv"> </span><span class="s">캐시백</span><span class="nv"> </span><span class="s">챌린지</span><span class="nv"> </span><span class="s">3일차:</span><span class="nv"> </span><span class="s">한</span><span class="nv"> </span><span class="s">번에</span><span class="nv"> </span><span class="s">끝내는</span><span class="nv"> </span><span class="s">파이썬</span><span class="nv"> </span><span class="s">웹개발</span><span class="nv"> </span><span class="s">초격차</span><span class="nv"> </span><span class="s">패키지</span><span class="nv"> </span><span class="s">Online"</span>
-
-<span class="na">categories</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">Programming</span>
-<span class="na">tags</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="pi">[</span><span class="nv">패스트캠퍼스</span><span class="pi">,</span> <span class="nv">패캠챌린지</span><span class="pi">,</span> <span class="nv">직장인인강</span><span class="pi">,</span> <span class="nv">직장인자기계발</span><span class="pi">,</span> <span class="nv">패스트캠퍼스후기</span><span class="pi">,</span> <span class="nv">캐시백챌린지</span><span class="pi">,</span> <span class="nv">캐시백</span><span class="pi">,</span> <span class="nv">환급챌린지</span><span class="pi">,</span> <span class="nv">한번에끝내는파이썬웹개발초격차패키지Online</span><span class="pi">]</span>
-
-<span class="na">toc</span><span class="pi">:</span> <span class="no">true</span>
-<span class="na">toc_sticky</span><span class="pi">:</span> <span class="no">true</span>
- 
-<span class="na">date</span><span class="pi">:</span> <span class="s">2022-04-20</span>
-<span class="na">last_modified_at</span><span class="pi">:</span> <span class="s">2022-04-20</span>
-<span class="nn">---</span>
-
-(이하 포스팅 내용)
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p>이후에는 같은 문제가 발생할까 걱정되어 미리 <code class="language-plaintext highlighter-rouge">published: true</code> 옵션을 기본으로 넣은 채로 포스팅 문서를 작성하고 있는데, 이 이후에는 같은 문제가 발생하지 않았다.</p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Github Blog" /><category term="GithubBlog" /><category term="GithubPages" /><category term="깃허브블로그" /><category term="깃헙블로그" /><category term="깃허브블로그에러" /><category term="깃허브블로그포스팅에러" /><category term="깃허브블로그포스팅안됨" /><category term="개발자블로그" /><category term="엔지니어블로그" /><summary type="html"><![CDATA[Github Pages에 포스팅이 게시가 안될 경우, 올바른 포스팅 파일 이름규칙, future=true, published=true 옵션을 적용해보자]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 15일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
