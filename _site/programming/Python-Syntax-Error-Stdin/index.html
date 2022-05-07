@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기 - release: canary</title>
-<meta name="description" content="리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다">
+<!-- begin _includes/seo.html --><title>[Python]Syntax Error : stdin 에러 해결 - release: canary</title>
+<meta name="description" content="파이썬에서 Syntax Error : stdin 에러가 났을 경우, exit() 혹은 Ctrl + Z을 입력하여 해결할 수 있다.">
 
 
   <meta name="author" content="Canary">
@@ -22,32 +22,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="release: canary">
-<meta property="og:title" content="[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기">
-<meta property="og:url" content="http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone/">
+<meta property="og:title" content="[Python]Syntax Error : stdin 에러 해결">
+<meta property="og:url" content="http://localhost:4000/programming/Python-Syntax-Error-Stdin/">
 
 
-  <meta property="og:description" content="리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다">
-
-
-
+  <meta property="og:description" content="파이썬에서 Syntax Error : stdin 에러가 났을 경우, exit() 혹은 Ctrl + Z을 입력하여 해결할 수 있다.">
 
 
 
 
-  <meta property="article:published_time" content="2022-04-27T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-04-27T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-05-07T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2022-05-07T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/devops/Linux-Ubuntu-Change-Timezone/">
+
+<link rel="canonical" href="http://localhost:4000/programming/Python-Syntax-Error-Stdin/">
 
 
 
@@ -286,18 +286,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기">
-    <meta itemprop="description" content="리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다">
-    <meta itemprop="datePublished" content="2022-04-27T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-04-27T00:00:00+09:00">
+    <meta itemprop="headline" content="[Python]Syntax Error : stdin 에러 해결">
+    <meta itemprop="description" content="파이썬에서 Syntax Error : stdin 에러가 났을 경우, exit() 혹은 Ctrl + Z을 입력하여 해결할 수 있다.">
+    <meta itemprop="datePublished" content="2022-05-07T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-05-07T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Linux/Ubuntu]리눅스(Linux) 시간을 한국 표준시(KST)로 변경하기
+          <h1 id="page-title" class="page__title" itemprop="headline">[Python]Syntax Error : stdin 에러 해결
 </h1>
           
-          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-04-27T00:00:00+09:00">April 27, 2022</time></p>
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-05-07T00:00:00+09:00">May 07, 2022</time></p>
           
 
   <p class="page__meta">
@@ -306,7 +306,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-04-27T00:00:00+09:00">April 27, 2022</time>
+        <time datetime="2022-05-07T00:00:00+09:00">May 7, 2022</time>
       </span>
     
 
@@ -324,98 +324,74 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-리눅스linux-시간을-한국-표준시kst로-변경">1. 리눅스(Linux) 시간을 한국 표준시(KST)로 변경</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-에러-상황">1. 에러 상황</a></li><li><a href="#2-해결-방법">2. 해결 방법</a></li></ul>
 
             </nav>
           </aside>
         
         <p><br /><br /></p>
 
-<h1 id="1-리눅스linux-시간을-한국-표준시kst로-변경">1. 리눅스(Linux) 시간을 한국 표준시(KST)로 변경</h1>
+<p>*💡  파이썬에서 Syntax Error : stdin 에러가 났을 경우, exit() 혹은 Ctrl + Z을 입력하여 해결할 수 있다. *</p>
 
-<p><em>💡  리눅스의 기본 Timezone은 PDT/UST 이므로 KST로 재설정해주어야 한다.</em></p>
+<p><br /></p>
+
+<h1 id="1-에러-상황">1. 에러 상황</h1>
+
+<p><br /></p>
+
+<p>패스트캠퍼스 챌린지 강의 실습 중, 파이썬 코드를 실행하니 아래와 같은 Syntax 에러가 발생했다.</p>
+
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">04.</span><span class="n">상속</span><span class="p">.</span><span class="n">py</span>
+    <span class="o">^</span>
+<span class="nb">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
 
 <p><br /><br /></p>
 
-<p>깃허브 블로그(Github Pages)용으로 VMware Fusion에서 우분투(Ubuntu)를 설치하고 난 뒤, Jekyll과 Git으로 블로그에 포스팅을 진행했다. 하지만 Github에서 표시되는 commit 일시와 실제 commit 일시가 다른 현상이 발생했는데, 확인해보니 Timezone이 한국표준시가 아닌 다른 시간대로 설정되어 생긴 현상이었다.</p>
+<h1 id="2-해결-방법">2. 해결 방법</h1>
 
 <p><br /></p>
 
-<p>구글링으로 찾아보니 리눅스를 설치할 때 Timezone을 설정하지 않으면 PDT/UST 등이 기본으로 설정된다고 한다.</p>
+<p>찾아보니 vscode를 껐다가 다시 켜면 해결된다는 얘기도 있는데, 구글링을 조금 더 해보니 해당 에러는 파이썬 코드를 파이썬 인터프리터 내에서 실행하고자 할 때 발생하는 에러였다.</p>
 
 <p><br /></p>
 
-<p>시스템 자체에 문제가 생긴 부분은 아니지만 패스트캠퍼스에서 매일 포스팅 업로드 챌린지를 하고 있는데, 나중에 업로드 일자가 문제가 될까 싶어서 아래와 같은 방법으로 Timezone을 KST로 변경해주었다.</p>
-
-<p><br /></p>
-
-<p>참고로 현재 내 환경은 아래와 같다.</p>
+<p>따라서 파이썬 인터프리터 밖에서 코드를 실행할 수 있도록 에러 마지막 부분의 <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code> 다음 부분에</p>
 
 <p><br /></p>
 
 <ul>
-  <li>MacOS Monterey 12.3.1</li>
-  <li>VMware Fusion 12.1.2</li>
-  <li>Ubuntu 20.04</li>
+  <li><code class="language-plaintext highlighter-rouge">exit()</code> 를 입력하고 엔터</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + Z</code> 를 누른 뒤 엔터</li>
 </ul>
 
+<p><br /></p>
+
+<p>둘 중 하나를 해주면 파이썬 코드가 정상적으로 실행된다고 한다.</p>
+
+<p><br /></p>
+
+<p>이 안내를 따라서 exit()을 입력하고 엔터를 누른 뒤, 파이썬 코드를 다시 실행해주니 아래와 같이 파이썬 코드가 정상적으로 실행되었다.</p>
+
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">04.</span><span class="n">상속</span><span class="p">.</span><span class="n">py</span>
+    <span class="o">^</span>
+<span class="nb">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">exit</span><span class="p">()</span>
+
+<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">04.</span><span class="n">상속</span><span class="p">.</span><span class="n">py</span>
+<span class="p">[</span><span class="n">울프</span><span class="p">]</span> <span class="n">지상에서</span> <span class="n">이동하기</span>
+<span class="p">[</span><span class="n">샤크</span><span class="p">]</span> <span class="n">헤엄치기</span>
+<span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">날기</span>
+</code></pre></div></div>
+
 <p><br /><br /></p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">date</code> 명령어를 사용해 현재 시간을 확인한다.
-    <ul>
-      <li>나의 경우에는 PDT(태평양 표준시: Pacific Daylight Time)로 설정되어있었다.</li>
-    </ul>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">date
- </span>Mon 18 Apr 2022 04:54:58 AM PDT
-</code></pre></div>    </div>
-    <p><br /></p>
-  </li>
-  <li>
-    <p>현재 Timezone 을 확인한다.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
- lrwxrwxrwx 1 root root 39 Apr 13 06:29 /etc/localtime -&gt; /usr/share/zoneinfo/America/Los_Angeles
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p><br /></p>
-
-<ol>
-  <li>
-    <p>Timezone을 한국표준시(KST)로 변경해준다.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/share/zoneinfo/Asia/Seoul /etc/localtime
- <span class="o">[</span><span class="nb">sudo</span><span class="o">]</span> password <span class="k">for </span>canary: 
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p><br /></p>
-
-<ol>
-  <li>
-    <p>변경된 Timezone 을 확인한다.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-al</span> /etc/localtime
- lrwxrwxrwx 1 root root 30 Apr 18 20:56 /etc/localtime -&gt; /usr/share/zoneinfo/Asia/Seoul
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p><br /></p>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">date</code>로 현재 시간이 제대로 설정되었는지 확인한다.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> canary@ubuntu:~/myblog/jinnypark9393.github.io<span class="nv">$ </span><span class="nb">date
- </span>Mon 18 Apr 2022 08:56:34 PM KST
-</code></pre></div>    </div>
-  </li>
-</ol>
 
         
       </section>
@@ -432,21 +408,23 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#devops" class="page__taxonomy-item" rel="tag">DevOps</a><span class="sep">, </span>
+      <a href="/tags/#pythonerror" class="page__taxonomy-item" rel="tag">Pythonerror</a><span class="sep">, </span>
     
-      <a href="/tags/#linux" class="page__taxonomy-item" rel="tag">linux</a><span class="sep">, </span>
+      <a href="/tags/#pythonsyntaxerror" class="page__taxonomy-item" rel="tag">Pythonsyntaxerror</a><span class="sep">, </span>
     
-      <a href="/tags/#linux%EC%84%A4%EC%A0%95" class="page__taxonomy-item" rel="tag">linux설정</a><span class="sep">, </span>
+      <a href="/tags/#stdinerror" class="page__taxonomy-item" rel="tag">stdinerror</a><span class="sep">, </span>
     
-      <a href="/tags/#ubuntu" class="page__taxonomy-item" rel="tag">Ubuntu</a><span class="sep">, </span>
-    
-      <a href="/tags/#ubuntu%EC%84%A4%EC%A0%95" class="page__taxonomy-item" rel="tag">Ubuntu설정</a><span class="sep">, </span>
+      <a href="/tags/#syntaxerrorstdin" class="page__taxonomy-item" rel="tag">syntaxerrorstdin</a><span class="sep">, </span>
     
       <a href="/tags/#%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4" class="page__taxonomy-item" rel="tag">데브옵스엔지니어</a><span class="sep">, </span>
     
-      <a href="/tags/#%EB%A6%AC%EB%88%85%EC%8A%A4%EC%8B%9C%EA%B0%84%EB%B3%80%EA%B2%BD" class="page__taxonomy-item" rel="tag">리눅스시간변경</a><span class="sep">, </span>
+      <a href="/tags/#%EB%B9%84%EC%A0%84%EA%B3%B5%EC%B6%9C%EC%8B%A0%EA%B0%9C%EB%B0%9C%EC%9E%90" class="page__taxonomy-item" rel="tag">비전공출신개발자</a><span class="sep">, </span>
     
-      <a href="/tags/#%EC%9A%B0%EB%B6%84%ED%88%AC%EC%8B%9C%EA%B0%84%EB%B3%80%EA%B2%BD" class="page__taxonomy-item" rel="tag">우분투시간변경</a>
+      <a href="/tags/#%ED%8C%8C%EC%9D%B4%EC%8D%AC%EA%B3%B5%EB%B6%80" class="page__taxonomy-item" rel="tag">파이썬공부</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EB%9F%AC" class="page__taxonomy-item" rel="tag">파이썬에러</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%B4%88%EB%B3%B4" class="page__taxonomy-item" rel="tag">파이썬초보</a>
     
     </span>
   </p>
@@ -463,7 +441,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#devops" class="page__taxonomy-item" rel="tag">DevOps</a>
+      <a href="/categories/#programming" class="page__taxonomy-item" rel="tag">Programming</a>
     
     </span>
   </p>
@@ -471,7 +449,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-04-27">April 27, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-05-07">May 7, 2022</time></p>
 
 
       </footer>
@@ -481,23 +459,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BLinux%2FUbuntu%5D%EB%A6%AC%EB%88%85%EC%8A%A4%28Linux%29+%EC%8B%9C%EA%B0%84%EC%9D%84+%ED%95%9C%EA%B5%AD+%ED%91%9C%EC%A4%80%EC%8B%9C%28KST%29%EB%A1%9C+%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FLinux-Ubuntu-Change-Timezone%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BPython%5DSyntax+Error+%3A+stdin+%EC%97%90%EB%9F%AC+%ED%95%B4%EA%B2%B0%20http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2FPython-Syntax-Error-Stdin%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FLinux-Ubuntu-Change-Timezone%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2FPython-Syntax-Error-Stdin%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FLinux-Ubuntu-Change-Timezone%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2FPython-Syntax-Error-Stdin%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/programming/Python-Day9/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 9일차
+      <a href="/programming/Python-Day20/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 20일차
 ">이전</a>
     
     
-      <a href="/programming/Python-Day10/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 10일차
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -511,28 +488,6 @@
     <div class="page__related">
       <h4 class="page__related-title">참고</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/programming/Python-Syntax-Error-Stdin/" rel="permalink">[Python]Syntax Error : stdin 에러 해결
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 07 2022</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">파이썬에서 Syntax Error : stdin 에러가 났을 경우, exit() 혹은 Ctrl + Z을 입력하여 해결할 수 있다.
-</p>
-  </article>
-</div>
-
         
           
 
@@ -595,6 +550,28 @@
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 06 2022</p>
     
     <p class="archive__item-excerpt" itemprop="description">IPv4 혹은 IPv6 에서 자기자신을 가리키기 위한 목적으로 쓰기 위해 예약된 IP주소이다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day18/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 18일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 05 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 18일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
 </p>
   </article>
 </div>

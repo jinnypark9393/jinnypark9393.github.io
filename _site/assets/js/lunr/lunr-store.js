@@ -190,4 +190,10 @@ var store = [{
         "tags": ["패스트캠퍼스","패캠챌린지","직장인인강","직장인자기계발","패스트캠퍼스후기","캐시백챌린지","캐시백","환급챌린지","한번에끝내는파이썬웹개발초격차패키지Online"],
         "url": "/programming/Python-Day20/",
         "teaser": null
+      },{
+        "title": "[Python]Syntax Error : stdin 에러 해결",
+        "excerpt":"     *💡  파이썬에서 Syntax Error : stdin 에러가 났을 경우, exit() 혹은 Ctrl + Z을 입력하여 해결할 수 있다. *       1. 에러 상황       패스트캠퍼스 챌린지 강의 실습 중, 파이썬 코드를 실행하니 아래와 같은 Syntax 에러가 발생했다.       /Users/usr/Documents/python_basic/myvenv/bin/python /Users/usr/Documents/python_basic/myvenv/Chapter8/04.상속.py     ^ SyntaxError: invalid syntax &gt;&gt;&gt;        2. 해결 방법       찾아보니 vscode를 껐다가 다시 켜면 해결된다는 얘기도 있는데, 구글링을 조금 더 해보니 해당 에러는 파이썬 코드를 파이썬 인터프리터 내에서 실행하고자 할 때 발생하는 에러였다.       따라서 파이썬 인터프리터 밖에서 코드를 실행할 수 있도록 에러 마지막 부분의 &gt;&gt;&gt; 다음 부분에          exit() 를 입력하고 엔터   ctrl + Z 를 누른 뒤 엔터       둘 중 하나를 해주면 파이썬 코드가 정상적으로 실행된다고 한다.       이 안내를 따라서 exit()을 입력하고 엔터를 누른 뒤, 파이썬 코드를 다시 실행해주니 아래와 같이 파이썬 코드가 정상적으로 실행되었다.       /Users/usr/Documents/python_basic/myvenv/bin/python /Users/usr/Documents/python_basic/myvenv/Chapter8/04.상속.py     ^ SyntaxError: invalid syntax &gt;&gt;&gt; exit()  (myvenv) ➜  python_basic /Users/usr/Documents/pyt hon_basic/myvenv/bin/python /Users/usr/Documents/ python_basic/myvenv/Chapter8/04.상속.py [울프] 지상에서 이동하기 [샤크] 헤엄치기 [드래곤] 날기       ","categories": ["Programming"],
+        "tags": ["파이썬에러","파이썬초보","비전공출신개발자","Pythonsyntaxerror","Pythonerror","stdinerror","syntaxerrorstdin","파이썬공부","데브옵스엔지니어"],
+        "url": "/programming/Python-Syntax-Error-Stdin/",
+        "teaser": null
       }]
