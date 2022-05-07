@@ -1,4 +1,281 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-07T17:36:48+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 20일차</title><link href="http://localhost:4000/programming/Python-Day20/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 20일차" /><published>2022-05-07T00:00:00+09:00</published><updated>2022-05-07T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day20</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day20/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-08T07:42:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 21일차</title><link href="http://localhost:4000/programming/Python-Day21/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 21일차" /><published>2022-05-08T00:00:00+09:00</published><updated>2022-05-08T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day21</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day21/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 7-2. 딕셔너리를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-08-Python-Photo/2022-05-08-Python-Photo1.jpg" alt="2022-05-08-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-08-Python-Photo/2022-05-08-Python-Photo2.jpg" alt="2022-05-08-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="1-클래스와-객체">1. 클래스와 객체</h1>
+
+<h2 id="1-클래스와-객체의-개념">1. 클래스와 객체의 개념</h2>
+
+<ul>
+  <li>클래스: 객체를 만들기 위한 <strong>설계도</strong></li>
+  <li>객체: 설계도로부터 만들어낸 <strong>제품</strong></li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>실습</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 클래스를 사용하는 이유
+</span><span class="n">champion1_name</span> <span class="o">=</span> <span class="s">"이즈리얼"</span>
+<span class="n">champion1_health</span> <span class="o">=</span> <span class="mi">700</span>
+<span class="n">champion1_attack</span> <span class="o">=</span> <span class="mi">90</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion1_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+
+<span class="n">champion2_name</span> <span class="o">=</span> <span class="s">"리신"</span>
+<span class="n">champion2_health</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">champion2_attack</span> <span class="o">=</span> <span class="mi">95</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion2_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">basic_attack</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s"> 기본공격 </span><span class="si">{</span><span class="n">attack</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion1_name</span><span class="p">,</span> <span class="n">champion1_attack</span><span class="p">)</span>
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion2_name</span><span class="p">,</span> <span class="n">champion2_attack</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">01.</span><span class="n">클래스개념</span><span class="p">.</span><span class="n">py</span>
+<span class="n">이즈리얼님</span> <span class="n">소환사의</span> <span class="n">협곡에</span> <span class="n">오신것을</span> <span class="n">환영합니다</span><span class="p">.</span>
+<span class="n">리신님</span> <span class="n">소환사의</span> <span class="n">협곡에</span> <span class="n">오신것을</span> <span class="n">환영합니다</span><span class="p">.</span>
+<span class="n">이즈리얼</span> <span class="n">기본공격</span> <span class="mi">90</span>
+<span class="n">리신</span> <span class="n">기본공격</span> <span class="mi">95</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>위의 프로그램을 클래스로 만들어보자</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"=============클래스를 사용한 경우============="</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Champion</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">basic_attack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> 기본공격 </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">attack</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">ezreal</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"이즈리얼"</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">leesin</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"리신"</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span>
+<span class="n">ezreal</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span>
+<span class="n">leesin</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>챔피언을 하나 더 추가해야하는 경우: <strong>클래스 미사용</strong></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 클래스를 사용하는 이유
+</span><span class="n">champion1_name</span> <span class="o">=</span> <span class="s">"이즈리얼"</span>
+<span class="n">champion1_health</span> <span class="o">=</span> <span class="mi">700</span>
+<span class="n">champion1_attack</span> <span class="o">=</span> <span class="mi">90</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion1_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+
+<span class="n">champion2_name</span> <span class="o">=</span> <span class="s">"리신"</span>
+<span class="n">champion2_health</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">champion2_attack</span> <span class="o">=</span> <span class="mi">95</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion2_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+
+<span class="c1">#### 추가 및 수정이 필요한 부분 ####
+</span><span class="n">champion3_name</span> <span class="o">=</span> <span class="s">"야스오"</span>
+<span class="n">champion3_health</span> <span class="o">=</span> <span class="mi">750</span>
+<span class="n">champion3_attack</span> <span class="o">=</span> <span class="mi">92</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion3_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+<span class="c1">#### /추가 및 수정이 필요한 부분 ####
+</span>
+<span class="k">def</span> <span class="nf">basic_attack</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s"> 기본공격 </span><span class="si">{</span><span class="n">attack</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion1_name</span><span class="p">,</span> <span class="n">champion1_attack</span><span class="p">)</span>
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion2_name</span><span class="p">,</span> <span class="n">champion2_attack</span><span class="p">)</span>
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion3_name</span><span class="p">,</span> <span class="n">champion3_attack</span><span class="p">)</span> <span class="c1">#### 추가 및 수정이 필요한 부분
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>챔피언을 하나 더 추가해야하는 경우: <strong>클래스 사용</strong></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"=============클래스를 사용한 경우============="</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Champion</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">basic_attack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> 기본공격 </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">attack</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">ezreal</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"이즈리얼"</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">leesin</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"리신"</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span>
+<span class="n">yasuo</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"야스오"</span><span class="p">,</span> <span class="mi">750</span><span class="p">,</span> <span class="mi">92</span><span class="p">)</span> <span class="c1"># 추가 및 수정이 필요한 부분
+</span>
+<span class="n">ezreal</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span>
+<span class="n">leesin</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span>
+<span class="n">yasuo</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span> <span class="c1"># 추가 및 수정이 필요한 부분
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>클래스를 사용하면 단 두줄만 수정하면 된다 ⇒ 객체를 많이 생산해내야 할 수 록 클래스 사용이 효율적</p>
+  </li>
+  <li>
+    <p>클래스 = 속성 + 메서드(method)</p>
+
+    <p><img src="/assets/images/2022-05-08-Python-Photo/2022-05-08-Python-Photo3.jpg" alt="2022-05-08-Python-Photo3" /></p>
+
+    <ul>
+      <li>속성: 특징들을 나타낸 것</li>
+      <li>메서드: 동작들을 나타낸 것</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-클래스-만들기">2. 클래스 만들기</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">클래스이름</span>
+    <span class="k">def</span> <span class="nf">메서드이름</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+       <span class="n">명령블록</span>
+
+<span class="c1"># 예시
+</span><span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"나는 몬스터다"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>만든 클래스를 호출하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 호출하기
+</span><span class="n">인스턴스</span> <span class="o">=</span> <span class="n">클래스이름</span><span class="p">()</span>
+<span class="n">인스턴스</span><span class="p">.</span><span class="n">메서드</span><span class="p">()</span>
+
+<span class="c1"># 예시
+</span><span class="n">goblin</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">()</span>
+<span class="n">goblin</span><span class="p">.</span><span class="n">say</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>인스턴스: 클래스와 연관지어 표현할 때 자주 사용하는 표현(객체와 유사)</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-실습">3. 실습</h2>
+
+<ul>
+  <li>파이썬에서는 자료형도 클래스다</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"나는 몬스터다!"</span><span class="p">)</span>
+
+<span class="n">goblin</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">()</span>
+<span class="n">goblin</span><span class="p">.</span><span class="n">say</span><span class="p">()</span>
+
+<span class="c1"># 파이썬에서는 자료형도 클래스다
+</span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s">"문자열객체"</span>
+<span class="n">c</span> <span class="o">=</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>결과 출력</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jinipark</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jinipark</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">02.</span><span class="n">클래스만들기</span><span class="p">.</span><span class="n">py</span>
+<span class="n">나는</span> <span class="n">몬스터다</span><span class="err">!</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">int</span><span class="s">'&gt;
+&lt;class '</span><span class="nb">str</span><span class="s">'&gt;
+&lt;class '</span><span class="nb">bool</span><span class="s">'&gt;
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>각 자료형이 class로 출력되는 것을 알 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">__dir__</span><span class="p">())</span>
+</code></pre></div></div>
+
+<ul>
+  <li>문자열 객체에 대해 생성할 수 있는 메서드 확인</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 확인</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="p">[</span><span class="s">'__new__'</span><span class="p">,</span> <span class="s">'__repr__'</span><span class="p">,</span> <span class="s">'__hash__'</span><span class="p">,</span> <span class="s">'__str__'</span><span class="p">,</span> <span class="s">'__getattribute__'</span><span class="p">,</span> <span class="s">'__lt__'</span><span class="p">,</span> <span class="s">'__le__'</span><span class="p">,</span> <span class="s">'__eq__'</span><span class="p">,</span> <span class="s">'__ne__'</span><span class="p">,</span> <span class="s">'__gt__'</span><span class="p">,</span> <span class="s">'__ge__'</span><span class="p">,</span> <span class="s">'__iter__'</span><span class="p">,</span> <span class="s">'__mod__'</span><span class="p">,</span> <span class="s">'__rmod__'</span><span class="p">,</span> <span class="s">'__len__'</span><span class="p">,</span> <span class="s">'__getitem__'</span><span class="p">,</span> <span class="s">'__add__'</span><span class="p">,</span> <span class="s">'__mul__'</span><span class="p">,</span> <span class="s">'__rmul__'</span><span class="p">,</span> <span class="s">'__contains__'</span><span class="p">,</span> <span class="s">'encode'</span><span class="p">,</span> <span class="s">'replace'</span><span class="p">,</span> <span class="s">'split'</span><span class="p">,</span> <span class="s">'rsplit'</span><span class="p">,</span> <span class="s">'join'</span><span class="p">,</span> <span class="s">'capitalize'</span><span class="p">,</span> <span class="s">'casefold'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">,</span> <span class="s">'center'</span><span class="p">,</span> <span class="s">'count'</span><span class="p">,</span> <span class="s">'expandtabs'</span><span class="p">,</span> <span class="s">'find'</span><span class="p">,</span> <span class="s">'partition'</span><span class="p">,</span> <span class="s">'index'</span><span class="p">,</span> <span class="s">'ljust'</span><span class="p">,</span> <span class="s">'lower'</span><span class="p">,</span> <span class="s">'lstrip'</span><span class="p">,</span> <span class="s">'rfind'</span><span class="p">,</span> <span class="s">'rindex'</span><span class="p">,</span> <span class="s">'rjust'</span><span class="p">,</span> <span class="s">'rstrip'</span><span class="p">,</span> <span class="s">'rpartition'</span><span class="p">,</span> <span class="s">'splitlines'</span><span class="p">,</span> <span class="s">'strip'</span><span class="p">,</span> <span class="s">'swapcase'</span><span class="p">,</span> <span class="s">'translate'</span><span class="p">,</span> <span class="s">'upper'</span><span class="p">,</span> <span class="s">'startswith'</span><span class="p">,</span> <span class="s">'endswith'</span><span class="p">,</span> <span class="s">'removeprefix'</span><span class="p">,</span> <span class="s">'removesuffix'</span><span class="p">,</span> <span class="s">'isascii'</span><span class="p">,</span> <span class="s">'islower'</span><span class="p">,</span> <span class="s">'isupper'</span><span class="p">,</span> <span class="s">'istitle'</span><span class="p">,</span> <span class="s">'isspace'</span><span class="p">,</span> <span class="s">'isdecimal'</span><span class="p">,</span> <span class="s">'isdigit'</span><span class="p">,</span> <span class="s">'isnumeric'</span><span class="p">,</span> <span class="s">'isalpha'</span><span class="p">,</span> <span class="s">'isalnum'</span><span class="p">,</span> <span class="s">'isidentifier'</span><span class="p">,</span> <span class="s">'isprintable'</span><span class="p">,</span> <span class="s">'zfill'</span><span class="p">,</span> <span class="s">'format'</span><span class="p">,</span> <span class="s">'format_map'</span><span class="p">,</span> <span class="s">'__format__'</span><span class="p">,</span> <span class="s">'maketrans'</span><span class="p">,</span> <span class="s">'__sizeof__'</span><span class="p">,</span> <span class="s">'__getnewargs__'</span><span class="p">,</span> <span class="s">'__doc__'</span><span class="p">,</span> <span class="s">'__setattr__'</span><span class="p">,</span> <span class="s">'__delattr__'</span><span class="p">,</span> <span class="s">'__init__'</span><span class="p">,</span> <span class="s">'__reduce_ex__'</span><span class="p">,</span> <span class="s">'__reduce__'</span><span class="p">,</span> <span class="s">'__subclasshook__'</span><span class="p">,</span> <span class="s">'__init_subclass__'</span><span class="p">,</span> <span class="s">'__dir__'</span><span class="p">,</span> <span class="s">'__class__'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p>이번 포스팅에서는 클래스와 객체의 개념에 대해 알아보았다. 다음 포스팅에서는 생성자에 대해 알아보도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 21일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 20일차</title><link href="http://localhost:4000/programming/Python-Day20/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 20일차" /><published>2022-05-07T00:00:00+09:00</published><updated>2022-05-07T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day20</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day20/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 7-2. 딕셔너리를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -1799,156 +2076,4 @@ def multiply(x, y):
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 16일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Kubernetes]쿠버네티스 네트워킹(2)DNS &amp;amp; CoreDNS</title><link href="http://localhost:4000/devops/Kubernetes-Networking-DNS-CoreDNS/" rel="alternate" type="text/html" title="[Kubernetes]쿠버네티스 네트워킹(2)DNS &amp;amp; CoreDNS" /><published>2022-05-02T00:00:00+09:00</published><updated>2022-05-02T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-Networking-DNS-CoreDNS</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-Networking-DNS-CoreDNS/"><![CDATA[<p><br /><br /></p>
-
-<h1 id="1-dnsdomain-name-system">1. DNS(Domain Name System)</h1>
-
-<h2 id="1-dns란">1. DNS란?</h2>
-
-<p>지난 포스팅에서 들었던 시스템 A, B의 예시를 다시 살펴보자.</p>
-
-<p>만약 시스템 A에서 시스템 B에 접속할 때, <code class="language-plaintext highlighter-rouge">192.168.1.11</code> 라는 IP 대신 <code class="language-plaintext highlighter-rouge">DB</code> 라는 이름/별칭을 사용하고 싶다면 어떻게 해야할까?</p>
-
-<p><img src="/assets/images/2022-05-02-Kubernetes-Networking-DNS-CoreDNS/1.png" alt="1.png" /></p>
-
-<ul>
-  <li>시스템 A <code class="language-plaintext highlighter-rouge">/etc/hosts</code> 에 <code class="language-plaintext highlighter-rouge">192.168.1.11 db</code> 를 등록하면 된다.</li>
-  <li>단 주의할 사항은, 시스템 B의 실제 호스팅명(시스템 B에서 <code class="language-plaintext highlighter-rouge">hostname</code> 명령어로 확인할 수 있다)이 실제로 db가 아니라 host-2와 같이 다른 이름일 경우에도 <code class="language-plaintext highlighter-rouge">db</code> 로 접속이 된다는 점이다.</li>
-</ul>
-
-<p>이처럼 DNS는 IP주소를 사람이 읽을 수 있는 도메인명으로 바꿔주는 시스템을 뜻한다.</p>
-
-<h2 id="2-name-resolution">2. Name Resolution</h2>
-
-<p>위의 예와 같이, 호스트에서 <code class="language-plaintext highlighter-rouge">/hosts</code> 파일 내에 DNS명과 IP명을 읽고 변환하는 작업을 <strong>Name Resolution</strong> 이라고 한다.</p>
-
-<p>오늘날에는 환경이 커지고 너무 많은 항목이 생겨서 파일을 관리하기가 어렵기 때문에, 해당 정보를 한개의 단일 서버로 관리하게 되는데, 이 서버를 <strong>DNS 서버</strong>이다.</p>
-
-<p>그렇다면, 각 호스트(컴퓨터)가 DNS 서버를 가리키게 하려면 어떻게 해야할까?</p>
-
-<p><img src="/assets/images/2022-05-02-Kubernetes-Networking-DNS-CoreDNS/2.png" alt="2.png" /></p>
-
-<ul>
-  <li>모든 호스트에는 <code class="language-plaintext highlighter-rouge">/etc/resolv.conf</code> 라는 DNS resolution 구성 파일이 존재한다.</li>
-  <li>따라서, A 서버의 <code class="language-plaintext highlighter-rouge">resolv.conf</code> 파일에 <code class="language-plaintext highlighter-rouge">nameserver 192.168.1.100</code> 를 등록하면 네임서버(DNS서버)를 향하게 된다.</li>
-</ul>
-
-<p>단, 테스트 목적 등으로 사용할 경우, 이전처럼 <code class="language-plaintext highlighter-rouge">etc/hosts</code> 에 등록하여 사용할 수 있다.</p>
-
-<p>만약, A 서버의 hosts 파일에 192.168.1.115 IP 서버를 test 로 등록하고, DNS 서버에도 같은 호스트 이름으로 다른 IP를 등록한 경우에는 어떻게 될까?</p>
-
-<p><img src="/assets/images/2022-05-02-Kubernetes-Networking-DNS-CoreDNS/3.png" alt="3.png" /></p>
-
-<ul>
-  <li>호스트는 먼저 로컬의 hosts 파일에 등록된 내역을 찾은 뒤, DNS 서버에 쿼리하게 된다.</li>
-  <li>따라서, A 서버에서 test로 통신요청을 보낸 경우, hosts 파일에 등록된 192.168.1.115 서버가 응답하게 된다.</li>
-</ul>
-
-<p>참고로, 파일을 읽는 순서는 <code class="language-plaintext highlighter-rouge">/etc/nsswitch.conf</code> 파일에서 정의된다.</p>
-
-<p>만약 로컬 &amp; DNS 서버 모두 모르는 호스트명이 있을 경우, Ping이 실패하게 되는데, 그럴 경우에는 <strong>public nameserver</strong>를 DNS서버에 등록하면 된다(로컬 hosts 파일에 등록해도 적용되나 모든 호스트에 하나하나 적용을 해야하기 때문에 DNS 서버에 등록하는 것이 효율적).</p>
-
-<h2 id="3-domain-names">3. Domain Names</h2>
-
-<p>인터넷을 하다보면, <code class="language-plaintext highlighter-rouge">www.google.com</code> , <code class="language-plaintext highlighter-rouge">www.naver.com</code> , <code class="language-plaintext highlighter-rouge">www.kubernetes.io</code> 등의 주소를 볼 수 있는데, 이 이름들이 바로 도메인명(Domain Name)이다.</p>
-
-<h3 id="1-domain-name-구조">1. Domain Name 구조</h3>
-
-<p><img src="/assets/images/2022-05-02-Kubernetes-Networking-DNS-CoreDNS/4.png" alt="4.png" /></p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">.</code> 으로 구분 된 것은 비슷한 것들끼리 묶어서 보기 편하게 분류하려고 한 것.</li>
-  <li>최상위 도메인 종류(Top Level Domain Name)
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">.com</code>: 상업적 / 일반 목적</li>
-      <li><code class="language-plaintext highlighter-rouge">.net</code> : 네트워크</li>
-      <li><code class="language-plaintext highlighter-rouge">.edu</code> : 교육기관</li>
-      <li><code class="language-plaintext highlighter-rouge">.org</code> : 비영리기관</li>
-      <li><code class="language-plaintext highlighter-rouge">.io</code> : 영국령 인도양식민지(British Indian Ocean Territory)의 국가 톱 레벨 도메인</li>
-    </ul>
-  </li>
-  <li>Domain name 구조
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">.</code> : root</li>
-      <li><code class="language-plaintext highlighter-rouge">.com</code> : 탑 레벨 도메인 네임</li>
-      <li><code class="language-plaintext highlighter-rouge">google</code> : 구글에 할당된 도메인 이름</li>
-      <li><code class="language-plaintext highlighter-rouge">www</code> : 하위 도메인 (기타 예: drive, maps, apps, mail 등)</li>
-    </ul>
-  </li>
-  <li><a href="http://apps.google.com">apps.google.com</a> 에 접속
-    <ul>
-      <li>본인이 속한 조직의 DNS 서버에 도착</li>
-      <li>⇒ 리스트에 없으니 Root DNS로 전송</li>
-      <li>⇒ 요청을 확인하고 .com DNS 서버로 전송</li>
-      <li>⇒ 요청을 확인하고 google DNS 서버로 전송: IP 제공</li>
-    </ul>
-
-    <p>→ <strong>조직의 DNS 서버는 일정기간(일반적으로 몇 초)동안 해당 IP를 캐시</strong></p>
-  </li>
-</ul>
-
-<h2 id="4-search-domain">4. Search Domain</h2>
-
-<ul>
-  <li>회사에서 mydomain.com이라는 도메인과 nfs, web, mail, drive 등의 서브도메인을 운영</li>
-  <li>
-    <p>외부에서 접속할 때에는 web.mydomain.com으로 접속</p>
-
-    <p>⇒ 내부에서도 web이 아닌 web.mydomain.com</p>
-
-    <p><code class="language-plaintext highlighter-rouge">[mydomain.com](http://mydomain.com)</code> 같은 서치 도메인을 조직 내에서 생략하고 싶을 경우</p>
-
-    <p>⇒ <code class="language-plaintext highlighter-rouge">/etc/resolv.conf</code> 에 <code class="language-plaintext highlighter-rouge">search [mycompany.com](http://mycompany.com)</code> 을 등록하면 앞의 web만 검색해도 <a href="http://web.mycompany.com">web.mycompany.com</a> 으로 연결됨 (두 개이상 등록도 가능함: 두개 사이에 공백을 넣어주면 됨)</p>
-  </li>
-</ul>
-
-<h2 id="5-레코드-타입">5. 레코드 타입</h2>
-
-<p>| A | web-server | 192.168.1.1 |
-| — | — | — |
-| AAAA | web-server | 2001:0db8:85a3:0000:0000:8a2e:0370:7334 |
-| CNAME | food.web-server | eat.web-server, hungry.web-server |</p>
-<ul>
-  <li>A record: 호스트 이름에 IP 저장</li>
-  <li>AAAA record: IPv6를 저장</li>
-  <li>CNAME: 호스트네임을 다른 호스트네임과 매핑</li>
-</ul>
-
-<h2 id="6-dns-조회-도구들">6. DNS 조회 도구들</h2>
-
-<h3 id="1-nslookup">1. nslookup</h3>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">nslookup [www.google.com](http://www.google.com)</code></li>
-  <li>Nslookup은 로컬 hosts 파일을 조회하지 않고 DNS 서버만 조회하게 됨</li>
-</ul>
-
-<h3 id="2-dig">2. Dig</h3>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">dig www.google.com</code></li>
-  <li>Nslookup보다 더 많은 정보 제공</li>
-</ul>
-
-<h1 id="2-coredns">2. CoreDNS</h1>
-
-<ul>
-  <li>Core DNS 설치방법
-    <ul>
-      <li>Github 릴리스 페이지 혹은 도커 이미지로 다운로드 할 수 있음.
-        <ul>
-          <li>Wget 혹은 curl</li>
-          <li>압축 해제</li>
-          <li><code class="language-plaintext highlighter-rouge">./coredns</code> 로 실행</li>
-          <li>기본 포트(53 포트)에서 수신대기</li>
-          <li>CoreDNS는 Corefile에서 구성 로딩
-            <ul>
-              <li>Corefile에 hosts /etc/hosts 구문을 넣어 hosts 파일을 가져오도록 지시</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>CoreDNS는 플러그인을 통해 DNS항목을 구성할 수도 있다(쿠버네티스용 플러그인도 존재)</li>
-</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스네트워킹" /><category term="DNS" /><category term="CoreDNS" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[쿠버네티스 네트워킹을 알아보기에 앞서 DNS & CoreDNS에 대해 알아보자.]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 16일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
