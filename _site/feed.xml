@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-07T09:44:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 20일차</title><link href="http://localhost:4000/programming/Python-Day20/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 20일차" /><published>2022-05-07T00:00:00+09:00</published><updated>2022-05-07T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day20</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day20/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-07T09:46:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 20일차</title><link href="http://localhost:4000/programming/Python-Day20/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 20일차" /><published>2022-05-07T00:00:00+09:00</published><updated>2022-05-07T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day20</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day20/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 7-2. 딕셔너리를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -283,15 +283,27 @@
   <li>IPv6: ::1/128 (단 1개 주소만 사용)</li>
 </ul>
 
+<p><br /><br /></p>
+
 <h1 id="3-localhost-주소-확인-및-수정">3. Localhost 주소 확인 및 수정</h1>
+
+<p><br /></p>
 
 <p>이 중 IPv4의 기본 localhost값은 127.0.0.1, IPv6의 기본 localhost값은 ::1/128 이다.</p>
 
+<p><br /></p>
+
 <p>만일 Localhost의 설정값을 수정하려면 /etc/hosts/ (윈도우의 경우 C:\WIndows\System32\drivers\etc\hosts 경로) 파일을 수정하면 된다.</p>
+
+<p><br /></p>
 
 <p>이렇게 hosts 파일에서 지정한 localhost주소를 브라우저에 입력하면, DNS를 타지 않고 바로 로컬로 연결된다.</p>
 
-<p>만약 현재 PC에 등록된 localhost 주소를 알고 싶은 경우, /etc/hosts 파일을 살펴보거나, terminal 에서 <code class="language-plaintext highlighter-rouge">nslookup localhost</code> 명령어를 입력하면 된다.</p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="DevOps" /><category term="SRE" /><category term="loopbackaddress" /><category term="데브옵스엔지니어" /><category term="루프백주소" /><category term="로컬호스트" /><category term="루프백주소대역" /><category term="localhost" /><summary type="html"><![CDATA[IPv4 혹은 IPv6 에서 자기자신을 가리키기 위한 목적으로 쓰기 위해 예약된 IP주소이다.]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 19일차</title><link href="http://localhost:4000/programming/Python-Day19/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 19일차" /><published>2022-05-06T00:00:00+09:00</published><updated>2022-05-06T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day19</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day19/"><![CDATA[<p><br /><br /></p>
+<p><br /></p>
+
+<p>만약 현재 PC에 등록된 localhost 주소를 알고 싶은 경우, /etc/hosts 파일을 살펴보거나, terminal 에서 <code class="language-plaintext highlighter-rouge">nslookup localhost</code> 명령어를 입력하면 된다.</p>
+
+<p><br /><br /></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="DevOps" /><category term="SRE" /><category term="loopbackaddress" /><category term="데브옵스엔지니어" /><category term="루프백주소" /><category term="로컬호스트" /><category term="루프백주소대역" /><category term="localhost" /><summary type="html"><![CDATA[IPv4 혹은 IPv6 에서 자기자신을 가리키기 위한 목적으로 쓰기 위해 예약된 IP주소이다.]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 19일차</title><link href="http://localhost:4000/programming/Python-Day19/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 19일차" /><published>2022-05-06T00:00:00+09:00</published><updated>2022-05-06T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day19</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day19/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 7-1. 튜플을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 

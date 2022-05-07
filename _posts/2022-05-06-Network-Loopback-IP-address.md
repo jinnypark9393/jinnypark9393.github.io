@@ -41,15 +41,24 @@ IPv4 혹은 IPv6 에서 자기자신을 가리키기 위한 목적으로 쓰기 
 - IPv4: 127.0.0.0/24 (127.0.0.0 ~ 127.255.255.255 사이의 주소 사용)
 - IPv6: ::1/128 (단 1개 주소만 사용)
 
+<br/><br/>
+
 # 3. Localhost 주소 확인 및 수정
+
+<br/>
 
 이 중 IPv4의 기본 localhost값은 127.0.0.1, IPv6의 기본 localhost값은 ::1/128 이다.
 
+<br/>
 
 만일 Localhost의 설정값을 수정하려면 /etc/hosts/ (윈도우의 경우 C:\WIndows\System32\drivers\etc\hosts 경로) 파일을 수정하면 된다.
 
+<br/>
 
 이렇게 hosts 파일에서 지정한 localhost주소를 브라우저에 입력하면, DNS를 타지 않고 바로 로컬로 연결된다.
 
+<br/>
 
 만약 현재 PC에 등록된 localhost 주소를 알고 싶은 경우, /etc/hosts 파일을 살펴보거나, terminal 에서 `nslookup localhost` 명령어를 입력하면 된다.
+
+<br/><br/>
