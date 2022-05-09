@@ -1,0 +1,280 @@
+I"
+g<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 7-2. 딕셔너리를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-08-Python-Photo/2022-05-08-Python-Photo1.jpg" alt="2022-05-08-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-08-Python-Photo/2022-05-08-Python-Photo2.jpg" alt="2022-05-08-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="1-클래스와-객체">1. 클래스와 객체</h1>
+
+<h2 id="1-클래스와-객체의-개념">1. 클래스와 객체의 개념</h2>
+
+<ul>
+  <li>클래스: 객체를 만들기 위한 <strong>설계도</strong></li>
+  <li>객체: 설계도로부터 만들어낸 <strong>제품</strong></li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>실습</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 클래스를 사용하는 이유
+</span><span class="n">champion1_name</span> <span class="o">=</span> <span class="s">"이즈리얼"</span>
+<span class="n">champion1_health</span> <span class="o">=</span> <span class="mi">700</span>
+<span class="n">champion1_attack</span> <span class="o">=</span> <span class="mi">90</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion1_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+
+<span class="n">champion2_name</span> <span class="o">=</span> <span class="s">"리신"</span>
+<span class="n">champion2_health</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">champion2_attack</span> <span class="o">=</span> <span class="mi">95</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion2_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">basic_attack</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s"> 기본공격 </span><span class="si">{</span><span class="n">attack</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion1_name</span><span class="p">,</span> <span class="n">champion1_attack</span><span class="p">)</span>
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion2_name</span><span class="p">,</span> <span class="n">champion2_attack</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">01.</span><span class="n">클래스개념</span><span class="p">.</span><span class="n">py</span>
+<span class="n">이즈리얼님</span> <span class="n">소환사의</span> <span class="n">협곡에</span> <span class="n">오신것을</span> <span class="n">환영합니다</span><span class="p">.</span>
+<span class="n">리신님</span> <span class="n">소환사의</span> <span class="n">협곡에</span> <span class="n">오신것을</span> <span class="n">환영합니다</span><span class="p">.</span>
+<span class="n">이즈리얼</span> <span class="n">기본공격</span> <span class="mi">90</span>
+<span class="n">리신</span> <span class="n">기본공격</span> <span class="mi">95</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>위의 프로그램을 클래스로 만들어보자</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"=============클래스를 사용한 경우============="</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Champion</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">basic_attack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> 기본공격 </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">attack</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">ezreal</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"이즈리얼"</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">leesin</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"리신"</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span>
+<span class="n">ezreal</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span>
+<span class="n">leesin</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>챔피언을 하나 더 추가해야하는 경우: <strong>클래스 미사용</strong></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 클래스를 사용하는 이유
+</span><span class="n">champion1_name</span> <span class="o">=</span> <span class="s">"이즈리얼"</span>
+<span class="n">champion1_health</span> <span class="o">=</span> <span class="mi">700</span>
+<span class="n">champion1_attack</span> <span class="o">=</span> <span class="mi">90</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion1_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+
+<span class="n">champion2_name</span> <span class="o">=</span> <span class="s">"리신"</span>
+<span class="n">champion2_health</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">champion2_attack</span> <span class="o">=</span> <span class="mi">95</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion2_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+
+<span class="c1">#### 추가 및 수정이 필요한 부분 ####
+</span><span class="n">champion3_name</span> <span class="o">=</span> <span class="s">"야스오"</span>
+<span class="n">champion3_health</span> <span class="o">=</span> <span class="mi">750</span>
+<span class="n">champion3_attack</span> <span class="o">=</span> <span class="mi">92</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">champion3_name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+<span class="c1">#### /추가 및 수정이 필요한 부분 ####
+</span>
+<span class="k">def</span> <span class="nf">basic_attack</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s"> 기본공격 </span><span class="si">{</span><span class="n">attack</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion1_name</span><span class="p">,</span> <span class="n">champion1_attack</span><span class="p">)</span>
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion2_name</span><span class="p">,</span> <span class="n">champion2_attack</span><span class="p">)</span>
+<span class="n">basic_attack</span><span class="p">(</span><span class="n">champion3_name</span><span class="p">,</span> <span class="n">champion3_attack</span><span class="p">)</span> <span class="c1">#### 추가 및 수정이 필요한 부분
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>챔피언을 하나 더 추가해야하는 경우: <strong>클래스 사용</strong></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"=============클래스를 사용한 경우============="</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Champion</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">님 소환사의 협곡에 오신것을 환영합니다."</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">basic_attack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> 기본공격 </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">attack</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">ezreal</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"이즈리얼"</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">leesin</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"리신"</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span>
+<span class="n">yasuo</span> <span class="o">=</span> <span class="n">Champion</span><span class="p">(</span><span class="s">"야스오"</span><span class="p">,</span> <span class="mi">750</span><span class="p">,</span> <span class="mi">92</span><span class="p">)</span> <span class="c1"># 추가 및 수정이 필요한 부분
+</span>
+<span class="n">ezreal</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span>
+<span class="n">leesin</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span>
+<span class="n">yasuo</span><span class="p">.</span><span class="n">basic_attack</span><span class="p">()</span> <span class="c1"># 추가 및 수정이 필요한 부분
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>클래스를 사용하면 단 두줄만 수정하면 된다 ⇒ 객체를 많이 생산해내야 할 수 록 클래스 사용이 효율적</p>
+  </li>
+  <li>
+    <p>클래스 = 속성 + 메서드(method)</p>
+
+    <p><img src="/assets/images/2022-05-08-Python-Photo/2022-05-08-Python-Photo3.png" alt="2022-05-08-Python-Photo3" /></p>
+
+    <ul>
+      <li>속성: 특징들을 나타낸 것</li>
+      <li>메서드: 동작들을 나타낸 것</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-클래스-만들기">2. 클래스 만들기</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">클래스이름</span>
+    <span class="k">def</span> <span class="nf">메서드이름</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+       <span class="n">명령블록</span>
+
+<span class="c1"># 예시
+</span><span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"나는 몬스터다"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>만든 클래스를 호출하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 호출하기
+</span><span class="n">인스턴스</span> <span class="o">=</span> <span class="n">클래스이름</span><span class="p">()</span>
+<span class="n">인스턴스</span><span class="p">.</span><span class="n">메서드</span><span class="p">()</span>
+
+<span class="c1"># 예시
+</span><span class="n">goblin</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">()</span>
+<span class="n">goblin</span><span class="p">.</span><span class="n">say</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>인스턴스: 클래스와 연관지어 표현할 때 자주 사용하는 표현(객체와 유사)</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-실습">3. 실습</h2>
+
+<ul>
+  <li>파이썬에서는 자료형도 클래스다</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"나는 몬스터다!"</span><span class="p">)</span>
+
+<span class="n">goblin</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">()</span>
+<span class="n">goblin</span><span class="p">.</span><span class="n">say</span><span class="p">()</span>
+
+<span class="c1"># 파이썬에서는 자료형도 클래스다
+</span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s">"문자열객체"</span>
+<span class="n">c</span> <span class="o">=</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>결과 출력</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jinipark</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jinipark</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">02.</span><span class="n">클래스만들기</span><span class="p">.</span><span class="n">py</span>
+<span class="n">나는</span> <span class="n">몬스터다</span><span class="err">!</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">int</span><span class="s">'&gt;
+&lt;class '</span><span class="nb">str</span><span class="s">'&gt;
+&lt;class '</span><span class="nb">bool</span><span class="s">'&gt;
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>각 자료형이 class로 출력되는 것을 알 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">__dir__</span><span class="p">())</span>
+</code></pre></div></div>
+
+<ul>
+  <li>문자열 객체에 대해 생성할 수 있는 메서드 확인</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 확인</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
+<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
+<span class="p">[</span><span class="s">'__new__'</span><span class="p">,</span> <span class="s">'__repr__'</span><span class="p">,</span> <span class="s">'__hash__'</span><span class="p">,</span> <span class="s">'__str__'</span><span class="p">,</span> <span class="s">'__getattribute__'</span><span class="p">,</span> <span class="s">'__lt__'</span><span class="p">,</span> <span class="s">'__le__'</span><span class="p">,</span> <span class="s">'__eq__'</span><span class="p">,</span> <span class="s">'__ne__'</span><span class="p">,</span> <span class="s">'__gt__'</span><span class="p">,</span> <span class="s">'__ge__'</span><span class="p">,</span> <span class="s">'__iter__'</span><span class="p">,</span> <span class="s">'__mod__'</span><span class="p">,</span> <span class="s">'__rmod__'</span><span class="p">,</span> <span class="s">'__len__'</span><span class="p">,</span> <span class="s">'__getitem__'</span><span class="p">,</span> <span class="s">'__add__'</span><span class="p">,</span> <span class="s">'__mul__'</span><span class="p">,</span> <span class="s">'__rmul__'</span><span class="p">,</span> <span class="s">'__contains__'</span><span class="p">,</span> <span class="s">'encode'</span><span class="p">,</span> <span class="s">'replace'</span><span class="p">,</span> <span class="s">'split'</span><span class="p">,</span> <span class="s">'rsplit'</span><span class="p">,</span> <span class="s">'join'</span><span class="p">,</span> <span class="s">'capitalize'</span><span class="p">,</span> <span class="s">'casefold'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">,</span> <span class="s">'center'</span><span class="p">,</span> <span class="s">'count'</span><span class="p">,</span> <span class="s">'expandtabs'</span><span class="p">,</span> <span class="s">'find'</span><span class="p">,</span> <span class="s">'partition'</span><span class="p">,</span> <span class="s">'index'</span><span class="p">,</span> <span class="s">'ljust'</span><span class="p">,</span> <span class="s">'lower'</span><span class="p">,</span> <span class="s">'lstrip'</span><span class="p">,</span> <span class="s">'rfind'</span><span class="p">,</span> <span class="s">'rindex'</span><span class="p">,</span> <span class="s">'rjust'</span><span class="p">,</span> <span class="s">'rstrip'</span><span class="p">,</span> <span class="s">'rpartition'</span><span class="p">,</span> <span class="s">'splitlines'</span><span class="p">,</span> <span class="s">'strip'</span><span class="p">,</span> <span class="s">'swapcase'</span><span class="p">,</span> <span class="s">'translate'</span><span class="p">,</span> <span class="s">'upper'</span><span class="p">,</span> <span class="s">'startswith'</span><span class="p">,</span> <span class="s">'endswith'</span><span class="p">,</span> <span class="s">'removeprefix'</span><span class="p">,</span> <span class="s">'removesuffix'</span><span class="p">,</span> <span class="s">'isascii'</span><span class="p">,</span> <span class="s">'islower'</span><span class="p">,</span> <span class="s">'isupper'</span><span class="p">,</span> <span class="s">'istitle'</span><span class="p">,</span> <span class="s">'isspace'</span><span class="p">,</span> <span class="s">'isdecimal'</span><span class="p">,</span> <span class="s">'isdigit'</span><span class="p">,</span> <span class="s">'isnumeric'</span><span class="p">,</span> <span class="s">'isalpha'</span><span class="p">,</span> <span class="s">'isalnum'</span><span class="p">,</span> <span class="s">'isidentifier'</span><span class="p">,</span> <span class="s">'isprintable'</span><span class="p">,</span> <span class="s">'zfill'</span><span class="p">,</span> <span class="s">'format'</span><span class="p">,</span> <span class="s">'format_map'</span><span class="p">,</span> <span class="s">'__format__'</span><span class="p">,</span> <span class="s">'maketrans'</span><span class="p">,</span> <span class="s">'__sizeof__'</span><span class="p">,</span> <span class="s">'__getnewargs__'</span><span class="p">,</span> <span class="s">'__doc__'</span><span class="p">,</span> <span class="s">'__setattr__'</span><span class="p">,</span> <span class="s">'__delattr__'</span><span class="p">,</span> <span class="s">'__init__'</span><span class="p">,</span> <span class="s">'__reduce_ex__'</span><span class="p">,</span> <span class="s">'__reduce__'</span><span class="p">,</span> <span class="s">'__subclasshook__'</span><span class="p">,</span> <span class="s">'__init_subclass__'</span><span class="p">,</span> <span class="s">'__dir__'</span><span class="p">,</span> <span class="s">'__class__'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p>이번 포스팅에서는 클래스와 객체의 개념에 대해 알아보았다. 다음 포스팅에서는 생성자에 대해 알아보도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>
+:ET
