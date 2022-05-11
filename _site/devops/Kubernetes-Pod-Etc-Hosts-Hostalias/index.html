@@ -1,0 +1,706 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Kubernetes]Pod의 /etc/hosts 파일에 DNS 추가하는 방법(HostAlias) - release: canary</title>
+<meta name="description" content="패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online">
+
+
+  <meta name="author" content="Canary">
+  
+  <meta property="article:author" content="Canary">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="release: canary">
+<meta property="og:title" content="[Kubernetes]Pod의 /etc/hosts 파일에 DNS 추가하는 방법(HostAlias)">
+<meta property="og:url" content="http://localhost:4000/devops/Kubernetes-Pod-Etc-Hosts-Hostalias/">
+
+
+  <meta property="og:description" content="패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-05-11T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-05-11T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/devops/Kubernetes-Pod-Etc-Hosts-Hostalias/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Canary",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="release: canary Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
+<link rel="mask-icon" href="/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.jpeg" alt="release: canary"></a>
+        
+        <a class="site-title" href="/">
+          release: canary
+          <span class="site-subtitle">Created Apr 13, 2022</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/logo.jpeg" alt="Canary" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Canary</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/jinnypark9393" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:jinnypark9393@gmail.com">
+            <meta itemprop="email" content="jinnypark9393@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Kubernetes]Pod의 /etc/hosts 파일에 DNS 추가하는 방법(HostAlias)">
+    <meta itemprop="description" content="패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online">
+    <meta itemprop="datePublished" content="2022-05-11T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-05-11T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Kubernetes]Pod의 /etc/hosts 파일에 DNS 추가하는 방법(HostAlias)
+</h1>
+          
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-05-11T00:00:00+09:00">May 11, 2022</time></p>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-11T00:00:00+09:00">May 11, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#1-배경-상황">1. 배경 상황</a></li><li><a href="#2-설정-방법">2. 설정 방법</a></li><li><a href="#3-참고-자료">3. 참고 자료</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p><br /><br /></p>
+
+<h1 id="1-배경-상황">1. 배경 상황</h1>
+
+<p><br /></p>
+
+<p>프로젝트 진행 중 인프라팀에서 NAS의 연결 주소를 내부 private IP로 변경하기위해서 파드 내 컨테이너의 /etc/hosts 파일을 변경해달라는 요청을 받았다.</p>
+
+<p><br /><br /></p>
+
+<h1 id="2-설정-방법">2. 설정 방법</h1>
+
+<p><br /></p>
+
+<p>Pod의 /etc/hosts 파일을 변경하기 위해서는 Pod(Pod가 Deployment에 의해 생성되었을 경우에는 Deployment) YAML 파일의 hostAlias 항목에 도메인, 그리고 도메인과 맵핑할 ip를 기입해주면 된다.</p>
+
+<p><br /></p>
+
+<p><strong>※ 컨테이너 내부의 호스트 파일을 수동으로 변경하면 안된다. 컨테이너는 휘발성이기 때문에, 컨테이너 종료 시 변경사항이 손실된다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Deployment에 등록할 경우</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+ <span class="na">name</span><span class="pi">:</span> <span class="s">web-app</span>
+ <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">spec</span><span class="pi">:</span>
+ <span class="na">replicas</span><span class="pi">:</span> <span class="m">2</span>
+ <span class="na">selector</span><span class="pi">:</span>
+  <span class="na">matchLabels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">web</span>
+ <span class="na">template</span><span class="pi">:</span>
+   <span class="na">metadata</span><span class="pi">:</span>
+     <span class="na">labels</span><span class="pi">:</span>
+       <span class="na">app</span><span class="pi">:</span> <span class="s">web</span>
+   <span class="na">spec</span><span class="pi">:</span>
+     <span class="na">restartPolicy</span><span class="pi">:</span> <span class="s">Always</span>
+     <span class="na">hostAliases</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="na">ip</span><span class="pi">:</span> <span class="s2">"</span><span class="s">127.0.0.1"</span>
+       <span class="na">hostnames</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s2">"</span><span class="s">foo.local"</span>
+     <span class="na">containers</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">cat-hosts</span>
+       <span class="na">image</span><span class="pi">:</span> <span class="s">busybox</span>
+       <span class="na">command</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s">cat</span>
+       <span class="na">args</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s2">"</span><span class="s">/etc/hosts"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>spec.template.hostAliases.ip ⇒ /etc/hosts 파일에 등록할 ip</li>
+  <li>spec.template.hostAliases.hostnames ⇒ /etc/hosts 파일에 등록할 호스트명</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>Pod에 등록할 경우</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+ <span class="na">name</span><span class="pi">:</span> <span class="s">web-app</span>
+ <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+ <span class="na">labels</span><span class="pi">:</span>
+   <span class="na">app</span><span class="pi">:</span> <span class="s">web</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">restartPolicy</span><span class="pi">:</span> <span class="s">Always</span>
+  <span class="na">hostAliases</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">ip</span><span class="pi">:</span> <span class="s2">"</span><span class="s">127.0.0.1"</span>
+    <span class="na">hostnames</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">foo.local"</span>
+  <span class="na">containers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">cat-hosts</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">busybox</span>
+    <span class="na">command</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">cat</span>
+    <span class="na">args</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">/etc/hosts"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>spec.hostAliases.ip ⇒ /etc/hosts 파일에 등록할 ip</li>
+  <li>spec.hostAliases.hostnames ⇒ /etc/hosts 파일에 등록할 호스트명</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h1 id="3-참고-자료">3. 참고 자료</h1>
+
+<ul>
+  <li>Kubernetes 공식문서: <a href="http://kubernetes.io/ko/docs/tasks/network/customize-hosts-file-for-pods">kubernetes.io/ko/docs/tasks/network/customize-hosts-file-for-pods</a></li>
+</ul>
+
+<p><br /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#cka" class="page__taxonomy-item" rel="tag">cka</a><span class="sep">, </span>
+    
+      <a href="/tags/#devopsengineer" class="page__taxonomy-item" rel="tag">DevOpsengineer</a><span class="sep">, </span>
+    
+      <a href="/tags/#hostalias" class="page__taxonomy-item" rel="tag">hostalias</a><span class="sep">, </span>
+    
+      <a href="/tags/#k8s" class="page__taxonomy-item" rel="tag">k8s</a><span class="sep">, </span>
+    
+      <a href="/tags/#kubernetes" class="page__taxonomy-item" rel="tag">kubernetes</a><span class="sep">, </span>
+    
+      <a href="/tags/#kuberneteshostalias" class="page__taxonomy-item" rel="tag">kuberneteshostalias</a><span class="sep">, </span>
+    
+      <a href="/tags/#kubernetesnetworking" class="page__taxonomy-item" rel="tag">kubernetesnetworking</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4" class="page__taxonomy-item" rel="tag">데브옵스</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4" class="page__taxonomy-item" rel="tag">데브옵스엔지니어</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4" class="page__taxonomy-item" rel="tag">쿠버네티스</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9" class="page__taxonomy-item" rel="tag">쿠버네티스네트워킹</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#devops" class="page__taxonomy-item" rel="tag">DevOps</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-05-11">May 11, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BKubernetes%5DPod%EC%9D%98+%2Fetc%2Fhosts+%ED%8C%8C%EC%9D%BC%EC%97%90+DNS+%EC%B6%94%EA%B0%80%ED%95%98%EB%8A%94+%EB%B0%A9%EB%B2%95%28HostAlias%29%20http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Pod-Etc-Hosts-Hostalias%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Pod-Etc-Hosts-Hostalias%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdevops%2FKubernetes-Pod-Etc-Hosts-Hostalias%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/programming/Python-Day23/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 23일차
+">이전</a>
+    
+    
+      <a href="/programming/Python-Day24/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 24일차
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day24/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 24일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 11 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day23/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 23일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 10 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 23일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day22/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 22일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 09 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 22일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day21/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 21일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 08 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 21일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:jinnypark9393@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/jinnypark9393" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Canary. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
