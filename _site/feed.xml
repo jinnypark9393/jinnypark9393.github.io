@@ -1,4 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-12T05:33:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 25일차</title><link href="http://localhost:4000/programming/Python-Day25/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 25일차" /><published>2022-05-12T00:00:00+09:00</published><updated>2022-05-12T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day25</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day25/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-13T05:31:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 26일차</title><link href="http://localhost:4000/programming/Python-Day26/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 26일차" /><published>2022-05-13T00:00:00+09:00</published><updated>2022-05-13T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day26</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day26/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 9-1. 모듈을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-13-Python-Photo/2022-05-13-Python-Photo1.jpg" alt="2022-05-13-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-13-Python-Photo/2022-05-13-Python-Photo2.jpg" alt="2022-05-13-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="01-모듈">01. 모듈</h1>
+
+<h2 id="1-모듈을-사용하는-이유">1. 모듈을 사용하는 이유</h2>
+
+<ul>
+  <li>프로그램을 기능별로 파일을 나누어 유지보수 등 관리를 편하게 할 수 있기 때문</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-모듈의-개념">2. 모듈의 개념</h2>
+
+<ul>
+  <li>한 개의 완성된 프로그램 파일</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-파이썬-기본-모듈-사용방법">3. 파이썬 기본 모듈 사용방법</h2>
+
+<ul>
+  <li>파이썬의 기본 모듈을 사용해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">모듈이름</span>
+<span class="n">모듈이름</span><span class="p">.</span><span class="n">변수</span>
+<span class="n">모듈이름</span><span class="p">.</span><span class="n">함수</span><span class="p">()</span>
+
+<span class="c1"># 예시 1
+</span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">print</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">5.7</span><span class="p">))</span> <span class="c1"># 올림 함수
+</span>
+<span class="c1"># 예시 2: 뒤의 메소드, 변수 이름으로 그대로 작성할 수 있게 하는 방법
+</span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">ceil</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="mf">5.7</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="4-파이썬-외부-모듈-사용방법">4. 파이썬 외부 모듈 사용방법</h2>
+
+<ul>
+  <li>파이썬 외부의 모듈을 사용해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">모듈이름</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pyautogui</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="5-모듈-만들기-실습">5. 모듈 만들기 실습</h2>
+
+<h3 id="1-내장모듈">1. 내장모듈</h3>
+
+<ul>
+  <li>내장모듈: 파이썬 설치 시 자동으로 설치되는 모듈</li>
+  <li>파이썬 내장 모듈을 사용해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 내장 모듈
+# : 파이썬 설치 시 자동으로 설치되는 모듈
+</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">ceil</span> <span class="k">as</span> <span class="n">c</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="mf">5.7</span><span class="p">))</span>
+</code></pre></div></div>
+
+<ul>
+  <li>from math import pi를 쓰면 math.pi라고 쓰지 않고 pi만 써도 모듈이 실행된다.</li>
+  <li>모듈을 간단한 이름으로 변경하여 사용하고 싶은 경우 <code class="language-plaintext highlighter-rouge">as</code> 뒤에 사용하고 싶은 이름을 작성하면 적용된다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="2-외부-모듈">2. 외부 모듈</h3>
+
+<ul>
+  <li>pyautogui 공식 홈페이지 Documentation 페이지에 접속한다.
+    <ul>
+      <li>홈페이지에 나와있는대로 <code class="language-plaintext highlighter-rouge">pip install pyautogui</code> 명령어를 터미널 창에 입력한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyautogui</span>
+<span class="n">Collecting</span> <span class="n">pyautogui</span>
+  <span class="n">Downloading</span> <span class="n">PyAutoGUI</span><span class="o">-</span><span class="mf">0.9</span><span class="p">.</span><span class="mf">53.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="p">(</span><span class="mi">59</span> <span class="n">kB</span><span class="p">)</span>
+     <span class="err">━━━━━━━━━━━━━</span> <span class="mf">59.0</span><span class="o">/</span><span class="mf">59.0</span> <span class="n">KB</span> <span class="mf">987.7</span> <span class="n">kB</span><span class="o">/</span><span class="n">s</span> <span class="n">eta</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+  <span class="n">Preparing</span> <span class="n">metadata</span> <span class="p">(</span><span class="n">setup</span><span class="p">.</span><span class="n">py</span><span class="p">)</span> <span class="p">...</span> <span class="n">done</span>
+<span class="n">Collecting</span> <span class="n">pymsgbox</span>
+  <span class="n">Downloading</span> <span class="n">PyMsgBox</span><span class="o">-</span><span class="mf">1.0</span><span class="p">.</span><span class="mf">9.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="p">(</span><span class="mi">18</span> <span class="n">kB</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="p">(</span><span class="n">생략</span><span class="p">)</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>설치가 완료되면 import 로 pyautogui를 불러온다(별칭 pg로 설정).</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 외부 모듈
+# : 다른 사람이 만든 파이썬 파일을 pipfh 설치해서 사용
+# pyautogui (공식 홈페이지: https://pyautogui.readthedocs.io/en/latest/)
+</span><span class="kn">import</span> <span class="nn">pyautogui</span> <span class="k">as</span> <span class="n">pg</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>pyautogui 홈페이지(<a href="https://pyautogui.readthedocs.io/en/latest/">https://pyautogui.readthedocs.io/en/latest/</a>)에서 Example 중 하나를 실행해보자
+    <ul>
+      <li>**<code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;** pyautogui.moveTo(500, 500, duration=2, tween=pyautogui.easeInOutQuad)  *# Use tweening/easing function to move mouse over 2 seconds.*</code></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pg</span><span class="p">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># 화면의 500 * 500 위치에 마우스를 2초간 이동하라는 명령어
+</span></code></pre></div></div>
+
+<ul>
+  <li>실행결과: 마우스를 건드리지 않아도 자동으로 500*500 위치로 이동한다.</li>
+  <li>MacOS의 경우 vscode가 컴퓨터 시스템을 제어할 수 있도록 권한을 부여해야 실행이 가능하다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<p>이번 포스팅에서는 모듈에 대해 알아보았다. 다음 포스팅에서는 파이썬 모듈을 만들어보도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 26일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 25일차</title><link href="http://localhost:4000/programming/Python-Day25/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 25일차" /><published>2022-05-12T00:00:00+09:00</published><updated>2022-05-12T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day25</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day25/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 8-5. 클래스 실습문제를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -440,6 +603,11 @@
       <li>드래곤이 스킬을 사용하면 속성 중 하나가 무작위로 사용</li>
     </ul>
   </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
   <li>어떻게 속성을 추가할까?
     <ul>
       <li>Monster class에 속성 추가 ⇒ 다른 자식클래스에도 해당 속성이 추가됨 (X)</li>
@@ -467,11 +635,13 @@
 </code></pre></div></div>
 
 <ul>
-  <li>
-    <p>부모 클래스의 함수를 그대로 복사 붙여넣기 해도 되지만, 매번 붙여넣기 하기는 너무 번거롭다</p>
-  </li>
-  <li>
-    <p>super 함수를 사용하자.</p>
+  <li>부모 클래스의 함수를 그대로 복사 붙여넣기 해도 되지만, 매번 붙여넣기 하기는 너무 번거롭다</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>super 함수를 사용하자.
     <ul>
       <li>super().<strong>init</strong>(): 부모클래스의 <code class="language-plaintext highlighter-rouge">__init__</code> 함수를 불러온다.</li>
     </ul>
@@ -493,6 +663,8 @@
     <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
 </span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
 </code></pre></div></div>
+
+<p><br /></p>
 
 <ul>
   <li>추가 매개변수인 skill의 함수를 선언해준다.</li>
@@ -529,6 +701,8 @@
 <span class="n">dragon</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
 </code></pre></div></div>
 
+<p><br /></p>
+
 <ul>
   <li>스킬은 불변한데, 호출할 때 매번 넣어주면 중복이 발생한다.</li>
 </ul>
@@ -549,6 +723,8 @@
 <span class="n">dragon</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
 </code></pre></div></div>
 
+<p><br /></p>
+
 <ul>
   <li>튜플을 속성 자체에 직접 대입</li>
 </ul>
@@ -565,6 +741,8 @@
 <span class="n">dragon</span> <span class="o">=</span> <span class="n">Dragon</span><span class="p">(</span><span class="s">"드래곤"</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
 
 </code></pre></div></div>
+
+<p><br /></p>
 
 <ul>
   <li>skill ⇒ skills 로 바꾸고 skill 메서드를 생성</li>
@@ -616,6 +794,8 @@
 <span class="n">dragon</span><span class="p">.</span><span class="n">skill</span><span class="p">()</span>
 </code></pre></div></div>
 
+<p><br /></p>
+
 <ul>
   <li>출력 결과: 코드를 실행할 때마다 다른 스킬을 사용하는 것을 확인할 수 있다.</li>
 </ul>
@@ -637,6 +817,8 @@
 <span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">날기</span>
 <span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">스킬</span> <span class="n">사용</span> <span class="n">불뿜기</span>
 </code></pre></div></div>
+
+<p><br /><br /></p>
 
 <h3 id="2-클래스-변수">2. 클래스 변수</h3>
 
@@ -701,6 +883,8 @@
 <span class="n">dragon</span><span class="p">.</span><span class="n">skill</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dragon</span><span class="p">.</span><span class="n">max_num</span><span class="p">)</span>
 </code></pre></div></div>
+
+<p><br /></p>
 
 <ul>
   <li>출력 결과: max_num 을 모든 클래스에서 공유하는 것을 확인할 수 있다.</li>
@@ -1776,153 +1960,4 @@
 
 <p>만약 현재 PC에 등록된 localhost 주소를 알고 싶은 경우, /etc/hosts 파일을 살펴보거나, terminal 에서 <code class="language-plaintext highlighter-rouge">nslookup localhost</code> 명령어를 입력하면 된다.</p>
 
-<p><br /><br /></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="DevOps" /><category term="SRE" /><category term="loopbackaddress" /><category term="데브옵스엔지니어" /><category term="루프백주소" /><category term="로컬호스트" /><category term="루프백주소대역" /><category term="localhost" /><summary type="html"><![CDATA[IPv4 혹은 IPv6 에서 자기자신을 가리키기 위한 목적으로 쓰기 위해 예약된 IP주소이다.]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 19일차</title><link href="http://localhost:4000/programming/Python-Day19/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 19일차" /><published>2022-05-06T00:00:00+09:00</published><updated>2022-05-06T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day19</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day19/"><![CDATA[<p><br /><br /></p>
-
-<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 7-1. 튜플을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
-
-<p><br /><br /></p>
-
-<p>아래는 공부 인증 사진.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-05-06-Python-Photo/2022-05-06-Python-Photo1.jpg" alt="2022-05-06-Python-Photo1" /></p>
-
-<p><img src="/assets/images/2022-05-06-Python-Photo/2022-05-06-Python-Photo2.jpg" alt="2022-05-06-Python-Photo2" /></p>
-
-<p><br /><br /></p>
-
-<h1 id="01-튜플">01. 튜플</h1>
-
-<h2 id="1-튜플의-특징">1. 튜플의 특징</h2>
-
-<ul>
-  <li>시퀀스 자료형(순서가 있는 자료형)</li>
-  <li>수정, 추가, 삭제가 불가능한 리스트(읽기 전용 리스트)</li>
-  <li>메모리 사용이 효율적</li>
-  <li>읽기만 가능하기 때문에 데이터 손실 염려가 없다</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="2-튜플-만들기">2. 튜플 만들기</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">튜플</span> <span class="o">=</span> <span class="p">(</span><span class="n">데이터</span><span class="p">,</span> <span class="n">데이터</span><span class="p">,</span> <span class="n">데이터</span><span class="p">)</span>
-
-<span class="c1"># 튜플은 괄호를 생략할 수 있다.
-</span><span class="n">튜플</span> <span class="o">=</span> <span class="n">데이터</span><span class="p">,</span> <span class="n">데이터</span><span class="p">,</span> <span class="n">데이터</span>
-
-<span class="c1"># 예시: 튜플은 데이터의 자료형이 일치하지 않아도 된다.
-</span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="s">"패스트캠퍼스"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">True</span>
-
-<span class="c1"># 예시 2: 데이터가 1개 들어간 튜플을 만들 때에는 콤마를 붙여야 한다.
-</span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">30</span><span class="p">,)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
-</code></pre></div></div>
-
-<ul>
-  <li>참고: 괄호의 용도(Python 문법)
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">()</code> : 함수, 튜플</li>
-      <li><code class="language-plaintext highlighter-rouge">[]</code> : 리스트</li>
-      <li><code class="language-plaintext highlighter-rouge">{}</code> : fstring</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<h2 id="3-튜플을-리스트로-만들기">3. 튜플을 리스트로 만들기</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 예시 1: 리스트 자료형을 튜플로 만들어준다. tuple([리스트])
-</span><span class="n">a</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-
-<span class="c1"># 예시 2: range 객체를 list로 감싸면 list 자료형 &gt; tuple로 감싸면 튜플
-</span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">a</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># 예시 3: 튜플을 리스트로 만들 수 있다.
-</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span>
-<span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h2 id="4-패킹과-언패킹python-특징">4. 패킹과 언패킹(Python 특징)</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">numbers</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="c1"># 패킹: 3, 4, 5 라는 데이터를 numbers라는 변수에 패킹하는 것
-</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">numbers</span> <span class="c1"># 언패킹: a, b, c라는 변수에 하나하나 저장되게 됨
-</span>
-<span class="c1"># 리스트도 마찬가지로 패킹과 언패킹이 가능
-</span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">numbers</span>
-
-<span class="c1"># 활용예
-</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="c1"># a, b 들어가있던 값을 바꿔줄 수 있다.
-</span></code></pre></div></div>
-
-<ul>
-  <li>패킹: 여러 개의 데이터를 하나의 변수에 할당하는 것</li>
-  <li>언패킹: 컬렉션(튜플, 딕셔너리, 리스트 등)의 각 데이터를 각각의 변수에 할당하는 것</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="5-튜플-함수">5. 튜플 함수</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span>
-</code></pre></div></div>
-
-<ol>
-  <li>특정 값의 인덱스 구하기: <code class="language-plaintext highlighter-rouge">a.index(20)</code> = 1</li>
-  <li>특정 값의 개수: <code class="language-plaintext highlighter-rouge">a.count(30)</code> = 2</li>
-  <li>최대값, 최소값: <code class="language-plaintext highlighter-rouge">max(a)</code> = 40, <code class="language-plaintext highlighter-rouge">min(a)</code> = 10</li>
-  <li>합계: <code class="language-plaintext highlighter-rouge">sum(a)</code> = 130</li>
-</ol>
-
-<p><br /><br /></p>
-
-<h2 id="6-실습">6. 실습</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 튜플
-# : 읽기 전용 리스트
-</span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>
-
-<span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mi">3</span>
-
-<span class="n">e</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">g</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-
-<span class="n">h</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>
-<span class="n">i</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-
-<span class="c1"># 튜플 관련 함수
-</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<p>이번 포스팅에서는 튜플에 대해 알아보았다. 다음 포스팅에서는 딕셔너리에 대해 알아보도록 하자.</p>
-
-<p><br /></p>
-
-<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
-
-<p><br /></p>
-
-<ul>
-  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 19일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
+<p><br /><br /></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="DevOps" /><category term="SRE" /><category term="loopbackaddress" /><category term="데브옵스엔지니어" /><category term="루프백주소" /><category term="로컬호스트" /><category term="루프백주소대역" /><category term="localhost" /><summary type="html"><![CDATA[IPv4 혹은 IPv6 에서 자기자신을 가리키기 위한 목적으로 쓰기 위해 예약된 IP주소이다.]]></summary></entry></feed>

@@ -358,6 +358,11 @@
       <li>드래곤이 스킬을 사용하면 속성 중 하나가 무작위로 사용</li>
     </ul>
   </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
   <li>어떻게 속성을 추가할까?
     <ul>
       <li>Monster class에 속성 추가 ⇒ 다른 자식클래스에도 해당 속성이 추가됨 (X)</li>
@@ -385,11 +390,13 @@
 </code></pre></div></div>
 
 <ul>
-  <li>
-    <p>부모 클래스의 함수를 그대로 복사 붙여넣기 해도 되지만, 매번 붙여넣기 하기는 너무 번거롭다</p>
-  </li>
-  <li>
-    <p>super 함수를 사용하자.</p>
+  <li>부모 클래스의 함수를 그대로 복사 붙여넣기 해도 되지만, 매번 붙여넣기 하기는 너무 번거롭다</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>super 함수를 사용하자.
     <ul>
       <li>super().<strong>init</strong>(): 부모클래스의 <code class="language-plaintext highlighter-rouge">__init__</code> 함수를 불러온다.</li>
     </ul>
@@ -411,6 +418,8 @@
     <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
 </span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
 </code></pre></div></div>
+
+<p><br /></p>
 
 <ul>
   <li>추가 매개변수인 skill의 함수를 선언해준다.</li>
@@ -447,6 +456,8 @@
 <span class="n">dragon</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
 </code></pre></div></div>
 
+<p><br /></p>
+
 <ul>
   <li>스킬은 불변한데, 호출할 때 매번 넣어주면 중복이 발생한다.</li>
 </ul>
@@ -467,6 +478,8 @@
 <span class="n">dragon</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
 </code></pre></div></div>
 
+<p><br /></p>
+
 <ul>
   <li>튜플을 속성 자체에 직접 대입</li>
 </ul>
@@ -483,6 +496,8 @@
 <span class="n">dragon</span> <span class="o">=</span> <span class="n">Dragon</span><span class="p">(</span><span class="s">"드래곤"</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
 
 </code></pre></div></div>
+
+<p><br /></p>
 
 <ul>
   <li>skill ⇒ skills 로 바꾸고 skill 메서드를 생성</li>
@@ -534,6 +549,8 @@
 <span class="n">dragon</span><span class="p">.</span><span class="n">skill</span><span class="p">()</span>
 </code></pre></div></div>
 
+<p><br /></p>
+
 <ul>
   <li>출력 결과: 코드를 실행할 때마다 다른 스킬을 사용하는 것을 확인할 수 있다.</li>
 </ul>
@@ -555,6 +572,8 @@
 <span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">날기</span>
 <span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">스킬</span> <span class="n">사용</span> <span class="n">불뿜기</span>
 </code></pre></div></div>
+
+<p><br /><br /></p>
 
 <h3 id="2-클래스-변수">2. 클래스 변수</h3>
 
@@ -619,6 +638,8 @@
 <span class="n">dragon</span><span class="p">.</span><span class="n">skill</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dragon</span><span class="p">.</span><span class="n">max_num</span><span class="p">)</span>
 </code></pre></div></div>
+
+<p><br /></p>
 
 <ul>
   <li>출력 결과: max_num 을 모든 클래스에서 공유하는 것을 확인할 수 있다.</li>
@@ -761,6 +782,28 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/programming/Python-Day26/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 26일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 13 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 26일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/programming/Python-Day25/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 25일차
 </a>
       
@@ -813,28 +856,6 @@
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 10 2022</p>
     
     <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 23일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/programming/Python-Day22/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 22일차
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 09 2022</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 22일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
 </p>
   </article>
 </div>

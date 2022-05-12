@@ -1,0 +1,763 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Python]패스트캠퍼스 캐시백 챌린지 26일차 - release: canary</title>
+<meta name="description" content="패스트캠퍼스 캐시백 챌린지 26일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online">
+
+
+  <meta name="author" content="Canary">
+  
+  <meta property="article:author" content="Canary">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="release: canary">
+<meta property="og:title" content="[Python]패스트캠퍼스 캐시백 챌린지 26일차">
+<meta property="og:url" content="http://localhost:4000/programming/Python-Day26/">
+
+
+  <meta property="og:description" content="패스트캠퍼스 캐시백 챌린지 26일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-05-13T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-05-13T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/programming/Python-Day26/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Canary",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="release: canary Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
+<link rel="mask-icon" href="/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.jpeg" alt="release: canary"></a>
+        
+        <a class="site-title" href="/">
+          release: canary
+          <span class="site-subtitle">Created Apr 13, 2022</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/logo.jpeg" alt="Canary" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Canary</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/jinnypark9393" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:jinnypark9393@gmail.com">
+            <meta itemprop="email" content="jinnypark9393@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Python]패스트캠퍼스 캐시백 챌린지 26일차">
+    <meta itemprop="description" content="패스트캠퍼스 캐시백 챌린지 26일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online">
+    <meta itemprop="datePublished" content="2022-05-13T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-05-13T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Python]패스트캠퍼스 캐시백 챌린지 26일차
+</h1>
+          
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-05-13T00:00:00+09:00">May 13, 2022</time></p>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-13T00:00:00+09:00">May 13, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#01-모듈">01. 모듈</a><ul><li><a href="#1-모듈을-사용하는-이유">1. 모듈을 사용하는 이유</a></li><li><a href="#2-모듈의-개념">2. 모듈의 개념</a></li><li><a href="#3-파이썬-기본-모듈-사용방법">3. 파이썬 기본 모듈 사용방법</a></li><li><a href="#4-파이썬-외부-모듈-사용방법">4. 파이썬 외부 모듈 사용방법</a></li><li><a href="#5-모듈-만들기-실습">5. 모듈 만들기 실습</a><ul><li><a href="#1-내장모듈">1. 내장모듈</a></li><li><a href="#2-외부-모듈">2. 외부 모듈</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 9-1. 모듈을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-13-Python-Photo/2022-05-13-Python-Photo1.jpg" alt="2022-05-13-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-13-Python-Photo/2022-05-13-Python-Photo2.jpg" alt="2022-05-13-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="01-모듈">01. 모듈</h1>
+
+<h2 id="1-모듈을-사용하는-이유">1. 모듈을 사용하는 이유</h2>
+
+<ul>
+  <li>프로그램을 기능별로 파일을 나누어 유지보수 등 관리를 편하게 할 수 있기 때문</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-모듈의-개념">2. 모듈의 개념</h2>
+
+<ul>
+  <li>한 개의 완성된 프로그램 파일</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-파이썬-기본-모듈-사용방법">3. 파이썬 기본 모듈 사용방법</h2>
+
+<ul>
+  <li>파이썬의 기본 모듈을 사용해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">모듈이름</span>
+<span class="n">모듈이름</span><span class="p">.</span><span class="n">변수</span>
+<span class="n">모듈이름</span><span class="p">.</span><span class="n">함수</span><span class="p">()</span>
+
+<span class="c1"># 예시 1
+</span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">print</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">5.7</span><span class="p">))</span> <span class="c1"># 올림 함수
+</span>
+<span class="c1"># 예시 2: 뒤의 메소드, 변수 이름으로 그대로 작성할 수 있게 하는 방법
+</span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">ceil</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="mf">5.7</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="4-파이썬-외부-모듈-사용방법">4. 파이썬 외부 모듈 사용방법</h2>
+
+<ul>
+  <li>파이썬 외부의 모듈을 사용해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">모듈이름</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pyautogui</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="5-모듈-만들기-실습">5. 모듈 만들기 실습</h2>
+
+<h3 id="1-내장모듈">1. 내장모듈</h3>
+
+<ul>
+  <li>내장모듈: 파이썬 설치 시 자동으로 설치되는 모듈</li>
+  <li>파이썬 내장 모듈을 사용해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 내장 모듈
+# : 파이썬 설치 시 자동으로 설치되는 모듈
+</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">ceil</span> <span class="k">as</span> <span class="n">c</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="mf">5.7</span><span class="p">))</span>
+</code></pre></div></div>
+
+<ul>
+  <li>from math import pi를 쓰면 math.pi라고 쓰지 않고 pi만 써도 모듈이 실행된다.</li>
+  <li>모듈을 간단한 이름으로 변경하여 사용하고 싶은 경우 <code class="language-plaintext highlighter-rouge">as</code> 뒤에 사용하고 싶은 이름을 작성하면 적용된다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="2-외부-모듈">2. 외부 모듈</h3>
+
+<ul>
+  <li>pyautogui 공식 홈페이지 Documentation 페이지에 접속한다.
+    <ul>
+      <li>홈페이지에 나와있는대로 <code class="language-plaintext highlighter-rouge">pip install pyautogui</code> 명령어를 터미널 창에 입력한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyautogui</span>
+<span class="n">Collecting</span> <span class="n">pyautogui</span>
+  <span class="n">Downloading</span> <span class="n">PyAutoGUI</span><span class="o">-</span><span class="mf">0.9</span><span class="p">.</span><span class="mf">53.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="p">(</span><span class="mi">59</span> <span class="n">kB</span><span class="p">)</span>
+     <span class="err">━━━━━━━━━━━━━</span> <span class="mf">59.0</span><span class="o">/</span><span class="mf">59.0</span> <span class="n">KB</span> <span class="mf">987.7</span> <span class="n">kB</span><span class="o">/</span><span class="n">s</span> <span class="n">eta</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+  <span class="n">Preparing</span> <span class="n">metadata</span> <span class="p">(</span><span class="n">setup</span><span class="p">.</span><span class="n">py</span><span class="p">)</span> <span class="p">...</span> <span class="n">done</span>
+<span class="n">Collecting</span> <span class="n">pymsgbox</span>
+  <span class="n">Downloading</span> <span class="n">PyMsgBox</span><span class="o">-</span><span class="mf">1.0</span><span class="p">.</span><span class="mf">9.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="p">(</span><span class="mi">18</span> <span class="n">kB</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="p">(</span><span class="n">생략</span><span class="p">)</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>설치가 완료되면 import 로 pyautogui를 불러온다(별칭 pg로 설정).</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 외부 모듈
+# : 다른 사람이 만든 파이썬 파일을 pipfh 설치해서 사용
+# pyautogui (공식 홈페이지: https://pyautogui.readthedocs.io/en/latest/)
+</span><span class="kn">import</span> <span class="nn">pyautogui</span> <span class="k">as</span> <span class="n">pg</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>pyautogui 홈페이지(<a href="https://pyautogui.readthedocs.io/en/latest/">https://pyautogui.readthedocs.io/en/latest/</a>)에서 Example 중 하나를 실행해보자
+    <ul>
+      <li>**<code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;** pyautogui.moveTo(500, 500, duration=2, tween=pyautogui.easeInOutQuad)  *# Use tweening/easing function to move mouse over 2 seconds.*</code></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pg</span><span class="p">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># 화면의 500 * 500 위치에 마우스를 2초간 이동하라는 명령어
+</span></code></pre></div></div>
+
+<ul>
+  <li>실행결과: 마우스를 건드리지 않아도 자동으로 500*500 위치로 이동한다.</li>
+  <li>MacOS의 경우 vscode가 컴퓨터 시스템을 제어할 수 있도록 권한을 부여해야 실행이 가능하다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<p>이번 포스팅에서는 모듈에 대해 알아보았다. 다음 포스팅에서는 파이썬 모듈을 만들어보도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#%EC%A7%81%EC%9E%A5%EC%9D%B8%EC%9D%B8%EA%B0%95" class="page__taxonomy-item" rel="tag">직장인인강</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%A7%81%EC%9E%A5%EC%9D%B8%EC%9E%90%EA%B8%B0%EA%B3%84%EB%B0%9C" class="page__taxonomy-item" rel="tag">직장인자기계발</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BA%90%EC%8B%9C%EB%B0%B1" class="page__taxonomy-item" rel="tag">캐시백</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BA%90%EC%8B%9C%EB%B0%B1%EC%B1%8C%EB%A6%B0%EC%A7%80" class="page__taxonomy-item" rel="tag">캐시백챌린지</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item" rel="tag">패스트캠퍼스</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%ED%9B%84%EA%B8%B0" class="page__taxonomy-item" rel="tag">패스트캠퍼스후기</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%8C%A8%EC%BA%A0%EC%B1%8C%EB%A6%B0%EC%A7%80" class="page__taxonomy-item" rel="tag">패캠챌린지</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%95%9C%EB%B2%88%EC%97%90%EB%81%9D%EB%82%B4%EB%8A%94%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9B%B9%EA%B0%9C%EB%B0%9C%EC%B4%88%EA%B2%A9%EC%B0%A8%ED%8C%A8%ED%82%A4%EC%A7%80online" class="page__taxonomy-item" rel="tag">한번에끝내는파이썬웹개발초격차패키지Online</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%99%98%EA%B8%89%EC%B1%8C%EB%A6%B0%EC%A7%80" class="page__taxonomy-item" rel="tag">환급챌린지</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#programming" class="page__taxonomy-item" rel="tag">Programming</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-05-13">May 13, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BPython%5D%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4+%EC%BA%90%EC%8B%9C%EB%B0%B1+%EC%B1%8C%EB%A6%B0%EC%A7%80+26%EC%9D%BC%EC%B0%A8%20http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2FPython-Day26%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2FPython-Day26%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2FPython-Day26%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/programming/Python-Day25/" class="pagination--pager" title="[Python]패스트캠퍼스 캐시백 챌린지 25일차
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day25/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 25일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 12 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 25일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day24/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 24일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 11 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/devops/Kubernetes-Pod-Etc-Hosts-Hostalias/" rel="permalink">[Kubernetes]Pod의 /etc/hosts 파일에 DNS 추가하는 방법(HostAlias)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 11 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programming/Python-Day23/" rel="permalink">[Python]패스트캠퍼스 캐시백 챌린지 23일차
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 10 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">패스트캠퍼스 캐시백 챌린지 23일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:jinnypark9393@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/jinnypark9393" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Canary. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
