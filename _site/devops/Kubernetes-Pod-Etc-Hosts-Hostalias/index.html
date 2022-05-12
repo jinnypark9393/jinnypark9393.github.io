@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>[Kubernetes]Pod의 /etc/hosts 파일에 DNS 추가하는 방법(HostAlias) - release: canary</title>
-<meta name="description" content="패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online">
+<meta name="description" content="Pod의 /etc/hosts 파일에 DNS를 추가하기 위해서는 Deployment의 hostalias 옵션을 사용한다">
 
 
   <meta name="author" content="Canary">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="http://localhost:4000/devops/Kubernetes-Pod-Etc-Hosts-Hostalias/">
 
 
-  <meta property="og:description" content="패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online">
+  <meta property="og:description" content="Pod의 /etc/hosts 파일에 DNS를 추가하기 위해서는 Deployment의 hostalias 옵션을 사용한다">
 
 
 
@@ -287,7 +287,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="[Kubernetes]Pod의 /etc/hosts 파일에 DNS 추가하는 방법(HostAlias)">
-    <meta itemprop="description" content="패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online">
+    <meta itemprop="description" content="Pod의 /etc/hosts 파일에 DNS를 추가하기 위해서는 Deployment의 hostalias 옵션을 사용한다">
     <meta itemprop="datePublished" content="2022-05-11T00:00:00+09:00">
     <meta itemprop="dateModified" content="2022-05-11T00:00:00+09:00">
 
@@ -330,6 +330,10 @@
           </aside>
         
         <p><br /><br /></p>
+
+<p><em>💡  Pod의 /etc/hosts 파일에 DNS를 추가하기 위해서는 Deployment의 hostalias 옵션을 사용한다.</em></p>
+
+<p><br /></p>
 
 <h1 id="1-배경-상황">1. 배경 상황</h1>
 

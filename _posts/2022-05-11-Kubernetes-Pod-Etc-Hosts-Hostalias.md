@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Kubernetes]Pod의 /etc/hosts 파일에 DNS 추가하는 방법(HostAlias)"
-excerpt: "패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online"
+excerpt: "Pod의 /etc/hosts 파일에 DNS를 추가하기 위해서는 Deployment의 hostalias 옵션을 사용한다"
 
 categories:
 - DevOps
@@ -17,6 +17,10 @@ last_modified_at: 2022-05-11
 
 ---
 <br/><br/>
+
+*💡  Pod의 /etc/hosts 파일에 DNS를 추가하기 위해서는 Deployment의 hostalias 옵션을 사용한다.*
+
+<br/>
 
 # 1. 배경 상황
 
