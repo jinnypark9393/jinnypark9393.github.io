@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-14T10:14:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Algorithm]그림으로 배우는 알고리즘 제 2장: 변수와 배열</title><link href="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day2/" rel="alternate" type="text/html" title="[Algorithm]그림으로 배우는 알고리즘 제 2장: 변수와 배열" /><published>2022-05-14T00:00:00+09:00</published><updated>2022-05-14T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day2</id><content type="html" xml:base="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day2/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-14T10:21:09+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Algorithm]그림으로 배우는 알고리즘 제 2장: 변수와 배열</title><link href="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day2/" rel="alternate" type="text/html" title="[Algorithm]그림으로 배우는 알고리즘 제 2장: 변수와 배열" /><published>2022-05-14T00:00:00+09:00</published><updated>2022-05-14T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day2</id><content type="html" xml:base="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day2/"><![CDATA[<p><br /><br /></p>
 
 <h1 id="6-데이터는-다양한-정보이다">6. 데이터는 다양한 정보이다</h1>
 
@@ -68,7 +68,224 @@
   </li>
 </ul>
 
-<p><br /><br /></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Algorithm" /><category term="알고리즘공부" /><category term="그림으로배우는알고리즘" /><category term="비전공자개발자공부" /><category term="데브옵스엔지니어" /><category term="파이썬알고리즘" /><category term="알고리즘책추천" /><category term="데이터타입" /><summary type="html"><![CDATA[데이터는 다양한 정보이며, 데이터에는 타입이 있다]]></summary></entry><entry><title type="html">[Algorithm]그림으로 배우는 알고리즘 제 1장: 알고리즘이란</title><link href="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1/" rel="alternate" type="text/html" title="[Algorithm]그림으로 배우는 알고리즘 제 1장: 알고리즘이란" /><published>2022-05-13T00:00:00+09:00</published><updated>2022-05-13T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1</id><content type="html" xml:base="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1/"><![CDATA[<p><br /><br /></p>
+<p><br /><br /></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Algorithm" /><category term="알고리즘공부" /><category term="그림으로배우는알고리즘" /><category term="비전공자개발자공부" /><category term="데브옵스엔지니어" /><category term="파이썬알고리즘" /><category term="알고리즘책추천" /><category term="데이터타입" /><summary type="html"><![CDATA[데이터는 다양한 정보이며, 데이터에는 타입이 있다]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 27일차</title><link href="http://localhost:4000/programming/Python-Day27/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 27일차" /><published>2022-05-14T00:00:00+09:00</published><updated>2022-05-14T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day27</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day27/"><![CDATA[<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 9-2. 모듈 만들기를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-14-Python-Photo/2022-05-14-Python-Photo1.jpg" alt="2022-05-14-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-14-Python-Photo/2022-05-14-Python-Photo2.jpg" alt="2022-05-14-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="02-모듈-만들기">02. 모듈 만들기</h1>
+
+<ul>
+  <li>pay_module이라는 모듈을 생성해보자.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>pay_module.py라는 파일을 생성한 뒤, 아래를 입력 후 저장한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 결제 정보, 관리 모듈
+# 변수
+</span><span class="n">version</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="c1"># 함수
+</span><span class="k">def</span> <span class="nf">printAuthor</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"스타트코딩"</span><span class="p">)</span>
+
+<span class="c1"># 클래스
+</span><span class="k">class</span> <span class="nc">Pay</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="nb">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+    <span class="k">def</span> <span class="nf">get_pay_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">time</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="nb">id</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">price</span><span class="si">}</span><span class="s">"</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>02.모듈만들기.py라는 파일을 생성한 뒤, pay_module을 import한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pay_module</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Import “pay_module” could not be resolved Pylance(reportMissingImports) 라는 에러가 발생한다. 해당 모듈이 root 폴더에 있을 경우에만 찾을 수 있기 때문.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>File &gt; Preferences &gt; Settings(MacOS의 경우: VSCode &gt; Preferences &gt; Settings)로 이동 후 붉은 색 네모로 표시한 버튼 클릭</p>
+
+    <p><img src="/assets/images/2022-05-14-Python-Photo/2022-05-14-Python-Photo3.png" alt="2022-05-14-Python-Photo2" /></p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>settings.json 파일에서 <code class="language-plaintext highlighter-rouge">"python.analysis.extraPaths": ["./myvenv/Chapter9"],</code> 문구를 넣어준다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s">"python.pythonPath"</span><span class="p">:</span> <span class="s">"/anaconda3/bin/python"</span><span class="p">,</span>
+    <span class="s">"editor.unicodeHighlight.allowedCharacters"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">" "</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s">"python.analysis.extraPaths"</span><span class="p">:</span> <span class="p">[</span><span class="s">"./myvenv/Chapter9"</span><span class="p">],</span>
+    <span class="s">"liveSassCompile.settings.formats"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"format"</span><span class="p">:</span> <span class="s">"expanded"</span><span class="p">,</span>
+            <span class="s">"extensionName"</span><span class="p">:</span> <span class="s">".css"</span><span class="p">,</span>
+            <span class="s">"savePath"</span><span class="p">:</span> <span class="s">"/assets/css/"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s">"pasteImage.basePath"</span><span class="p">:</span> <span class="s">"${currentFileDir}/images/"</span><span class="p">,</span>
+    <span class="s">"pasteImage.prefix"</span><span class="p">:</span> <span class="s">"./"</span><span class="p">,</span>
+    <span class="s">"liveServer.settings.donotShowInfoMsg"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"editor.fontSize"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+    <span class="s">"window.zoomLevel"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>다시 <code class="language-plaintext highlighter-rouge">pay_module</code> 변수 및 함수를 사용하면 에러가 발생하지 않는다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pay_module</span>
+
+<span class="c1"># 변수 사용
+</span><span class="k">print</span><span class="p">(</span><span class="n">pay_module</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+
+<span class="c1"># 함수 사용
+</span><span class="n">pay_module</span><span class="p">.</span><span class="n">printAuthor</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="mf">02.</span><span class="n">모듈만들기</span><span class="p">.</span><span class="n">py</span>
+<span class="mf">2.0</span>
+<span class="n">스타트코딩</span>
+</code></pre></div></div>
+
+<ul>
+  <li>코드 실행 후 Chapter 9 디렉토리에 <code class="language-plaintext highlighter-rouge">__pycache__</code> 라는 디렉토리가 자동으로 생성되며, 폴더 하위에는 <code class="language-plaintext highlighter-rouge">pay_module.cpython-310.pyc</code> 라는 파일이 생성되는데, 이는 실행속도 향상을 위해 생성된 컴파일된 파이썬 코드.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>클래스도 사용할 수 있는지 알아보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pay_module</span>
+
+<span class="c1"># 변수 사용
+</span><span class="k">print</span><span class="p">(</span><span class="n">pay_module</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+
+<span class="c1"># 함수 사용
+</span><span class="n">pay_module</span><span class="p">.</span><span class="n">printAuthor</span><span class="p">()</span>
+
+<span class="c1"># 클래스 사용
+</span><span class="n">pay_info</span> <span class="o">=</span> <span class="n">pay_module</span><span class="p">.</span><span class="n">Pay</span><span class="p">(</span><span class="s">"A102030"</span><span class="p">,</span> <span class="mi">13000</span><span class="p">,</span> <span class="s">"2021-06-13"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pay_info</span><span class="p">.</span><span class="n">get_pay_info</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="mf">02.</span><span class="n">모듈만들기</span><span class="p">.</span><span class="n">py</span>
+<span class="mf">2.0</span>
+<span class="n">스타트코딩</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">13</span> <span class="n">A102030</span> <span class="mi">13000</span>
+</code></pre></div></div>
+
+<ul>
+  <li>다시 pay_module.py 파일로 돌아가서, 함수를 추가해준다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 해당 파일을 직접 실행했을 때만 실행된다.
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"pay module 실행"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="n">pay_module</span><span class="p">.</span><span class="n">py</span>
+<span class="n">pay</span> <span class="n">module</span> <span class="n">실행</span>
+<span class="n">__main__</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>02.모듈만들기.py 에서도 <code class="language-plaintext highlighter-rouge">print(pay_module.__name__)</code> 로 되는지 확인해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="mf">02.</span><span class="n">모듈만들기</span><span class="p">.</span><span class="n">py</span>
+<span class="n">pay_module</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pay_module 이 출력된다. 자기자신의 파일을 직접 실행 했을 때에만 할당된다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<p>이번 포스팅에서는 모듈을 만들어보았다. 다음 포스팅에서는 패키지에 대해 알아보도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 27일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Algorithm]그림으로 배우는 알고리즘 제 1장: 알고리즘이란</title><link href="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1/" rel="alternate" type="text/html" title="[Algorithm]그림으로 배우는 알고리즘 제 1장: 알고리즘이란" /><published>2022-05-13T00:00:00+09:00</published><updated>2022-05-13T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1</id><content type="html" xml:base="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1/"><![CDATA[<p><br /><br /></p>
 
 <p>최근 파이썬 공부를 하면서 개발자 유투브 영상 등을 틈날때마다 보고있는데 다들 입을모아 알고리즘을 꼭 공부해야한다, 코딩테스트를 위해서 뿐만 아니라 개발자로써 커리어를 쌓기 위해 꼭 필요하다라는 얘기를 들어 매일 조금씩이라도 공부하기 위해 책을 읽으며 기록하려고 한다.</p>
 
@@ -1867,264 +2084,4 @@
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 21일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 20일차</title><link href="http://localhost:4000/programming/Python-Day20/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 20일차" /><published>2022-05-07T00:00:00+09:00</published><updated>2022-05-07T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day20</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day20/"><![CDATA[<p><br /><br /></p>
-
-<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 7-2. 딕셔너리를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
-
-<p><br /><br /></p>
-
-<p>아래는 공부 인증 사진.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-05-07-Python-Photo/2022-05-07-Python-Photo1.jpg" alt="2022-05-07-Python-Photo1" /></p>
-
-<p><img src="/assets/images/2022-05-07-Python-Photo/2022-05-07-Python-Photo2.jpg" alt="2022-05-07-Python-Photo2" /></p>
-
-<p><br /><br /></p>
-
-<h1 id="02-딕셔너리">02. 딕셔너리</h1>
-
-<h2 id="1-딕셔너리의-특징">1. 딕셔너리의 특징</h2>
-
-<ul>
-  <li>시퀀스 자료형</li>
-  <li>키와 데이터를 가지고 있는 사전형 자료형</li>
-  <li>사전형태의 자료를 만들 때 편리</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="2-딕셔너리-만들기">2. 딕셔너리 만들기</h2>
-
-<ul>
-  <li>딕셔너리를 만들어보자.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">딕셔너리</span> <span class="o">=</span> <span class="p">{</span><span class="n">키1</span> <span class="p">:</span> <span class="n">데이터1</span><span class="p">,</span> <span class="n">키2</span> <span class="p">:</span> <span class="n">데이터2</span><span class="p">}</span>
-
-<span class="c1"># 예시
-</span><span class="n">stock</span> <span class="o">=</span> <span class="p">{</span><span class="s">"삼성전자"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span> <span class="s">"LG전자"</span> <span class="p">:</span> <span class="mi">150000</span><span class="p">}</span>
-
-<span class="c1"># 예시2: 리스트와 튜플도 들어갈 수 있다.
-</span><span class="n">stock</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="p">[</span><span class="mi">81000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">],</span>
-    <span class="s">"LG전자"</span> <span class="p">:</span> <span class="p">(</span><span class="mi">150000</span><span class="p">,</span> <span class="mi">149000</span><span class="p">,</span> <span class="mi">148000</span><span class="p">,</span> <span class="mi">151000</span><span class="p">,</span> <span class="mi">152000</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h2 id="3-딕셔너리-접근하기">3. 딕셔너리 접근하기</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">딕셔너리</span><span class="p">[</span><span class="s">"키"</span><span class="p">]</span>
-
-<span class="c1"># 예시
-</span><span class="n">stock</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">]</span> 
-</code></pre></div></div>
-<ul>
-  <li>결과로는 85000이 출력된다.</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="4-딕셔너리-할당하기-삭제하기">4. 딕셔너리 할당하기, 삭제하기</h2>
-
-<ul>
-  <li>딕셔너리를 할당, 삭제해보자.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 할당하기
-</span><span class="n">딕셔너리</span><span class="p">[</span><span class="s">"키"</span><span class="p">]</span> <span class="o">=</span> <span class="n">데이터</span>
-
-<span class="c1"># 예시
-</span><span class="n">stock</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">85000</span>
-
-<span class="c1"># 삭제하기
-</span><span class="k">del</span> <span class="n">딕셔너리</span><span class="p">[</span><span class="s">"키"</span><span class="p">]</span>
-
-<span class="c1"># 예시
-</span><span class="k">del</span> <span class="n">stock</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">]</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h2 id="5-딕셔너리-함수">5. 딕셔너리 함수</h2>
-
-<ul>
-  <li>딕셔너리 함수를 사용해보자.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stock</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span>
-    <span class="s">"SK하이닉스"</span> <span class="p">:</span> <span class="mi">123000</span><span class="p">,</span>
-    <span class="s">"NAVER"</span> <span class="p">:</span> <span class="mi">370000</span><span class="p">,</span>
-    <span class="s">"카카오"</span> <span class="p">:</span> <span class="mi">133000</span>
-<span class="p">}</span>
-
-<span class="c1"># 키와 데이터 쌍을 가져오기
-</span><span class="n">stock</span><span class="p">.</span><span class="n">items</span><span class="p">()</span>
-
-<span class="c1"># 키 값을 가져오기
-</span><span class="n">stock</span><span class="p">.</span><span class="n">keys</span><span class="p">()</span>
-
-<span class="c1"># 데이터를 가져오기
-</span><span class="n">stock</span><span class="p">.</span><span class="n">values</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h2 id="6-실습">6. 실습</h2>
-
-<ul>
-  <li>위에서 배운 내용들을 vscode로 실습해보자.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 딕셔너리
-# : 사전형태의 자료형
-</span>
-<span class="n">stock_a</span> <span class="o">=</span> <span class="p">{</span><span class="s">"삼성전자"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span> <span class="s">"LG전자"</span> <span class="p">:</span> <span class="mi">150000</span><span class="p">}</span>
-
-<span class="n">stock_b</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="p">[</span><span class="mi">81000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">],</span>
-    <span class="s">"LG전자"</span> <span class="p">:</span> <span class="p">(</span><span class="mi">150000</span><span class="p">,</span> <span class="mi">149000</span><span class="p">,</span> <span class="mi">148000</span><span class="p">,</span> <span class="mi">151000</span><span class="p">,</span> <span class="mi">152000</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1"># 중첩 딕셔너리
-</span><span class="n">stock_c</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="s">"현재가"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span>
-        <span class="s">"보유수량"</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-        <span class="s">"매수단가"</span> <span class="p">:</span> <span class="mi">81000</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">stock_a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">stock_b</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">stock_c</span><span class="p">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li>Tip: alt + shift + 방향키를 이용해 한 줄을 쉽게 복사할 수 있다.</li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter7</span><span class="o">/</span><span class="mf">02.</span><span class="n">딕셔너리</span><span class="p">.</span><span class="n">py</span>
-<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="mi">82000</span><span class="p">,</span> <span class="s">'LG전자'</span><span class="p">:</span> <span class="mi">150000</span><span class="p">}</span>
-<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="p">[</span><span class="mi">81000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">,</span> <span class="mi">81500</span><span class="p">,</span> <span class="mi">82000</span><span class="p">],</span> <span class="s">'LG전자'</span><span class="p">:</span> <span class="p">(</span><span class="mi">150000</span><span class="p">,</span> <span class="mi">149000</span><span class="p">,</span> <span class="mi">148000</span><span class="p">,</span> <span class="mi">151000</span><span class="p">,</span> <span class="mi">152000</span><span class="p">)}</span>
-<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="p">{</span><span class="s">'현재가'</span><span class="p">:</span> <span class="mi">82000</span><span class="p">,</span> <span class="s">'보유수량'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">'매수단가'</span><span class="p">:</span> <span class="mi">81000</span><span class="p">}}</span>
-
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>딕셔너리 접근/할당/삭제하기</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 딕셔너리 접근하기
-</span><span class="k">print</span><span class="p">(</span><span class="n">stock_a</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">stock_c</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">][</span><span class="s">"보유수량"</span><span class="p">])</span>
-
-<span class="c1"># 딕셔너리 할당하기
-</span><span class="n">stock_a</span><span class="p">[</span><span class="s">"삼성전자"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">85000</span>
-<span class="k">print</span><span class="p">(</span><span class="n">stock_a</span><span class="p">)</span>
-
-<span class="c1"># 딕셔너리 삭제하기
-</span><span class="k">del</span> <span class="n">stock_a</span><span class="p">[</span><span class="s">"LG전자"</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">stock_a</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter7</span><span class="o">/</span><span class="mf">02.</span><span class="n">딕셔너리</span><span class="p">.</span><span class="n">py</span>
-<span class="mi">82000</span>
-<span class="mi">5</span>
-<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="mi">85000</span><span class="p">,</span> <span class="s">'LG전자'</span><span class="p">:</span> <span class="mi">150000</span><span class="p">}</span>
-<span class="p">{</span><span class="s">'삼성전자'</span><span class="p">:</span> <span class="mi">85000</span><span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>딕셔너리 함수</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 딕셔너리 함수
-</span><span class="n">stock_d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"삼성전자"</span> <span class="p">:</span> <span class="mi">82000</span><span class="p">,</span>
-    <span class="s">"SK하이닉스"</span> <span class="p">:</span> <span class="mi">123000</span><span class="p">,</span>
-    <span class="s">"NAVER"</span> <span class="p">:</span> <span class="mi">370000</span><span class="p">,</span>
-    <span class="s">"카카오"</span> <span class="p">:</span> <span class="mi">133000</span>
-<span class="p">}</span>
-
-<span class="c1"># items() : 키와 데이터 쌍
-</span><span class="k">print</span><span class="p">(</span><span class="n">stock_d</span><span class="p">.</span><span class="n">items</span><span class="p">)</span>
-
-<span class="c1"># 일반적 사용예
-</span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">stock_d</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># 0: 키, 1: 데이터
-</span>
-<span class="c1"># keys() : 키
-</span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">stock_d</span><span class="p">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="c1"># values() : 데이터
-</span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">stock_d</span><span class="p">.</span><span class="n">values</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter7</span><span class="o">/</span><span class="mf">02.</span><span class="n">딕셔너리</span><span class="p">.</span><span class="n">py</span>
-<span class="o">&lt;</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">method</span> <span class="n">items</span> <span class="n">of</span> <span class="nb">dict</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10a44ef00</span><span class="o">&gt;</span>
-<span class="n">삼성전자</span>
-<span class="n">SK하이닉스</span>
-<span class="n">NAVER</span>
-<span class="n">카카오</span>
-<span class="n">삼성전자</span>
-<span class="n">SK하이닉스</span>
-<span class="n">NAVER</span>
-<span class="n">카카오</span>
-<span class="mi">82000</span>
-<span class="mi">123000</span>
-<span class="mi">370000</span>
-<span class="mi">133000</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<p>이번 포스팅에서는 딕셔너리에 대해 알아보았다. 다음 포스팅에서는 클래스와 객체에 대해 알아보도록 하자.</p>
-
-<p><br /></p>
-
-<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
-
-<p><br /></p>
-
-<ul>
-  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 20일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 21일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>

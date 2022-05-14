@@ -1,0 +1,219 @@
+I"w;<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 9-2. 모듈 만들기를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-14-Python-Photo/2022-05-14-Python-Photo1.jpg" alt="2022-05-14-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-14-Python-Photo/2022-05-14-Python-Photo2.jpg" alt="2022-05-14-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="02-모듈-만들기">02. 모듈 만들기</h1>
+
+<ul>
+  <li>pay_module이라는 모듈을 생성해보자.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>pay_module.py라는 파일을 생성한 뒤, 아래를 입력 후 저장한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 결제 정보, 관리 모듈
+# 변수
+</span><span class="n">version</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="c1"># 함수
+</span><span class="k">def</span> <span class="nf">printAuthor</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"스타트코딩"</span><span class="p">)</span>
+
+<span class="c1"># 클래스
+</span><span class="k">class</span> <span class="nc">Pay</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="nb">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+    <span class="k">def</span> <span class="nf">get_pay_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">time</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="nb">id</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">price</span><span class="si">}</span><span class="s">"</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>02.모듈만들기.py라는 파일을 생성한 뒤, pay_module을 import한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pay_module</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Import “pay_module” could not be resolved Pylance(reportMissingImports) 라는 에러가 발생한다. 해당 모듈이 root 폴더에 있을 경우에만 찾을 수 있기 때문.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>File &gt; Preferences &gt; Settings(MacOS의 경우: VSCode &gt; Preferences &gt; Settings)로 이동 후 붉은 색 네모로 표시한 버튼 클릭</p>
+
+    <p><img src="/assets/images/2022-05-14-Python-Photo/2022-05-14-Python-Photo3.png" alt="2022-05-14-Python-Photo2" /></p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>settings.json 파일에서 <code class="language-plaintext highlighter-rouge">"python.analysis.extraPaths": ["./myvenv/Chapter9"],</code> 문구를 넣어준다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s">"python.pythonPath"</span><span class="p">:</span> <span class="s">"/anaconda3/bin/python"</span><span class="p">,</span>
+    <span class="s">"editor.unicodeHighlight.allowedCharacters"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">" "</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s">"python.analysis.extraPaths"</span><span class="p">:</span> <span class="p">[</span><span class="s">"./myvenv/Chapter9"</span><span class="p">],</span>
+    <span class="s">"liveSassCompile.settings.formats"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"format"</span><span class="p">:</span> <span class="s">"expanded"</span><span class="p">,</span>
+            <span class="s">"extensionName"</span><span class="p">:</span> <span class="s">".css"</span><span class="p">,</span>
+            <span class="s">"savePath"</span><span class="p">:</span> <span class="s">"/assets/css/"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s">"pasteImage.basePath"</span><span class="p">:</span> <span class="s">"${currentFileDir}/images/"</span><span class="p">,</span>
+    <span class="s">"pasteImage.prefix"</span><span class="p">:</span> <span class="s">"./"</span><span class="p">,</span>
+    <span class="s">"liveServer.settings.donotShowInfoMsg"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"editor.fontSize"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+    <span class="s">"window.zoomLevel"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>다시 <code class="language-plaintext highlighter-rouge">pay_module</code> 변수 및 함수를 사용하면 에러가 발생하지 않는다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pay_module</span>
+
+<span class="c1"># 변수 사용
+</span><span class="k">print</span><span class="p">(</span><span class="n">pay_module</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+
+<span class="c1"># 함수 사용
+</span><span class="n">pay_module</span><span class="p">.</span><span class="n">printAuthor</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="mf">02.</span><span class="n">모듈만들기</span><span class="p">.</span><span class="n">py</span>
+<span class="mf">2.0</span>
+<span class="n">스타트코딩</span>
+</code></pre></div></div>
+
+<ul>
+  <li>코드 실행 후 Chapter 9 디렉토리에 <code class="language-plaintext highlighter-rouge">__pycache__</code> 라는 디렉토리가 자동으로 생성되며, 폴더 하위에는 <code class="language-plaintext highlighter-rouge">pay_module.cpython-310.pyc</code> 라는 파일이 생성되는데, 이는 실행속도 향상을 위해 생성된 컴파일된 파이썬 코드.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>클래스도 사용할 수 있는지 알아보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pay_module</span>
+
+<span class="c1"># 변수 사용
+</span><span class="k">print</span><span class="p">(</span><span class="n">pay_module</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+
+<span class="c1"># 함수 사용
+</span><span class="n">pay_module</span><span class="p">.</span><span class="n">printAuthor</span><span class="p">()</span>
+
+<span class="c1"># 클래스 사용
+</span><span class="n">pay_info</span> <span class="o">=</span> <span class="n">pay_module</span><span class="p">.</span><span class="n">Pay</span><span class="p">(</span><span class="s">"A102030"</span><span class="p">,</span> <span class="mi">13000</span><span class="p">,</span> <span class="s">"2021-06-13"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pay_info</span><span class="p">.</span><span class="n">get_pay_info</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="mf">02.</span><span class="n">모듈만들기</span><span class="p">.</span><span class="n">py</span>
+<span class="mf">2.0</span>
+<span class="n">스타트코딩</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">13</span> <span class="n">A102030</span> <span class="mi">13000</span>
+</code></pre></div></div>
+
+<ul>
+  <li>다시 pay_module.py 파일로 돌아가서, 함수를 추가해준다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 해당 파일을 직접 실행했을 때만 실행된다.
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"pay module 실행"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>출력 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="n">pay_module</span><span class="p">.</span><span class="n">py</span>
+<span class="n">pay</span> <span class="n">module</span> <span class="n">실행</span>
+<span class="n">__main__</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>02.모듈만들기.py 에서도 <code class="language-plaintext highlighter-rouge">print(pay_module.__name__)</code> 로 되는지 확인해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="mf">02.</span><span class="n">모듈만들기</span><span class="p">.</span><span class="n">py</span>
+<span class="n">pay_module</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pay_module 이 출력된다. 자기자신의 파일을 직접 실행 했을 때에만 할당된다.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<p>이번 포스팅에서는 모듈을 만들어보았다. 다음 포스팅에서는 패키지에 대해 알아보도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>
+:ET
