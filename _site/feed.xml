@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-13T22:48:24+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Algorithm]그림으로 배우는 알고리즘 제 1장: 알고리즘이란</title><link href="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1/" rel="alternate" type="text/html" title="[Algorithm]그림으로 배우는 알고리즘 제 1장: 알고리즘이란" /><published>2022-05-13T00:00:00+09:00</published><updated>2022-05-13T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1</id><content type="html" xml:base="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-14T10:14:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Algorithm]그림으로 배우는 알고리즘 제 2장: 변수와 배열</title><link href="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day2/" rel="alternate" type="text/html" title="[Algorithm]그림으로 배우는 알고리즘 제 2장: 변수와 배열" /><published>2022-05-14T00:00:00+09:00</published><updated>2022-05-14T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day2</id><content type="html" xml:base="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day2/"><![CDATA[<p><br /><br /></p>
+
+<h1 id="6-데이터는-다양한-정보이다">6. 데이터는 다양한 정보이다</h1>
+
+<ul>
+  <li>알고리즘 = 데이터 + 처리</li>
+  <li>데이터: 다양한 정보</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>예시 1: 고기감자 요리
+    <ul>
+      <li>데이터: 고기감자 재료</li>
+      <li>처리: 요리 방법</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>예시 2: 최대공약수 구하기
+    <ul>
+      <li>데이터(필요한 정보)
+        <ul>
+          <li>최대 공약수를 구하는 2개의 정수 값</li>
+          <li>구한 최대 공약수(정수 값)</li>
+        </ul>
+      </li>
+      <li>처리: 최대공약수를 구하는 방법 순서</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>예시 3: 정보의 순서 정하기
+    <ul>
+      <li>데이터(필요한 정보)
+        <ul>
+          <li>정렬할 값이 담긴 열</li>
+          <li>정렬 값의 개수</li>
+          <li>정렬된 결과가 담긴 열</li>
+        </ul>
+      </li>
+      <li>처리: 정보의 순서를 정하는 방법/순서</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h1 id="7-모든-데이터에는-타입이-있다">7. 모든 데이터에는 타입이 있다</h1>
+
+<ul>
+  <li>데이터 타입: 다양한 정보(데이터)를 그룹화한 것</li>
+  <li>많이 사용되는 기본 데이터 타입(5가지)
+    <ul>
+      <li><strong>정수 타입(int)</strong>: 정수(소수점이 없는 값)를 처리하기 위한 데이터 타입</li>
+      <li><strong>실수 타입(float)</strong>: 실수(소수점을 포함한 값)를 처리하기 위한 데이터 타입</li>
+      <li><strong>문자 타입</strong>: 문자를 처리하기 위한 데이터 타입</li>
+      <li><strong>문자열 타입(string)</strong>: 문자열을 처리하기 위한 데이터 타입</li>
+      <li><strong>논리 타입(boolean)</strong>: ‘참’, ‘거짓’을 다루기 위한 데이터 타입</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Algorithm" /><category term="알고리즘공부" /><category term="그림으로배우는알고리즘" /><category term="비전공자개발자공부" /><category term="데브옵스엔지니어" /><category term="파이썬알고리즘" /><category term="알고리즘책추천" /><category term="데이터타입" /><summary type="html"><![CDATA[데이터는 다양한 정보이며, 데이터에는 타입이 있다]]></summary></entry><entry><title type="html">[Algorithm]그림으로 배우는 알고리즘 제 1장: 알고리즘이란</title><link href="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1/" rel="alternate" type="text/html" title="[Algorithm]그림으로 배우는 알고리즘 제 1장: 알고리즘이란" /><published>2022-05-13T00:00:00+09:00</published><updated>2022-05-13T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1</id><content type="html" xml:base="http://localhost:4000/algorithm/Algorithm-Book-with-Pic-Day1/"><![CDATA[<p><br /><br /></p>
 
 <p>최근 파이썬 공부를 하면서 개발자 유투브 영상 등을 틈날때마다 보고있는데 다들 입을모아 알고리즘을 꼭 공부해야한다, 코딩테스트를 위해서 뿐만 아니라 개발자로써 커리어를 쌓기 위해 꼭 필요하다라는 얘기를 들어 매일 조금씩이라도 공부하기 위해 책을 읽으며 기록하려고 한다.</p>
 
@@ -2057,66 +2127,4 @@
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 20일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]Syntax Error : stdin 에러 해결</title><link href="http://localhost:4000/programming/Python-Syntax-Error-Stdin/" rel="alternate" type="text/html" title="[Python]Syntax Error : stdin 에러 해결" /><published>2022-05-07T00:00:00+09:00</published><updated>2022-05-07T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Syntax-Error-Stdin</id><content type="html" xml:base="http://localhost:4000/programming/Python-Syntax-Error-Stdin/"><![CDATA[<p><br /><br /></p>
-
-<p>*💡  파이썬에서 Syntax Error : stdin 에러가 났을 경우, exit() 혹은 Ctrl + Z을 입력하여 해결할 수 있다. *</p>
-
-<p><br /></p>
-
-<h1 id="1-에러-상황">1. 에러 상황</h1>
-
-<p><br /></p>
-
-<p>패스트캠퍼스 챌린지 강의 실습 중, 파이썬 코드를 실행하니 아래와 같은 Syntax 에러가 발생했다.</p>
-
-<p><br /></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">04.</span><span class="n">상속</span><span class="p">.</span><span class="n">py</span>
-    <span class="o">^</span>
-<span class="nb">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
-<span class="o">&gt;&gt;&gt;</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h1 id="2-해결-방법">2. 해결 방법</h1>
-
-<p><br /></p>
-
-<p>찾아보니 vscode를 껐다가 다시 켜면 해결된다는 얘기도 있는데, 구글링을 조금 더 해보니 해당 에러는 파이썬 코드를 파이썬 인터프리터 내에서 실행하고자 할 때 발생하는 에러였다.</p>
-
-<p><br /></p>
-
-<p>따라서 파이썬 인터프리터 밖에서 코드를 실행할 수 있도록 에러 마지막 부분의 <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code> 다음 부분에</p>
-
-<p><br /></p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">exit()</code> 를 입력하고 엔터</li>
-  <li><code class="language-plaintext highlighter-rouge">ctrl + Z</code> 를 누른 뒤 엔터</li>
-</ul>
-
-<p><br /></p>
-
-<p>둘 중 하나를 해주면 파이썬 코드가 정상적으로 실행된다고 한다.</p>
-
-<p><br /></p>
-
-<p>이 안내를 따라서 exit()을 입력하고 엔터를 누른 뒤, 파이썬 코드를 다시 실행해주니 아래와 같이 파이썬 코드가 정상적으로 실행되었다.</p>
-
-<p><br /></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">04.</span><span class="n">상속</span><span class="p">.</span><span class="n">py</span>
-    <span class="o">^</span>
-<span class="nb">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">exit</span><span class="p">()</span>
-
-<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">04.</span><span class="n">상속</span><span class="p">.</span><span class="n">py</span>
-<span class="p">[</span><span class="n">울프</span><span class="p">]</span> <span class="n">지상에서</span> <span class="n">이동하기</span>
-<span class="p">[</span><span class="n">샤크</span><span class="p">]</span> <span class="n">헤엄치기</span>
-<span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">날기</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="파이썬에러" /><category term="파이썬초보" /><category term="비전공출신개발자" /><category term="Pythonsyntaxerror" /><category term="Pythonerror" /><category term="stdinerror" /><category term="syntaxerrorstdin" /><category term="파이썬공부" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[파이썬에서 Syntax Error : stdin 에러가 났을 경우, exit() 혹은 Ctrl + Z을 입력하여 해결할 수 있다.]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 20일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
