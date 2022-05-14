@@ -1,0 +1,298 @@
+I"L<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 9-3. 패키지를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-15-Python-Photo/2022-05-15-Python-Photo1.jpg" alt="2022-05-15-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-15-Python-Photo/2022-05-15-Python-Photo2.jpg" alt="2022-05-15-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="03-패키지">03. 패키지</h1>
+
+<h2 id="1-패키지의-개념">1. 패키지의 개념</h2>
+
+<ul>
+  <li>관련있는 모듈을 <strong>하나의 폴더</strong>로 구성해 놓은 것.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-패키지-만들고-사용하기">2. 패키지 만들고, 사용하기</h2>
+
+<ul>
+  <li>디렉토리(=폴더) 구조</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-</span> <span class="n">startcoding</span> <span class="o">/</span> 
+    <span class="n">unit</span> <span class="o">/</span>
+        <span class="n">__init__</span><span class="p">.</span><span class="n">py</span>
+        <span class="n">character</span><span class="p">.</span><span class="n">py</span>
+        <span class="n">item</span><span class="p">.</span><span class="n">py</span>
+        <span class="n">monster</span><span class="p">.</span><span class="n">py</span>
+    <span class="n">main</span><span class="p">.</span><span class="n">py</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>VScode로 이동해 Chapter9 폴더 밑에 startcoding, startcoding 하위에 unit 폴더를 생성 및 위 디렉토리 구조대로 파일생성
+    <ul>
+      <li>Tip: unit 폴더 생성 시 <code class="language-plaintext highlighter-rouge">startcoding/unit</code> 이라는 컴팩트폴더 형식으로 폴더가 표시되는데, 이를 해제하려면 <code class="language-plaintext highlighter-rouge">File &gt; Preference &gt; Settings</code> (MacOS의 경우 <code class="language-plaintext highlighter-rouge">Code &gt; Preference &gt; Settings</code> ) 에 들어가 <code class="language-plaintext highlighter-rouge">compact</code> 라고 검색한 뒤, <code class="language-plaintext highlighter-rouge">Explorer: Compact Folders</code> 라는 항목의 체크박스를 해제해주면 폴더가 트리형식으로 표시된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>디렉토리 및 파일 생성이 완료되면 이런 형태가 된다.</p>
+
+    <p><img src="/assets/images/2022-05-15-Python-Photo/2022-05-15-Python-Photo3.png" alt="2022-05-15-Python-Photo3" /></p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>unit 패키지 안의 모듈부터 작성해보자. 먼저 <code class="language-plaintext highlighter-rouge">character.py</code>를 아주 간단하게 Print 문으로만 구성해 작성해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"this is a character module"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>item, monster 모듈도 동일 요령으로 작성하자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"this is a item module"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"this is a monster module"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>이렇게 작성한 위 모듈들을 main.py에서 불러오자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 1. import 패키지.모듈
+</span><span class="kn">import</span> <span class="nn">unit.character</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>“unit.character” is not accessed: Import “unit.character” could not be resolved Pylance(reportMissingImports) 라는 에러메시지가 발생
+    <ul>
+      <li>startcoding이라는 새로운 폴더를 만들었기 때문</li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">File &gt; Preference &gt; Settings</code> (MacOS의 경우 <code class="language-plaintext highlighter-rouge">Code &gt; Preference &gt; Settings</code> ) 에서 아래 빨간색 박스로 표시한 아이콘을 클릭</p>
+
+        <p><img src="/assets/images/2022-05-15-Python-Photo/2022-05-15-Python-Photo4.png" alt="2022-05-15-Python-Photo4" /></p>
+      </li>
+    </ul>
+
+    <p><br /></p>
+
+    <ul>
+      <li>settings.json 파일에서 “python.analysis.extraPaths” 에 startcoding으로 향하는 경로를 추가한다.</li>
+    </ul>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">{</span>
+      <span class="s">"python.pythonPath"</span><span class="p">:</span> <span class="s">"/anaconda3/bin/python"</span><span class="p">,</span>
+      <span class="s">"editor.unicodeHighlight.allowedCharacters"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s">" "</span><span class="p">:</span> <span class="n">true</span>
+      <span class="p">},</span>
+      <span class="s">"python.analysis.extraPaths"</span><span class="p">:</span> <span class="p">[</span><span class="s">"./myvenv/Chapter9"</span><span class="p">,</span> <span class="s">"./myvenv/Chapter9/startcoding"</span><span class="p">],</span>
+      <span class="s">"liveSassCompile.settings.formats"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+              <span class="s">"format"</span><span class="p">:</span> <span class="s">"expanded"</span><span class="p">,</span>
+              <span class="s">"extensionName"</span><span class="p">:</span> <span class="s">".css"</span><span class="p">,</span>
+              <span class="s">"savePath"</span><span class="p">:</span> <span class="s">"/assets/css/"</span>
+          <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s">"pasteImage.basePath"</span><span class="p">:</span> <span class="s">"${currentFileDir}/images/"</span><span class="p">,</span>
+      <span class="s">"pasteImage.prefix"</span><span class="p">:</span> <span class="s">"./"</span><span class="p">,</span>
+      <span class="s">"liveServer.settings.donotShowInfoMsg"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+      <span class="s">"editor.fontSize"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+      <span class="s">"window.zoomLevel"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s">"explorer.compactFolders"</span><span class="p">:</span> <span class="n">false</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="1-import-패키지모듈-방식">1. import 패키지.모듈 방식</h3>
+
+<ul>
+  <li>이어서 main.py 에서 import 를 이용해 character 모듈을 호출해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 1. import 패키지.모듈
+</span><span class="kn">import</span> <span class="nn">unit.character</span>
+<span class="n">unit</span><span class="p">.</span><span class="n">character</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행 결과: unit.character의 test 함수가 잘 실행되는 것을 알 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="n">startcoding</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">py</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">character</span> <span class="n">module</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-from-패키지-import-모듈-방식-사용빈도-높음">2. from 패키지 import 모듈 방식 (사용빈도 높음)</h3>
+
+<ul>
+  <li>이번에는 from 패키지 import 모듈 구문을 이용해 모듈을 불러와보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 2. from 패키지 import 모듈
+</span><span class="kn">from</span> <span class="nn">unit</span> <span class="kn">import</span> <span class="n">item</span>
+<span class="n">item</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="n">startcoding</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">py</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">item</span> <span class="n">module</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="3-from-패키지-import--방식">3. from 패키지 import * 방식</h3>
+
+<ul>
+  <li>from 패키지 import * 방식을 이용해 패키지의 모든 모듈을 불러올 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 3. import 패키지 import *
+# : 패키지 안의 모든 모듈 가져오기
+</span><span class="kn">from</span> <span class="nn">unit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">character</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">*</code> (Asterisk): ‘모든’ 이라는 뜻</li>
+  <li>character 모듈을 불러올 수 없음 ⇒ <code class="language-plaintext highlighter-rouge">__init__</code> 파일을 수정해야한다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>init 모듈을 수정해주자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">character</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">monster</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.</code> : 현재 위치를 뜻한다.</li>
+  <li>현재위치의 character, item, monster 모듈을 init 모듈에 import 한다 라는 뜻.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>다시 main.py 로 돌아가 character, item, monster 모듈의 함수들을 불러와보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 3. import 패키지 import *
+# : 패키지 안의 모든 모듈 가져오기
+</span><span class="kn">from</span> <span class="nn">unit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">character</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+<span class="n">item</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+<span class="n">monster</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행결과: 각 모듈의 test 함수가 잘 실행됨을 알 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="n">startcoding</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">py</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">character</span> <span class="n">module</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">item</span> <span class="n">module</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">monster</span> <span class="n">module</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="4-import-패키지-방식">4. import 패키지 방식</h3>
+
+<ul>
+  <li>import 패키지 방식을 사용해 패키지 전체를 불러와 사용할 수 있다.</li>
+  <li>참고: 이 방식도 3 방식의 init 모듈 수정 절차가 필요하다.</li>
+  <li>main.py 에서 import unit 으로 unit 패키지 전체를 불러온 뒤, 각 모듈의 함수를 호출한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 4. import 패키지
+# : 패키지 자체를 import 
+</span><span class="kn">import</span> <span class="nn">unit</span>
+<span class="n">unit</span><span class="p">.</span><span class="n">character</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+<span class="n">unit</span><span class="p">.</span><span class="n">item</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+<span class="n">unit</span><span class="p">.</span><span class="n">monster</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행결과: 각 모듈의 함수가 잘 동작함을 알 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter9</span><span class="o">/</span><span class="n">startcoding</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">py</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">character</span> <span class="n">module</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">item</span> <span class="n">module</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">monster</span> <span class="n">module</span>
+</code></pre></div></div>
+<p><br /><br /></p>
+
+<p>이번 포스팅에서는 패키지에 대해 알아보았다. 다음 포스팅에서는 파일입출력 기본에 대해 알아보도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>
+:ET
