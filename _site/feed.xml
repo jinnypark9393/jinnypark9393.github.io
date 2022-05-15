@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-15T17:18:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Kubernetes/CKA]Lightning Lab 1 - kubeadm으로 클러스터 업그레이드</title><link href="http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-1/" rel="alternate" type="text/html" title="[Kubernetes/CKA]Lightning Lab 1 - kubeadm으로 클러스터 업그레이드" /><published>2022-05-15T00:00:00+09:00</published><updated>2022-05-15T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-1</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-1/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-15T21:02:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Kubernetes/CKA]Lightning Lab 1 - kubeadm으로 클러스터 업그레이드</title><link href="http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-1/" rel="alternate" type="text/html" title="[Kubernetes/CKA]Lightning Lab 1 - kubeadm으로 클러스터 업그레이드" /><published>2022-05-15T00:00:00+09:00</published><updated>2022-05-15T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-1</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-1/"><![CDATA[<p><br /><br /></p>
 
 <p>유데미(Udemy) 에서 구입한 CKA 강의 수강을 완료하고 마지막 연습문제를 풀고 있는데, 챕터별 연습문제와는 다르게 답안이 제공되지 않아 기록을 위해 문제 풀이 과정을 블로그에 올려두려 한다.</p>
 
@@ -102,7 +102,7 @@ Reading state information... Done
 
 <p><br /></p>
 
-<h3 id="1-컨트롤-플레인-노드-업그레이드">1. <strong>**컨트롤 플레인 노드 업그레이드<a href="https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%BB%A8%ED%8A%B8%EB%A1%A4-%ED%94%8C%EB%A0%88%EC%9D%B8-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C"></a></strong></h3>
+<h3 id="1-마스터-노드컨트롤-플레인-업그레이드">1. <strong>마스터 노드(컨트롤 플레인) 업그레이드<a href="https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%BB%A8%ED%8A%B8%EB%A1%A4-%ED%94%8C%EB%A0%88%EC%9D%B8-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C"></a></strong></h3>
 
 <ul>
   <li>쿠버네티스 공식문서에서 업그레이드 명령어를 복사하고, kubeadm의 전체 버전명을 정확하게 수정한뒤 붙여넣기 한다(<code class="language-plaintext highlighter-rouge">kubeadm=1.20.x-00</code> ⇒ <code class="language-plaintext highlighter-rouge">kubeadm=1.20.0-00</code>).</li>
@@ -286,7 +286,7 @@ node/controlplane uncordoned
 
 <p><br /></p>
 
-<h3 id="워커-노드-업그레이드"><strong>워커 노드 업그레이드<a href="https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%9B%8C%EC%BB%A4-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C"></a></strong></h3>
+<h3 id="2-워커-노드-업그레이드"><strong>2. 워커 노드 업그레이드<a href="https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%9B%8C%EC%BB%A4-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C"></a></strong></h3>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">kubectl get nodes</code> 명령어(아래 예시에서는 축약어 사용)로 대상 노드를 확인한다.</li>
@@ -444,7 +444,7 @@ gold-nginx-847f89b5b-dcdkr   1/1     Running   0          17m   10.50.0.3   cont
 <h2 id="내-풀이">[내 풀이]</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">kubectl get deployment -n admin2406 -o json</code> 으로 JSON 형식을 확인한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">kubectl get deployment -n admin2406</code> 으로 대상 디플로이먼트들을 확인한다.</li>
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# k get deployments.apps <span class="nt">-n</span> admin2406        
@@ -457,6 +457,10 @@ deploy5   1/1     1            1           48m
 </code></pre></div></div>
 
 <p><br /></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">kubectl get deployment -n admin2406 deploy1 -o json</code> 으로 JSON 파일 구조를 확인한다.</li>
+</ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# k get deployments.apps <span class="nt">-n</span> admin2406 deploy1 <span class="nt">-o</span> json
 <span class="o">{</span>
@@ -725,7 +729,63 @@ deploy5      nginx:latest      1                admin2406
 
 <ul>
   <li>kubectl 치트 시트 - custom-column: <a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/</a></li>
-</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스자격증" /><category term="유데미강의추천" /><category term="유데미쿠버네티스" /><category term="cka연습문제풀이" /><category term="cka덤프" /><category term="cka기출문제" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[JSON PATH를 사용하는 문제의 경우, custom-column을 이용하면 편리하다]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 28일차</title><link href="http://localhost:4000/programming/Python-Day28/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 28일차" /><published>2022-05-15T00:00:00+09:00</published><updated>2022-05-15T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day28</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day28/"><![CDATA[<p><br /><br /></p>
+</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스자격증" /><category term="유데미강의추천" /><category term="유데미쿠버네티스" /><category term="cka연습문제풀이" /><category term="cka덤프" /><category term="cka기출문제" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[JSON PATH를 사용하는 문제의 경우, custom-column을 이용하면 편리하다]]></summary></entry><entry><title type="html">[Kubernetes/CKA]Lightning Lab 4 - 디플로이먼트(Deployment) 생성 및 이미지 업데이트</title><link href="http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-4/" rel="alternate" type="text/html" title="[Kubernetes/CKA]Lightning Lab 4 - 디플로이먼트(Deployment) 생성 및 이미지 업데이트" /><published>2022-05-15T00:00:00+09:00</published><updated>2022-05-15T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-4</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-4/"><![CDATA[<p><br /><br /></p>
+
+<h1 id="4-디플로이먼트deployment-생성-및-이미지-업데이트">4. 디플로이먼트(Deployment) 생성 및 이미지 업데이트</h1>
+
+<h2 id="문제-요건">[문제 요건]</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">default</code> 네임스페이스에 <code class="language-plaintext highlighter-rouge">nginx:1.16</code> 이미지를 사용하는 신규 디플로이먼트 <code class="language-plaintext highlighter-rouge">nginx-deploy</code>를 생성해야한다. 레플리카 수는 1.</li>
+  <li>그 뒤, 디플로이먼트의 버전을 롤링 업데이트(Rolling Update)로 <code class="language-plaintext highlighter-rouge">1.17</code>로 업데이트</li>
+  <li>채점기준
+    <ul>
+      <li>이미지: nginx:1.16</li>
+      <li>작업: 디플로이먼트의 버전을 1.17로 업그레이드</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="내-풀이">[내 풀이]</h2>
+
+<ul>
+  <li>쿠버네티스 공식 문서의 kubectl cheatsheet 페이지 참조해 디플로이먼트 리소스 생성</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# kubectl create deployment nginx-deploy <span class="nt">--image</span><span class="o">=</span>nginx:1.16 <span class="nt">--replicas</span><span class="o">=</span>1
+deployment.apps/nginx-deploy created
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES         SELECTOR
+gold-nginx     1/1     1            1           20m   nginx        nginx:latest   <span class="nv">app</span><span class="o">=</span>gold-nginx
+nginx-deploy   1/1     1            1           37s   nginx        nginx:1.16     <span class="nv">app</span><span class="o">=</span>nginx-deploy
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>같은 페이지의 리소스 업데이트 탭을 참조해 이미지 업데이트
+    <ul>
+      <li>Tip: 이미지를 업데이트할 때에는 <code class="language-plaintext highlighter-rouge">kubectl set image &lt;리소스종류&gt;/&lt;리소스 이름&gt; &lt;컨테이너명&gt;=&lt;이미지:버전&gt;</code> 명령어를 사용하면 이미지가 롤링업데이트 된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# kubectl <span class="nb">set </span>image deployment/nginx-deploy <span class="nv">nginx</span><span class="o">=</span>nginx:1.17
+deployment.apps/nginx-deploy image updated
+root@controlplane:~# k get deployments.apps <span class="nt">-o</span> wide
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES         SELECTOR
+gold-nginx     1/1     1            1           24m     nginx        nginx:latest   <span class="nv">app</span><span class="o">=</span>gold-nginx
+nginx-deploy   1/1     1            1           4m10s   nginx        nginx:1.17     <span class="nv">app</span><span class="o">=</span>nginx-deploy
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="참고-url">[참고 URL]</h2>
+
+<ul>
+  <li>이미지 업데이트: <a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/#%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8">https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/#리소스-업데이트</a></li>
+</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스자격증" /><category term="유데미강의추천" /><category term="유데미쿠버네티스" /><category term="cka연습문제풀이" /><category term="cka덤프" /><category term="cka기출문제" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[클러스터를 업그레이드 할 경우에는 마스터노드, 워커노드 순으로 각각 업그레이드 한다]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 28일차</title><link href="http://localhost:4000/programming/Python-Day28/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 28일차" /><published>2022-05-15T00:00:00+09:00</published><updated>2022-05-15T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day28</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day28/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 9-3. 패키지를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -2086,349 +2146,4 @@ deploy5      nginx:latest      1                admin2406
   <li>Kubernetes 공식문서: <a href="http://kubernetes.io/ko/docs/tasks/network/customize-hosts-file-for-pods">kubernetes.io/ko/docs/tasks/network/customize-hosts-file-for-pods</a></li>
 </ul>
 
-<p><br /></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스네트워킹" /><category term="hostalias" /><category term="kuberneteshostalias" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[Pod의 /etc/hosts 파일에 DNS를 추가하기 위해서는 Deployment의 hostalias 옵션을 사용한다]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 24일차</title><link href="http://localhost:4000/programming/Python-Day24/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 24일차" /><published>2022-05-11T00:00:00+09:00</published><updated>2022-05-11T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day24</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day24/"><![CDATA[<p><br /><br /></p>
-
-<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 8-4. 오버라이딩, 클래스변수를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
-
-<p><br /><br /></p>
-
-<p>아래는 공부 인증 사진.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-05-11-Python-Photo/2022-05-11-Python-Photo1.jpg" alt="2022-05-11-Python-Photo1" /></p>
-
-<p><img src="/assets/images/2022-05-11-Python-Photo/2022-05-11-Python-Photo2.jpg" alt="2022-05-11-Python-Photo2" /></p>
-
-<p><br /><br /></p>
-
-<h1 id="01-오버라이딩-클래스-변수">01. 오버라이딩, 클래스 변수</h1>
-
-<h2 id="1-rpg-게임-업데이트예시">1. RPG 게임 업데이트(예시)</h2>
-
-<h3 id="1-생성자-오버라이딩">1. 생성자 오버라이딩</h3>
-
-<ul>
-  <li>요건
-    <ul>
-      <li>드래곤 클래스에 인스턴스 속성으로 3개의 스킬을 추가</li>
-      <li>드래곤이 스킬을 사용하면 속성 중 하나가 무작위로 사용</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>어떻게 속성을 추가할까?
-    <ul>
-      <li>Monster class에 속성 추가 ⇒ 다른 자식클래스에도 해당 속성이 추가됨 (X)</li>
-      <li>생성자 자체를 오버라이딩하자!</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 지상에서 이동하기"</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="c1"># 생성자 오버라이딩
-</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">skill</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>    
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li>부모 클래스의 함수를 그대로 복사 붙여넣기 해도 되지만, 매번 붙여넣기 하기는 너무 번거롭다</li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>super 함수를 사용하자.
-    <ul>
-      <li>super().<strong>init</strong>(): 부모클래스의 <code class="language-plaintext highlighter-rouge">__init__</code> 함수를 불러온다.</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 지상에서 이동하기"</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="c1"># 생성자 오버라이딩
-</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">skill</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>추가 매개변수인 skill의 함수를 선언해준다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="c1"># 생성자 오버라이딩
-</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">skill</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">skill</span> <span class="o">=</span> <span class="n">skill</span>
-        
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li>Dragon을 호출할 때, 스킬을 추가해서 호출한다.
-    <ul>
-      <li>스킬은 불변하므로, 리스트가 아닌 튜플이 적절</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="c1"># 생성자 오버라이딩
-</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">skill</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">skill</span> <span class="o">=</span> <span class="n">skill</span>
-        
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
-
-<span class="n">dragon</span> <span class="o">=</span> <span class="n">Dragon</span><span class="p">(</span><span class="s">"드래곤"</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="p">(</span><span class="s">"불뿜기"</span><span class="p">,</span> <span class="s">"꼬리치기"</span><span class="p">,</span> <span class="s">"날개치기"</span><span class="p">))</span>
-<span class="n">dragon</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>스킬은 불변한데, 호출할 때 매번 넣어주면 중복이 발생한다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="c1"># 생성자 오버라이딩
-</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">skill</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">skill</span> <span class="o">=</span> <span class="n">skill</span>
-        
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
-
-<span class="n">dragon1</span> <span class="o">=</span> <span class="n">Dragon</span><span class="p">(</span><span class="s">"드래곤"</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="p">(</span><span class="s">"불뿜기"</span><span class="p">,</span> <span class="s">"꼬리치기"</span><span class="p">,</span> <span class="s">"날개치기"</span><span class="p">))</span>
-<span class="n">dragon2</span> <span class="o">=</span> <span class="n">Dragon</span><span class="p">(</span><span class="s">"드래곤"</span><span class="p">,</span> <span class="mi">7000</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="p">(</span><span class="s">"불뿜기"</span><span class="p">,</span> <span class="s">"꼬리치기"</span><span class="p">,</span> <span class="s">"날개치기"</span><span class="p">))</span>
-<span class="n">dragon3</span> <span class="o">=</span> <span class="n">Dragon</span><span class="p">(</span><span class="s">"드래곤"</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="p">(</span><span class="s">"불뿜기"</span><span class="p">,</span> <span class="s">"꼬리치기"</span><span class="p">,</span> <span class="s">"날개치기"</span><span class="p">))</span>
-
-<span class="n">dragon</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>튜플을 속성 자체에 직접 대입</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="c1"># 생성자 오버라이딩
-</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">skill</span> <span class="o">=</span> <span class="p">(</span><span class="s">"불뿜기"</span><span class="p">,</span> <span class="s">"꼬리치기"</span><span class="p">,</span> <span class="s">"날개치기"</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
-
-<span class="n">dragon</span> <span class="o">=</span> <span class="n">Dragon</span><span class="p">(</span><span class="s">"드래곤"</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
-
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>skill ⇒ skills 로 바꾸고 skill 메서드를 생성</li>
-  <li>random.randint를 사용해 스킬을 랜덤으로 불러오기 (import random)</li>
-  <li>dragon.skill()로 스킬을 사용해준다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 상속
-# : 클래스들에 중복된 코드를 제거하고 유지보수를
-#    편하게 하기 위해 사용
-</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 지상에서 이동하기"</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">Wolf</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">class</span> <span class="nc">Shark</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 헤엄치기"</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="c1"># 생성자 오버라이딩
-</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">skills</span> <span class="o">=</span> <span class="p">(</span><span class="s">"불뿜기"</span><span class="p">,</span> <span class="s">"꼬리치기"</span><span class="p">,</span> <span class="s">"날개치기"</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">skill</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 스킬 사용 </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-
-<span class="n">wolf</span> <span class="o">=</span> <span class="n">Wolf</span><span class="p">(</span><span class="s">"울프"</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">wolf</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
-
-<span class="n">shark</span> <span class="o">=</span> <span class="n">Shark</span><span class="p">(</span><span class="s">"샤크"</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-<span class="n">shark</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
-
-<span class="n">dragon</span> <span class="o">=</span> <span class="n">Dragon</span><span class="p">(</span><span class="s">"드래곤"</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
-<span class="n">dragon</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
-<span class="n">dragon</span><span class="p">.</span><span class="n">skill</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과: 코드를 실행할 때마다 다른 스킬을 사용하는 것을 확인할 수 있다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">05.</span><span class="n">오버라이딩클래스변수</span><span class="p">.</span><span class="n">p</span>
-<span class="n">y</span>
-<span class="p">[</span><span class="n">울프</span><span class="p">]</span> <span class="n">지상에서</span> <span class="n">이동하기</span>
-<span class="p">[</span><span class="n">샤크</span><span class="p">]</span> <span class="n">헤엄치기</span>
-<span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">날기</span>
-<span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">스킬</span> <span class="n">사용</span> <span class="n">날개치기</span>
-<span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">05.</span><span class="n">오버라이딩클래스변수</span><span class="p">.</span><span class="n">p</span>
-<span class="n">y</span>
-<span class="p">[</span><span class="n">울프</span><span class="p">]</span> <span class="n">지상에서</span> <span class="n">이동하기</span>
-<span class="p">[</span><span class="n">샤크</span><span class="p">]</span> <span class="n">헤엄치기</span>
-<span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">날기</span>
-<span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">스킬</span> <span class="n">사용</span> <span class="n">불뿜기</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<h3 id="2-클래스-변수">2. 클래스 변수</h3>
-
-<ul>
-  <li>전체 Monster의 개수를 최대 1000 마리로 제한 ⇒ 클래스 변수 사용해야함</li>
-  <li>Monster 하위에 max_num = 1000을 정의</li>
-  <li>Monster 를 생성(<code class="language-plaintext highlighter-rouge">__init__</code> ) 할때마다 1000에서 1씩 빼주기 ⇒ <code class="language-plaintext highlighter-rouge">Monster.max_num -= 1</code>
-    <ul>
-      <li>self 가 아님에 주의!</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 상속
-# : 클래스들에 중복된 코드를 제거하고 유지보수를
-#    편하게 하기 위해 사용
-</span>
-<span class="c1"># 클래스 변수
-# : 인스턴스들이 모두 공유하는 변수
-</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-    <span class="n">max_num</span> <span class="o">=</span> <span class="mi">1000</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
-        <span class="n">Monster</span><span class="p">.</span><span class="n">max_num</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 지상에서 이동하기"</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">Wolf</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">class</span> <span class="nc">Shark</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 헤엄치기"</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Monster</span><span class="p">):</span>
-    <span class="c1"># 생성자 오버라이딩
-</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">skills</span> <span class="o">=</span> <span class="p">(</span><span class="s">"불뿜기"</span><span class="p">,</span> <span class="s">"꼬리치기"</span><span class="p">,</span> <span class="s">"날개치기"</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 메서드 오버라이딩
-</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 날기"</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">skill</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">] 스킬 사용 </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-
-<span class="n">wolf</span> <span class="o">=</span> <span class="n">Wolf</span><span class="p">(</span><span class="s">"울프"</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">wolf</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">wolf</span><span class="p">.</span><span class="n">max_num</span><span class="p">)</span>
-
-<span class="n">shark</span> <span class="o">=</span> <span class="n">Shark</span><span class="p">(</span><span class="s">"샤크"</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-<span class="n">shark</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">shark</span><span class="p">.</span><span class="n">max_num</span><span class="p">)</span>
-
-<span class="n">dragon</span> <span class="o">=</span> <span class="n">Dragon</span><span class="p">(</span><span class="s">"드래곤"</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
-<span class="n">dragon</span><span class="p">.</span><span class="n">move</span><span class="p">()</span>
-<span class="n">dragon</span><span class="p">.</span><span class="n">skill</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dragon</span><span class="p">.</span><span class="n">max_num</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과: max_num 을 모든 클래스에서 공유하는 것을 확인할 수 있다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">05.</span><span class="n">오버라이딩클래스변수</span><span class="p">.</span><span class="n">p</span>
-<span class="n">y</span>
-<span class="p">[</span><span class="n">울프</span><span class="p">]</span> <span class="n">지상에서</span> <span class="n">이동하기</span>
-<span class="mi">999</span>
-<span class="p">[</span><span class="n">샤크</span><span class="p">]</span> <span class="n">헤엄치기</span>
-<span class="mi">998</span>
-<span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">날기</span>
-<span class="p">[</span><span class="n">드래곤</span><span class="p">]</span> <span class="n">스킬</span> <span class="n">사용</span> <span class="n">꼬리치기</span>
-<span class="mi">997</span>
-</code></pre></div></div>
-
-<p><br /><br /></p>
-
-<p>이번 포스팅에서는 오버라이딩, 클래스 변수의 개념에 대해 알아보았다. 다음 포스팅에서는 실습문제를 풀어보도록 하자.</p>
-
-<p><br /></p>
-
-<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
-
-<p><br /></p>
-
-<ul>
-  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 24일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
+<p><br /></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스네트워킹" /><category term="hostalias" /><category term="kuberneteshostalias" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[Pod의 /etc/hosts 파일에 DNS를 추가하기 위해서는 Deployment의 hostalias 옵션을 사용한다]]></summary></entry></feed>
