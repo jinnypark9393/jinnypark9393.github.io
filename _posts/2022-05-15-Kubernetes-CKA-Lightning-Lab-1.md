@@ -113,7 +113,7 @@ root@controlplane:~# apt-cache madison kubeadm
 
 <br/>
 
-### 1. ****컨트롤 플레인 노드 업그레이드[](https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%BB%A8%ED%8A%B8%EB%A1%A4-%ED%94%8C%EB%A0%88%EC%9D%B8-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C)**
+### 1. **마스터 노드(컨트롤 플레인) 업그레이드[](https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%BB%A8%ED%8A%B8%EB%A1%A4-%ED%94%8C%EB%A0%88%EC%9D%B8-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C)**
 
 - 쿠버네티스 공식문서에서 업그레이드 명령어를 복사하고, kubeadm의 전체 버전명을 정확하게 수정한뒤 붙여넣기 한다(`kubeadm=1.20.x-00` ⇒ `kubeadm=1.20.0-00`).
 
