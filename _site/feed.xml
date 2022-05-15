@@ -1,4 +1,431 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-15T08:14:25+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 28일차</title><link href="http://localhost:4000/programming/Python-Day28/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 28일차" /><published>2022-05-15T00:00:00+09:00</published><updated>2022-05-15T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day28</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day28/"><![CDATA[<p><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-15T16:59:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">release: canary</title><subtitle>어쩌다 데브옵스 엔지니어가 된 문과생의 기록용 블로그</subtitle><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><entry><title type="html">[Kubernetes/CKA]Lightning Lab 1 - kubeadm으로 클러스터 업그레이드</title><link href="http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-1/" rel="alternate" type="text/html" title="[Kubernetes/CKA]Lightning Lab 1 - kubeadm으로 클러스터 업그레이드" /><published>2022-05-15T00:00:00+09:00</published><updated>2022-05-15T00:00:00+09:00</updated><id>http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-1</id><content type="html" xml:base="http://localhost:4000/devops/Kubernetes-CKA-Lightning-Lab-1/"><![CDATA[<p><br /><br /></p>
+
+<p>유데미(Udemy) 에서 구입한 CKA 강의 수강을 완료하고 마지막 연습문제를 풀고 있는데, 챕터별 연습문제와는 다르게 답안이 제공되지 않아 기록을 위해 문제 풀이 과정을 블로그에 올려두려 한다.</p>
+
+<p><br /></p>
+
+<p>참고로 아래의 문제 요건은 편의를 위해 한국어로 번역한 것이고, 강의에서 제공하는 시험 및 실제 시험은 100% 영어로 출제된다.</p>
+
+<p><br /><br /></p>
+
+<h1 id="1-kubeadm-으로-클러스터-업그레이드-하기">1. Kubeadm 으로 클러스터 업그레이드 하기</h1>
+
+<h2 id="문제-요건">[문제 요건]</h2>
+
+<ul>
+  <li>쿠버네티스 버전을 현재 <code class="language-plaintext highlighter-rouge">1.19</code> 버전에서 <code class="language-plaintext highlighter-rouge">1.20.0</code> 로 업그레이드(<code class="language-plaintext highlighter-rouge">kubeadm</code> 툴을 이용)</li>
+  <li>업그레이드는 마스터 노드부터 한번에 한 노드씩 이루어져야 한다.</li>
+  <li>다운타임(downtime)을 최소화하기위해, 각 노드를 업그레이드 하기 전 <code class="language-plaintext highlighter-rouge">gold-nginx</code> 디플로이먼트가 대체 노드로 스케줄링 되어야한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">controlplane</code> 노드를 먼저 업그레이드</li>
+  <li><code class="language-plaintext highlighter-rouge">node01</code> 노드를 업그레이드 전 드레인(drain)</li>
+  <li><code class="language-plaintext highlighter-rouge">gold-nginx</code> 디플로이먼트들의 파드는 <code class="language-plaintext highlighter-rouge">controlplane</code> 에 스케줄링 되어야한다.</li>
+  <li>채점 포인트
+    <ul>
+      <li>클러스터가 업그레이드 되었는가?</li>
+      <li>‘gold-nginx’의 파드들이 컨트롤플레인에 스케줄링 되었는가?</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="내-풀이">[내 풀이]</h2>
+
+<ul>
+  <li>쿠버네티스 공식문서에서 ‘클러스터 업그레이드’를 검색 &gt; <a href="https://kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/">kubeadm 클러스터 업그레이드 공식문서</a> 접속</li>
+  <li>문제 요건대로 쿠버네티스 1.19버전에서 1.20.0 버전으로 업그레이드 하는 문서로 이동</li>
+  <li>문서에 나와있는 대로 apt update로 패키지 관리자 업데이트</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# apt update
+Hit:1 https://packages.cloud.google.com/apt kubernetes-xenial InRelease         
+Hit:2 https://download.docker.com/linux/ubuntu bionic InRelease                 
+Hit:3 http://security.ubuntu.com/ubuntu bionic-security InRelease               
+Hit:4 http://archive.ubuntu.com/ubuntu bionic InRelease                         
+Hit:5 http://archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:6 http://archive.ubuntu.com/ubuntu bionic-backports InRelease
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+74 packages can be upgraded. Run <span class="s1">'apt list --upgradable'</span> to see them.
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>apt-cache madison kubeadm으로 kubeadm으로 업그레이드 버전정보를 확인 (문제에서는 1.20.0으로 지정되어있어 생략 가능)</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# apt-cache madison kubeadm
+   kubeadm |  1.24.0-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.23.6-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.23.5-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.23.4-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.23.3-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.23.2-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.23.1-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.23.0-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.9-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.8-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.7-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.6-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.5-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.4-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.3-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.2-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.1-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.22.0-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm | 1.21.12-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm | 1.21.11-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm | 1.21.10-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.9-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.8-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.7-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.6-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.5-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.4-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.3-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.2-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.1-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.21.0-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm | 1.20.15-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm | 1.20.14-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm | 1.20.13-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm | 1.20.12-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm | 1.20.11-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm | 1.20.10-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.20.9-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.20.8-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+   kubeadm |  1.20.7-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
+<span class="o">(</span>이하 생략<span class="o">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="1-컨트롤-플레인-노드-업그레이드">1. <strong>**컨트롤 플레인 노드 업그레이드<a href="https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%BB%A8%ED%8A%B8%EB%A1%A4-%ED%94%8C%EB%A0%88%EC%9D%B8-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C"></a></strong></h3>
+
+<ul>
+  <li>쿠버네티스 공식문서에서 업그레이드 명령어를 복사하고, kubeadm의 전체 버전명을 정확하게 수정한뒤 붙여넣기 한다(<code class="language-plaintext highlighter-rouge">kubeadm=1.20.x-00</code> ⇒ <code class="language-plaintext highlighter-rouge">kubeadm=1.20.0-00</code>).</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-mark unhold kubeadm <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nv">kubeadm</span><span class="o">=</span>1.20.0-00 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-mark hold kubeadm
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Tip: 현재 controlplane에서 작업하고있는지 반드시 확인 후 업그레이드 작업을 시작한다.</strong></li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>다운로드 하려는 버전이 잘 다운로드 되었는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# kubeadm version
+kubeadm version: &amp;version.Info<span class="o">{</span>Major:<span class="s2">"1"</span>, Minor:<span class="s2">"20"</span>, GitVersion:<span class="s2">"v1.20.0"</span>, GitCommit:<span class="s2">"af46c47ce925f4c4ad5cc8d1fca46c7b77d13b38"</span>, GitTreeState:<span class="s2">"clean"</span>, BuildDate:<span class="s2">"2020-12-08T17:57:36Z"</span>, GoVersion:<span class="s2">"go1.15.5"</span>, Compiler:<span class="s2">"gc"</span>, Platform:<span class="s2">"linux/amd64"</span><span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>업그레이드 계획을 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# kubeadm upgrade plan
+<span class="o">[</span>upgrade/config] Making sure the configuration is correct:
+<span class="o">[</span>upgrade/config] Reading configuration from the cluster...
+<span class="o">[</span>upgrade/config] FYI: You can look at this config file with <span class="s1">'kubectl -n kube-system get cm kubeadm-config -o yaml'</span>
+<span class="o">[</span>preflight] Running pre-flight checks.
+<span class="o">[</span>upgrade] Running cluster health checks
+<span class="o">[</span>upgrade] Fetching available versions to upgrade to
+<span class="o">[</span>upgrade/versions] Cluster version: v1.19.0
+<span class="o">[</span>upgrade/versions] kubeadm version: v1.20.0
+I0515 01:44:55.808176   12296 version.go:251] remote version is much newer: v1.24.0<span class="p">;</span> falling back to: stable-1.20
+<span class="o">[</span>upgrade/versions] Latest stable version: v1.20.15
+<span class="o">[</span>upgrade/versions] Latest stable version: v1.20.15
+<span class="o">[</span>upgrade/versions] Latest version <span class="k">in </span>the v1.19 series: v1.19.16
+<span class="o">[</span>upgrade/versions] Latest version <span class="k">in </span>the v1.19 series: v1.19.16
+
+Components that must be upgraded manually after you have upgraded the control plane with <span class="s1">'kubeadm upgrade apply'</span>:
+COMPONENT   CURRENT       AVAILABLE
+kubelet     2 x v1.19.0   v1.19.16
+
+Upgrade to the latest version <span class="k">in </span>the v1.19 series:
+
+COMPONENT                 CURRENT   AVAILABLE
+kube-apiserver            v1.19.0   v1.19.16
+kube-controller-manager   v1.19.0   v1.19.16
+kube-scheduler            v1.19.0   v1.19.16
+kube-proxy                v1.19.0   v1.19.16
+CoreDNS                   1.7.0     1.7.0
+etcd                      3.4.9-1   3.4.9-1
+
+You can now apply the upgrade by executing the following <span class="nb">command</span>:
+
+        kubeadm upgrade apply v1.19.16
+
+_____________________________________________________________________
+
+Components that must be upgraded manually after you have upgraded the control plane with <span class="s1">'kubeadm upgrade apply'</span>:
+COMPONENT   CURRENT       AVAILABLE
+kubelet     2 x v1.19.0   v1.20.15
+
+Upgrade to the latest stable version:
+
+COMPONENT                 CURRENT   AVAILABLE
+kube-apiserver            v1.19.0   v1.20.15
+kube-controller-manager   v1.19.0   v1.20.15
+kube-scheduler            v1.19.0   v1.20.15
+kube-proxy                v1.19.0   v1.20.15
+CoreDNS                   1.7.0     1.7.0
+etcd                      3.4.9-1   3.4.13-0
+
+You can now apply the upgrade by executing the following <span class="nb">command</span>:
+
+        kubeadm upgrade apply v1.20.15
+
+Note: Before you can perform this upgrade, you have to update kubeadm to v1.20.15.
+
+_____________________________________________________________________
+
+The table below shows the current state of component configs as understood by this version of kubeadm.
+Configs that have a <span class="s2">"yes"</span> mark <span class="k">in </span>the <span class="s2">"MANUAL UPGRADE REQUIRED"</span> column require manual config upgrade or
+resetting to kubeadm defaults before a successful upgrade can be performed. The version to manually
+upgrade to is denoted <span class="k">in </span>the <span class="s2">"PREFERRED VERSION"</span> column.
+
+API GROUP                 CURRENT VERSION   PREFERRED VERSION   MANUAL UPGRADE REQUIRED
+kubeproxy.config.k8s.io   v1alpha1          v1alpha1            no
+kubelet.config.k8s.io     v1beta1           v1beta1             no
+_____________________________________________________________________
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>kubeadm 업그레이드 명령어(<code class="language-plaintext highlighter-rouge">sudo kubeadm upgrade apply v1.20.x</code> )를 복사한 뒤 올바른 버전(<code class="language-plaintext highlighter-rouge">sudo kubeadm upgrade apply v1.20.0</code>)으로 변경한 후 붙여넣기한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>kubeadm upgrade apply v1.20.0 <span class="nt">-y</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Tip: 업그레이드 명령어 뒤에 -y옵션을 주어 추가 다운로드에 대해 모두 Yes로 반응하도록 설정하면 편리</strong></li>
+  <li><strong>Tipe: 업그레이드 완료 후 반드시 아래와 같이 SUCCESS 메시지가 출력되었는지 확인 한다.</strong></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>upgrade/successful] SUCCESS! Your cluster was upgraded to <span class="s2">"v1.20.0"</span><span class="nb">.</span> Enjoy!
+
+<span class="o">[</span>upgrade/kubelet] Now that your control plane is upgraded, please proceed with upgrading your kubelets <span class="k">if </span>you haven<span class="s1">'t already done so.
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>컨트롤 플레인 노드를 drain(모든 pod를 해당 노드에서 unscheduling)한다.
+    <ul>
+      <li>명령어 복사(<code class="language-plaintext highlighter-rouge">kubectl drain &lt;node-to-drain&gt; --ignore-daemonsets</code>) 후 대상 노드를 수정한 뒤 붙여넣기 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# kubectl drain controlplane <span class="nt">--ignore-daemonsets</span>
+node/controlplane cordoned
+WARNING: ignoring DaemonSet-managed Pods: kube-system/kube-proxy-hpgrg, kube-system/weave-net-mp6bh
+evicting pod admin2406/deploy3-5b6cff588b-5kxdh
+evicting pod admin2406/deploy1-5799f5869d-jpgfz
+evicting pod admin2406/deploy2-64885b458-jmvd5
+evicting pod kube-system/coredns-74ff55c5b-j7k25
+evicting pod admin2406/deploy5-78b86b74f-9rxj7
+evicting pod default/gold-nginx-847f89b5b-cfrr8
+evicting pod kube-system/coredns-74ff55c5b-58v24
+evicting pod admin2406/deploy4-7869d88d64-xdcx9
+I0515 01:54:52.043205   22973 request.go:645] Throttling request took 1.005358262s, request: GET:https://controlplane:6443/api/v1/namespaces/kube-system/pods/coredns-74ff55c5b-j7k25
+pod/deploy2-64885b458-jmvd5 evicted
+pod/deploy1-5799f5869d-jpgfz evicted
+pod/deploy4-7869d88d64-xdcx9 evicted
+pod/gold-nginx-847f89b5b-cfrr8 evicted
+pod/coredns-74ff55c5b-58v24 evicted
+pod/deploy5-78b86b74f-9rxj7 evicted
+pod/coredns-74ff55c5b-j7k25 evicted
+pod/deploy3-5b6cff588b-5kxdh evicted
+node/controlplane evicted
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>쿠버네티스 공식문서에서 kubelet과 kubectl 업그레이드 명령어를 복사한 뒤, 각각 올바른 버전으로 수정 후 명령어를 실행한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-mark unhold kubelet kubectl <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nv">kubelet</span><span class="o">=</span>1.20.0-00 <span class="nv">kubectl</span><span class="o">=</span>1.20.0-00 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-mark hold kubelet kubectl
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>아래 명령어를 사용해 kubelet을 다시 시작한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl daemon-reload
+<span class="nb">sudo </span>systemctl restart kubelet
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>uncordon 명령어(대상 노드이름으로 수정)를 이용해 노드에 파드를 다시 스케줄링한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# kubectl uncordon controlplane
+node/controlplane uncordoned
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="워커-노드-업그레이드"><strong>**워커 노드 업그레이드<a href="https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%9B%8C%EC%BB%A4-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C"></a></strong></h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">kubectl get nodes</code> 명령어(아래 예시에서는 축약어 사용)로 대상 노드를 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# k get nodes 
+NAME           STATUS   ROLES                  AGE    VERSION
+controlplane   Ready    control-plane,master   104m   v1.20.0
+node01         Ready    &lt;none&gt;                 103m   v1.19.0
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>ssh를 이용해 node01로 접속한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# ssh node01
+Welcome to Ubuntu 18.04.5 LTS <span class="o">(</span>GNU/Linux 5.4.0-1072-gcp x86_64<span class="o">)</span>
+
+ <span class="k">*</span> Documentation:  https://help.ubuntu.com
+ <span class="k">*</span> Management:     https://landscape.canonical.com
+ <span class="k">*</span> Support:        https://ubuntu.com/advantage
+This system has been minimized by removing packages and content that are
+not required on a system that <span class="nb">users </span><span class="k">do </span>not log into.
+
+To restore this content, you can run the <span class="s1">'unminimize'</span> command.
+root@node01:~#
+</code></pre></div></div>
+
+<ul>
+  <li>controlplane에서 node01로 잘 접속되었는지 확인한다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>마스터노드 업그레이드와 같은 요령으로 kubeadm 버전을 업데이트한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-mark unhold kubeadm <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nv">kubeadm</span><span class="o">=</span>1.20.0-00 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-mark hold kubeadm
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>kubeadm 업그레이드 명령어를 호출해 로컬 kubelet 구성을 업그레이드한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@node01:~# <span class="nb">sudo </span>kubeadm upgrade node
+<span class="o">[</span>upgrade] Reading configuration from the cluster...
+<span class="o">[</span>upgrade] FYI: You can look at this config file with <span class="s1">'kubectl -n kube-system get cm kubeadm-config -o yaml'</span>
+<span class="o">[</span>preflight] Running pre-flight checks
+<span class="o">[</span>preflight] Skipping prepull. Not a control plane node.
+<span class="o">[</span>upgrade] Skipping phase. Not a control plane node.
+<span class="o">[</span>kubelet-start] Writing kubelet configuration to file <span class="s2">"/var/lib/kubelet/config.yaml"</span>
+<span class="o">[</span>upgrade] The configuration <span class="k">for </span>this node was successfully updated!
+<span class="o">[</span>upgrade] Now you should go ahead and upgrade the kubelet package using your package manager.
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>exit 명령어로 마스터 노드로 돌아간 뒤, 워커노드를 drain한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@node01:~# <span class="nb">exit
+logout
+</span>Connection to node01 closed.
+root@controlplane:~# kubectl drain node01 <span class="nt">--ignore-daemonsets</span>
+node/node01 cordoned
+WARNING: ignoring DaemonSet-managed Pods: kube-system/kube-proxy-rp74d, kube-system/weave-net-n5989
+node/node01 drained
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>ssh로 워커노드(node01)로 재접속해 kubelet, kubectl을 업그레이드한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-mark unhold kubelet kubectl <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nv">kubelet</span><span class="o">=</span>1.20.0-00 <span class="nv">kubectl</span><span class="o">=</span>1.20.0-00 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-mark hold kubelet kubectl
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>kubelet을 재시작한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@node01:~# <span class="nb">sudo </span>systemctl daemon-reload
+root@node01:~# <span class="nb">sudo </span>systemctl restart kubelet
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>exit 명령어로 마스터노드로 돌아가 워커노드(node01)에 uncordon 명령어를 실행해준다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl uncordon node01
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">kubectl get nodes</code> (예시에서는 축약어 사용)명령어를 사용해 v1.20.0버전으로 업데이트가 잘 수행되었는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# k get nodes 
+NAME           STATUS   ROLES                  AGE    VERSION
+controlplane   Ready    control-plane,master   112m   v1.20.0
+node01         Ready    &lt;none&gt;                 111m   v1.20.0
+</code></pre></div></div>
+
+<ul>
+  <li>문제에서 제시되었던 파드(POD)가 controlplane에 스케줄링 되어있는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# k get pod gold-nginx-847f89b5b-dcdkr <span class="nt">-o</span> wide
+NAME                         READY   STATUS    RESTARTS   AGE   IP          NODE           NOMINATED NODE   READINESS GATES
+gold-nginx-847f89b5b-dcdkr   1/1     Running   0          17m   10.50.0.3   controlplane   &lt;none&gt;           &lt;none&gt;
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="참고-url">[참고 URL]</h2>
+
+<ul>
+  <li>kubeadm 클러스터 업그레이드: <a href="https://kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/">https://kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/</a>
+    <ul>
+      <li><a href="https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/">https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/</a></li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="DevOps" /><category term="쿠버네티스" /><category term="쿠버네티스자격증" /><category term="유데미강의추천" /><category term="유데미쿠버네티스" /><category term="cka연습문제풀이" /><category term="cka덤프" /><category term="cka기출문제" /><category term="cka" /><category term="kubernetes" /><category term="kubernetesnetworking" /><category term="k8s" /><category term="DevOpsengineer" /><category term="데브옵스" /><category term="데브옵스엔지니어" /><summary type="html"><![CDATA[Pod의 /etc/hosts 파일에 DNS를 추가하기 위해서는 Deployment의 hostalias 옵션을 사용한다]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 28일차</title><link href="http://localhost:4000/programming/Python-Day28/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 28일차" /><published>2022-05-15T00:00:00+09:00</published><updated>2022-05-15T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day28</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day28/"><![CDATA[<p><br /><br /></p>
 
 <p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 9-3. 패키지를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
 
@@ -1877,228 +2304,4 @@
 
 <p><br /></p>
 
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 23일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry><entry><title type="html">[Python]패스트캠퍼스 캐시백 챌린지 22일차</title><link href="http://localhost:4000/programming/Python-Day22/" rel="alternate" type="text/html" title="[Python]패스트캠퍼스 캐시백 챌린지 22일차" /><published>2022-05-09T00:00:00+09:00</published><updated>2022-05-09T00:00:00+09:00</updated><id>http://localhost:4000/programming/Python-Day22</id><content type="html" xml:base="http://localhost:4000/programming/Python-Day22/"><![CDATA[<p><br /><br /></p>
-
-<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 8-2. 생성자를 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
-
-<p><br /><br /></p>
-
-<p>아래는 공부 인증 사진.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/2022-05-09-Python-Photo/2022-05-09-Python-Photo1.jpg" alt="2022-05-09-Python-Photo1" /></p>
-
-<p><img src="/assets/images/2022-05-09-Python-Photo/2022-05-09-Python-Photo2.jpg" alt="2022-05-09-Python-Photo2" /></p>
-
-<p><br /><br /></p>
-
-<h1 id="1-생성자">1. 생성자</h1>
-
-<h2 id="1-클래스와-객체의-개념">1. 클래스와 객체의 개념</h2>
-
-<ul>
-  <li>
-    <p>클래스 = 속성 + 메서드(method)</p>
-
-    <p><img src="/assets/images/2022-05-09-Python-Photo/2022-05-09-Python-Photo3.png" alt="2022-05-09-Python-Photo3" /></p>
-
-    <ul>
-      <li>속성: 특징들을 나타낸 것</li>
-      <li>메서드: 동작들을 나타낸 것</li>
-    </ul>
-
-    <p><br /></p>
-  </li>
-</ul>
-
-<h2 id="2-속성-추가하기">2. 속성 추가하기</h2>
-
-<ul>
-  <li>
-    <p>Monster 클래스에 속성을 추가해보자.</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-      <span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-          <span class="k">print</span><span class="p">(</span><span class="s">"나는 몬스터다"</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 체력
-2. 공격력
-3. 이동속도
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span>
-
-<span class="n">goblin</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="c1">#인스턴스 생성 시점
-</span><span class="n">wolf</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">350</span><span class="p">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">__init__</code> : 인스턴스를 만들 때 반드시, 가장먼저 호출되는 메서드</li>
-  <li>goblin 인스턴스를 생성할때, 800, 120, 300는 <code class="language-plaintext highlighter-rouge">__init__</code> 메서드의 인자(argument)로 들어가게 된다.</li>
-  <li><code class="language-plaintext highlighter-rouge">self</code> : 인스턴스 자기자신을 뜻함. 매개변수 아님.</li>
-</ul>
-
-<p><br /><br /></p>
-
-<h2 id="3-메서드-추가하기">3. 메서드 추가하기</h2>
-
-<ul>
-  <li>
-    <p>Monster 클래스에 메서드를 추가해보자.</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span>
-    
-  <span class="n">goblin</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-  <span class="n">wolf</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">350</span><span class="p">)</span>
-</code></pre></div>    </div>
-
-    <ol>
-      <li>체력 감소하기</li>
-      <li>체력 가져오기</li>
-    </ol>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<ul>
-  <li>
-    <p>추가 메서드를 적용하면 아래와 같다.</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span>
-      <span class="k">def</span> <span class="nf">decrease_health</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="n">num</span>
-      <span class="k">def</span> <span class="nf">get_health</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-          <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">health</span>
-    
-  <span class="n">goblin</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-    
-  <span class="n">goblin</span><span class="p">.</span><span class="n">decrease_health</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">gobling</span><span class="p">.</span><span class="n">get_health</span><span class="p">())</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<h2 id="4-실습">4. 실습</h2>
-
-<ul>
-  <li>
-    <p>위에서 배운 내용을 실제 vscode에 입력해보자.</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># 생성자
-</span>  <span class="c1"># : 인스턴스를 만들 때 호출되는 메서드
-</span>    
-  <span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span>
-      <span class="k">def</span> <span class="nf">decrease_health</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
-          <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="n">num</span>
-      <span class="k">def</span> <span class="nf">get_health</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-          <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">health</span>
-    
-  <span class="c1"># 고블린 인스턴스 생성
-</span>  <span class="n">goblin</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-  <span class="n">goblin</span><span class="p">.</span><span class="n">decrease_health</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">goblin</span><span class="p">.</span><span class="n">get_health</span><span class="p">())</span>
-</code></pre></div>    </div>
-    <p><br /></p>
-  </li>
-  <li>
-    <p>출력 결과</p>
-  </li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">03.</span><span class="n">생성자</span><span class="p">.</span><span class="n">py</span>
-<span class="mi">700</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>늑대 인스턴스를 추가로 생성해보자.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 생성자
-# : 인스턴스를 만들 때 호출되는 메서드
-</span>
-<span class="k">class</span> <span class="nc">Monster</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">attack</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">attack</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span>
-    <span class="k">def</span> <span class="nf">decrease_health</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="n">num</span>
-    <span class="k">def</span> <span class="nf">get_health</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">health</span>
-
-<span class="c1"># 고블린 인스턴스 생성
-</span><span class="n">goblin</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="n">goblin</span><span class="p">.</span><span class="n">decrease_health</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">goblin</span><span class="p">.</span><span class="n">get_health</span><span class="p">())</span>
-
-<span class="c1"># 늑대 인스턴스 생성
-</span><span class="n">wolf</span> <span class="o">=</span> <span class="n">Monster</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">350</span><span class="p">)</span>
-<span class="n">wolf</span><span class="p">.</span><span class="n">decrease_health</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">wolf</span><span class="p">.</span><span class="n">get_health</span><span class="p">())</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<ul>
-  <li>출력 결과</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyt</span>
-<span class="n">hon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span>
-<span class="n">python_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter8</span><span class="o">/</span><span class="mf">03.</span><span class="n">생성자</span><span class="p">.</span><span class="n">py</span>
-<span class="mi">700</span>
-<span class="mi">500</span>
-</code></pre></div></div>
-
-<ul>
-  <li>늑대 인스턴스에 health = 1500, attack = 200, speed = 350이 할당</li>
-  <li>decrease_health 함수로 health가 1000이 감소</li>
-  <li>get_health 함수로 현재 health값 저장 및 print로 출력</li>
-</ul>
-
-<p><br /><br /></p>
-
-<p>이번 포스팅에서는 생성자의 개념에 대해 알아보았다. 다음 포스팅에서는 상속에 대해 알아보도록 하자.</p>
-
-<p><br /></p>
-
-<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
-
-<p><br /></p>
-
-<ul>
-  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 22일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>]]></content><author><name>Canary</name><email>jinnypark9393@gmail.com</email></author><category term="Programming" /><category term="패스트캠퍼스" /><category term="패캠챌린지" /><category term="직장인인강" /><category term="직장인자기계발" /><category term="패스트캠퍼스후기" /><category term="캐시백챌린지" /><category term="캐시백" /><category term="환급챌린지" /><category term="한번에끝내는파이썬웹개발초격차패키지Online" /><summary type="html"><![CDATA[패스트캠퍼스 캐시백 챌린지 23일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online]]></summary></entry></feed>
