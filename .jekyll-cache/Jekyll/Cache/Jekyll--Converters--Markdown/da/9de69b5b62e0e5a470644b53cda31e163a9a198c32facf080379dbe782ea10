@@ -1,0 +1,77 @@
+I"~	<p><br /><br /></p>
+
+<h1 id="3-kubeconfig-트러블-슈팅">3. KubeConfig 트러블 슈팅</h1>
+
+<h2 id="문제-요건">[문제 요건]</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/root/CKA</code> 경로에 <code class="language-plaintext highlighter-rouge">admin.kubeconfig</code> kubeconfig 파일이 생성되었으나 무언가 잘못되었다. 트러블 슈팅 후 고칠 것</li>
+  <li>채점 기준
+    <ul>
+      <li>/root/CKA/admin.kubeconfig 고치기</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="내-풀이">[내 풀이]</h2>
+
+<ul>
+  <li>kubeconfig 파일을 살펴보자.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~# <span class="nb">cd</span> /root/CKA
+root@controlplane:~/CKA# <span class="nb">ls</span> <span class="nt">-al</span>
+total 16
+drwxr-xr-x 2 root root 4096 May 15 04:49 <span class="nb">.</span>
+drwx------ 1 root root 4096 May 15 04:44 ..
+<span class="nt">-rw-------</span> 1 root root 5564 May 15 04:49 admin.kubeconfig
+root@controlplane:~/CKA# <span class="nb">cat </span>admin.kubeconfig 
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: <span class="o">[</span>encrypted ca]
+    server: https://controlplane:4380
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: kubernetes-admin
+  name: kubernetes-admin@kubernetes
+current-context: kubernetes-admin@kubernetes
+kind: Config
+preferences: <span class="o">{}</span>
+<span class="nb">users</span>:
+- name: kubernetes-admin
+  user:
+    client-certificate-data: <span class="o">[</span>encrypted-certification]
+    client-key-data: <span class="o">[</span>encrypted-key]
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane:~/CKA# k config view
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://controlplane:6443
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: kubernetes-admin
+  name: kubernetes-admin@kubernetes
+current-context: kubernetes-admin@kubernetes
+kind: Config
+preferences: <span class="o">{}</span>
+<span class="nb">users</span>:
+- name: kubernetes-admin
+  user:
+    client-certificate-data: REDACTED
+    client-key-data: REDACTED
+</code></pre></div></div>
+
+<h2 id="참고-url">[참고 URL]</h2>
+:ET
