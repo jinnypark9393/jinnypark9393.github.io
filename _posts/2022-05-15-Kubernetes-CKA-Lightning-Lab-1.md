@@ -283,7 +283,7 @@ node/controlplane uncordoned
 
 <br/>
 
-### **워커 노드 업그레이드[](https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%9B%8C%EC%BB%A4-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C)**
+### **2. 워커 노드 업그레이드[](https://v1-20.docs.kubernetes.io/ko/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#%EC%9B%8C%EC%BB%A4-%EB%85%B8%EB%93%9C-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C)**
 
 - `kubectl get nodes` 명령어(아래 예시에서는 축약어 사용)로 대상 노드를 확인한다.
 
