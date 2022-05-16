@@ -50,7 +50,7 @@ root@controlplane ~ ➜  complete -F __start_kubectl k
 
 <br/><br/>
 
-### 2.
+### 2. 명령문으로 파드(POD)생성
 
 - 명령문을 사용해 Pod 매니페스트 파일을 생성한다.
 
