@@ -1,0 +1,291 @@
+I"�Q<p><br /><br /></p>
+
+<p>오늘도 어제에 이어서 “<a href="https://fastcampus.co.kr/dev_online_pyweb">한 번에 끝내는 파이썬 웹 개발 초격차 패키지 Online</a>” 의 챕터 10-2. csv파일입출력을 듣고 정리해보았다. 참고로 이 포스팅은 공부용으로 강의 내용을 요약한 것으로 자세한 강의 내용은 위 링크를 참조 할 것.</p>
+
+<p><br /><br /></p>
+
+<p>아래는 공부 인증 사진.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/2022-05-17-Python-Photo/2022-05-17-Python-Photo1.jpg" alt="2022-05-17-Python-Photo1" /></p>
+
+<p><img src="/assets/images/2022-05-17-Python-Photo/2022-05-17-Python-Photo2.jpg" alt="2022-05-17-Python-Photo2" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="1-파일-입출력-기본이어서">1. 파일 입출력 기본(이어서)</h1>
+
+<h2 id="1-pickle-모듈">1. pickle 모듈</h2>
+
+<ul>
+  <li>파일에 파이썬 객체를 저장한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"목표1"</span><span class="p">:</span> <span class="s">"매일 팔굽혀펴기 100회"</span><span class="p">,</span>
+    <span class="s">"목표2"</span><span class="p">:</span> <span class="s">"매일 코딩 공부 1시간"</span>
+<span class="p">}</span>
+
+<span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data.pickle"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span>
+<span class="n">pickle</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>wb: write binary 모드. 컴퓨터가 바로 읽을 수 있는 데이터 형식</li>
+  <li>“data.pickle” 의 pickle은 .p 혹은 .pc 로 변경해도 된다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>파일로부터 파이썬 객체를 읽어보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data.pickle"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> 
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>rb: read binary 모드.</li>
+  <li>data = pickle.load(file): 파일에서 데이터가 하나하나 로드되어 data 객체에 저장</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-with-구문">2. With 구문</h2>
+
+<ul>
+  <li>With 구문을 사용해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># with 구문 사용 X
+</span><span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># with 구문 사용 O
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>with 구문을 사용하는 이유: file.close 를 매번 사용하기 번거롭기 때문.</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="3-실습">3. 실습</h2>
+
+<ul>
+  <li>파이썬 객체를 pickle로 저장해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 1. 파이썬 객체를 pickle로 저장하기
+</span><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"목표1"</span> <span class="p">:</span> <span class="s">"매일 팔굽혀 펴기 100회"</span><span class="p">,</span>
+    <span class="s">"목표2"</span> <span class="p">:</span> <span class="s">"매일 코딩 공부 1시간"</span>
+<span class="p">}</span>
+
+<span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./myvenv/Chapter10/data.pickle"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span>
+<span class="n">pickle</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>코드를 실행하면 Chapter10 폴더 하위에 data.pickle 이라는 파일이 생성된다(바이너리 파일이므로 열어서 내용을 읽을 수 없음)</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>pickle 파일을 파이썬으로 가져와보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 2. pickle 파일 파이썬으로 가져오기
+</span><span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./myvenv/Chapter10/data.pickle"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter10</span><span class="o">/</span><span class="mf">02.</span><span class="n">pickle</span><span class="p">.</span><span class="n">py</span>
+<span class="p">{</span><span class="s">'목표1'</span><span class="p">:</span> <span class="s">'매일 팔굽혀 펴기 100회'</span><span class="p">,</span> <span class="s">'목표2'</span><span class="p">:</span> <span class="s">'매일 코딩 공부 1시간'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>with 구문도 사용해보자.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># with 구문을 사용하면 자동으로 file.close 해준다.
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./myvenv/Chapter10/data.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행 결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter10</span><span class="o">/</span><span class="mf">03.</span><span class="n">with구문</span><span class="p">.</span><span class="n">py</span>
+<span class="mf">1.</span> <span class="n">스타트코딩과</span> <span class="n">함께</span> <span class="n">파이썬</span> <span class="n">공부</span>
+<span class="mf">2.</span> <span class="n">비전공자도</span> <span class="n">정말</span> <span class="n">쉽게</span> <span class="n">배울</span> <span class="n">수</span> <span class="n">있습니다</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h1 id="2-csv-파일-입출력">2. csv 파일 입출력</h1>
+
+<h2 id="1-csv-파일이란">1. csv 파일이란?</h2>
+
+<ul>
+  <li>CSV: comma-seperated values의 약어. 데이터가 콤마로 구분된 텍스트 파일 형식</li>
+  <li>
+    <p>예: student.csv</p>
+
+    <p>이름, 반, 번호</p>
+
+    <p>재석, 1, 20</p>
+
+    <p>홍철, 3, 8</p>
+
+    <p>형돈, 5, 32</p>
+  </li>
+</ul>
+
+<p>⇒ 테이블 형태의 데이터</p>
+
+<p><br /><br /></p>
+
+<h2 id="2-csv-파일-입출력-사용방법">2. csv 파일 입출력 사용방법</h2>
+
+<h3 id="1-csv-파일-쓰기">1. csv 파일 쓰기</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># csv파일 쓰기
+</span><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s">"이름"</span><span class="p">,</span> <span class="s">"반"</span><span class="p">,</span> <span class="s">"번호"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">"재석"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">"홍철"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">"형돈"</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"student.csv"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">writer</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">writer</span><span class="p">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-csv-파일-읽기">2. csv 파일 읽기</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"student.csv"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="3-실습-1">3. 실습</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">asyncore</span> <span class="kn">import</span> <span class="n">write</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span> <span class="c1"># 내장 모듈
+</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s">"이름"</span><span class="p">,</span> <span class="s">"반"</span><span class="p">,</span> <span class="s">"번호"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">"재석"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">"홍철"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">"형돈"</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="c1"># Window의 경우 newline="" (자동 띄어쓰기 방지), encoding="utf-8-sig" (글씨 깨짐 방지) 삽입: open("student.csv", "w", newline="", encoding="")
+</span><span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./myvenv/Chapter10/student.csv"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">writer</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">writer</span><span class="p">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>for d in data: data의 데이터들을 하나씩 갖고와 d 에 저장한다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>csv파일 읽기 파일을 생성해 아래 코드를 작성한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./myvenv/Chapter10/student.csv"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>실행결과</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">myvenv</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">python_basic</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">pyth</span>
+<span class="n">on_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">py</span>
+<span class="n">thon_basic</span><span class="o">/</span><span class="n">myvenv</span><span class="o">/</span><span class="n">Chapter10</span><span class="o">/</span><span class="mf">05.</span><span class="n">csv파일읽기</span><span class="p">.</span><span class="n">py</span>
+<span class="p">[</span><span class="s">'이름'</span><span class="p">,</span> <span class="s">'반'</span><span class="p">,</span> <span class="s">'번호'</span><span class="p">]</span>
+<span class="p">[</span><span class="s">'재석'</span><span class="p">,</span> <span class="s">'1'</span><span class="p">,</span> <span class="s">'20'</span><span class="p">]</span>
+<span class="p">[</span><span class="s">'홍철'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">,</span> <span class="s">'8'</span><span class="p">]</span>
+<span class="p">[</span><span class="s">'형돈'</span><span class="p">,</span> <span class="s">'5'</span><span class="p">,</span> <span class="s">'32'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p>이번 포스팅에서는 csv파일 입출력에 대해 알아보았다. 다음 포스팅에서는 파일입출력 실습문제를 풀어보도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>본 포스팅은 패스트캠퍼스 환급 챌린지 참여를 위해 작성되었습니다.</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li>패스트캠퍼스 강의 등록하기: <a href="https://bit.ly/3L3avNW">https://bit.ly/3L3avNW</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>#패스트캠퍼스 #패캠챌린지 #직장인인강 #직장인자기계발 #패스트캠퍼스후기 #캐시백챌린지 #캐시백 #환급챌린지 #한번에끝내는파이썬웹개발초격차패키지Online</strong></p>
+:ET
