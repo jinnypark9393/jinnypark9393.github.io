@@ -1,4 +1,23 @@
-# [Kubernetes/CKA]모의고사 1.7 - 스태틱 파드(Static Pod) 생성하기
+---
+
+published: true
+title:  "[Kubernetes/CKA]모의고사 1.7 - 스태틱 파드(Static Pod) 생성하기"
+excerpt: "스태틱 파드(Static Pod)를 생성하려면 kubelet이 지정한 경로에 YAML을 직접 생성해야한다"
+
+categories:
+- DevOps
+tags:
+- [쿠버네티스, 쿠버네티스자격증, 유데미강의추천, 유데미쿠버네티스, cka연습문제풀이, cka덤프, cka기출문제, cka, kubernetes, kubernetesnetworking, k8s, DevOpsengineer, 데브옵스, 데브옵스엔지니어]
+
+toc: true
+toc_sticky: true
+
+date: 2022-05-17
+last_modified_at: 2022-05-17
+
+---
+
+<br/><br/>
 
 # 모의고사 1.7 - 스태틱 파드(Static Pod) 생성하기
 
@@ -9,11 +28,13 @@ Create a static pod named `static-busybox` on the controlplane node that uses 
 - Name: static-busybox
 - Image: busybox
 
+<br/><br/>
+
 ## 2. 내 풀이
 
 ### 1. 사전 작업
 
-- kubectl 자동완성 설정을 미리 진행한다.
+- kubectl 자동완성 설정을 미리 진행한다(이미 진행한 경우 불필요).
 
 ```bash
 root@controlplane ~ ➜  source <(kubectl completion bash)
@@ -25,9 +46,9 @@ root@controlplane ~ ➜  alias k=kubectl
 root@controlplane ~ ➜  complete -F __start_kubectl k
 ```
 
-### 2.
+### 2. YAML 파일을 선언형으로 생성해 스태틱 파드(Static Pod) 생성
 
-- 스태틱 파드
+- 스태틱 파드가 생성되는 경로를 찾는다.
 
 ```bash
 root@controlplane /etc/kubernetes ➜  cd manifests/
@@ -42,11 +63,15 @@ drwxr-xr-x 1 root root 4096 May 16 12:53 ..
 -rw------- 1 root root 1384 May 16 12:53 kube-scheduler.yaml
 ```
 
+<br/>
+
 - 매니페스트 파일을 저장한다.
 
 ```bash
 root@controlplane /etc/kubernetes/manifests ➜  k run static-busybox --image=busybox --dry-run=client -o yaml --command -- sleep 1000 > static-busybox.yaml
 ```
+
+<br/>
 
 - 매니페스트 파일이 잘 생성되었는지 확인한다.
 
@@ -72,6 +97,8 @@ spec:
 status: {}
 ```
 
+<br/>
+
 - 스태틱 파드(Static Pod)가 잘 생성되었는지 확인한다.
 
 ```bash
@@ -83,6 +110,8 @@ default       messaging                              1/1     Running   0        
 default       nginx-pod                              1/1     Running   0          26m
 default       static-busybox-controlplane            1/1     Running   0          83s
 ```
+
+<br/><br/>
 
 ## 3. 참고 URL
 
