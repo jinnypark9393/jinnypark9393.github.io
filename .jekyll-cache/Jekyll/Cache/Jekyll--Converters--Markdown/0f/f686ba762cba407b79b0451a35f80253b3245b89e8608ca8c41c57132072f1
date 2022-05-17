@@ -1,0 +1,217 @@
+I"K#<p><br /><br /></p>
+
+<h1 id="모의고사-19---파드pod-트러블-슈팅">모의고사 1.9 - 파드(POD) 트러블 슈팅</h1>
+
+<h2 id="1-문제-요건">1. 문제 요건</h2>
+
+<p>A new application <code class="language-plaintext highlighter-rouge">orange</code> is deployed. There is something wrong with it. Identify and fix the issue.</p>
+
+<ul>
+  <li>Issue fixed</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-내-풀이">2. 내 풀이</h2>
+
+<h3 id="1-사전-작업">1. 사전 작업</h3>
+
+<ul>
+  <li>kubectl 자동완성 설정을 미리 진행한다(이미 진행한 경우 불필요).</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  <span class="nb">source</span> &lt;<span class="o">(</span>kubectl completion bash<span class="o">)</span>
+
+root@controlplane ~ ➜  <span class="nb">echo</span> <span class="s2">"source &lt;(kubectl completion bash)"</span> <span class="o">&gt;&gt;</span> ~/.bashrc 
+
+root@controlplane ~ ➜  <span class="nb">alias </span><span class="nv">k</span><span class="o">=</span>kubectl
+
+root@controlplane ~ ➜  <span class="nb">complete</span> <span class="nt">-F</span> __start_kubectl k
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-파드pod-트러블-슈팅">2. 파드(POD) 트러블 슈팅</h3>
+
+<ul>
+  <li>문제가 되는 리소스를 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k get pods
+NAME                          READY   STATUS                  RESTARTS   AGE
+hr-web-app-99dfd4c9d-nwvlr    1/1     Running                 0          14m
+hr-web-app-99dfd4c9d-xfpx5    1/1     Running                 0          14m
+messaging                     1/1     Running                 0          29m
+nginx-pod                     1/1     Running                 0          32m
+orange                        0/1     Init:CrashLoopBackOff   1          37s
+static-busybox-controlplane   1/1     Running                 0          7m36s
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>문제 리소스의 상세 정보를 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k describe pod orange 
+Name:         orange
+Namespace:    default
+Priority:     0
+Node:         controlplane/10.33.139.9
+Start Time:   Mon, 16 May 2022 13:38:48 +0000
+Labels:       &lt;none&gt;
+Annotations:  &lt;none&gt;
+Status:       Pending
+IP:           10.244.0.10
+IPs:
+  IP:  10.244.0.10
+Init Containers:
+  init-myservice:
+    Container ID:  docker://ceff8513b3e73cbb4ac8b351ba8b58b228c9d48e41c3e16be3ca53a790699e4a
+    Image:         busybox
+    Image ID:      docker-pullable://busybox@sha256:d2b53584f580310186df7a2055ce3ff83cc0df6caacf1e3489bff8cf5d0af5d8
+    Port:          &lt;none&gt;
+    Host Port:     &lt;none&gt;
+    Command:
+      sh
+      <span class="nt">-c</span>
+      sleeeep 2<span class="p">;</span>
+    State:          Waiting
+      Reason:       CrashLoopBackOff
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    127
+      Started:      Mon, 16 May 2022 13:39:54 +0000
+      Finished:     Mon, 16 May 2022 13:39:54 +0000
+    Ready:          False
+    Restart Count:  3
+    Environment:    &lt;none&gt;
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-g456l <span class="o">(</span>ro<span class="o">)</span>
+Containers:
+  orange-container:
+    Container ID:  
+    Image:         busybox:1.28
+    Image ID:      
+    Port:          &lt;none&gt;
+    Host Port:     &lt;none&gt;
+    Command:
+      sh
+      <span class="nt">-c</span>
+      <span class="nb">echo </span>The app is running! <span class="o">&amp;&amp;</span> <span class="nb">sleep </span>3600
+    State:          Waiting
+      Reason:       PodInitializing
+    Ready:          False
+    Restart Count:  0
+    Environment:    &lt;none&gt;
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-g456l <span class="o">(</span>ro<span class="o">)</span>
+Conditions:
+  Type              Status
+  Initialized       False 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  default-token-g456l:
+    Type:        Secret <span class="o">(</span>a volume populated by a Secret<span class="o">)</span>
+    SecretName:  default-token-g456l
+    Optional:    <span class="nb">false
+</span>QoS Class:       BestEffort
+Node-Selectors:  &lt;none&gt;
+Tolerations:     node.kubernetes.io/not-ready:NoExecute <span class="nv">op</span><span class="o">=</span>Exists <span class="k">for </span>300s
+                 node.kubernetes.io/unreachable:NoExecute <span class="nv">op</span><span class="o">=</span>Exists <span class="k">for </span>300s
+Events:
+  Type     Reason     Age                From               Message
+  <span class="nt">----</span>     <span class="nt">------</span>     <span class="nt">----</span>               <span class="nt">----</span>               <span class="nt">-------</span>
+  Normal   Scheduled  90s                default-scheduler  Successfully assigned default/orange to controlplane
+  Normal   Pulled     78s                kubelet            Successfully pulled image <span class="s2">"busybox"</span> <span class="k">in </span>820.289773ms
+  Normal   Pulled     76s                kubelet            Successfully pulled image <span class="s2">"busybox"</span> <span class="k">in </span>835.60682ms
+  Normal   Pulled     60s                kubelet            Successfully pulled image <span class="s2">"busybox"</span> <span class="k">in </span>816.153841ms
+  Normal   Pulling    27s <span class="o">(</span>x4 over 79s<span class="o">)</span>  kubelet            Pulling image <span class="s2">"busybox"</span>
+  Normal   Pulled     26s                kubelet            Successfully pulled image <span class="s2">"busybox"</span> <span class="k">in </span>795.989984ms
+  Normal   Created    25s <span class="o">(</span>x4 over 78s<span class="o">)</span>  kubelet            Created container init-myservice
+  Normal   Started    24s <span class="o">(</span>x4 over 78s<span class="o">)</span>  kubelet            Started container init-myservice
+  Warning  BackOff    12s <span class="o">(</span>x6 over 75s<span class="o">)</span>  kubelet            Back-off restarting failed container
+</code></pre></div></div>
+
+<ul>
+  <li>Event 를 살펴보았을 때 init 컨테이너에서 문제가 발생한 것을 알 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>orange 파드의 매니페스트 파일을 저장한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k get pod orange <span class="nt">-o</span> yaml <span class="o">&gt;</span> orange.yaml
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>문제가 있는 부분을 찾아서 고친다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi orange.yaml
+
+<span class="o">====</span>
+
+<span class="o">(</span>생략<span class="o">)</span>
+initContainers:
+  - <span class="nb">command</span>:
+    - sh
+    - <span class="nt">-c</span>
+    - sleeeeep 2<span class="p">;</span>
+<span class="o">(</span>생략<span class="o">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>sleeeeep 2 ⇒ sleep 2로 수정한다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>기존에 생성되었던 파드를 지운다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k delete pod orange 
+pod <span class="s2">"orange"</span> deleted
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>수정한 매니페스트 파일을 이용해 파드를 재생성한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k create <span class="nt">-f</span> orange.yaml 
+pod/orange created
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>파드가 잘 동작하는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k get pods
+NAME                          READY   STATUS    RESTARTS   AGE
+hr-web-app-99dfd4c9d-nwvlr    1/1     Running   0          42m
+hr-web-app-99dfd4c9d-xfpx5    1/1     Running   0          42m
+messaging                     1/1     Running   0          57m
+nginx-pod                     1/1     Running   0          61m
+orange                        1/1     Running   0          16s
+static-busybox-controlplane   1/1     Running   2          35m
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="3-참고-url">3. 참고 URL</h2>
+
+<ul>
+  <li>kubectl cheat sheet: <a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/</a></li>
+</ul>
+:ET

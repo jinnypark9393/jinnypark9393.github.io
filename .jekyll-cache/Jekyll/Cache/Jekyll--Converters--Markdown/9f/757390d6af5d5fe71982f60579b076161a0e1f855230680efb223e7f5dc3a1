@@ -1,0 +1,115 @@
+I"�<p><br /><br /></p>
+
+<h1 id="모의고사-112---퍼시스턴트-볼륨persistent-volume-pv-생성하기">모의고사 1.12 - 퍼시스턴트 볼륨(Persistent Volume: PV) 생성하기</h1>
+
+<h2 id="1-문제-요건">1. 문제 요건</h2>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">Persistent Volume</code> with the given specification.</p>
+
+<ul>
+  <li>Volume Name: pv-analytics</li>
+  <li>Storage: 100Mi</li>
+  <li>Access modes: ReadWriteMany</li>
+  <li>Host Path: /pv/data-analytics</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-내-풀이">2. 내 풀이</h2>
+
+<h3 id="1-사전-작업">1. 사전 작업</h3>
+
+<ul>
+  <li>kubectl 자동완성 설정을 미리 진행한다(이미 진행한 경우 불필요).</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  <span class="nb">source</span> &lt;<span class="o">(</span>kubectl completion bash<span class="o">)</span>
+
+root@controlplane ~ ➜  <span class="nb">echo</span> <span class="s2">"source &lt;(kubectl completion bash)"</span> <span class="o">&gt;&gt;</span> ~/.bashrc 
+
+root@controlplane ~ ➜  <span class="nb">alias </span><span class="nv">k</span><span class="o">=</span>kubectl
+
+root@controlplane ~ ➜  <span class="nb">complete</span> <span class="nt">-F</span> __start_kubectl k
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-yaml을-이용해-hostpath타입-퍼시스턴트-볼륨persistent-volume생성">2. YAML을 이용해 hostpath타입 퍼시스턴트 볼륨(Persistent Volume)생성</h3>
+
+<ul>
+  <li>hostpath 타입 퍼시스턴트 볼륨 매니페스트 파일의 예시를 복사해둔다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    <span class="nb">type</span>: <span class="nb">local
+</span>spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: <span class="s2">"/mnt/data"</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>vi 에디터로 파일 생성 후 문제 요건에 맞게 수정한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi pv-analytics.yaml
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-analytics
+  labels:
+    <span class="nb">type</span>: <span class="nb">local
+</span>spec:
+  storageClassName: manual
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: <span class="s2">"/pv/data-analytics"</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>작성한 매니페스트 파일을 이용해 PV를  생성한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  kubectl create <span class="nt">-f</span> pv-analytics.yaml 
+persistentvolume/pv-analytics created
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>PV가 잘 생성되었는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k get pv
+NAME           CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
+pv-analytics   100Mi      RWX            Retain           Available           manual                  58s
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="3-참고-url">3. 참고 URL</h2>
+
+<ul>
+  <li>퍼시스턴트 볼륨(Persistent Volume): <a href="https://kubernetes.io/ko/docs/concepts/storage/persistent-volumes/">https://kubernetes.io/ko/docs/concepts/storage/persistent-volumes/</a></li>
+  <li>hostPath 타입 PV 생성하기: <a href="https://kubernetes.io/ko/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#%ED%8D%BC%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8%EB%B3%BC%EB%A5%A8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">https://kubernetes.io/ko/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#퍼시스턴트볼륨-생성하기</a></li>
+</ul>
+
+<p>root@controlplane ~ ➜  kubectl create -f pv-analytics.yaml
+persistentvolume/pv-analytics created</p>
+:ET

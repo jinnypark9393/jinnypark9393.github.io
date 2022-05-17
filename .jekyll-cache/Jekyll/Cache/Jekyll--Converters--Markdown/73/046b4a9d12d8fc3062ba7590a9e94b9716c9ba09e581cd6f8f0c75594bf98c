@@ -1,0 +1,106 @@
+I"<p><br /><br /></p>
+
+<h1 id="모의고사-15---서비스service-노출하기">모의고사 1.5 - 서비스(Service) 노출하기</h1>
+
+<h2 id="1-문제-요건">1. 문제 요건</h2>
+
+<p>Create a service <code class="language-plaintext highlighter-rouge">messaging-service</code> to expose the <code class="language-plaintext highlighter-rouge">messaging</code> application within the cluster on port <code class="language-plaintext highlighter-rouge">6379</code>.</p>
+
+<p>Use imperative commands.</p>
+
+<ul>
+  <li>Service: messaging-service</li>
+  <li>Port: 6379</li>
+  <li>Type: ClusterIp</li>
+  <li>Use the right labels</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-내-풀이">2. 내 풀이</h2>
+
+<h3 id="1-사전-작업">1. 사전 작업</h3>
+
+<ul>
+  <li>kubectl 자동완성 설정을 미리 진행한다(이미 진행한 경우 불필요).</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  <span class="nb">source</span> &lt;<span class="o">(</span>kubectl completion bash<span class="o">)</span>
+
+root@controlplane ~ ➜  <span class="nb">echo</span> <span class="s2">"source &lt;(kubectl completion bash)"</span> <span class="o">&gt;&gt;</span> ~/.bashrc 
+
+root@controlplane ~ ➜  <span class="nb">alias </span><span class="nv">k</span><span class="o">=</span>kubectl
+
+root@controlplane ~ ➜  <span class="nb">complete</span> <span class="nt">-F</span> __start_kubectl k
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-명령형-커맨드를-이용해-서비스service-생성">2. 명령형 커맨드를 이용해 서비스(Service) 생성</h3>
+
+<ul>
+  <li>명령문으로 서비스의 매니페스트 파일을 생성한 뒤 저장한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k expose pod messaging <span class="nt">--name</span><span class="o">=</span>messaging-service <span class="nt">--port</span><span class="o">=</span>6379 <span class="nt">--type</span><span class="o">=</span>ClusterIP <span class="nt">--dry-run</span><span class="o">=</span>client <span class="nt">-o</span> yaml <span class="o">&gt;</span> messaging-service.yaml
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>매니페스트 파일이 제대로 생성되었는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  vi messaging-service.yaml
+
+<span class="o">====</span>
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    tier: msg
+  name: messaging-service
+spec:
+  ports:
+  - port: 6379
+    protocol: TCP
+    targetPort: 6379
+  selector:
+    tier: msg
+  <span class="nb">type</span>: ClusterIP
+status:
+  loadBalancer: <span class="o">{}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>매니페스트 파일을 이용해 서비스를 생성한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k create <span class="nt">-f</span> messaging-service.yaml 
+service/messaging-service created
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>서비스가 잘 생성되었는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k get service <span class="nt">-o</span> wide
+NAME                TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>    AGE   SELECTOR
+kubernetes          ClusterIP   10.96.0.1        &lt;none&gt;        443/TCP    28m   &lt;none&gt;
+messaging-service   ClusterIP   10.102.189.233   &lt;none&gt;        6379/TCP   40s   <span class="nv">tier</span><span class="o">=</span>msg
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="3-참고-url">3. 참고 URL</h2>
+
+<ul>
+  <li>kubectl cheat sheet: <a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/</a></li>
+</ul>
+:ET

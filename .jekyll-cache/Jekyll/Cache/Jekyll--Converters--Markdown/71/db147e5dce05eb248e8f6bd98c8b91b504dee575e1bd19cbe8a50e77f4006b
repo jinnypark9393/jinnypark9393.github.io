@@ -1,0 +1,101 @@
+I"�<p><br /><br /></p>
+
+<h1 id="모의고사-11---기본적인-파드pod-생성하기">모의고사 1.1 - 기본적인 파드(POD) 생성하기</h1>
+
+<h2 id="1-문제-요건">1. 문제 요건</h2>
+
+<p>Deploy a pod named <code class="language-plaintext highlighter-rouge">nginx-pod</code> using the <code class="language-plaintext highlighter-rouge">nginx:alpine</code> image.</p>
+
+<p>Once done, click on the <code class="language-plaintext highlighter-rouge">Next Question</code> button in the top right corner of this panel. You may navigate back and forth freely between all questions. Once done with all questions, click on <code class="language-plaintext highlighter-rouge">End Exam</code>. Your work will be validated at the end and score shown. Good Luck!</p>
+
+<ul>
+  <li>Name: nginx-pod</li>
+  <li>Image: nginx:alpine</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-내-풀이">2. 내 풀이</h2>
+
+<h3 id="1-사전-작업">1. 사전 작업</h3>
+
+<ul>
+  <li>kubectl 자동완성 설정을 미리 진행한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  <span class="nb">source</span> &lt;<span class="o">(</span>kubectl completion bash<span class="o">)</span>
+
+root@controlplane ~ ➜  <span class="nb">echo</span> <span class="s2">"source &lt;(kubectl completion bash)"</span> <span class="o">&gt;&gt;</span> ~/.bashrc 
+
+root@controlplane ~ ➜  <span class="nb">alias </span><span class="nv">k</span><span class="o">=</span>kubectl
+
+root@controlplane ~ ➜  <span class="nb">complete</span> <span class="nt">-F</span> __start_kubectl k
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-명령문으로-파드pod생성">2. 명령문으로 파드(POD)생성</h3>
+
+<ul>
+  <li>명령문을 사용해 Pod 매니페스트 파일을 생성한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k run nginx-pod <span class="nt">--image</span><span class="o">=</span>nginx:alpine <span class="nt">--dry-run</span><span class="o">=</span>client <span class="nt">-o</span> yaml <span class="o">&gt;</span> nginx-pod.yaml
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>생성된 매니페스트 파일 내용이 맞는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  vi nginx-pod.yaml
+
+<span class="o">====</span>
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx-pod
+  name: nginx-pod
+spec:
+  containers:
+  - image: nginx:alpine
+    name: nginx-pod
+    resources: <span class="o">{}</span>
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: <span class="o">{}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>매니페스트 파일을 이용해 파드를 생성한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k create <span class="nt">-f</span> nginx-pod.yaml 
+pod/nginx-pod created
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>파드가 제대로 생성되었는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k get pods
+NAME        READY   STATUS    RESTARTS   AGE
+nginx-pod   1/1     Running   0          12s
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="3-참고-url">3. 참고 URL</h2>
+
+<ul>
+  <li>kubectl cheat sheet: <a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/</a></li>
+</ul>
+:ET

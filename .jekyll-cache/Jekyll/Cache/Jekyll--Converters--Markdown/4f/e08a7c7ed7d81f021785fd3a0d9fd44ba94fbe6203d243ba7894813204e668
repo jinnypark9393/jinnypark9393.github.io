@@ -1,0 +1,101 @@
+I"L<p><br /><br /></p>
+
+<h1 id="모의고사-12---레이블label을-지정한-파드pod-생성하기">모의고사 1.2 - 레이블(Label)을 지정한 파드(POD) 생성하기</h1>
+
+<h2 id="1-문제-요건">1. 문제 요건</h2>
+
+<p>Deploy a <code class="language-plaintext highlighter-rouge">messaging</code> pod using the <code class="language-plaintext highlighter-rouge">redis:alpine</code> image with the labels set to <code class="language-plaintext highlighter-rouge">tier=msg</code>.</p>
+
+<ul>
+  <li>Pod Name: messaging</li>
+  <li>Image: redis:alpine</li>
+  <li>Labels: tier=msg</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-내-풀이">2. 내 풀이</h2>
+
+<h3 id="1-사전-작업">1. 사전 작업</h3>
+
+<ul>
+  <li>kubectl 자동완성 설정을 미리 진행한다(이미 설정했으면 중복 설정 불필요).</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  <span class="nb">source</span> &lt;<span class="o">(</span>kubectl completion bash<span class="o">)</span>
+
+root@controlplane ~ ➜  <span class="nb">echo</span> <span class="s2">"source &lt;(kubectl completion bash)"</span> <span class="o">&gt;&gt;</span> ~/.bashrc 
+
+root@controlplane ~ ➜  <span class="nb">alias </span><span class="nv">k</span><span class="o">=</span>kubectl
+
+root@controlplane ~ ➜  <span class="nb">complete</span> <span class="nt">-F</span> __start_kubectl k
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-명령문으로-파드pod-생성">2. 명령문으로 파드(POD) 생성</h3>
+
+<ul>
+  <li>명령문을 사용해 Pod 매니페스트 파일을 생성한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k run messaging <span class="nt">--image</span><span class="o">=</span>redis:alpine <span class="nt">-l</span> <span class="nv">tier</span><span class="o">=</span>msg <span class="nt">--dry-run</span><span class="o">=</span>client <span class="nt">-o</span> yaml <span class="o">&gt;</span> messaging.yaml
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>생성된 매니페스트 파일 내용이 맞는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  vi messaging.yaml
+
+<span class="o">====</span>
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    tier: msg
+  name: messaging
+spec:
+  containers:
+  - image: redis:alpine
+    name: messaging
+    resources: <span class="o">{}</span>
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: <span class="o">{}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>매니페스트 파일을 이용해 파드를 생성한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k create <span class="nt">-f</span> messaging.yaml 
+pod/messaging created
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>파드가 제대로 생성되었는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k get pods
+NAME        READY   STATUS    RESTARTS   AGE
+messaging   1/1     Running   0          14s
+nginx-pod   1/1     Running   0          3m22s
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="3-참고-url">3. 참고 URL</h2>
+
+<ul>
+  <li>kubectl cheat sheet: <a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/</a></li>
+</ul>
+:ET

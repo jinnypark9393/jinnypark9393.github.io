@@ -4,7 +4,231 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/programming/Python-Day31/</loc>
+        
+        <lastmod>2022-05-18T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/programming/Python-Mid-Review/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/programming/Python-Day30/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-12/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-11/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-10/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-09/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-08/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-07/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-06/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-05/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-04/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-03/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-02/</loc>
+        
+        <lastmod>2022-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/devops/Kubernetes-CKA-Mock-Exam-1-01/</loc>
         
         <lastmod>2022-05-17T00:00:00+09:00</lastmod>
         

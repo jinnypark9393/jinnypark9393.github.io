@@ -1,0 +1,66 @@
+I":	<p><br /><br /></p>
+
+<h1 id="모의고사-13---네임스페이스namespace-생성하기">모의고사 1.3 - 네임스페이스(Namespace) 생성하기</h1>
+
+<h2 id="1-문제-요건">1. 문제 요건</h2>
+
+<p>Create a namespace named <code class="language-plaintext highlighter-rouge">apx-x9984574</code>.</p>
+
+<ul>
+  <li>Namespace: apx-x9984574</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="2-내-풀이">2. 내 풀이</h2>
+
+<h3 id="1-사전-작업">1. 사전 작업</h3>
+
+<ul>
+  <li>kubectl 자동완성 설정을 미리 진행한다(이미 설정해놓은 경우 불필요).</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  <span class="nb">source</span> &lt;<span class="o">(</span>kubectl completion bash<span class="o">)</span>
+
+root@controlplane ~ ➜  <span class="nb">echo</span> <span class="s2">"source &lt;(kubectl completion bash)"</span> <span class="o">&gt;&gt;</span> ~/.bashrc 
+
+root@controlplane ~ ➜  <span class="nb">alias </span><span class="nv">k</span><span class="o">=</span>kubectl
+
+root@controlplane ~ ➜  <span class="nb">complete</span> <span class="nt">-F</span> __start_kubectl k
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="2-명령문을-사용해-네임스페이스namespace-생성">2. 명령문을 사용해 네임스페이스(Namespace) 생성</h3>
+
+<ul>
+  <li>명령문을 사용해 네임스페이스(namespace)를 생성한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k create ns apx-x9984574
+namespace/apx-x9984574 created
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>네임스페이스가 제대로 생성되었는지 확인한다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@controlplane ~ ➜  k get ns
+NAME              STATUS   AGE
+apx-x9984574      Active   3s
+default           Active   17m
+kube-node-lease   Active   17m
+kube-public       Active   17m
+kube-system       Active   17m
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="3-참고-url">3. 참고 URL</h2>
+
+<ul>
+  <li>kubectl cheat sheet: <a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/</a></li>
+</ul>
+:ET
