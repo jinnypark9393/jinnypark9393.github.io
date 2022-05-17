@@ -1,7 +1,7 @@
 ---
 
 published: true
-title:  "[Kubernetes/CKA]모의고사 01.1 - 기본적인 파드(POD) 생성하기"
+title:  "[Kubernetes/CKA]모의고사 1.1 - 기본적인 파드(POD) 생성하기"
 excerpt: "명령형 커맨드로 파드(POD) YAML를 생성한 뒤 생성한다"
 
 categories:
