@@ -1,7 +1,7 @@
 ---
 
 published: true
-title:  "[Algorithm]그림으로 배우는 알고리즘 제 2장: 변수와 배열"
+title:  "[Algorithm]그림으로 배우는 알고리즘 제 2장: 변수와 배열(2)"
 excerpt: "데이터는 다양한 정보이며, 데이터에는 타입이 있다"
 
 categories:
