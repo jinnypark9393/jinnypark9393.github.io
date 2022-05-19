@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Kubernetes/CKA]모의고사 3.5 - 네트워크 폴리시(Security Policy) 적용하기"
-excerpt: "(수정중)"
+excerpt: "파드의 ingress 트래픽을 허용하기 위해 네트워크 폴리시를 생성 후, 테스트용 파드를 생성해 트래픽이 잘 전송되는지 확인한다"
 
 categories:
 - DevOps
@@ -19,7 +19,7 @@ last_modified_at: 2022-05-19
 
 <br/><br/>
 
-# 1. 모의고사 3.5 - 네트워크 폴리시(Security Policy) 적용하기
+# 1. 모의고사 3.5 - 네트워크 폴리시(Network Policy) 적용하기
 
 ## 1. 문제 요건
 
@@ -52,105 +52,127 @@ root@controlplane ~ ➜  complete -F __start_kubectl k
 
 <br/><br/>
 
-### 2. 네트워크 폴리시(Security Policy) 적용
+### 2. 네트워크 폴리시(Network Policy) 적용
 
-- 명령형 커맨드로 파드의 매니페스트 파일을 만들어 저장한다.
+- `get` 명령어로 문제에서 제시한 파드와 서비스가 제대로 생성되어 실행되고 있는지 확인한다.
 
 ```bash
-root@controlplane ~ ➜  k run non-root-pod --image=redis:alpine --dry-run=client -o yaml > non-root-pod.yaml
+root@controlplane ~ ➜  k get pod,service
+NAME            READY   STATUS    RESTARTS   AGE
+pod/np-test-1   1/1     Running   0          36s
+pod/pvviwer     1/1     Running   0          6m16s
+
+NAME                      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes        ClusterIP   10.96.0.1       <none>        443/TCP   17m
+service/np-test-service   ClusterIP   10.110.84.136   <none>        80/TCP    37s
 ```
 
 <br/>
 
-- 생성한 매니페스트 파일을 문제 요건에 맞게 수정한다.
+- `run` 명령어로 테스트용 파드를 생성한다.
 
 ```jsx
-vi non-root-pod.yaml
+root@controlplane ~ ➜  k run curl --image=alpine/curl --rm -it -- sh
+If you don't see a command prompt, try pressing enter.
+/ # curl np-test-service
+```
+
+- `curl` 명령어에 반응이 없는 상태.
+
+<br/>
+
+- `vi` 명령어로 네트워크 폴리시 매니페스트 파일을 생성해준다.
+
+```bash
+vi np.yaml
 
 ---
 
-apiVersion: v1
-kind: Pod
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
 metadata:
-  creationTimestamp: null
-  labels:
-    run: non-root-pod
-  name: non-root-pod
+  name: ingress-to-nptest
+  namespace: default
 spec:
-  containers:
-  - image: redis:alpine
-    name: non-root-pod
-  securityContext:
-    runAsUser: 1000
-    fsGroup: 2000
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
-status: {}
+  podSelector:
+    matchLabels:
+      run: np-test-1
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+    ports:
+    - protocol: TCP
+      port: 80
 ```
 
 <br/>
 
-- `create` 명령어로 파드를 생성한다.
+- `create` 명령어로 네트워크 폴리시를 생성해준다.
 
 ```bash
-root@controlplane ~ ➜  k create -f non-root-pod.yaml 
-pod/non-root-pod created
+root@controlplane ~ ➜  k create -f np.yaml 
+networkpolicy.networking.k8s.io/ingress-to-nptest created
 ```
 
 <br/>
 
-- `describe` 명령어로 컨테이너가 잘 생성되었는지 확인한다.
+- `describe` 명령어로 네트워크 폴리시가 잘 생성되었는지 확인한다.
 
 ```bash
-root@controlplane ~ ➜  k describe pod non-root-pod 
-Name:         non-root-pod
+root@controlplane ~ ➜  k describe networkpolicies.networking.k8s.io ingress-to-nptest 
+Name:         ingress-to-nptest
 Namespace:    default
-Priority:     0
-Node:         node01/10.29.76.9
-Start Time:   Wed, 18 May 2022 12:57:18 +0000
-Labels:       run=non-root-pod
+Created on:   2022-05-19 12:30:41 +0000 UTC
+Labels:       <none>
 Annotations:  <none>
-Status:       Running
-IP:           10.50.192.3
-IPs:
-  IP:  10.50.192.3
-Containers:
-  non-root-pod:
-    Container ID:   docker://eb29b88b097e1687c99d134b2ae2742a0128e0ba574d3505c8d2f8aeb7820058
-    Image:          redis:alpine
-    Image ID:       docker-pullable://redis@sha256:541e6d75df5dfb08e8859929bab06da265673808a6f2285abe6b7c76c1c98c6e
-    Port:           <none>
-    Host Port:      <none>
-    State:          Running
-      Started:      Wed, 18 May 2022 12:57:29 +0000
-    Ready:          True
-    Restart Count:  0
-    Environment:    <none>
-    Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from default-token-mq4qs (ro)
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             True 
-  ContainersReady   True 
-  PodScheduled      True 
-Volumes:
-  default-token-mq4qs:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-mq4qs
-    Optional:    false
-QoS Class:       BestEffort
-Node-Selectors:  <none>
-Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
-                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:
-  Type    Reason     Age   From               Message
-  ----    ------     ----  ----               -------
-  Normal  Scheduled  13s   default-scheduler  Successfully assigned default/non-root-pod to node01
-  Normal  Pulling    9s    kubelet            Pulling image "redis:alpine"
-  Normal  Pulled     5s    kubelet            Successfully pulled image "redis:alpine" in 3.895443062s
-  Normal  Created    4s    kubelet            Created container non-root-pod
-  Normal  Started    2s    kubelet            Started container non-root-pod
+Spec:
+  PodSelector:     run=np-test-1
+  Allowing ingress traffic:
+    To Port: 80/TCP
+    From:
+      IPBlock:
+        CIDR: 0.0.0.0/0
+        Except: 
+  Not affecting egress traffic
+  Policy Types: Ingress
+```
+
+<br/>
+
+- 생성해두었던 테스트용 파드의 쉘을 실행해 `curl` 명령어로 파드에 트래픽을 전송할 수 있는지 확인한다.
+    - 확인이 완료된 후, `exit` 명령어로 컨테이너 내의 쉘에서 빠져나올 수 있다.
+
+```bash
+root@controlplane ~ ✖ k exec curl -it -- sh
+/ # curl np-test-service
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
 ```
 
 <br/><br/>
@@ -158,3 +180,4 @@ Events:
 ## 3. 참고 URL
 
 - kubectl cheat sheet: [https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/](https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/)
+- 네트워크 정책(Network Policy): [https://kubernetes.io/ko/docs/concepts/services-networking/network-policies/](https://kubernetes.io/ko/docs/concepts/services-networking/network-policies/)
