@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Kubernetes/CKA]모의고사 2.2 - emptyDir 타입의 볼륨이 마운트 된 파드(POD) 생성하기"
-excerpt: "etcd 파드 상세 정보를 참고해 백업 파일 명령어를 실행한다"
+excerpt: "emptyDir가 마운트 된 파드 매니페스트 예제를 참고해 작성한다"
 
 categories:
 - DevOps
