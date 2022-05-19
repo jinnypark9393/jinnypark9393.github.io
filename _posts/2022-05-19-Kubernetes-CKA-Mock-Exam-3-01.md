@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Kubernetes/CKA]모의고사 3.1 - 서비스 어카운트(Service Account) 생성 및 파드(POD)연결"
-excerpt: ""
+excerpt: "먼저 service account를 생성한다. 명령형 커맨드로 role을 생성한 뒤, role binding으로 role과 service account를 연결한다. 마찬가지로 명령형 커맨드로 파드 생성 시 옵션으로 서비스어카운트를 설정한다"
 
 categories:
 - DevOps
@@ -62,13 +62,18 @@ serviceaccount/pvviewer created
 
 <br/>
 
-- kubectl 을 사용하기 위해 controlplane으로 돌아간다(exit 명령어 입력).
-
 - `create` 명령어로 clusterrole을 생성한다.
     - Tip: `kubectl create clusterrole --help` 로 예문을 찾으면 편리하다.
+    - Tip: 정확한 리소스이름을 알고싶다면 `kubectl api-resources | grep persistent` 로 찾을 수 있다.
 
 ```jsx
-root@controlplane ~ ➜  kubectl create clusterrole pvviewer-role --verb=list --resource=persistentvolume
+root@controlplane ~ ➜  k api-resources | grep persistent
+persistentvolumeclaims            pvc          v1                                     true         PersistentVolumeClaim
+persistentvolumes                 pv           v1                                     false        PersistentVolume
+
+===
+
+root@controlplane ~ ➜  kubectl create clusterrole pvviewer-role --verb=list --resource=persistentvolumes
 clusterrole.rbac.authorization.k8s.io/pvviewer-role created
 ```
 
@@ -83,29 +88,198 @@ clusterrolebinding.rbac.authorization.k8s.io/pvviewer-role-binding created
 
 <br/>
 
-- `describe` 명령어로 service accoun의 token값을 조사한다.
+- `describe` 명령어로 clusterrole & clusterrolebinding이 제대로 생성되었는지 확인한다.
 
 ```bash
-root@controlplane ~ ➜  k get secrets 
-NAME                   TYPE                                  DATA   AGE
-default-token-mq4qs    kubernetes.io/service-account-token   3      28m
-pvviewer-token-qblk7   kubernetes.io/service-account-token   3      8m58s
-
-root@controlplane ~ ➜  k describe secrets pvviewer-token-qblk7
-Name:         pvviewer-token-qblk7
-Namespace:    default
+root@controlplane ~ ➜  k describe clusterrole pvviewer-role 
+Name:         pvviewer-role
 Labels:       <none>
-Annotations:  kubernetes.io/service-account.name: pvviewer
-              kubernetes.io/service-account.uid: 615f3a88-3d77-4791-8ad4-5ef75b2c3b7d
+Annotations:  <none>
+PolicyRule:
+  Resources          Non-Resource URLs  Resource Names  Verbs
+  ---------          -----------------  --------------  -----
+  persistentvolumes  []                 []              [list]
 
-Type:  kubernetes.io/service-account-token
-
-Data
-====
-ca.crt:     1066 bytes
-namespace:  7 bytes
-token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IlF6NzZJdEZLY1BMU19EN1kyQmF5V29JRXR5eHJILWVlc2lWWU1CbHlZWGMifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InB2dmlld2VyLXRva2VuLXFibGs3Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6InB2dmlld2VyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiNjE1ZjNhODgtM2Q3Ny00NzkxLThhZDQtNWVmNzViMmMzYjdkIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6cHZ2aWV3ZXIifQ.c92qJ0g3X3uHebJGrXR5hnvSEKWRqHm1rn1JyG3DyIsOWFtb_FFvmv4QXXGurHkd0vRSIZsQuHZPp66-XA0MpQsBUG-DB9ahkwv7BDXOOuZW-MGbi0pGqTUDCuW31BTUX5EjaIGrI0IHVJt054wCyElgjcBJFTwlaHEV2PkYIt_EDQL2tOhgaYRns2qfpI7korqbAu-zl9AJsn3Dpe-s0uXCCppEzSem46jAa5vwOIKWqLiXnEX4BCNFyETc5uqy2it6q6z5yBaYspuF98C3kfqyRR6rlzr4OrA0NpSYaQn9VvyTsyHjhzNvEw7apIF6sPEFvKWgH0K4Eekgb6BsGQ
+root@controlplane ~ ➜  k describe clusterrolebindings.rbac.authorization.k8s.io pvviewer-role-binding 
+Name:         pvviewer-role-binding
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  ClusterRole
+  Name:  pvviewer-role
+Subjects:
+  Kind            Name      Namespace
+  ----            ----      ---------
+  ServiceAccount  pvviewer  default
 ```
+
+<br/>
+
+- `run` 명령어로 파드를 생성한다.
+
+```jsx
+root@controlplane ~ ➜  k run pvviwer --image=redis --serviceaccount=pvviewer
+pod/pvviwer created
+```
+
+<br/>
+
+- `get -o yaml`명령어로 파드가 정상적으로 생성되었는지 확인하고 상세 내용을 확인한다.
+
+```jsx
+root@controlplane ~ ➜  k get pod pvviwer -o yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2022-05-19T12:14:12Z"
+  labels:
+    run: pvviwer
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:containers:
+          k:{"name":"pvviwer"}:
+            .: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:serviceAccount: {}
+        f:serviceAccountName: {}
+        f:terminationGracePeriodSeconds: {}
+    manager: kubectl-run
+    operation: Update
+    time: "2022-05-19T12:14:12Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.50.192.1"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2022-05-19T12:14:22Z"
+  name: pvviwer
+  namespace: default
+  resourceVersion: "1467"
+  uid: 249d98de-dba2-401e-9c07-f9d3af226327
+spec:
+  containers:
+  - image: redis
+    imagePullPolicy: Always
+    name: pvviwer
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: pvviewer-token-spnjk
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: node01
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: pvviewer
+  serviceAccountName: pvviewer
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: pvviewer-token-spnjk
+    secret:
+      defaultMode: 420
+      secretName: pvviewer-token-spnjk
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2022-05-19T12:14:12Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2022-05-19T12:14:22Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2022-05-19T12:14:22Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2022-05-19T12:14:12Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://e3094f963d230b97ad0433c40c9ad2ee8b1c99ea7fc19f7289bbf2e84eecb05e
+    image: redis:latest
+    imageID: docker-pullable://redis@sha256:ad0705f2e2344c4b642449e658ef4669753d6eb70228d46267685045bf932303
+    lastState: {}
+    name: pvviwer
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2022-05-19T12:14:22Z"
+  hostIP: 10.28.158.3
+  phase: Running
+  podIP: 10.50.192.1
+  podIPs:
+  - ip: 10.50.192.1
+  qosClass: BestEffort
+  startTime: "2022-05-19T12:14:12Z"
+```
+
+- 서비스 어카운트 및 서비스 어카운트 이름이 제대로 설정되었는지 확인한다.
 
 <br/><br/>
 
