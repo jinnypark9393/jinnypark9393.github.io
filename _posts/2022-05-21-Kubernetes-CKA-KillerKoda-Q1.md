@@ -19,7 +19,7 @@ last_modified_at: 2022-05-21
 
 <br/><br/>
 
-# KillerKoda란?
+# 1. KillerKoda란?
 
 CKA(Certified Kubernetes Administrator) 시험을 신청하게 되면 Killer.sh 이라는 모의 시험 환경이 제공되는데, 이번에 시험을 신청해보니 Killer.sh 외에도 Killer.sh을 만든 팀에서 KillerKoda라는 실습환경도 제공하고 있어 한 번 풀어보았다.
 
@@ -27,7 +27,7 @@ CKA(Certified Kubernetes Administrator) 시험을 신청하게 되면 Killer.sh 
 
 [Killer.sh 과 KillerKoda의 차이점](https://killercoda.com/killer-shell)은 아래와 같다.
 
-### [Killer.sh]
+## [Killer.sh]
 
 - 시험환경과 유사한 인터페이스를 제공하는 모의고사
 - CKA 시험을 신청했을 때 접속할 수 있다
@@ -38,7 +38,7 @@ CKA(Certified Kubernetes Administrator) 시험을 신청하게 되면 Killer.sh 
 
 <br/>
 
-### [KillerKoda]
+## [KillerKoda]
 
 - CKA 실제 시험과는 다소 다른 인터페이스
 - 시간 제한 없이 누구나 무료로 이용할 수 있다
@@ -52,7 +52,8 @@ CKA(Certified Kubernetes Administrator) 시험을 신청하게 되면 Killer.sh 
 
 <br/><br/>
 
-# Q1. Vim Setup
+
+# 2. Vim Setup
 
 k8s 시험에서 YAML을 편집할 때의 중요한 설정에 대해 알아보자.
 
@@ -84,7 +85,7 @@ set shiftwidth=2
 
 <br/><br/>
 
-### 설명
+## 설명
 
 Vim을 오픈할때마다 항상 현재 사용자로서 위의 세팅들이 적용될 것이다.
 
