@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Kubernetes/CKA]KillerKoda Q3. Apiserver Misconfigured"
-excerpt: "API서버가 뜨지 않을 경우, kubelet(/var/log/syslog)과 api서버 자체 설정, etcd 파드 설정 등을 살펴보자"
+excerpt: "API서버가 뜨지 않을 경우, kubelet(/var/log/syslog)과 api서버 자체 설정, etcd 파드 설정 등을 살펴보자"
 
 categories:
 - DevOps

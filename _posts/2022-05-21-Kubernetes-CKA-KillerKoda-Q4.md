@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Kubernetes/CKA]KillerKoda Q4. Application Misconfigured"
-excerpt: "디플로이먼트(Deployment) 등 애플리케이션에 이슈가 있을 경우, describe 혹은 logs 명령어로 에러가 발생한 부분을 살펴보자."
+excerpt: "디플로이먼트(Deployment) 등 애플리케이션에 이슈가 있을 경우, describe 혹은 logs 명령어로 에러가 발생한 부분을 살펴보자."
 
 categories:
 - DevOps
