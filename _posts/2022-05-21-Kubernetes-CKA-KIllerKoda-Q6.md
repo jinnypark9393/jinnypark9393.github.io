@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Kubernetes/CKA]KillerKoda Q7. Ingress Create"
-excerpt: "애플리케이션의 인그레스(Ingress)를 생성해보자"
+excerpt: "컨피그맵(ConfigMap)을 명령형, 선언형으로 생성해보자"
 
 categories:
 - DevOps
@@ -19,24 +19,21 @@ last_modified_at: 2022-05-21
 
 <br/><br/>
 
-(참고: 문제가 생성되다 중단된 듯 하다. 문제에서는 서비스 까지만 생성하도록 안내되어있다.)
+# Q6. 파드(POD)에서의 컨피그맵(ConfigMap) 접근
 
-<br/><br/>
-
-# 1. 인그레스(Ingress) 생성
-
-`world` 네임스페이스에 기존 두 개 디플로이먼트(deployment)가 존재하는데, Ingress를 통해 접근 가능해야한다.
-
-<br/>
-
-먼저 두 개의 디플로이먼트를 위해 포트 80을 사용하는 서비스(Service)들을 생성한다. 각 서비스는 디플로이먼트와 동일한 이름이어야한다.
+1. `tree=trauerweide`라는 내용을 갖고있는 `trauerweide` 라는 이름의 ConfigMap 을 생성하자
+2. `/root/cm.yaml` 로 ConfigMap을 생성하자
 
 <br/><br/>
 
 ## 팁
 
 ```
-k expose deploy -h
+# 신규 ConfigMap 생성
+kubectl create cm trauerweide -h
+
+# 파일에서 ConfigMap 생성
+kubectl create -f ...
 ```
 
 <br/><br/>
@@ -44,8 +41,9 @@ k expose deploy -h
 ## 해결 방법
 
 ```
-k -n world expose deploy europe --port 80
-k -n world expose deploy asia --port 80
+kubectl create cm trauerweide --from-literal tree=trauerweide
+
+k create -f /root/cm.yaml
 ```
 
-<br/><br/>
+<br/>
