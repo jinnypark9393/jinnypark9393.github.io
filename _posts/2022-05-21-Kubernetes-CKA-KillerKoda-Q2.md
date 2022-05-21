@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Kubernetes/CKA]KillerKoda Q2. Apiserver Crash"
-excerpt: "YAML을 보다 더 편하게 편집할 수 있도록 Vim을 설정해보자"
+excerpt: "API서버에 장애가 있을 경우 /var/log/ 혹은 crictl ps, crictl logs, journalctl 등의 명령어를 활용해 트러블슈팅을 할 수 있다"
 
 categories:
 - DevOps
