@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Storage]NAS/CIFS/NFS 개념"
-excerpt: "패스트캠퍼스 캐시백 챌린지 51일차: 한 번에 끝내는 파이썬 웹개발 초격차 패키지 Online"
+excerpt: "💡 NAS/CIFS/NFS 세 가지 모두 네트워크를 통해 여러 사용자가 데이터를 주고받기 위해 만들어진 기술들이다. CIFS는 윈도우/유닉스에서의 분산 파일 시스템을 위한 프로토콜, NFS는 리눅스/유닉스에서의 분산 파일 시스템을 위한 프로토콜이며, NAS는 두 프로토콜의 OS에 종속적이라는 한계점을 극복하는 기술이다."
 
 categories:
 - DevOps
@@ -70,7 +70,7 @@ NAS, CIFS, NFS 개념에 대해 알아보기 전 먼저 파일서버에 대해 �
 
 ## 2. CIFS(Common Interest File System)란?
 
-### 1. SMB****(Server Message Block)****란?
+### 1. SMB(Server Message Block)란?
 
 - **Server Message Block**의 약어
 - 마이크로소프트(Microsoft)와 인텔(Intel)에서 개발
