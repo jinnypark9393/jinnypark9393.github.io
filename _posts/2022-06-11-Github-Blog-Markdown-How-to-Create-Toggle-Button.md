@@ -29,7 +29,7 @@ last_modified_at: 2022-06-11
 
 <br/>
 
-# 1. <details>를 이용한 Toggle/Expander Control 예시
+# 1. `<details>`를 이용한 Toggle/Expander Control 예시
 
 ```markdown
 <details>
@@ -49,8 +49,10 @@ last_modified_at: 2022-06-11
 # 2. 출력 예시
 
 <details>
-<summary>접었을 때 보이는 내용</summary>
+<summary>접었을 때 보이는 내용(Click!)</summary>
 <div markdown="1">
+
+펼쳤을 때 보이는 내용입니다.
 
 펼쳤을 때 보이는 내용입니다.
 
