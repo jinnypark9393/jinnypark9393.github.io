@@ -22,7 +22,7 @@ last_modified_at: 2022-06-15
 
 - 원문: [https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/](https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/)
 
-이 가이드는 쿠버네티스에 배포되었으나 제대로 동작하지 않는 애플리케이션을 디버깅하는 유저들을 돕기 위한 것이다. 이 문서는 클러스터를 디버깅하고 싶어하는 사람들을 위한 가이드가 아니다. 클러스터 디버깅을 위해서는 [이 가이드](https://kubernetes.io/docs/tasks/debug/debug-cluster/)를 확인하라.
+이 가이드는 쿠버네티스에 배포되었으나 제대로 동작하지 않는 애플리케이션을 디버깅하는 유저들을 돕기 위한 것이다. 이 문서는 클러스터를 디버깅하고 싶어하는 사람들을 위한 가이드가 아니다. 클러스터 디버깅을 위해서는 [이 가이드](https://kubernetes.io/docs/tasks/debug/debug-cluster/)를 확인하자.
 
 # 문제를 진단
 
@@ -34,7 +34,7 @@ last_modified_at: 2022-06-15
 
 ## 파드 디버그
 
-파드를 디버깅할 떄의 첫 단계는 파드를 들여보는 것이다. 파드의 현재 상태와 최근 이벤트들을 다음 명령어로 확인한다.
+파드를 디버깅할 떄의 첫 단계는 파드를 살펴보는 것이다. 파드의 현재 상태와 최근 이벤트들을 다음 명령어로 확인하자.
 
 ```bash
 kubectl describe pods ${POD_NAME}
@@ -48,8 +48,8 @@ kubectl describe pods ${POD_NAME}
 
 만약 파드가 `Pending` 상태에 빠져 있다면, 이것은 노드에 스케줄링 될 수 없다는 뜻이다. 일반적으로 이것은 어떠한 형태로든 스케줄링을 막는 충분치 않은 리소스가 있기 때문이다. 위의 `kubectl describe …` 명령어의 결과를 살펴본다. 스케줄러로부터 왜 파드가 스케줄 되지 못했는지 메시지가 있을 것이다. 이유들은 다음을 포함한다.
 
-- **충분한 리소스를 갖고있지 않다**: 클러스터의 CPU 혹은 메모리 공급을 소진했을 수 있다. 이 경우 파드를 삭제하거나, 리소스 요청을 조정하거나, 클러스터에 신규 노드를 추가해야한다. 더 많은 정보를 위해 [컴퓨팅 리소스 문서](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)를 확인한다.
-- `**hostPort` 를 사용중이다**: 파드를 `hostPort` 에 바인딩한 경우 파드가 스케줄 될 수 있는 개수가 한정된다. 대부분의 경우, `hostPort` 는 불필요하므로, 파드를 노출하기 위해 서비스 오브젝트를 사용해보라. 만약 `hostPort`가 정말 필요할 경우 쿠버네티스 클러스터의 노드 수만큼만 파드를 스케줄링할 수 있다.
+- **충분한 리소스를 갖고있지 않다**: 클러스터의 CPU 혹은 메모리 공급을 소진했을 수 있다. 이 경우 파드를 삭제하거나, 리소스 요청을 조정하거나, 클러스터에 신규 노드를 추가해야한다. 더 많은 정보를 위해 [컴퓨팅 리소스 문서](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)를 확인하자.
+- **`hostPort` 를 사용중이다**: 파드를 `hostPort` 에 바인딩한 경우 파드가 스케줄 될 수 있는 개수가 한정된다. 대부분의 경우, `hostPort` 는 불필요하므로, 파드를 노출하기 위해 서비스 오브젝트를 사용해보자. 만약 `hostPort`가 정말 필요할 경우 쿠버네티스 클러스터의 노드 수만큼만 파드를 스케줄링할 수 있다.
 
 ## 파드가 여전히 waiting 상태
 
@@ -57,7 +57,7 @@ kubectl describe pods ${POD_NAME}
 
 - 이미지 이름이 올바른지 확인한다.
 - 이미지를 레지스트리로 푸쉬했는가?
-- 이미지를 당겨올 수 있는지 여부를 보기 위해 매뉴얼로 이미지를 당겨오라. 만약 PC의 도커를 사용할 경우, `docker pull <image>` 를 실행하라.
+- 이미지를 당겨올 수 있는지 여부를 보기 위해 매뉴얼로 이미지를 당겨오자. 만약 PC의 도커를 사용할 경우, `docker pull <image>` 를 실행하자.
 
 ## 파드가 충돌했거나 unhealthy
 
@@ -79,7 +79,7 @@ pods/mypod
 
 ## 레플리케이션 컨트롤러 디버그
 
-레플리케이션 컨트롤러는 꽤 직관적이다. 파드를 생성할 수도, 생성하지 못할수도 있다. 만약 레플리케이션 컨트롤러가 파드를 생성하지 못한다면, [위의 지시](https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/#debugging-pods)를 따라 파드를 디버그하라.
+레플리케이션 컨트롤러는 꽤 직관적이다. 파드를 생성할 수도, 생성하지 못할수도 있다. 만약 레플리케이션 컨트롤러가 파드를 생성하지 못한다면, [위의 지시](https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/#debugging-pods)를 따라 파드를 디버그하자.
 
 또한 `kubectl describe rc ${CONTROLLER_NAME}` 을 사용해 레플리케이션 컨트롤러에 내재된 이벤트를 확인할 수 있다.
 
@@ -119,7 +119,7 @@ kubectl get pods --selector=name=nginx,type=frontend
 
 ## 네트워크 트래픽이 포워딩 되지 않음
 
-더 많은 정보를 위해 [서비스 디버그](https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/)를 확인하라.
+더 많은 정보를 위해 [서비스 디버그](https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/)를 확인하자.
 
 # 다음 내용
 
