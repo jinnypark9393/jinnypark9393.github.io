@@ -21,7 +21,7 @@ last_modified_at: 2022-06-16
 
 # 1. 배경 상황
 
-컨테이너 전환 프로젝트 진행 중 운영 파드들에는 리소스 사용량이 증가하면 스케일아웃(scale-out)을 HPA를 설정해두었었는데, HPA에서 일부 파드의 현재 메트릭을 수집하지 못해 `Unknown` 상태로 떠있게 되었다. 이렇게 될 경우 실제 사용 HPA에서 설정해 둔 리소스의 임계값을 넘게 되어도 오토 스케일링이 작동하지 않게되는 문제가 발생한다.
+컨테이너 전환 프로젝트 진행 중 운영 파드들에는 리소스 사용량이 증가하면 스케일아웃(scale-out)을 하도록 HPA를 설정해두었었는데, HPA에서 일부 파드의 현재 메트릭을 수집하지 못해 `Unknown` 상태로 떠있게 되었다. 이렇게 될 경우 실제 사용 HPA에서 설정해 둔 리소스의 임계값을 넘게 되어도 오토 스케일링이 작동하지 않게되는 문제가 발생한다.
 
 <br/>
 
@@ -35,7 +35,7 @@ last_modified_at: 2022-06-16
 
 <br/>
 
-## 1. Deployment/ReplicationController/Statefulset의 replica = 0인 경우
+## 1. Deployment, ReplicationController, Statefulset의 replica가 0인 경우
 
 HPA는 쿠버네티스의 metrics-server로부터 받은 현재 리소스 사용량 데이터를 기준으로 오토스케일링을 진행하게 되는데, replica가 0으로 Pod가 아예 뜨지 않은 경우 사용량 데이터를 집계할 대상이 존재하지 않기 때문에 현재 리소스 사용량이 Unknown 상태가 된다.
 
@@ -49,7 +49,7 @@ HPA는 쿠버네티스의 metrics-server로부터 받은 현재 리소스 사용
 
 ## 2. Pod의 requested CPU/memory = 0이거나 존재하지 않는 경우
 
-두번째 경우가 이번에 경험한 상황인데, Metrics Server에서는 requested resource, HPA를 설정할 때 최소 리소스 요청값인 `**requested` 항목의 값이 존재하지 않거나 0인 경우**, 메트릭 서버에서 현재 메트릭을 수집하지 않게 되어 HPA에서의 현재 리소스 사용률이 `Unknown`으로 표시된다(상세 내용은 [링크 참조](https://github.com/kubernetes-sigs/metrics-server/blob/master/KNOWN_ISSUES.md#hpa-is-unable-to-get-resource-utilization)).
+두번째 경우가 이번에 경험한 상황인데, Metrics Server에서는 requested resource, HPA를 설정할 때 최소 리소스 요청값인 **`requested` 항목의 값이 존재하지 않거나 0인 경우**, 메트릭 서버에서 현재 메트릭을 수집하지 않게 되어 HPA에서의 현재 리소스 사용률이 `Unknown`으로 표시된다(상세 내용은 [링크 참조](https://github.com/kubernetes-sigs/metrics-server/blob/master/KNOWN_ISSUES.md#hpa-is-unable-to-get-resource-utilization)).
 
 <br/>
 
@@ -70,7 +70,9 @@ failed to get memory utilization: missing request for cpu
 
 <br/>
 
-내가 requested 리소스를 0으로 줄인 이유는 노드에 할당된 파드들의 requested cpu의 총 합에 새로 생성한 Pod의 requested cpu를 더했을 때 노드에서 수용가능한 cpu를 넘어섰기 때문이다. requested cpu를 1로 설정했을 때 pod가 노드에 스케줄 되지 못하고 pending 상태에 빠졌기 때문에 임시로 0으로 줄인 것이다. 하지만 쿠버네티스에서는 [cpu단위를 밀리코어 기준으로도 설정할 수 있어](https://kubernetes.io/ko/docs/concepts/configuration/manage-resources-containers/#:~:text=CPU%20%EB%A6%AC%EC%86%8C%EC%8A%A4%20%EB%8B%A8%EC%9C%84,%EA%B0%80%EC%83%81%20%EC%BD%94%EC%96%B4%20%EC%97%90%20%ED%95%B4%EB%8B%B9%ED%95%9C%EB%8B%A4), **0 대신 500m 등의 형식으로 입력하여 현재 리소스 사용량 메트릭을 메트릭서버가 수집할 수 있도록 할 수 있다**(물론 노드 리소스가 지속적으로 부족할 경우 불필요하게 노드 리소스를 점유하고 있는 Pod나 다른 리소스가 없는지, 혹은 노드 용량 자체를 늘려야 할지에 대한 고민이 필요할 것이다).
+내가 requested 리소스를 0으로 줄인 이유는 노드에 할당된 파드들의 requested cpu의 총 합에 새로 생성한 Pod의 requested cpu를 더했을 때 노드에서 수용가능한 cpu를 넘어섰기 때문이다. requested cpu를 1로 설정했을 때 pod가 노드에 스케줄 되지 못하고 pending 상태에 빠졌기 때문에 임시로 0으로 줄인 것이다.
+
+하지만 쿠버네티스에서는 [cpu단위를 밀리코어 기준으로도 설정할 수 있어](https://kubernetes.io/ko/docs/concepts/configuration/manage-resources-containers/#:~:text=CPU%20%EB%A6%AC%EC%86%8C%EC%8A%A4%20%EB%8B%A8%EC%9C%84,%EA%B0%80%EC%83%81%20%EC%BD%94%EC%96%B4%20%EC%97%90%20%ED%95%B4%EB%8B%B9%ED%95%9C%EB%8B%A4), **0 대신 500m 등의 형식으로 입력하여 현재 리소스 사용량 메트릭을 메트릭서버가 수집할 수 있도록 할 수 있다**(물론 노드 리소스가 지속적으로 부족할 경우 불필요하게 노드 리소스를 점유하고 있는 Pod나 다른 리소스가 없는지, 혹은 노드 용량 자체를 늘려야 할지에 대한 고민이 필요할 것이다).
 
 <br/>
 
