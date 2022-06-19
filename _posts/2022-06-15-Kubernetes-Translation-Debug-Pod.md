@@ -18,6 +18,9 @@ last_modified_at: 2022-06-15
 ---
 
 <br/><br/>
+
+* 참고: 쿠버네티스 한글화에 참여하려고 번역했던 문서이나 중복으로 업로드 하지 않음.
+
 # [Kubernetes]번역 - 파드 디버그
 
 - 원문: [https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/](https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/)
