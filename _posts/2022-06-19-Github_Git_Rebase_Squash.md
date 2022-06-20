@@ -1,7 +1,7 @@
 ---
 
 published: true
-title:  "[[Github/Git]여러 개의 커밋을 한개로 합치기(git rebase -i HEAD~3/git squash)"
+title:  "[Github/Git]여러 개의 커밋을 한개로 합치기(git rebase -i HEAD~3/git squash)"
 excerpt: "git rebase -i로 여러 개의 커밋을 한개로 합칠 수 있으며, rebase 후에는 --force 옵션을 사용해 push하도록 하자. MacOS의 경우에는 icloud 공유폴더에서 작업하지 않도록 하자"
 
 categories:
@@ -21,7 +21,7 @@ last_modified_at: 2022-06-19
 
 # 1. 배경 상황
 
-올해 2022년 오픈소스 컨트리뷰션 아카데미에 [쿠버네티스 한글화 프로젝트](https://www.oss.kr/contribution_22_projects/show/c70482f2-060e-4820-a46c-32c4a4c0584c)가 추가되었다는 소식을 듣고 헐레벌떡 신청했는데, 될지 안될지는 모르지만 컨트리뷰션 아카데미 가이드에 기재된 내용을 보고 예습 겸 PR을 올려보면 좋을 듯 해 쿠버네티스 공식문서의 [한글화 가이드](https://kubernetes.io/ko/docs/contribute/localization_ko/)와 유투브 영상을 보고 따라서 PR을 올렸었다(두근두근).
+올해 2022년 오픈소스 컨트리뷰션 아카데미에 [쿠버네티스 한글화 프로젝트](https://www.oss.kr/contribution_22_projects/show/c70482f2-060e-4820-a46c-32c4a4c0584c)가 추가되었다는 소식을 듣고 헐레벌떡 신청했다. 신청하고나니 될지 안될지는 모르지만 컨트리뷰션 아카데미 가이드에 기재된 내용을 보고 예습 겸 PR을 올려보면 좋을 듯 해 쿠버네티스 공식문서의 [한글화 가이드](https://kubernetes.io/ko/docs/contribute/localization_ko/)와 유투브 영상을 보고 따라서 PR을 올려보았다(두근두근).
 
 <br/>
 
@@ -35,7 +35,7 @@ last_modified_at: 2022-06-19
 
 <br/>
 
-다행히 리뷰어님께서 친절히 해결 방법을 알려주셔서 git + squash라는 키워드로 검색해보니, git squash라는 명령어가 따로 존재하는 건 아니고, interactive rebase의 옵션 중 하나가 squash인 것이었다.
+다행히 리뷰어님께서 친절히 해결 방법을 알려주셔서 검색해보니, git squash라는 명령어가 따로 존재하는 건 아니고, interactive rebase의 옵션 중 하나가 squash였다.
 
 <br/><br/>
 
@@ -49,7 +49,7 @@ last_modified_at: 2022-06-19
 
 <br/>
 
-예를 들어, 아래와 같이 2개의 커밋내역이 존재할때, 이 커밋내역들을 하나로 합쳐보자.
+아래와 같이 2개의 커밋내역이 존재할때, 이 커밋들을 하나로 합쳐보자.
 
 ```bash
 $ git log --pretty=oneline
