@@ -1,11 +1,11 @@
 ---
 title:  "[ETC]Amazon Leadership Principle이란(LP)?"
-excerpt: "티스토리에서 깃허브로"
+excerpt: "Amazon Leadership Principle(아마존 리더십 원칙)이란 아마존에서 만든 것으로 총 16개의 원칙이 존재한다2"
 
 categories:
   - ETC
 tags:
-  - [GithubPages, 깃허브페이지, 깃허브블로그, 개발자블로그비교]
+  - [아마존기업문화, AWS기업문화, 아마존면접, AWS면접, AWS코리아면접, LP면접, AWSSA면접]
 
 toc: true
 toc_sticky: true
