@@ -1,6 +1,6 @@
 ---
-title:  "[ETC]Amazon Leadership Principle이란(LP)?"
-excerpt: "Amazon Leadership Principle(아마존 리더십 원칙)이란 아마존에서 만든 것으로 총 16개의 원칙이 존재한다2"
+title:  "[ETC]Amazon Leadership Principle(LP)이란?"
+excerpt: "Amazon Leadership Principle(아마존 리더십 원칙)이란 아마존에서 만든 것으로 총 16개의 원칙이 존재한다"
 
 categories:
   - ETC
