@@ -1,8 +1,8 @@
 ---
 
 published: true
-title:  "[Kubernetes/CKA]KillerKoda Q7. Ingress Create"
-excerpt: "컨피그맵(ConfigMap)을 명령형, 선언형으로 생성해보자"
+title:  "[Kubernetes/CKA]KillerKoda Q8. NetworkPolicy"
+excerpt: "네트워크 폴리시에서 특정 네임스페이스의 트래픽을 허용하도록 설정하자"
 
 categories:
 - DevOps
