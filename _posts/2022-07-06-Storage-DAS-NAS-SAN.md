@@ -25,13 +25,16 @@ DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각 스토리
 
 컴퓨터의 데이터를 저장하는 역할을 수행한다. 컴퓨터 내부의 하드디스크와 유사한 역할을 수행한다고 생각하면 된다.
 
+<br/><br/>
+
+
 # 1. DAS(Data Attached Storage)
 
 - 서버와 스토리지가 **물리적으로 직접 연결**되는 방식.
-- 네트워크상의 다른 서버는 저장된 데이터에 액세스 불가하다.
+- 네트워크상의 다른 서버는 저장된 데이터에 액세스가 불가하다.
 - 컴퓨터에 연결하는 외장 하드와 비슷한 개념이라고 생각하면 된다.
     
-    ![2022-07-06-Storage-DAS-NAS-SAN1](/assets/images/2022-07-06-Storage-DAS-NAS-SAN/2022-07-06-Storage-DAS-NAS-SAN1.png)
+    ![2022-07-06-Storage-DAS-NAS-SAN1](/assets/images/2022-07-06-Storage-DAS-NAS-SAN/2022-07-06-Storage-DAS-NAS-SAN2.png)
     
 
 - 서버와 스토리지가 FC(Fiber Channel) cable로 직접 연결된다.
@@ -42,6 +45,8 @@ DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각 스토리
 - 단점
     - 연결 수에 한계가 있다.
 
+<br/><br/>
+
 # 2. NAS(Network Attached Storage)
 
 - DAS가 직접 연결된 것이라면 NAS는 LAN방식의 네트워크를 통해 연결된다.
@@ -49,7 +54,7 @@ DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각 스토리
 - LAN은 TCP/IP 프로토콜, 저장장치는 SCSI를 사용하기 때문에 중계 역할을 하는 파일서버가 필요하다.
 - NFS 프로토콜 등을 통해 접속한다.
     
-    ![2022-07-06-Storage-DAS-NAS-SAN1](/assets/images/2022-07-06-Storage-DAS-NAS-SAN/2022-07-06-Storage-DAS-NAS-SAN2.png)
+    ![2022-07-06-Storage-DAS-NAS-SAN3](/assets/images/2022-07-06-Storage-DAS-NAS-SAN/2022-07-06-Storage-DAS-NAS-SAN3.png)
     
 
 - Server - LAN - Storage 구조
@@ -65,6 +70,7 @@ DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각 스토리
     - 파일시스템을 공유하기 때문에 보안에 비교적 취약하다.
     - 백업이 어렵다.
     
+<br/><br/>
 
 # 3. SAN(Storage Network Area)
 
@@ -77,7 +83,7 @@ DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각 스토리
     - FC-SAN: 광 케이블로 통신하는 FCqㅏㅇ식. 광 케이블을 사용하므로 10km이내에서만 사용한다.
     - IP-SAN: Internet Protocol 방식을 채용해 IP통신이 가능한 범위라면 거리 제한이 없다.
     
-    ![2022-07-06-Storage-DAS-NAS-SAN3](/assets/images/2022-07-06-Storage-DAS-NAS-SAN/2022-07-06-Storage-DAS-NAS-SAN3.png)
+    ![2022-07-06-Storage-DAS-NAS-SAN1](/assets/images/2022-07-06-Storage-DAS-NAS-SAN/2022-07-06-Storage-DAS-NAS-SAN1.png)
     
 
 - Server - SAN - Storage 구조
