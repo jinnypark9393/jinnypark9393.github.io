@@ -5,7 +5,7 @@ title:  "[Storage]DAS, NAS, SAN이란? (정의, 차이점)"
 excerpt: "DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각 스토리지는 연결 방식에 차이가 있다"
 
 categories:
-- Programming
+- DevOps
 tags:
 - [인프라엔지니어, SRE, DevOps, 데브옵스엔지니어, 스토리지종류, 스토리지연결방식, DAS, NAS, SAN]
 
@@ -80,7 +80,7 @@ DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각 스토리
 - 이 때 스위치는 일반 네트워크 스위치 아닌 SAN 방식을 지원하는 FC(Fiber Channel) 스위치.
 - FC 케이블이라는 전용 케이블을 사용해 서버와 스토리지, 그리고 FC 스위치를 연결해 통신한다.
 - SAN 스위치의 종류
-    - FC-SAN: 광 케이블로 통신하는 FCqㅏㅇ식. 광 케이블을 사용하므로 10km이내에서만 사용한다.
+    - FC-SAN: 광 케이블로 통신하는 FC방식. 광 케이블을 사용하므로 10km이내에서만 사용한다.
     - IP-SAN: Internet Protocol 방식을 채용해 IP통신이 가능한 범위라면 거리 제한이 없다.
     
     ![2022-07-06-Storage-DAS-NAS-SAN1](/assets/images/2022-07-06-Storage-DAS-NAS-SAN/2022-07-06-Storage-DAS-NAS-SAN1.png)
