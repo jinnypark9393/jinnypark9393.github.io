@@ -2,7 +2,7 @@
 
 published: true
 title:  "[Storage]RAID란? (정의 및 종류)"
-excerpt: "DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각 스토리지는 연결 방식에 차이가 있다"
+excerpt: "RAID는 여러 물리디스크를 하나로 모아 하나의 논리적 드라이브로 만든 것이며, 일반적으로 RAID0, 1, 0+1, 5, 6 구성방식을 많이 사용한다"
 
 categories:
 - DevOps
