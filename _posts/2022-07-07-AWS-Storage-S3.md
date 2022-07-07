@@ -5,7 +5,7 @@ title:  "[AWS]S3(Simple Storage Service) 및 S3 Glacier란? (Block Storage, Obje
 excerpt: "Amazon S3는 업계 최고의 확장성, 데이터 가용성, 보안 및 성능을 제공하는 객체(object) 스토리지 서비스이다"
 
 categories:
-- DevOps
+- Cloud
 tags:
 - [인프라엔지니어, SRE, DevOps, 데브옵스엔지니어, 스토리지종류, 스토리지연결방식, AWSS3, S3종류, 블록스토리지, 오브젝트스토리지, 파일스토리지, 스토리지 종류 비교]
 
