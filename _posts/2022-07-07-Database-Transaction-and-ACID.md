@@ -7,7 +7,7 @@ excerpt: "DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각
 categories:
 - DevOps
 tags:
-- [인프라엔지니어, SRE, DevOps, 데브옵스엔지니어, databasetransaction, acid란, 데이터베이스트랜잭션이란, 데이터베이스트랜잭션이필요한이유]
+- [인프라엔지니어, SRE, DevOps, 데브옵스엔지니어, databasetransaction, acid란, 데이터베이스트랜잭션이란]
 
 toc: true
 toc_sticky: true
