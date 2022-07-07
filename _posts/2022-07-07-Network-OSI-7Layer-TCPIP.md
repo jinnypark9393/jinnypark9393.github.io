@@ -1,8 +1,8 @@
 ---
 
 published: true
-title:  "[Database]데이터베이스 트랜잭션(Database Transaction)과 ACID란?"
-excerpt: "DAS, NAS, SAN은 모두 대표적인 스토리지의 종류이며, 각 스토리지는 연결 방식에 차이가 있다"
+title:  "[Network]OSI 7 Layer, TCP/IP란?"
+excerpt: "OSI 7 Layer 모델이란 7개의 계층으로 통신 장치를 구분하고 계층이라는 형태로 독립시킨 모델이며, TCP/IP는 4계층으로 구성되었고 현재 인터넷 통신에 많이 쓰인다"
 
 categories:
 - DevOps
