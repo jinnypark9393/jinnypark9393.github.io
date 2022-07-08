@@ -1,8 +1,8 @@
 ---
 
 published: true
-title:  "[Network]IP(Internet Protocol)주소란?"
-excerpt: "글로벌 단위에서 장치간의 통신이 가능하도록 도와주는 논리적 주소로, 계층형 구조를 통해 장거리에 있는 다른 기기와 연결할 수 있게 해준다"
+title:  "[Network]쿠키(Cookie), 세션(Session), 캐시(Cache)란?"
+excerpt: "쿠키와 세션은 Stateful한 통신을 위해 사용되며, 쿠키는 브라우저에, 세션은 서버에 저장된다. 캐시는 재사용될 가능성이 있거나 용량이 큰 리소스를 임시로 저장해 렌더링 속도를 높인다."
 
 categories:
 - DevOps
