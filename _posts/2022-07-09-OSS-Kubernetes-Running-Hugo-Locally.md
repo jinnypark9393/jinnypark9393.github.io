@@ -5,7 +5,7 @@ title:  "[OSS/Kubernetes]Hugo를 사용하여 로컬에서 웹사이트 실행�
 excerpt: "Hugo를 로컬에서 실행하기 위해 npm, go, hugo를 설치한 뒤 make serve로 실행해준다"
 
 categories:
-- DevOps
+- OSS Contribution Academy
 tags:
 - [인프라엔지니어, SRE, DevOps, 데브옵스엔지니어, 오픈소스컨트리뷰션아카데미, 오픈소스컨트리뷰션아카데미후기, 쿠버네티스한글화, 오픈소스컨트리뷰션방법, 쿠버네티스문서한글화, hugo, hugo로컬빌드, hugo로컬실행]
 
