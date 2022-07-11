@@ -58,8 +58,8 @@ last_modified_at: 2022-07-10
 
     ![2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4](/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4.png)
         
-        - Files Changed 탭에서 이미 해당 문서의 파일이 포함되어있다면 한글화 작업이 끝난 것이니 다른 일감을 찾아보도록 하자.
-        - *참고: 내가 처음 PR을 올렸을 때는 이 부분을 확인하지 않고 냅다 번역부터 시작한 뒤에서야 이슈를 올려서 [헛고생](https://github.com/kubernetes/website/issues/34336)을 했었다😞(바보..). 한글화 작업을 시작하기 전에 1) 중복되지 않는지 꼭 확인하고 2) 이슈를 먼저 올려 내가 작업하고 있다는 사실을 다른 사람들에게 꼭 알리도록 하자*.
+    - Files Changed 탭에서 이미 해당 문서의 파일이 포함되어있다면 한글화 작업이 끝난 것이니 다른 일감을 찾아보도록 하자.
+    - *참고: 내가 처음 PR을 올렸을 때는 이 부분을 확인하지 않고 냅다 번역부터 시작한 뒤에서야 이슈를 올려서 [헛고생](https://github.com/kubernetes/website/issues/34336)을 했었다😞(바보임). 한글화 작업을 시작하기 전에 1) 중복되지 않는지 꼭 확인하고 2) 이슈를 먼저 올려 내가 작업하고 있다는 사실을 다른 사람들에게 꼭 알리도록 하자*.
 
 <br/>
 
