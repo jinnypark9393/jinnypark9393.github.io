@@ -25,7 +25,7 @@ last_modified_at: 2022-07-10
 
 # 1. 쿠버네티스 공식문서 한글화에 기여하는 방법(1)
 
-## 0. 사전 준비
+## 1. 사전 준비
 
 - [Github](https://github.com/) 에 가입한다.
 - Local PC에 [Git](http://git-scm.com/downloads)을 설치한다.
@@ -33,7 +33,7 @@ last_modified_at: 2022-07-10
 
 <br/><br/>
 
-## 1. kubernetes/website 레파지토리에 이슈 생성하기
+## 2. kubernetes/website 레파지토리에 이슈 생성하기
 
 쿠버네티스 문서 한글화 작업을 시작하기 전, 일감을 찾아보자.
 
@@ -95,5 +95,9 @@ last_modified_at: 2022-07-10
 <br/>
 
 이제 일감이 정해졌으니 다음 포스팅에서는 본격적으로 `kubernetes/website` 의 소스코드를 복사해 작업을 시작해보자.
+
+# 다음 포스팅
+
+- [쿠버네티스 공식문서 한글화에 기여하는 방법(2)소스코드 복사 & 번역하기](https://jinnypark9393.github.io/oss%20contribution%20academy/OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/)
 
 <br/><br/>
