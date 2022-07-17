@@ -91,7 +91,8 @@ last_modified_at: 2022-07-10
 <br/>
 
 - 아래 예시를 참고해 이슈를 작성한다.
-    - 제목: Translate `문서경로(예: tasks/debug/debug-cluster/monitor-node-health` into Korean
+    - 제목: [ko]Translate `문서경로(예: tasks/debug/debug-cluster/monitor-node-health` into Korean
+      - 참고: 나는 오픈소스 컨트리뷰션 아카데미에 참여하기 전 해당 Issue 및 PR을 완료했던 관계로 [ko]라는 prefix를 붙이지 않았지만, 한글화팀 멘토님께서 협업의 편의성을 위해 [ko]라는 prefix를 제목에 달아주는 것을 권장하셨으니 이 포스팅을 참고해서 작업하시는 분들께도 [ko]를 제목에 붙일 것을 권장한다.
     - 내용: 양식에 맞춰 작성한다(localization 작업이기 때문에 길게 작성할 필요는 없고, ‘한글화가 되지 않았기 때문’이라고 작성해주면 된다).
     
     ![2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6](/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6.png)
