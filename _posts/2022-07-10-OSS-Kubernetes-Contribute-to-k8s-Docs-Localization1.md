@@ -33,6 +33,15 @@ last_modified_at: 2022-07-10
 
 <br/><br/>
 
+# 쿠버네티스 공식문서 한글화에 기여하는 방법 시리즈
+
+- [쿠버네티스 공식문서 한글화에 기여하는 방법(1)사전준비 & 이슈 생성하기](https://jinnypark9393.github.io/oss%20contribution%20academy/OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/)
+- [쿠버네티스 공식문서 한글화에 기여하는 방법(2)소스코드 복사 & 번역하기](https://jinnypark9393.github.io/oss%20contribution%20academy/OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2/)
+- 쿠버네티스 공식문서 한글화에 기여하는 방법(3)PR(Pull Request)생성 & CLA 서명 (작성중)
+- 쿠버네티스 공식문서 한글화에 기여하는 방법(4)리뷰 내용 반영 & 승인 완료 (작성중)
+
+<br/><br/>
+
 # 1. 쿠버네티스 공식문서 한글화에 기여하는 방법(1)
 
 ## 1. 사전 준비
