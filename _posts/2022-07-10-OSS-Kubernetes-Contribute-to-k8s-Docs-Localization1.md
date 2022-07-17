@@ -21,6 +21,16 @@ last_modified_at: 2022-07-10
 
 이 포스팅은 유투브에 올라온 [Kubernetes 오픈소스 컨트리뷰션 방법 소개 (한글화 기여를 통해 쿠버네티스에 참여하기, CNCG2020 발표)](https://www.youtube.com/watch?v=2JiKkPv_IGs) 및 [[Youtube]초간단 쿠버네티스 문서 한글화 시작 가이드](https://www.youtube.com/watch?v=OTl8HBjxIhc) 영상, [Kubernetes Contributor Cheatsheat](https://www.kubernetes.dev/docs/contributor-cheatsheet/), [쿠버네티스 문서 한글화 가이드](https://kubernetes.io/ko/docs/contribute/localization_ko/) 문서를 참조하여 직접PR을 올린 경험을 토대로 작성 된 자료입니다. 혹시 잘못된 부분이 있을 경우에는 메일(jinnypark9393@gmail.com)로 알려주시면 반영하도록 하겠습니다 😊
 
+<br/>
+
+참고로 쿠버네티스 공식 문서에 공헌하는 방법은
+
+- 한글화가 되지 않은 영문 페이지를 한국어로 번역
+- 한국어 페이지에서 오타 또는 틀린 내용의 수정
+- 영문 페이지에서 오타 또는 틀린 내용의 수정
+
+등 여러 방법이 있지만, 나는 첫 번째 방법인 한글화가 되지 않은 영문 페이지를 한국어로 번역하는 방법에 대해 설명하도록 하겠다.
+
 <br/><br/>
 
 # 1. 쿠버네티스 공식문서 한글화에 기여하는 방법(1)
