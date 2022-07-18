@@ -66,14 +66,73 @@ Documents git:(master) ✗ git clone <복사한 저장소 URL>
 
 <br/>
 
-clone이 완료되면, 해당 디렉터리로 이동(`cd` 명령어 이용)해 작업해야할 브랜치를 잘 받아왔는지 확인한다.
+clone이 완료되면, clone한 website 디렉터리로 이동(`cd` 명령어 이용)해 작업해야할 브랜치를 잘 받아왔는지 확인한다.
 
 ```sql
 ➜  Documents git:(master) ✗ cd website
 ➜  website git:(dev-1.24-ko.1) ✗ 
 ```
 
+<br/>
+
 - 당시 작업 브랜치였던 `dev-1.24-ko.1` 로 기본 설정되어있음을 확인할 수 있다.
+
+<br/>
+
+이 다음으로는 내가 작업하는 브랜치를 다른 브랜치와 명확하게 구분하기 위해서 로컬 branch를 하나 새로 생성해준다.
+
+```python
+➜  website git:(dev-1.24-ko.1) ✗ git checkout -b jinnypark9393/monitor-node-heal
+th/v0.1
+Switched to a new branch 'jinnypark9393/monitor-node-health/v0.1'
+```
+
+<br/>
+
+- 작업 내역을 명확하게 알 수 있도록 `jinnypark9393/monitor-node-health/v0.1` 이라고 브랜치명을 명명했다.
+
+<br/>
+
+그리고 upstream을 추가해주는데, 브랜치를 한글화팀 작업 브랜치였던 `dev-1.24-ko.1`로 추가해준다(**2022년 7월 17일 현재 작업 브랜치는 dev-1.24-ko.2임에 주의**).
+
+<br/>
+
+- kubernetes/website 프로젝트를 upstream에 추가한다.
+    
+    ```python
+    ➜  website git:(jinnypark9393/monitor-node-health/v0.1) ✗ git remote add upstre
+    am https://github.com/kubernetes/website.git
+    ```
+    
+<br/>
+
+- upstream에 kubernetes/website가 잘 추가되었는지 확인한다.
+    
+    ```python
+    ➜  website git:(jinnypark9393/monitor-node-health/v0.1) ✗ git remote -v
+    origin	https://github.com/jinnypark9393/website.git (fetch)
+    origin	https://github.com/jinnypark9393/website.git (push)
+    upstream	https://github.com/kubernetes/website.git (fetch)
+    upstream	https://github.com/kubernetes/website.git (push)
+    ```
+    
+<br/>
+
+- upstream을 fetch한 뒤 rebase를 진행해 베이스를 최신화한다.
+    
+    ```python
+    ➜  website git:(jinnypark9393/debug-cluster-crictl/v0.1) ✗ git fetch upstream
+    remote: Enumerating objects: 7422, done.
+    remote: Counting objects: 100% (3778/3778), done.
+    remote: Compressing objects: 100% (218/218), done.
+    remote: Total 7422 (delta 3626), reused 3684 (delta 3560), pack-reused 3644
+    Receiving objects: 100% (7422/7422), 3.54 MiB | 2.61 MiB/s, done.
+    Resolving deltas: 100% (5878/5878), completed with 1401 local objects.
+    From https://github.com/kubernetes/website
+    ...(생략)...
+    ➜  website git:(jinnypark9393/debug-cluster-crictl/v0.1) ✗ git rebase upstream/dev-1.24-ko.1
+    Successfully rebased and updated refs/heads/jinnypark9393/monitor-node-health/v0.1.
+    ```
 
 <br/><br/>
 
