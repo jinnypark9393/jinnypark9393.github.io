@@ -32,7 +32,7 @@ No changes detected
 
 # 2. **‘No changes detected’** 에러 해결 방법
 
-구글링을 해보니 `makemigrations` 뒤에 앱 이름을 붙여주면 해결 된다고 한다.
+구글링을 해보니 `makemigrations` 뒤에 앱 이름을 명시해주면 해결 된다고 한다.
 
 ```python
 python manage.py makemigrations <해당 앱 이름>
@@ -40,7 +40,7 @@ python manage.py makemigrations <해당 앱 이름>
 
 <br/>
 
-하지만 강의에서는 따로 앱 이름이 명시되지 않아서 어떤 것이 앱 이름일까 고민하다가 다른 사람들이 위 명령어를 성공했을 때 터미널에 발생하는 메시지와, 강의에서 보이는 명령어 성공 메시지를 대조해서 아래와 같이 앱 이름을 추측하여 명령어를 다시 실행해보았다.
+강의에서는 따로 앱 이름이 명시되지 않아 다른 사람들이 위 명령어를 성공했을 때 터미널에 발생하는 메시지와, 강의에서 보이는 명령어 성공 메시지를 대조해서 아래와 같이 앱 이름을 추측하여 명령어를 다시 실행해보았다.
 
 ```python
 (venv) ➜  shrinkers git:(master) ✗ python manage.py makemigrations short
