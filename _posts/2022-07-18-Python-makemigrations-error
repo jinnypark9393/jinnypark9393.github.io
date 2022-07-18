@@ -1,7 +1,7 @@
 ---
 
 published: true
-title:  "[Python/Django]makemigrations 'No changes detected & No installed app with label’ 원인 및 해결"
+title:  "[Python/Django]makemigrations No changes detected & No installed app with label 원인 및 해결"
 excerpt: "No changes detected 에러가 발생했을 경우 앱 이름을 명시해주고, No installed app with label에러가 발생했을 경우 setting.py를 수정해주자"
 
 categories:
@@ -30,9 +30,9 @@ No changes detected
 
 <br/><br/>
 
-# 2. ‘**No changes detected’** 에러 해결 방법
+# 2. **‘No changes detected’** 에러 해결 방법
 
-구글링을 해보니 `makemigrations` 뒤에 앱 이름을 붙여주어야 해결 된다고 한다.
+구글링을 해보니 `makemigrations` 뒤에 앱 이름을 붙여주면 해결 된다고 한다.
 
 ```python
 python manage.py makemigrations <해당 앱 이름>
@@ -40,7 +40,7 @@ python manage.py makemigrations <해당 앱 이름>
 
 <br/>
 
-하지만 강의에서는 따로 앱 이름을 명시하지 않아서 어떤 것이 앱 이름일까 고민하다가 다른 사람들이 위 명령어를 성공했을 때 터미널에 발생하는 메시지와, 강의에서 보이는 명령어 성공 메시지를 대조해서 아래와 같이 앱 이름을 추측하여 명령어를 다시 실행해보았다.
+하지만 강의에서는 따로 앱 이름이 명시되지 않아서 어떤 것이 앱 이름일까 고민하다가 다른 사람들이 위 명령어를 성공했을 때 터미널에 발생하는 메시지와, 강의에서 보이는 명령어 성공 메시지를 대조해서 아래와 같이 앱 이름을 추측하여 명령어를 다시 실행해보았다.
 
 ```python
 (venv) ➜  shrinkers git:(master) ✗ python manage.py makemigrations short
@@ -50,11 +50,11 @@ No installed app with label 'shortener'.
 
 <br/>
 
-이제는 `No installed app with label ‘shortener'` 라는 에러가 발생했다.
+이제는 `No installed app with label ‘shortener'` 라는 에러가 발생한다.
 
 <br/><br/>
 
-# 3. ‘**No installed app with label**’ 에러 해결 방법
+# 3. **‘No installed app with label’** 에러 해결 방법
 
 에러메시지의 뜻을 풀이하면, ‘**설치된 앱 중에 ‘shortener’라는 레이블을 달고 있는 앱이 없다**’ 라는 뜻이다.
 
