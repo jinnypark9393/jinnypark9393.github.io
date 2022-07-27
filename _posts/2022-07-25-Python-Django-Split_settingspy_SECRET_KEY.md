@@ -31,14 +31,14 @@ Django 실습 내용을 Github 저장소에 업로드해서 소스코드를 관�
 
 이 SECRET_KEY는 [Django의 보안 관련 기능](https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-SECRET_KEY)에 사용하는 값으로, 다음과 같은 경우에 사용된다.
 
-- **`django.contrib.sessions.backends.cache`**가 아닌 다른 세션 백엔드를 사용하는 경우 혹은 기본 **`[get_session_auth_hash()](https://docs.djangoproject.com/en/1.11/topics/auth/customizing/#django.contrib.auth.models.AbstractBaseUser.get_session_auth_hash)`**를 사용하는 모든 [sessions](https://docs.djangoproject.com/en/1.11/topics/http/sessions/).
-- **`[CookieStorage](https://docs.djangoproject.com/en/1.11/ref/contrib/messages/#django.contrib.messages.storage.cookie.CookieStorage)`** 혹은 **`[FallbackStorage](https://docs.djangoproject.com/en/1.11/ref/contrib/messages/#django.contrib.messages.storage.fallback.FallbackStorage)`**를 사용하는 모든 [messages](https://docs.djangoproject.com/en/1.11/ref/contrib/messages/).
-- 모든 **`[PasswordResetView](https://docs.djangoproject.com/en/1.11/topics/auth/default/#django.contrib.auth.views.PasswordResetView)`** 토큰.
+- `django.contrib.sessions.backends.cache`가 아닌 다른 세션 백엔드를 사용하는 경우 혹은 기본 [get_session_auth_hash()](https://docs.djangoproject.com/en/1.11/topics/auth/customizing/#django.contrib.auth.models.AbstractBaseUser.get_session_auth_hash)를 사용하는 모든 [sessions](https://docs.djangoproject.com/en/1.11/topics/http/sessions/).
+- [CookieStorage](https://docs.djangoproject.com/en/1.11/ref/contrib/messages/#django.contrib.messages.storage.cookie.CookieStorage) 혹은 [FallbackStorage](https://docs.djangoproject.com/en/1.11/ref/contrib/messages/#django.contrib.messages.storage.fallback.FallbackStorage)를 사용하는 모든 [messages](https://docs.djangoproject.com/en/1.11/ref/contrib/messages/).
+- 모든 [PasswordResetView](https://docs.djangoproject.com/en/1.11/topics/auth/default/#django.contrib.auth.views.PasswordResetView) 토큰.
 - 다른 키가 제공되지 않는 [cryptographic signing](https://docs.djangoproject.com/en/1.11/topics/signing/) 에 사용된다.
 
 <br/>
 
-이 시크릿 키는 Django 프로젝트의 설정값을 모아놓은 `[settings.py](http://settings.py)` 에 저장되어있는데, 아래와 같이 키값이 그대로 파일에 들어가있어 공개된 저장소에 올릴 경우 시크릿 키 값이 그대로 노출이 된다.
+이 시크릿 키는 Django 프로젝트의 설정값을 모아놓은 `settings.py` 에 저장되어있는데, 아래와 같이 키값이 그대로 파일에 들어가있어 공개된 저장소에 올릴 경우 시크릿 키 값이 그대로 노출이 된다.
 
 ```python
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -118,7 +118,7 @@ print(SECRET_KEY)
 
 <br/>
 
-`[settings.py](http://settings.py)` 파일에서 새로운 모듈을 추가한 뒤, 하드코딩된 SECRET_KEY를 대체하는 코드를 추가한다.
+`settings.py` 파일에서 새로운 모듈을 추가한 뒤, 하드코딩된 SECRET_KEY를 대체하는 코드를 추가한다.
 
 ```bash
 import os, json
