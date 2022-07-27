@@ -198,7 +198,7 @@ def index(request):
 1 directory, 8 files
 ```
 
-`[urls.py](http://urls.py)` 파일에 다음과 같은 코드를 작성한다.
+`urls.py` 파일에 다음과 같은 코드를 작성한다.
 
 ```bash
 from django.urls import path
@@ -241,7 +241,7 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-[`http://127.0.0.1:8000/polls`](http://127.0.0.1:8000/polls/) 를 브라우저에 입력하면 polls의 index 뷰에 정의한 “Hello, world. You're at the polls index.” 가 보인다.
+`http://127.0.0.1:8000/polls`를 브라우저에 입력하면 polls의 index 뷰에 정의한 “Hello, world. You're at the polls index.” 가 보인다.
 
 `path()` 함수에는 필수 인수 `route` & `view`, 추가 옵션으로 `kwargs` & `name` 까지 총 4개의 인수가 전달된다.
 
@@ -249,12 +249,12 @@ Quit the server with CONTROL-C.
 
 - URL 패턴을 가진 문자열. 요청이 처리될 때 Django는 urlpatterns의 첫 패턴부터 일치하는 패턴을 찾을때까지 요청된 URL을 각 패턴과 리스트를 순서대로 비교한다.
 - 패턴은 GET, POST의 매개변수들, 혹은 도메인 이름을 색인하지 않는다.
-    - **`https://www.example.com/myapp/`**→ **`myapp/`** 만 바라본다.
-    - **`https://www.example.com/myapp/?page=3`**→ **`myapp/`**만 바라본다.
+    - `https://www.example.com/myapp/` → `myapp/` 만 바라본다.
+    - `https://www.example.com/myapp/?page=3` → `myapp/`만 바라본다.
 
 ## 1. path() 인수: view
 
-- 일치하는 패턴을 찾으면, **`[HttpRequest](https://docs.djangoproject.com/ko/4.0/ref/request-response/#django.http.HttpRequest)`** 객체를 첫번째 인수로 하여 경로로 부터 ‘캡처된’ 값을 키워드 인수로하여 특정한 view 함수를 호출한다.
+- 일치하는 패턴을 찾으면, [HttpRequest](https://docs.djangoproject.com/ko/4.0/ref/request-response/#django.http.HttpRequest) 객체를 첫번째 인수로 하여 경로로 부터 ‘캡처된’ 값을 키워드 인수로하여 특정한 view 함수를 호출한다.
 
 ## 1. path() 인수: kwargs
 
