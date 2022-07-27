@@ -117,8 +117,8 @@ Questions를 클릭하면 질문들을 위한 chnage list로 이동한다. 이 �
 ![2022-07-27-Django-tutorial4](/assets/images/2022-07-27-Django-tutorial3/2022-07-27-Django-tutorial4.png)
 
 - 이 서식은 **`Question`** 모델에서 자동으로 생성되었다.
-- 모델의 각 필드 유형들은 (**`[DateTimeField](https://docs.djangoproject.com/ko/4.0/ref/models/fields/#django.db.models.DateTimeField)`**, **`[CharField](https://docs.djangoproject.com/ko/4.0/ref/models/fields/#django.db.models.CharField)`**) 적절한 HTML 입력 위젯으로 표현된다. 필드의 각 유형들은 Django 관리 사이트에서 어떻게 표현해되어야 할지 알고 있다.
-- 각각의 **`[DateTimeField](https://docs.djangoproject.com/ko/4.0/ref/models/fields/#django.db.models.DateTimeField)`** 는 JavaScript 로 작성된 단축 기능과 연결된다. 날짜는 “오늘”(“Today”) 버튼과 달력 팝업에서 입력할 수 있으며, 시간은 “지금”(“Now”) 버튼과 일반적으로 입력하는 시간들을 제공하는 편리한 팝업을 통해서도 입력할 수 있다.
+- 모델의 각 필드 유형들은 ([DateTimeField](https://docs.djangoproject.com/ko/4.0/ref/models/fields/#django.db.models.DateTimeField), [CharField](https://docs.djangoproject.com/ko/4.0/ref/models/fields/#django.db.models.CharField)) 적절한 HTML 입력 위젯으로 표현된다. 필드의 각 유형들은 Django 관리 사이트에서 어떻게 표현해되어야 할지 알고 있다.
+- 각각의 [DateTimeField](https://docs.djangoproject.com/ko/4.0/ref/models/fields/#django.db.models.DateTimeField) 는 JavaScript 로 작성된 단축 기능과 연결된다. 날짜는 “오늘”(“Today”) 버튼과 달력 팝업에서 입력할 수 있으며, 시간은 “지금”(“Now”) 버튼과 일반적으로 입력하는 시간들을 제공하는 편리한 팝업을 통해서도 입력할 수 있다.
 
 <br/>
 
@@ -129,15 +129,15 @@ Questions를 클릭하면 질문들을 위한 chnage list로 이동한다. 이 �
 - 저장(Save) – 이 유형의 객체에 대한 변경사항을 저장하고, 변경된 목록 페이지를 보여준다.
 - 저장 및 편집 계속(Save and continue editing) – 이 객체에 대한 변경사항을 저장하고, 현재 편집창을 갱신한다.
 - 저장 및 다른 이름으로 추가(Save and add another) – 변경사항을 저장하고, 이 유형의 객체에 대한 비어있는 새로운 입력창을 불러온다.
-- 삭제(Delete) – 삭제를 확인하는 페이지를 띄웁니다
+- 삭제(Delete) – 삭제를 확인하는 페이지를 띄운다.
 
 <br/>
 
-만약 “Date published” 의 값이 [Tutorial 1](https://docs.djangoproject.com/ko/4.0/intro/tutorial01/) 에서 질문을 생성했을때의 시간과 일치하지 않는다면, **`[TIME_ZONE](https://docs.djangoproject.com/ko/4.0/ref/settings/#std-setting-TIME_ZONE)`** (시간대) 설정을 놓쳤기 때문일 수 있다. 이 설정을 변경 후 다시 페이지를 불러오시면 올바른 값이 표현된다.
+만약 “Date published” 의 값이 [Tutorial 1](https://docs.djangoproject.com/ko/4.0/intro/tutorial01/) 에서 질문을 생성했을때의 시간과 일치하지 않는다면, [TIME_ZONE](https://docs.djangoproject.com/ko/4.0/ref/settings/#std-setting-TIME_ZONE)(시간대) 설정을 놓쳤기 때문일 수 있다. 이 설정을 변경 후 다시 페이지를 불러오시면 올바른 값이 표현된다.
 
 <br/>
 
-“Date published” 의 값을 “오늘”(“Today”) 과 “지금”(“Now”) 단축버튼을 눌러 변경해보자. 이,후 “저장 및 편집 계속”(“Save and continue editing”) 을 누른다. 그런 후, 우측 상단의 “히스토리”(“History”) 버튼을 누루저. Django 관리사이트를 통해 누가(username) 언제(timestamp)무엇을 바꾸었는지 목록을 확인할 수 있다.
+“Date published” 의 값을 “오늘”(“Today”) 과 “지금”(“Now”) 단축버튼을 눌러 변경해보자. 이,후 “저장 및 편집 계속”(“Save and continue editing”) 을 누른다. 그런 후, 우측 상단의 “히스토리”(“History”) 버튼을 눌러보자. Django 관리사이트를 통해 누가(username) 언제(timestamp)무엇을 바꾸었는지 목록을 확인할 수 있다.
 
 ![2022-07-27-Django-tutorial5](/assets/images/2022-07-27-Django-tutorial3/2022-07-27-Django-tutorial5.png)
     
