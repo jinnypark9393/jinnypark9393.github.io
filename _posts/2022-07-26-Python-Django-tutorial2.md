@@ -35,20 +35,20 @@ settings.py의 TIME_ZONE 설정값을 수정해 현재 작업하고 있는 시�
 
 <br/>
 
-settings.py의 **`[INSTALLED_APPS](https://docs.djangoproject.com/ko/4.0/ref/settings/#std-setting-INSTALLED_APPS)`** 는 현재 Django 인스턴스에서 활성화된 모든 Django 어플리케이션들의 이름이 들어있다. 앱들은 다수의 프로젝트에서 사용될 수 있고, 다른 프로젝트에서 쉽게 사용될 수 있도록 패키징하여 배포할 수 있다.
+settings.py의 [INSTALLED_APPS](https://docs.djangoproject.com/ko/4.0/ref/settings/#std-setting-INSTALLED_APPS)는 현재 Django 인스턴스에서 활성화된 모든 Django 어플리케이션들의 이름이 들어있다. 앱들은 다수의 프로젝트에서 사용될 수 있고, 다른 프로젝트에서 쉽게 사용될 수 있도록 패키징하여 배포할 수 있다.
 
 <br/>
 
-**`[INSTALLED_APPS](https://docs.djangoproject.com/ko/4.0/ref/settings/#std-setting-INSTALLED_APPS)`** 에 기본적으로 설정되어 있는 앱은 아래와 같다.
+[INSTALLED_APPS](https://docs.djangoproject.com/ko/4.0/ref/settings/#std-setting-INSTALLED_APPS)에 기본적으로 설정되어 있는 앱은 아래와 같다.
 
 <br/>
 
-- **`[django.contrib.admin](https://docs.djangoproject.com/ko/4.0/ref/contrib/admin/#module-django.contrib.admin)`** – 관리용 사이트.
-- **`[django.contrib.auth](https://docs.djangoproject.com/ko/4.0/topics/auth/#module-django.contrib.auth)`** – 인증 시스템.
-- **`[django.contrib.contenttypes](https://docs.djangoproject.com/ko/4.0/ref/contrib/contenttypes/#module-django.contrib.contenttypes)`** – 컨텐츠 타입을 위한 프레임워크.
-- **`[django.contrib.sessions](https://docs.djangoproject.com/ko/4.0/topics/http/sessions/#module-django.contrib.sessions)`** – 세션 프레임워크.
-- **`[django.contrib.messages](https://docs.djangoproject.com/ko/4.0/ref/contrib/messages/#module-django.contrib.messages)`** – 메세징 프레임워크.
-- **`[django.contrib.staticfiles](https://docs.djangoproject.com/ko/4.0/ref/contrib/staticfiles/#module-django.contrib.staticfiles)`** – 정적 파일을 관리하는 프레임워크.
+- [django.contrib.admin](https://docs.djangoproject.com/ko/4.0/ref/contrib/admin/#module-django.contrib.admin) – 관리용 사이트.
+- [django.contrib.auth](https://docs.djangoproject.com/ko/4.0/topics/auth/#module-django.contrib.auth) – 인증 시스템.
+- [django.contrib.contenttypes](https://docs.djangoproject.com/ko/4.0/ref/contrib/contenttypes/#module-django.contrib.contenttypes) – 컨텐츠 타입을 위한 프레임워크.
+- [django.contrib.sessions](https://docs.djangoproject.com/ko/4.0/topics/http/sessions/#module-django.contrib.sessions) – 세션 프레임워크.
+- [django.contrib.messages](https://docs.djangoproject.com/ko/4.0/ref/contrib/messages/#module-django.contrib.messages) – 메세징 프레임워크.
+- [django.contrib.staticfiles](https://docs.djangoproject.com/ko/4.0/ref/contrib/staticfiles/#module-django.contrib.staticfiles) – 정적 파일을 관리하는 프레임워크.
 
 <br/>
 
@@ -80,7 +80,7 @@ Running migrations:
 ```
 
 - `migrate` : INSTALLED_APPS의 설정을 탐색해 settings.py의 데이터베이스 설정 및 app과 함께 제공되는 database migrations에 따라 데이터베이스 테이블을 생성한다.
-- 생성 내용을 확인하려면 데이터베이스 클라이언트로 접속 후 **`\dt`** (PostgreSQL), **`SHOW TABLES;`**  (MariaDB, MySQL), **`.tables`** (SQLite), **`SELECT TABLE_NAME FROM USER_TABLES;`**(Oracle)로 확인할 수 있다.
+- 생성 내용을 확인하려면 데이터베이스 클라이언트로 접속 후 `\dt` (PostgreSQL), `SHOW TABLES;` (MariaDB, MySQL), `.tables` (SQLite), `SELECT TABLE_NAME FROM USER_TABLES;`(Oracle)로 확인할 수 있다.
 - 기본 앱 중에 필요 없는 앱이 있다면 INSTALLED_APPS에서 주석처리하면 migrate 명령에서 데이터베이스 테이블을 생성하지 않는다.
 
 <br/><br/>
@@ -103,7 +103,7 @@ Running migrations:
 
 - `Questions`: 질문 및 발행일
 - `Choice`: 선택 텍스트, 투표 집계
-- 각 Choice 모델은 Question과 연동된다.
+- 각 `Choice` 모델은 `Question`과 연동된다.
 
 <br/>
 
@@ -138,7 +138,7 @@ class Choice(models.Model):
 
 <br/>
 
-- Field 클래스 생성자에 선택적인 첫번째 위치 인수를 전달하여 사람이 읽기 좋은(human-readable) 이름을 지정할 수도 있습니다. 이 방법은 Django 의 내부를 설명하는 용도로 종종 사용되는데, 이는 마치 문서가 늘어나는 것 같은 효과를 가집니다. 만약 이 선택적인 첫번째 위치 인수를 사용하지 않으면, Django 는 기계가 읽기 좋은 형식의 이름을 사용합니다. 이 예제에서는, **`Question.pub_date`** 에 한해서만 인간이 읽기 좋은 형태의 이름을 정의하겠습니다. 그 외의 다른 필드들은, 기계가 읽기 좋은 형태의 이름이라도 사람이 읽기에는 충분합니다.
+- Field 클래스 생성자에 선택적인 첫번째 위치 인수를 전달하여 사람이 읽기 좋은(human-readable) 이름을 지정할 수도 있습니다. 이 방법은 Django 의 내부를 설명하는 용도로 종종 사용되는데, 이는 마치 문서가 늘어나는 것 같은 효과를 가집니다. 만약 이 선택적인 첫번째 위치 인수를 사용하지 않으면, Django 는 기계가 읽기 좋은 형식의 이름을 사용합니다. 이 예제에서는, `Question.pub_date`에 한해서만 인간이 읽기 좋은 형태의 이름을 정의하겠습니다. 그 외의 다른 필드들은, 기계가 읽기 좋은 형태의 이름이라도 사람이 읽기에는 충분합니다.
 - 일부 Field 클래스는 필수 인수가 필요하다(예: CharField → max_length 가 필요)
 - Field 는 다양한 옵션 인수를 가질 수 있다(예: default를 이용해 votes의 기본값을 0으로 설정)
 - ForeignKey를 사용해 모델간의 관계를 설정할 수 있다.
@@ -220,13 +220,13 @@ COMMIT;
 - 테이블 이름: 앱 이름과 모델 이름(소문자)가 조합되어 자동 생성 (예: polls_question, polls_choice)
 - 기본 키(ID): 자동으로 추가
 - 외래 키: 필드명에 `_id` 이름을 자동으로 추가
-- 외래 키 관계는 **`FOREIGN KEY`** 라는 제약에 의해 명시된다(SQLite에서는 보이지 않음). **`DEFERRABLE`** 부분은 DBMS에 트랜잭션이 끝날 때까지 외래 키를 강제하지 말라고 알려준다.
-- 사용하는 데이터베이스에 따라, 데이터베이스 고유의 필드타입이 조정된다. 따라서, 자동 증가 필드를 생성할 경우, **`auto_increment`**(MySQL), **`serial`**(PostgreSQL), **`integer primary key autoincrement`**(SQLite)와 같이 사용하는 데이터베이스에 따라 적절한 필드타입이 자동으로 선택된다. 필드 명에 사용되는 인용부호도 상황에 따라 겹따옴표나 홑따옴표가 적절히 선택된다.
+- 외래 키 관계는 `FOREIGN KEY` 라는 제약에 의해 명시된다(SQLite에서는 보이지 않음). `DEFERRABLE` 부분은 DBMS에 트랜잭션이 끝날 때까지 외래 키를 강제하지 말라고 알려준다.
+- 사용하는 데이터베이스에 따라, 데이터베이스 고유의 필드타입이 조정된다. 따라서, 자동 증가 필드를 생성할 경우, `auto_increment`(MySQL), `serial`(PostgreSQL), `integer primary key autoincrement`(SQLite)와 같이 사용하는 데이터베이스에 따라 적절한 필드타입이 자동으로 선택된다. 필드 명에 사용되는 인용부호도 상황에 따라 겹따옴표나 홑따옴표가 적절히 선택된다.
 - `sqlmigrate`명령은 실제로 데이터베이스에서 마이그레이션을 실행하는 것이 아니라 화면에 인쇄하여 필요한 SQL Django를 확인할 수 있도록 한다. 이것은 Django가 수행할 작업이나 변경을 위해 SQL 스크립트를 필요로 하는 데이터베이스 관리자가 있는지 확인하는 데 유용하다.
 
 <br/>
 
-더 자세히 알고 싶은 경우 `python [manage.py](http://manage.py) check` 명령어를 통해 마이그레이션을 수행해보자.
+더 자세히 알고 싶은 경우 `python manage.py check` 명령어를 통해 마이그레이션을 수행해보자.
 
 <br/>
 
@@ -247,8 +247,8 @@ migrate 명령은 아직 적용되지 않은 마이그레이션을 수집해 실
 데이터베이스나 테이블에 손대지 않고도 모델의 반복적인 변경을 가능하게 해준다. 동작 중인 데이터베이스를 자료 손실 없이 업그레이드 하는 데 최적화 되어 있다. 이제 모델의 변경을 만드는 아래 세 단계를 기억하도록 하자.
 
 - (`models.py` 에서) 모델을 변경한다.
-- `[python manage.py makemigrations](https://docs.djangoproject.com/ko/4.0/ref/django-admin/#django-admin-makemigrations)`을 통해 이 변경사항에 대한 마이그레이션을 생성한다.
-- `[python manage.py migrate](https://docs.djangoproject.com/ko/4.0/ref/django-admin/#django-admin-migrate)` 명령을 통해 변경사항을 데이터베이스에 적용한다.
+- [python manage.py makemigrations](https://docs.djangoproject.com/ko/4.0/ref/django-admin/#django-admin-makemigrations)을 통해 이 변경사항에 대한 마이그레이션을 생성한다.
+- [python manage.py migrate](https://docs.djangoproject.com/ko/4.0/ref/django-admin/#django-admin-migrate)명령을 통해 변경사항을 데이터베이스에 적용한다.
 
 <br/>
 
@@ -308,7 +308,7 @@ datetime.datetime(2022, 7, 25, 13, 18, 27, 714138, tzinfo=datetime.timezone.utc)
 <QuerySet [<Question: Question object (1)>]>
 ```
 
-- 마지막 결과값인 **<Question: Question object (1)>**는 객체를 이해하기 어렵다.
+- 마지막 결과값은 <Question: Question object (1)>인데, 이러한 출력 형태로는 객체를 이해하기 어렵다.
 
 <br/>
 
@@ -334,7 +334,7 @@ class Choice(models.Model):
         return self.choice_text
 ```
 
-- `__str__()` 메서드의 추가는 객체 표현을 대화형 프롬프트에서 편하게 보려는 이유 외에 Django가 자동으로 생성하는 관리 사이트에서도 이 객체 표현이 사용된다.
+- `__str__()` 메서드의 추가는 객체 표현을 대화형 프롬프트에서 편하게 보려는 이유 외에도 Django가 자동으로 생성하는 관리 사이트에서도 이 객체 표현이 사용된다.
 
 <br/>
 
@@ -365,7 +365,7 @@ class Choice(models.Model):
         return self.choice_text
 ```
 
-- `import datetime` 은 파이썬의 표준 모듈인 datetime 모듈을, **`from** **django.utils** **import** timezone` 은 Django의 시간 관련 유틸리티인 django.utils.timezone을 참조하기 위해 추가
+- `import datetime` 은 파이썬의 표준 모듈인 datetime 모듈을, `from django.utils import timezone` 은 Django의 시간 관련 유틸리티인 django.utils.timezone을 참조하기 위해 추가
 
 <br/>
 
