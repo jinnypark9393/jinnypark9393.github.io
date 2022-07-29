@@ -1,8 +1,8 @@
 ---
 
 published: true
-title:  "[OSS/Kubernetes]쿠버네티스 공식문서 한글화에 기여하는 방법(2)소스코드 복사 & 번역하기"
-excerpt: "fork & git clone을 통해서 소스코드를 다운받고 번역을 진행해보자"
+title:  "[OSS/Kubernetes/Python]diff_l10n_branches.py 스크립트 실행해보기"
+excerpt: "쿠버네티스 한글화팀에서는 Outdated 된 문서를 확인하기 위해 마일스톤이 바뀔 때마다 Outdated된 문서 리스트를 뽑아주는 python 스크립트를 실행한다"
 
 categories:
 - OSS Contribution Academy
@@ -12,8 +12,8 @@ tags:
 toc: true
 toc_sticky: true
 
-date: 2022-07-17
-last_modified_at: 2022-07-17
+date: 2022-07-29
+last_modified_at: 2022-07-29
 
 ---
 
