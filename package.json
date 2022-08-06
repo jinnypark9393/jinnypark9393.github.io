@@ -36,6 +36,8 @@
     "typeface-montserrat": "^1.1.13"
   },
   "devDependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "gh-pages": "^3.2.3",
     "prettier": "2.2.1"
   },
