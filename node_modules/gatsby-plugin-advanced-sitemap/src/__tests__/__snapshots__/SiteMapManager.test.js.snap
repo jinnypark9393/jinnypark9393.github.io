@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It generates Index Sitemap Should get xml 1`] = `"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><?xml-stylesheet type=\\"text/xsl\\" href=\\"sitemap.xsl\\"?><sitemapindex xmlns=\\"http://www.sitemaps.org/schemas/sitemap/0.9\\"></sitemapindex>"`;
+
+exports[`It generates Index Sitemap Should get xml 2`] = `"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><?xml-stylesheet type=\\"text/xsl\\" href=\\"sitemap.xsl\\"?><urlset xmlns=\\"http://www.sitemaps.org/schemas/sitemap/0.9\\" xmlns:image=\\"http://www.google.com/schemas/sitemap-image/1.1\\"></urlset>"`;
