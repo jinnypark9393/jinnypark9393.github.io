@@ -4,7 +4,7 @@ title:  VMware Fusion에서 Ubuntu 20.04 설치하기
 date: '2022-04-16 06:00:00'
 author: jinnpark9393
 tags: ubuntu
-categories: DevOps
+categories: 데브옵스
 ---
 
 > 💡 MacOS 환경에서 VMware로 Ubuntu를 설치하려면 “VMware Fusion”을 설치해야 한다.
