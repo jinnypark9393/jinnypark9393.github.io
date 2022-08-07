@@ -1,3 +1,0 @@
-User-agent: *
-Sitemap: https://jinnypark9393.github.io/sitemap/sitemap-index.xml
-Host: https://jinnypark9393.github.io
