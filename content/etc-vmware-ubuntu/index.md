@@ -2,7 +2,7 @@
 emoji: 🖥️
 title:  VMware Fusion에서 Ubuntu 20.04 설치하기
 date: '2022-04-16 06:00:00'
-author: jinnpark9393
+author: jinnypark9393
 tags: ubuntu
 categories: 데브옵스
 ---
@@ -126,6 +126,3 @@ VMware 에서는 VMware Fusion외에도 Windows 환경에서 사용할 수 있�
 이렇게 MacOS 환경에서 VMware Fusion을 이용해 Ubuntu20.04 환경을 구성해보았다. 다음 포스팅에서는 Ubuntu 환경 위에서 Jekyll을 설치한 뒤, Github Pages(깃허브 블로그)를 생성해보도록 하자.
 
 <br/>
-
-```toc
-```
