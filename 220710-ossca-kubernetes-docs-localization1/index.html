@@ -76,8 +76,8 @@
 <p><br/><br/></p>
 <h1 id="쿠버네티스-공식문서-한글화에-기여하는-방법-시리즈" style="position:relative;"><a href="#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4-%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C-%ED%95%9C%EA%B8%80%ED%99%94%EC%97%90-%EA%B8%B0%EC%97%AC%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-%EC%8B%9C%EB%A6%AC%EC%A6%88" aria-label="쿠버네티스 공식문서 한글화에 기여하는 방법 시리즈 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>쿠버네티스 공식문서 한글화에 기여하는 방법 시리즈</h1>
 <ul>
-<li><a href="https://jinnypark9393.github.io/oss%20contribution%20academy/OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/">쿠버네티스 공식문서 한글화에 기여하는 방법(1)사전준비 &#x26; 이슈 생성하기</a></li>
-<li><a href="https://jinnypark9393.github.io/oss%20contribution%20academy/OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2/">쿠버네티스 공식문서 한글화에 기여하는 방법(2)소스코드 복사 &#x26; 번역하기</a></li>
+<li><a href="https://jinnypark9393.github.io/220710-ossca-kubernetes-docs-localization1/">쿠버네티스 공식문서 한글화에 기여하는 방법(1)사전준비 &#x26; 이슈 생성하기</a></li>
+<li><a href="https://jinnypark9393.github.io/220717-ossca-kubernetes-docs-localization2/">쿠버네티스 공식문서 한글화에 기여하는 방법(2)소스코드 복사 &#x26; 번역하기</a></li>
 <li>쿠버네티스 공식문서 한글화에 기여하는 방법(3)PR(Pull Request)생성 &#x26; CLA 서명 (작성중)</li>
 <li>쿠버네티스 공식문서 한글화에 기여하는 방법(4)리뷰 내용 반영 &#x26; 승인 완료 (작성중)</li>
 </ul>
@@ -95,14 +95,58 @@
 <ul>
 <li>
 <p><a href="https://kubernetes.io/ko/docs/">쿠버네티스(한국어) 공식사이트</a>를 접속한다.</p>
-<p><img src="/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-1.png" alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-1"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 72.77777777777777%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACfElEQVQ4y52TzU7bQBDH/SIo5hH4EpCEFMSpClIPPfaN+hI9tUA+OPXIoaqqqoW0hDZKgYhGJLbjOHFsx3a8Xu/6X+0mBqRyYqW/dnZ29NuZ8Vh59foNyuWXKJfLWFlZwerqKnZ2dqT29vawtbWFfD4vVSgUUCqVUCwWpTY3N2W8iNvd3cXa2hqUfKEoA4WEY319/T5YQIWdAbe3t+UDQuJ+Y2NDxmc+YSuqmkMuN9fy8vJCKtRcDi9KJRwcHMjX9/f3JWBpaQmqqsp4sWfKzsrRcRWHR5V7VSpir+LDURXHlRrq9TpOTk6khF2r1f5T5q9Wq1AShidXguctxRp7mIYUbhBjGsZIGIPnOtC0PoZDE5qmQdd19Ho9KeG/62nQDAu6psF1XXieB9/3wRiDYpg23IAiiDhmhIPxFM9daZpCMYdjUJaCJikI5fJiNBrh/LyBTqcjbUopWq0WGo2GzFicLcvC2dkZ2u02DGPwAGxf3WAaEFAGRDFbAC20fv+CP/UQEwJCiAQ2m03Yti2Bk4mNi58/YA4MhGEgy5U9NC1bguJHGTpegJ4+wtiN4IcElMYyI8sawjB0uI6DiRug2xui27dguyE4XwAfw+bAFBOf408/wZ3FQBKA8xT6mGLgcITxvF9OwGFM+P89zGDZLpwh4ZjOGBKWwg0YCE3RMSiu+jE6RizvB5ME368jNP8SdE36AMxgQtEiQ8NO8O06wsUtkR+MpynuLIrbAYXpJIhijssuwftPUxx+9nF6GT4Gpg/AeF7CjU5R/+rj43kgx0mU7IXzsZrFXGb+1MjIHma9y/RUsCjx3amHt3UHX9qz+Z/EUjmzQnwxuyLDfz3r6zMqDP5HAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-1"
+        title="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-1"
+        src="/static/8acddbf8181c4e06fe8f0cee1dc2efce/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-1.png"
+        srcset="/static/8acddbf8181c4e06fe8f0cee1dc2efce/e9ff0/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-1.png 180w,
+/static/8acddbf8181c4e06fe8f0cee1dc2efce/f21e7/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-1.png 360w,
+/static/8acddbf8181c4e06fe8f0cee1dc2efce/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-1.png 720w,
+/static/8acddbf8181c4e06fe8f0cee1dc2efce/d53ff/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-1.png 1068w"
+        sizes="(max-width: 720px) 100vw, 720px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 </li>
 </ul>
 <br/>
 <ul>
 <li>
 <p>문서의 탭들을 클릭하면서 아직 한글화 되지 않은 문서를 찾는다.</p>
-<p><img src="/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-2.png" alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-2"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 57.77777777777777%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABxElEQVQoz42S647iMAxGef/HQ0IazQ9gBlootLlfmvRyVsmKWVih1VayHMfRqe3PG209Y15I00pMC8uy4hOYCCHBOPFf37qu1W8GaZHaobTDhUS5HoSkaS80TUt7udI0Z9q2pWkaTqdT9SW+Xq/VlmX5gW58nGgud7q7wLhYE13XcTgcMMaglEIIgVISIQaGYcBojRQCKUXNvwBLqz5mlA3ENNWk1roCymMpJcZolJvQEXQAE6hnYUa0Vi9tV6D1I8qE2vI8L+Q8Mc9rfVBmWv261ty8PFmJ57nmH1aBxgaU8cS81Mvyg/1Z4pwjRV8rjjE+6vinOJv8taf//OS83eI+duQx4uLEuTPcheM6eKS25JQoQj5X88422XmE8XTCYI8HgtHYkDiee76anv2ppxcaJYsoktvtVudahOr7vsaPc86ZTXIe4xMmZvzpuwLLHt5VwvgJ1pllmeusimCPfft7B3/2MFuH0I67tLXCaA3Kjey/77SdQMjfapcKQggvgGfQj8p5zPR2pNOecGnJwWPDzLE1HFpLc3OMMVRRqkgpvYX+meH3EbHfc97tsLst65QZ84TWFqVt9QVkra1qPwPfqfwLoSyhxBF7j50AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-2"
+        title="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-2"
+        src="/static/8b63a6bc4640e2125ef9d6e7006c44ba/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-2.png"
+        srcset="/static/8b63a6bc4640e2125ef9d6e7006c44ba/e9ff0/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-2.png 180w,
+/static/8b63a6bc4640e2125ef9d6e7006c44ba/f21e7/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-2.png 360w,
+/static/8b63a6bc4640e2125ef9d6e7006c44ba/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-2.png 720w,
+/static/8b63a6bc4640e2125ef9d6e7006c44ba/f2d92/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-2.png 1027w"
+        sizes="(max-width: 720px) 100vw, 720px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 </li>
 </ul>
 <br/>
@@ -112,13 +156,57 @@
 <ul>
 <li>
 <p>Issues 탭에서 <code class="language-text">language/ko</code> 태그를 단 이슈를 sorting해 내가 작업하려는 문서와 동일한 이슈가 있는지 확인한다.</p>
-<p><img src="/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-3.png" alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-3"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 63.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACk0lEQVQ4y02S62vjRhTF9f//D6WlnwtdSh+Esl0o/VI2mzih8QPH9tqxI0sajTSal96/MrNZWMHhXg2ao3vOuclVWg6550V4tqnnWjZY1+K7Adf2yLohFxWNcaRZEd8rZciKEqk01lmyouA1K2isI1HGUSmNKEpEuKgtZaUoyhr11tdNIJCxhm/DuZA1jfGxWtvBDAyQKG1oGo2qFbKUyECgNM53+LaP07q2w1hP2/VobZBVjbEOISVNrTmrjB+efuav078kQlbUqol/DnLKqo6k4fI4TYzTzPQV88w4jgzDEPt+GJjHGdM77vMlB3UmkbWKfgQ5Qiq0cdE73/XRR+s7gi3aehrtopdBckAYIpzXyjC2M2M3kxjnSNMCIWryQlCI4GVJUdXYawYfP1KuM8RJISqB0g3DMMbpur6Pfai+7SKSSise1wseVgt2hyOfT2eOL2fOl5TH3YE/b+9Z7l45vkheVwXy0jBME10fSMdYh3GKPjvfkkhd8/fTr/yz/INMiJhusCDLBS/XnGMhyStNWRtErilLE234FkF2QAgyCWnt7i+cNldW602cTDQaoTXSWIxvaYymUhXXSnGRTdyQef4SVKiyFLRtG+UnXdeTfs4pr5JLfiHNLtjVhn6zpVtvaPcHbGFxpceVHb7qsZWPRN9iChsxjiSt79kuTlyWGavFgafbZ9LfPpH/fkf6y3vON+/IfnxHc7enujqaTGPTFqawy4GM+ATCIRAaZzjunlnun3jeLsgPj5yPD6SvW66ypqgqTFNwlHuKskQ+ax7kLc1UM4/QDz3T226GtBPvLbv/PvFhfcPj00+cb7/ncvcdan9D3w/0XUc/DrjO0fqOzvSoVjHMA/P0Reo8TW+SJ/4HJazZu5aazToAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-3"
+        title="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-3"
+        src="/static/0163df218f9dce50216ccd91bf6a598f/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-3.png"
+        srcset="/static/0163df218f9dce50216ccd91bf6a598f/e9ff0/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-3.png 180w,
+/static/0163df218f9dce50216ccd91bf6a598f/f21e7/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-3.png 360w,
+/static/0163df218f9dce50216ccd91bf6a598f/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-3.png 720w,
+/static/0163df218f9dce50216ccd91bf6a598f/18539/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-3.png 1074w"
+        sizes="(max-width: 720px) 100vw, 720px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 </li>
 <li>
 <p>Issues 탭에서 동일한 이슈를 찾지 못했다면, 이번에는 <code class="language-text">Pull Requests</code> 탭에 들어가 <code class="language-text">language/ko</code> 태그를 단 PR을 sorting한 뒤, 현재 한글화 팀에서 관리중인 PR에서 내가 작업하려는 문서가 이미 한글화가 되어있는 문서가 아닌지 확인한다.</p>
 </li>
 </ul>
-<p><img src="/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4.png" alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 68.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACwElEQVQ4yyWTza6rRhCEef+HyBNEyiqLSFlkk6yyyNVVouvjY2MDBmNj5n+G+YEvMmekUi16VNXqrq4+Dx3HHy2fn2fOdU19uXI8fu58aXs+64buNnBpb1xvI03/wMdMXiGWjVxWSikobXE+UP39m+TPX2aEMEilUEqjtEYbR68Svc4I4xl0olOJm8qMduXhN0a3IV3CWUuOCdaVKuWI8xbvPTnnnb0PxJhwzpFTIoSAcxZrDCUn3m9byxe2DbUYpvnOLB5UbkkYv6Cdx4YFHxN+SXjn0MZgvaPkvJut5UuAbdvNpFQ46/j19Ac/ff+Z369/Uflbg76csO2V8ryzPQds3/IwmeYlqV8T3VMyCMPsE8JnZpeQS9l5lJZeapqXQPiFSrQdn3WLuPcQI8U7fP3BaAqD9NyeiodKTHplMhkZ1x1PG7hLz1NlJv0WX3F5o5KPF6dhput7XlIjjSW09T4nazTj/c70mHg9Z+7DiDNmr0kheNxHpvHF/BS8HhNLCFRFzmgfUEohhMQYTezOpFwIy0JMmfSeYSk7LzmhikVYjV0ierGYZJFBE8pCFeaZ2yQZ+n7f7HuLsT1h/bLD+QXjAtoFrFuYvOaf8sFBXjnOAz/mdsdB3RiWmSrLmdl4jNY45ykl7x2Gt/tbQAVcSHunMRZ09BxjS21GDq+exo4My4sXBrlaqigET+XRSu2ReCN29R4RbT2PSaK0wRiD1oYYIzllhDJMQu/xsdbu9ffFVGaauTwtSsxfGQNy37BuIKSk6zqatuPStJzqC1Lp/c99HGmalsu1ob42nM4X/L4Uo5iWDaE0MRcKkIaOwzNzeHr+GwT/9oKPh+Zwl9QicF/goiLHl+c0B64qchaBKaxU2+2KvJ7pvn9DXc/49kz4+IYNCbtktM+YkEllZd028rrhwoJdCnZZcXGlvI8H9vr/TYAr7PQ36IoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4"
+        title="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4"
+        src="/static/6e616a7c7c57a17431a2e1b7eff05d80/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4.png"
+        srcset="/static/6e616a7c7c57a17431a2e1b7eff05d80/e9ff0/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4.png 180w,
+/static/6e616a7c7c57a17431a2e1b7eff05d80/f21e7/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4.png 360w,
+/static/6e616a7c7c57a17431a2e1b7eff05d80/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4.png 720w,
+/static/6e616a7c7c57a17431a2e1b7eff05d80/e2e58/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-4.png 1069w"
+        sizes="(max-width: 720px) 100vw, 720px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <ul>
 <li>Files Changed 탭에서 이미 해당 문서의 파일이 포함되어있다면 한글화 작업이 끝난 것이니 다른 일감을 찾아보도록 하자.</li>
 <li><em>참고: 내가 처음 PR을 올렸을 때는 이 부분을 확인하지 않고 냅다 번역부터 시작한 뒤에서야 이슈를 올려서 <a href="https://github.com/kubernetes/website/issues/34336">헛고생</a>을 했었다😞(바보임). 한글화 작업을 시작하기 전에 1) 중복되지 않는지 꼭 확인하고 2) 이슈를 먼저 올려 내가 작업하고 있다는 사실을 다른 사람들에게 꼭 알리도록 하자</em>.</li>
@@ -130,7 +218,29 @@
 <ul>
 <li>
 <p><code class="language-text">kubernetes/website</code> repository → Issues → New Issue를 클릭한다.</p>
-<p><img src="/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-5.png" alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-5"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACJElEQVQoz22SSW7kOBREdf91HaEXdYdC+wC9cdlwo7LclaOdqYGkxEkiNb4G6Vy0G0XgIwh+Kn5EUMVFDLzJwLEOnJsebT1hnBnihB8itWgxrkd1hlqo3M972ea+tZpr3SC0wYdI0RpH21madNl4OuMQqsuYqtU2E6SzRJz7raZsFNr1yFYzjxtMME4rRZuYrUM1AqM1QxjxQ2CIIyFEhiES4sgQInGc6DqNdR7ve4SQxDjx/PLAH39+oT79TZEmJxvGDyS1ye44r8Rke4V+WXEh4POgmBVb32fs8j5w3L/w19MDVpYU72XF8XThVtZc3m9UjaCqBaIzxN2O/uWV958SUSkq0eD7gXGa6YeQhyacF5gnWDYojLO0bZdLtS1tp5FSZRX7HzvOu1/IOmDUgKksa/r6/2vbmOaJZVkoXq9PfHv8ys/LMzZZtzbnJJTi+7XkRyOptUPLgbYMWcW2bf+pD85pnlmWleJ2K3nd/cP1duV6K3PQSWFCbyyD91hj0N4Rnx5ZDgcSx7auGZd5Ygw987x8EJZnwf77G+fTG4fjCSEVxtj8itY5nPc453G+x5UNo7EfhEldIlxmxphyvBNeTxWvj0cO+xP7wwGpVLZskipjMnZao9qOs7DoYbrH9uF1jBGju5xfJmylproIpFAIKfOjpP8vxkgIgd+tTxnezzLhulIo3VE1DY2Q1I3I2VnrsqqkLl1aP9X2iXC913x/lH8Bn0CWM1KOfPkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-5"
+        title="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-5"
+        src="/static/3275fcbd72bb845f6595337b8a339dbf/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-5.png"
+        srcset="/static/3275fcbd72bb845f6595337b8a339dbf/e9ff0/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-5.png 180w,
+/static/3275fcbd72bb845f6595337b8a339dbf/f21e7/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-5.png 360w,
+/static/3275fcbd72bb845f6595337b8a339dbf/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-5.png 720w,
+/static/3275fcbd72bb845f6595337b8a339dbf/121b3/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-5.png 1070w"
+        sizes="(max-width: 720px) 100vw, 720px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 </li>
 </ul>
 <br/>
@@ -144,20 +254,86 @@
 </li>
 <li>내용: 양식에 맞춰 작성한다(localization 작업이기 때문에 길게 작성할 필요는 없고, ‘한글화가 되지 않았기 때문’이라고 작성해주면 된다).</li>
 </ul>
-<img src="/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6.png" alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6"></li>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJklEQVQ4y32TS6/TMBCF+///C2LPhg2wArFhdcVt0rRJ82rz8Ct27HzITsuVrhCWTmb8OpmZMz7MYiI/Z5wvF45ZzvGYkecnXo8ZxflCVV3JTwWn4sz5UqZ5UZwfawV9f0ObhQ8vn/hS/uBwOjZ8/fyL19eC38eM6lojpGSaRbJK6YTFWqx1WOewyd+xris+BErR0OuBQ/li+fZxZOoN1mrssrA6h3eO1dkEvzr+N7btzT/M043BaMp5oZwMtVyphKUSjqtwdMtGt0CtA5fJUgrHaEOKzvvAtm2EEPDBE7bAQUnJbZJkVZtQNDcGbRm0YzQr0oMKIFfS2mBW1Lpx6zuGccA4g/dvIR7iJ9ahbZqEqizp2ha7mJRutBHOLqzWxgTTxWs/ch8Uotb0fc3v5iej6nbCxTrqpuVaN9zud4RUSKXR2qC0RmmTlIzzmF6sWdUN9HeJuBq6/spL/Z1RtQ/CxXI65eRZRlPXzNOI1gql5Dso5lkkVaP/r5EIrfNU3cSsPdrBbAKT9ggTEMajlt2GsKcbto1xmlMrxQrEqEPwbFGUeMCtgVFItPUYt6FsQNst+do9rA2JaCck9Wksx1PlaCMeonicNQTv8d6njcUF1tQW++Fnv4Vtj3CaZoSQKcpnH/4ljC9gGCfarmcYR2Yhycue9j4jHwI9LzxtPBPXY6S7b9L8UUOXlE1/fTy32GdCiKRwFO094X0YE9ntPiQ/3o+Z/gHNaevGD75MRgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6"
+        title="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6"
+        src="/static/54921889f3e8a73744d7eb59f07ff043/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6.png"
+        srcset="/static/54921889f3e8a73744d7eb59f07ff043/e9ff0/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6.png 180w,
+/static/54921889f3e8a73744d7eb59f07ff043/f21e7/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6.png 360w,
+/static/54921889f3e8a73744d7eb59f07ff043/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6.png 720w,
+/static/54921889f3e8a73744d7eb59f07ff043/2e367/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-6.png 1066w"
+        sizes="(max-width: 720px) 100vw, 720px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></li>
 </ul>
 <br/>
 <ul>
 <li>
 <p>이슈를 올린 뒤에는 한글화팀 멤버들이 내 이슈를 찾아 나를 담당자로 지정(assign)할 수 있도록 필요한 태그를 코멘트에 적어준다 (<code class="language-text">/language ko</code> &#x26; <code class="language-text">/assign</code>)</p>
-<p><img src="/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-7.png" alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-7"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 42.22222222222223%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABHElEQVQoz3WPbU/CMBSF+f8/y6/GDyqiohhYMljoXrp2W9ey9jF0UwjOmzw5t/e0J72Lz/Ub213CujDcb/Y8fGUsDzXP+4qXrGa5l9HbtbBtQtSNGnhMJatjx0p0vIqW98Ig+sBCK0VrDLk2pHkVtTkFGjeinR/7E+N8UhW9azxmgAVTZVlGkiQ42zNf4UZnboTAwvshHnTbY7uCEDwhjOb/MNv7wDnQx0B38gzex2HgL9dzPz2eIwZ6H1BNR1FKyrKkKEtkraik5HgUHA5Z7GulaZr2d70zl3VHjYFno7cOYyy9tfR9H9VaR9d2dJ3BOYed+Am6rHwJnX7okXWDyEtEniNETl6UaN2SPgk+7hKKtEY1mqqS6Ktf3tY35v1vDVDeqC4AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-7"
+        title="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-7"
+        src="/static/f7524af175bd147ed0f0f7e0b82b1f06/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-7.png"
+        srcset="/static/f7524af175bd147ed0f0f7e0b82b1f06/e9ff0/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-7.png 180w,
+/static/f7524af175bd147ed0f0f7e0b82b1f06/f21e7/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-7.png 360w,
+/static/f7524af175bd147ed0f0f7e0b82b1f06/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-7.png 720w,
+/static/f7524af175bd147ed0f0f7e0b82b1f06/d0cc0/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-7.png 732w"
+        sizes="(max-width: 720px) 100vw, 720px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 </li>
 </ul>
 <br/>
 <ul>
 <li>한글화팀에서 내 이슈를 확인하게 되면 <code class="language-text">triage accepted</code> 태그를 달아주시고 친절하게 안내 코멘트도 달아주신다.</li>
 </ul>
-<p><img src="/assets/images/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-8.png" alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-8"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53.888888888888886%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuElEQVQoz52SzW7UMBSF5/3fgTWPULGpBFukSiBaJplSVAYmnTh27NiJ/32Qb8Joqu6w9Pnf1+f6eNfuG/gQIZWGWSwxmRnaLIR1gdavcdQmzNZB6ZnOLNYj54zdl7s7mNni6eczjn86dOcBjEvwUeHMOAV1PlJg6zdcoLnJLOiHEXIy1I8pYQcAIQSIcYSUElpr/G8hhbWqkdNGjAne1zQ9jJ1grMLiDc2HGAnvPYmI27iSUkYpZVVYUxZSgw0cQggIIcFkh4/79/jw9R0+P93AmAVqmmj9eDyi6zpoY6C1gZSKLqhlp1QdREx6xmIdrPMX5mWG9Q4hBsSUN9KlrefqvmpU7ZPCT7e35Nav3ye89AOYkOj5iEEoenCzeIRYVnd9wOIC7a/GjMrgdGbg40TGkCklZzjn0feMUmbDgIFzcDFi4IJgjOGFG5ylgzGGUitX9b+Sqim1M00a9/cPOLQtmvaA781Kc/iBfXtAe3jEt4cGz8cTeiag5QklyDVkKcTF5fXbRAxSgWlLk9W9a/dzKYj1HWOgtKM3KMltuspbhSEkjNXB2b669TXAJoRC5LIqyrlckfEXRORSqtINvpoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-8"
+        title="2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-8"
+        src="/static/f767ae9ce368025876fd37a5b3576d42/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-8.png"
+        srcset="/static/f767ae9ce368025876fd37a5b3576d42/e9ff0/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-8.png 180w,
+/static/f767ae9ce368025876fd37a5b3576d42/f21e7/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-8.png 360w,
+/static/f767ae9ce368025876fd37a5b3576d42/37523/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-8.png 720w,
+/static/f767ae9ce368025876fd37a5b3576d42/7608e/2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1-8.png 735w"
+        sizes="(max-width: 720px) 100vw, 720px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <ul>
 <li>참고로 한글화 팀에서는 2~3주 주기로 PR을 main 브랜치에 병합하고 있는데, 해당 주기에서 한글화 작업에 사용하는 브랜치는 Github 이슈(예시: <a href="https://github.com/kubernetes/website/issues/34901">dev-1.24-ko.2 공지</a>) 및 쿠버네티스 슬랙의  <code class="language-text">#kubernetes-docs-ko</code> 채널에서 공지하고 있으니 <strong>작업 전 어느 브랜치에서 작업해야하는지 반드시 확인하도록 하자</strong>.</li>
 </ul>
