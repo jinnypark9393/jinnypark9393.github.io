@@ -13,8 +13,8 @@ categories: OSSCA
 
 # 쿠버네티스 공식문서 한글화에 기여하는 방법 시리즈
 
-- [쿠버네티스 공식문서 한글화에 기여하는 방법(1)사전준비 & 이슈 생성하기](https://jinnypark9393.github.io/oss%20contribution%20academy/OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/)
-- [쿠버네티스 공식문서 한글화에 기여하는 방법(2)소스코드 복사 & 번역하기](https://jinnypark9393.github.io/oss%20contribution%20academy/OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2/)
+- [쿠버네티스 공식문서 한글화에 기여하는 방법(1)사전준비 & 이슈 생성하기](https://jinnypark9393.github.io/220710-ossca-kubernetes-docs-localization1/)
+- [쿠버네티스 공식문서 한글화에 기여하는 방법(2)소스코드 복사 & 번역하기](https://jinnypark9393.github.io/220717-ossca-kubernetes-docs-localization2/)
 - 쿠버네티스 공식문서 한글화에 기여하는 방법(3)PR(Pull Request)생성 & CLA 서명 (작성중)
 - 쿠버네티스 공식문서 한글화에 기여하는 방법(4)리뷰 내용 반영 & 승인 완료 (작성중)
 
@@ -32,7 +32,7 @@ categories: OSSCA
 
 <br/>
 
-![2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2-1](/assets/images/2022-07-17-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2/2022-07-17-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2-1.png)
+![2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2-1](./2022-07-17-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2-1.png)
 
 - 참고: 현재 쿠버네티스 한글화팀에서 작업하고 있는 브랜치를 알기 위해서는 Github 이슈나 kubernetes slack의 `#kubernetes-docs-ko` 채널을 참조한다(상세 설명은 [지난 포스팅](https://jinnypark9393.github.io/oss%20contribution%20academy/OSS-Kubernetes-Contribute-to-k8s-Docs-Localization1/)을 참조).
 
@@ -40,7 +40,7 @@ categories: OSSCA
 
 그 다음에는, 내 local PC로 git clone하기 위해 fork한 저장소의 주소를 복사한다.
 
-![2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2-2](/assets/images/2022-07-17-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2/2022-07-17-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2-2.png)
+![2022-07-10-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2-2](./2022-07-17-OSS-Kubernetes-Contribute-to-k8s-Docs-Localization2-2.png)
 
 <br/>
 

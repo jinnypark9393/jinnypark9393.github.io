@@ -67,7 +67,7 @@ added 120 packages in 5.009s
 
 - [Go](https://go.dev/) 웹사이트에 접속해 운영체제에 맞는 패키지 파일을 다운로드 받아 설치한다.
     
-    ![2022-07-09-OSS-Kubernetes-Running-Hugo-Locally2](/assets/images/2022-07-09-OSS-Kubernetes-Running-Hugo-Locally/2022-07-09-OSS-Kubernetes-Running-Hugo-Locally2.png)
+    ![2022-07-09-OSS-Kubernetes-Running-Hugo-Locally2](./2022-07-09-OSS-Kubernetes-Running-Hugo-Locally2.png)
     
 <br/>
 
@@ -151,4 +151,4 @@ Press Ctrl+C to stop
 
 - 브라우저에 `http://localhost:1313` 을 입력하여 내가 작업한 부분이 실제로 어떻게 표시되는지 로컬에서 확인해볼 수 있다.
     
-    ![2022-07-09-OSS-Kubernetes-Running-Hugo-Locally1](/assets/images/2022-07-09-OSS-Kubernetes-Running-Hugo-Locally/2022-07-09-OSS-Kubernetes-Running-Hugo-Locally1.png)
+    ![2022-07-09-OSS-Kubernetes-Running-Hugo-Locally1](./2022-07-09-OSS-Kubernetes-Running-Hugo-Locally1.png)
