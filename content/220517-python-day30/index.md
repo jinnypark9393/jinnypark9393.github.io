@@ -1,6 +1,6 @@
 ---
 emoji: 🐍
-title:  'Python - 패스트캠퍼스 캐시백 챌린지 31일차'
+title:  'Python - 패스트캠퍼스 캐시백 챌린지 30일차'
 date: '2022-05-17 06:00:00'
 author: jinnypark9393
 tags: python
