@@ -55,7 +55,7 @@ categories: etc
     
     회의에 불참한 사람에게 메모를 통해 논의 내용을 쉽게 설명해 정보격차를 쉽게 해소할 수 있다.
     
-<br/><br/>
+<br/>
 
 # 3. 문서 작성 원칙
 
@@ -127,4 +127,23 @@ categories: etc
     - 누가 어떠한 불편을 겪고 있는지 (사실 기반)
     - 제안을 실행하면 고객에게 어떠한 이점이 있는지 설명해야 한다(고객의 눈높이에서).
 
-<br/><br/>
+- 추가: 다른 6 pager 문서 구조 예시들
+  - 서문 - 배경, 프로젝트 차별점과 특징
+  - 목표 - 세 단어 이내로 숫자로 작년 성과와 비교해 작성
+  - 프로젝트 관련 아마존 리더십 원칙 - '14개 리더십 원칙'을 프로젝트에 적용
+  - 프로젝트 현황 - 잘 된 점과 위험 요소를 수치로 증명하여 수익을 낼 수 있는 기회요소 발굴
+  - 프로젝트를 진행하면서 배운 점 - 기대, 해석을 배제하고 실패한 원인을 중심으로 작성
+  - 전략적 우선 순위 - 해야할 일을 목표 관련도, 중요도에 따라 설명하며 실행 가능한 계획
+  - 마무리 - 5문장 이내로 긍정적이며 미래 지향적으로 작성
+  - 부록 - 시각화 자료 등
+
+<br/>
+
+  - **Introduction** — This needs to set up precisely what the material is going to cover and to inherently state the general direction of where the document plans on going.
+  - **Goals** — List right up front what the metrics for success are so we can use them as a lens to see the remaining document through.
+  - **Tenets** — This is a very Amazon thing where every action has some clearly define north star. There are a lot of ways to word these. Generally, they are inspirational pillars that the rest of the plan sits on top of (go with me on this one).
+  - **State of the business** — This section is another important one. You need to inform the reader of the current state of the business. There needs to be a lot of detail here, which sets up the points to compare against in the next section.
+  - **Lessons learned** — Amazon is big on data. This section will outline the current state of the business and its influence over creating the goals you need to achieve. It should be a detailed enough snapshot to give the reader all of the data they need to understand the positive and negatives activities in the prior period.
+  - **Strategic priorities** — This is the meat of the document and lays out the plan, how to execute it, and should match up to achieving the goals stated at the top of the document.
+
+<br/>
