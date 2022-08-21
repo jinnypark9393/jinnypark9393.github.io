@@ -55,7 +55,7 @@ CNCF Glossary 프로젝트의 공식 명칭은 클라우드 네이티브 용어�
 
 슬랙 로그인에 성공하면 아래와 같이 내 메일 계정 정보에 문제가 없는지 확인하고, 계정 생성(`Create Account`) 버튼을 누르면 CNCF 슬랙에 가입된다.
 
-![220821-cncf-glossary-slack3.png]./220821-cncf-glossary-slack3.png)
+![220821-cncf-glossary-slack3.png](./220821-cncf-glossary-slack3.png)
 
 <br/>
 
