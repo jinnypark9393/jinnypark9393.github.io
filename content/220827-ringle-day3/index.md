@@ -1,6 +1,6 @@
 ---
 emoji: 🟣
-title:  '220826 링글(Ringle) 2회차 수업 후기'
+title:  '220826 링글(Ringle) 3회차 수업 후기'
 date: '2022-08-27 21:24:00'
 author: jinnypark9393
 tags: ringle
