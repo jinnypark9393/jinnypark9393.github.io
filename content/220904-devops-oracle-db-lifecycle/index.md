@@ -1,6 +1,6 @@
 ---
 emoji: 💫
-title:  'IP(Internet Protocol)주소란?'
+title:  'Oracle JDBC drive(ojdbc)란 및 호환 JDK버전'
 date: '2022-09-04 15:51:00'
 author: jinnypark9393
 tags: database
