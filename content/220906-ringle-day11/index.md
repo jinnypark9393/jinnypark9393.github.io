@@ -1,7 +1,7 @@
 ---
 emoji: 🟣
-title:  '220905 링글(Ringle) 11회차 수업 후기'
-date: '2022-09-06 22:51:00'
+title:  '220906 링글(Ringle) 12회차 수업 후기'
+date: '2022-09-06 07:33:00'
 author: jinnypark9393
 tags: ringle
 categories: english
