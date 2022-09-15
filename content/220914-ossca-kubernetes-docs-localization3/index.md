@@ -1,6 +1,6 @@
 ---
 emoji: 🔧
-title: '오픈소스 컨트리뷰션 아카데미(쿠버네티스 한글화) - 쿠버네티스 공식문서 한글화에 기여하는 방법(3)쿠버네티스 공식문서 한글화에 기여하는 방법(3)PR(Pull Request)생성 & CLA 서명'
+title: '오픈소스 컨트리뷰션 아카데미(쿠버네티스 한글화) - 쿠버네티스 공식문서 한글화에 기여하는 방법(3)PR(Pull Request)생성 & CLA 서명'
 date: '2022-09-14 21:08:00'
 author: jinnypark9393
 tags: kubernetes
