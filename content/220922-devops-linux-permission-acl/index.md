@@ -1,9 +1,9 @@
 ---
 emoji: 💫
 title:  '리눅스(Linux) 파일 퍼미션(File Permission) 및 ACL 차이'
-date: '2022-09-21 23:32:00'
+date: '2022-09-22 23:32:00'
 author: jinnypark9393
-tags: endoflife
+tags: linux
 categories: 데브옵스
 ---
 
