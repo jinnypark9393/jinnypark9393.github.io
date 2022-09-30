@@ -1,7 +1,7 @@
 ---
 emoji: 💫
-title:  '깃헙(Github) 액세스토큰 사용 시 (refusing to allow a Personal Access Token to create or update workflow…  에러 해결'
-date: '2022-09-288 06:07:00'
+title:  '깃헙(Github) 액세스토큰 사용 시 refusing to allow a Personal Access Token to create or update workflow… 에러 해결'
+date: '2022-09-28 06:07:00'
 author: jinnypark9393
 tags: github
 categories: 데브옵스
