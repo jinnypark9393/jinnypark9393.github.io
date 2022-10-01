@@ -11,9 +11,9 @@ module.exports = {
   },
   ga: '0', // Google Analytics Tracking ID
   author: {
-    name: `박진이`,
+    name: `Jinny`,
     bio: {
-      role: `데브옵스 엔지니어`,
+      role: `Solutions Architect`,
       description: ['사람에 가치를 두는', '능동적으로 일하는', '이로운 것을 만드는'],
       thumbnail: 'memoji.gif', // Path to the image in the 'asset' folder
     },
