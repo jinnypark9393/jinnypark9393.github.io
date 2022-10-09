@@ -1,6 +1,6 @@
 ---
 emoji: 💫
-title: 'M1 Mac에서 iTerm2 세팅하기'
+title: '데이터베이스(Database) 비교 - Oracle, MySQL, PostgreSQL, SQLite'
 date: '2022-10-09 19:29:00'
 author: jinnypark9393
 tags: database
