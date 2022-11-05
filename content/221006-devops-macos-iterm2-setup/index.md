@@ -90,19 +90,19 @@ iTerm 및 맥 기본 터미널에서 폰트 설정을 변경할 수 있는데, �
 
 압축을 풀어준 뒤, ttf 파일을 더블클릭 > Install 버튼을 클릭해 서체를 설치한다.
 
-![Screen Shot 2022-10-05 at 7.23.45 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a928dae0-d0bc-4fa2-a7ce-097d68f6229d/Screen_Shot_2022-10-05_at_7.23.45_AM.png)
+![221006-devops-macos-iterm2-setup1](./221006-macos-iterm2-setup1.png)
 
 <br/>
 
 그 다음으로는 iTerm2의 Profiles > Open profiles > Edit Profiles > Profiles 탭 클릭 > Text 탭 클릭한 뒤 Font를 D2 Coding으로 변경해준다.
 
-![Screen Shot 2022-10-05 at 7.40.36 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/623ad33e-f542-4674-87d9-faec65625461/Screen_Shot_2022-10-05_at_7.40.36_AM.png)
+![221006-devops-macos-iterm2-setup1](./221006-macos-iterm2-setup2.png)
 
 <br/>
 
 일반터미널도 마찬가지로 Terminal > Preferences > Profiles에서 Font를 변경해준다.
 
-![Screen Shot 2022-10-05 at 7.26.13 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8bceb5be-c67d-49ad-b637-e89b5d7b879f/Screen_Shot_2022-10-05_at_7.26.13_AM.png)
+![221006-devops-macos-iterm2-setup1](./221006-macos-iterm2-setup3.png)
 
 <br/>
 
