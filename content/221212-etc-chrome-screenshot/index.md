@@ -4,7 +4,7 @@ title:  'Chrome 브라우저 창 전체 스크롤/특정 컴포넌트만 스크�
 date: '2022-12-12 09:02:00'
 author: jinnypark9393
 tags: chrome
-categories: ETC
+categories: etc
 ---
 
 MacOS에서는 기본적으로 ⌘ + ⇧ + 4 등의 단축키를 이용해 캡처를 할 수 있지만, 스크롤이 있는 페이지의 경우에는 전체 스크롤을 캡처하기가 어렵다.

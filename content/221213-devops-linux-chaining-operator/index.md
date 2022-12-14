@@ -4,7 +4,7 @@ title:  '리눅스(Linux) 다중 명령어(;, &&, ||)'
 date: '2022-12-13 09:12:00'
 author: jinnypark9393
 tags: linux
-categories: DEVOPS
+categories: devops
 ---
 
 # 1. 배경 상황
