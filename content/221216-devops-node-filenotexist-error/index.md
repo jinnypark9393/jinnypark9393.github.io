@@ -1,6 +1,6 @@
 ---
 emoji: 💫
-title:  'Node.js ‘Error: Cannot find module '/usr/src/app/nodemon'’에러 해결'
+title:  'Node.js Error: Cannot find module /usr/src/app/nodemon 에러 해결'
 date: '2022-12-16 09:36:00'
 author: jinnypark9393
 tags: docker
