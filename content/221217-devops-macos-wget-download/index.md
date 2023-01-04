@@ -1,7 +1,7 @@
 ---
 emoji: 💫
-title:  'MacOS zsh wget 다운로드(zsh: command not found: wget)'
-date: '2022-12-16 09:36:00'
+title:  'MacOS zsh에서 wget 다운로드(zsh: command not found: wget)받기'
+date: '2022-12-17 09:36:00'
 author: jinnypark9393
 tags: wget
 categories: devops
